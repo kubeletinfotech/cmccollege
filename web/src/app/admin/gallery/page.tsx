@@ -48,13 +48,66 @@ export default function GalleryAdminPage() {
         fetchGallery();
     }, []);
 
+    const [isDragging, setIsDragging] = useState(false);
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleDragOver = (e: React.DragEvent) => {
+        e.preventDefault();
+        setIsDragging(true);
+    };
+
+    const handleDragLeave = () => {
+        setIsDragging(false);
+    };
+
+    const processImage = (src: string) => {
+        setFormData(prev => ({ ...prev, imageUrl: src }));
+    };
+
+    const handleDrop = (e: React.DragEvent) => {
+        e.preventDefault();
+        setIsDragging(false);
+
+        // 1. Try to extract from file (Desktop drop)
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) {
+            const file = files[0];
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    if (event.target?.result) {
+                        processImage(event.target.result as string);
+                    }
+                };
+                reader.readAsDataURL(file);
+                return;
+            }
+        }
+
+        // 2. Try to extract from HTML/Text (Browser drop)
+        const html = e.dataTransfer.getData('text/html');
+        if (html) {
+            const match = html.match(/src="([^"]+)"/);
+            if (match && match[1]) {
+                processImage(match[1]);
+                return;
+            }
+        }
+
+        const text = e.dataTransfer.getData('text/plain');
+        if (text && (text.startsWith('http') || text.startsWith('data:image/'))) {
+            processImage(text);
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!formData.imageUrl) return alert("Please provide an image.");
+
         setIsSubmitting(true);
         try {
             const response = await fetch("http://localhost:5000/api/gallery", {
@@ -128,6 +181,50 @@ export default function GalleryAdminPage() {
                         </button>
                     </div>
                     <form onSubmit={handleSubmit} className="space-y-6">
+                        {/* Drag & Drop Area */}
+                        <div
+                            onDragOver={handleDragOver}
+                            onDragLeave={handleDragLeave}
+                            onDrop={handleDrop}
+                            className={`relative aspect-video rounded-3xl border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden group ${formData.imageUrl
+                                ? 'border-emerald-500 bg-emerald-50'
+                                : isDragging
+                                    ? 'border-emerald-600 bg-emerald-100'
+                                    : 'border-zinc-200 bg-zinc-50 hover:bg-zinc-100'
+                                }`}
+                        >
+                            {formData.imageUrl ? (
+                                <>
+                                    <Image
+                                        src={formData.imageUrl}
+                                        alt="Preview"
+                                        fill
+                                        unoptimized
+                                        className="object-contain p-4"
+                                    />
+                                    <div className="absolute inset-0 bg-emerald-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                                        <button
+                                            type="button"
+                                            onClick={() => processImage("")}
+                                            className="px-6 py-3 bg-white text-red-600 font-bold rounded-xl shadow-lg hover:bg-red-50 transition-colors"
+                                        >
+                                            Change Image
+                                        </button>
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="text-center p-8">
+                                    <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mx-auto mb-4 border border-zinc-100 group-hover:scale-110 transition-transform">
+                                        <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <p className="text-zinc-900 font-bold text-lg mb-1">Drag and drop an image</p>
+                                    <p className="text-zinc-500 text-sm">from browser or desktop, or paste URL below</p>
+                                </div>
+                            )}
+                        </div>
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-zinc-600 ml-1">Title</label>
@@ -156,7 +253,7 @@ export default function GalleryAdminPage() {
                             </div>
                         </div>
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-zinc-600 ml-1">Image URL</label>
+                            <label className="text-sm font-bold text-zinc-600 ml-1">Image URL (Direct Link)</label>
                             <input
                                 type="url"
                                 name="imageUrl"
@@ -167,15 +264,15 @@ export default function GalleryAdminPage() {
                                 className="w-full px-5 py-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 focus:border-emerald-500 outline-none transition-all"
                             />
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 pt-4">
                             <button
                                 type="submit"
-                                disabled={isSubmitting}
-                                className="px-8 py-3.5 bg-emerald-800 text-white font-bold rounded-2xl hover:bg-emerald-900 transition-all flex items-center justify-center gap-2"
+                                disabled={isSubmitting || !formData.imageUrl}
+                                className="px-10 py-4 bg-emerald-800 text-white font-black rounded-2xl hover:bg-emerald-900 transition-all flex items-center justify-center gap-2 shadow-xl shadow-emerald-900/20 disabled:opacity-50 disabled:shadow-none active:scale-95"
                             >
                                 {isSubmitting ? "Uploading..." : "Publish to Gallery"}
                             </button>
-                            <button type="button" onClick={() => setShowForm(false)} className="px-8 py-3.5 bg-zinc-100 text-zinc-600 font-bold rounded-2xl">Cancel</button>
+                            <button type="button" onClick={() => setShowForm(false)} className="px-8 py-4 bg-zinc-100 text-zinc-600 font-bold rounded-2xl hover:bg-zinc-200 transition-colors">Cancel</button>
                         </div>
                     </form>
                 </div>

@@ -12,7 +12,7 @@ interface GalleryItem {
     createdAt: string;
 }
 
-const CATEGORIES = ["All", "Academic", "Campus", "Sports", "Events", "Hostel", "Classroom"];
+const CATEGORIES = ["All", "Campus", "Events", "Hostel", "Classroom"];
 
 export default function GalleryPage() {
     const [items, setItems] = useState<GalleryItem[]>([]);
