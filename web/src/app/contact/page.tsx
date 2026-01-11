@@ -1,6 +1,54 @@
+"use client";
+
+import React, { useState, FormEvent } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function ContactPage() {
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+    });
+
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [statusMessage, setStatusMessage] = useState("");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { id, value } = e.target;
+        setFormData((prev) => ({ ...prev, [id]: value }));
+    };
+
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        setStatus("loading");
+        setStatusMessage("");
+
+        try {
+            const response = await fetch("http://localhost:5000/api/enquiries", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus("success");
+                setStatusMessage("Your enquiry has been submitted successfully!");
+                setFormData({ name: "", phone: "", email: "", message: "" });
+            } else {
+                setStatus("error");
+                setStatusMessage(data.message || "Failed to submit enquiry. Please try again.");
+            }
+        } catch (error) {
+            setStatus("error");
+            setStatusMessage("Connect error. Is the backend server running?");
+        }
+    };
+
     return (
         <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-20">
             {/* Page Header */}
@@ -58,13 +106,16 @@ export default function ContactPage() {
                     <div className="lg:col-span-7">
                         <ScrollReveal delay={200} className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-emerald-50">
                             <h3 className="text-2xl font-bold text-emerald-900 mb-8">Send an Enquiry</h3>
-                            <form className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label htmlFor="name" className="text-sm font-bold text-zinc-700 ml-1">Full Name</label>
                                         <input
                                             type="text"
                                             id="name"
+                                            required
+                                            value={formData.name}
+                                            onChange={handleChange}
                                             placeholder="Enter your name"
                                             className="w-full px-5 py-4 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-emerald-500 focus:bg-white focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-zinc-900"
                                         />
@@ -74,6 +125,9 @@ export default function ContactPage() {
                                         <input
                                             type="tel"
                                             id="phone"
+                                            required
+                                            value={formData.phone}
+                                            onChange={handleChange}
                                             placeholder="Enter phone number"
                                             className="w-full px-5 py-4 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-emerald-500 focus:bg-white focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-zinc-900"
                                         />
@@ -84,7 +138,9 @@ export default function ContactPage() {
                                     <input
                                         type="email"
                                         id="email"
-                                        placeholder="Enter email address"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="Enter email address (optional)"
                                         className="w-full px-5 py-4 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-emerald-500 focus:bg-white focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-zinc-900"
                                     />
                                 </div>
@@ -93,15 +149,36 @@ export default function ContactPage() {
                                     <textarea
                                         id="message"
                                         rows={4}
+                                        required
+                                        value={formData.message}
+                                        onChange={handleChange}
                                         placeholder="How can we help you?"
                                         className="w-full px-5 py-4 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-emerald-500 focus:bg-white focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-zinc-900 resize-none"
                                     ></textarea>
                                 </div>
+
+                                {status !== "idle" && (
+                                    <div className={`p-4 rounded-xl text-sm font-bold animate-in fade-in slide-in-from-top-2 duration-300 ${status === "success" ? "bg-emerald-50 text-emerald-700 border border-emerald-100" :
+                                            status === "error" ? "bg-red-50 text-red-700 border border-red-100" :
+                                                "bg-zinc-50 text-zinc-600 border border-zinc-100"
+                                        }`}>
+                                        {status === "loading" ? "Sending your enquiry..." : statusMessage}
+                                    </div>
+                                )}
+
                                 <button
-                                    type="button"
-                                    className="w-full py-5 bg-emerald-800 text-white font-bold rounded-xl shadow-xl hover:bg-emerald-900 hover:scale-[1.02] active:scale-[0.98] transition-all text-lg"
+                                    type="submit"
+                                    disabled={status === "loading"}
+                                    className={`w-full py-5 bg-emerald-800 text-white font-bold rounded-xl shadow-xl hover:bg-emerald-900 hover:scale-[1.02] active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3 ${status === "loading" ? "opacity-70 cursor-not-allowed" : ""
+                                        }`}
                                 >
-                                    Submit Enquiry
+                                    {status === "loading" && (
+                                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                    )}
+                                    {status === "loading" ? "Submitting..." : "Submit Enquiry"}
                                 </button>
                                 <p className="text-center text-zinc-400 text-sm mt-4">
                                     By submitting this form, you agree to being contacted by our admissions team.
