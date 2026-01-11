@@ -167,36 +167,58 @@ export default function Home() {
       {/* Gallery Preview Section */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4">Gallery Preview</h2>
-          <p className="text-zinc-600 text-lg">Glimpses of our vibrant campus activities and events.</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-emerald-800 mb-4 tracking-tight">Gallery Preview</h2>
+          <p className="text-zinc-600 text-lg max-w-2xl mx-auto">Capturing the vibrant energy and excellence of our integrated campus life.</p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 h-full md:h-[700px]">
           {[
-            { title: "Sports Day", src: "/images/school_sports_day_1768117809679.png" },
-            { title: "Cultural Performance", src: "/images/cultural_fest_performance_1768117835053.png" },
-            { title: "Science Expo", src: "/images/science_exhibition_project_1768117868795.png" },
-            { title: "Academic Award", src: "/images/school_annual_award_ceremony_stage_1768117893644.png" },
-            { title: "Library", src: "/images/school_library_1768115599802.png" },
-            { title: "Campus", src: "/images/hero_campus_background_1768115501790.png" }
+            { title: "Sports Day Excellence", src: "/images/school_sports_day_1768117809679.png", featured: true, tag: "Sports" },
+            { title: "Cultural Performance", src: "/images/cultural_fest_performance_1768117835053.png", tag: "Events" },
+            { title: "Science Innovation", src: "/images/science_exhibition_project_1768117868795.png", tag: "Academic" },
+            { title: "School Library", src: "/images/school_library_1768115599802.png", variant: true, tag: "Campus" },
+            { title: "Annual Awards", src: "/images/school_annual_award_ceremony_stage_1768117893644.png", tag: "Events" }
           ].map((item, i) => (
-            <ScrollReveal key={i} delay={i * 50} className="group relative h-72 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-emerald-50">
+            <ScrollReveal
+              key={i}
+              delay={i * 100}
+              className={`group relative overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 h-full border border-emerald-50/30
+                ${item.featured ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0 rounded-[30px]'}
+                ${item.variant ? 'rounded-tr-[80px]' : ''}
+                ${i === 1 ? 'rounded-bl-[80px]' : ''}
+              `}
+            >
               <Image
                 src={item.src}
                 alt={item.title}
                 fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
               />
-              <div className="absolute inset-0 bg-emerald-950/20 group-hover:bg-transparent transition-colors duration-500" />
+
+              {/* Premium Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                <span className="text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  {item.tag}
+                </span>
+                <h3 className="text-white text-xl md:text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                  {item.title}
+                </h3>
+              </div>
+
+              {/* Subtle Initial Glint */}
+              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-700 rounded-inherit" />
             </ScrollReveal>
           ))}
         </div>
 
         <div className="mt-16 text-center">
-          <Link href="/gallery">
-            <button className="px-10 py-4 border-2 border-emerald-800 text-emerald-800 font-bold rounded-xl hover:bg-emerald-800 hover:text-white transition-all hover:scale-105 active:scale-95 cursor-pointer">
-              View Full Gallery
-            </button>
+          <Link href="/gallery" className="group inline-flex items-center gap-4 px-10 py-5 bg-emerald-50 text-emerald-900 font-bold rounded-2xl hover:bg-emerald-800 hover:text-white transition-all shadow-sm hover:shadow-xl">
+            <span className="text-lg">View Full Gallery</span>
+            <div className="w-10 h-10 rounded-full bg-emerald-800 text-white flex items-center justify-center group-hover:bg-white group-hover:text-emerald-800 transition-colors shadow-inner">
+              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
           </Link>
         </div>
       </section>
