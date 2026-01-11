@@ -25,7 +25,7 @@ export default function ContactPage() {
         setStatusMessage("");
 
         try {
-            const response = await fetch("http://localhost:5000/api/enquiries", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/enquiries`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -159,8 +159,8 @@ export default function ContactPage() {
 
                                 {status !== "idle" && (
                                     <div className={`p-4 rounded-xl text-sm font-bold animate-in fade-in slide-in-from-top-2 duration-300 ${status === "success" ? "bg-emerald-50 text-emerald-700 border border-emerald-100" :
-                                            status === "error" ? "bg-red-50 text-red-700 border border-red-100" :
-                                                "bg-zinc-50 text-zinc-600 border border-zinc-100"
+                                        status === "error" ? "bg-red-50 text-red-700 border border-red-100" :
+                                            "bg-zinc-50 text-zinc-600 border border-zinc-100"
                                         }`}>
                                         {status === "loading" ? "Sending your enquiry..." : statusMessage}
                                     </div>
