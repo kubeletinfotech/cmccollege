@@ -1,23 +1,156 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const STATS = [
-    { name: 'Total Enquiries', value: '48', icon: '✉️', color: 'bg-blue-50 text-blue-600', trend: '+12% from last month' },
-    { name: 'Announcements', value: '12', icon: '📢', color: 'bg-emerald-50 text-emerald-600', trend: '3 active notices' },
-    { name: 'Gallery Images', value: '156', icon: '🖼️', color: 'bg-purple-50 text-purple-600', trend: '+24 new this week' },
-    { name: 'Campus Visitors', value: '82', icon: '📍', color: 'bg-orange-50 text-orange-600', trend: 'Upcoming: 4 tours' },
-];
+interface Enquiry {
+    _id: string;
+    name: string;
+    phone: string;
+    email: string;
+    message: string;
+    status: 'Pending' | 'Read';
+    createdAt: string;
+}
 
-const RECENT_ACTIVITY = [
-    { id: 1, type: 'enquiry', user: 'Ahmed Khan', action: 'submitted a new enquiry', time: '2 hours ago' },
-    { id: 2, type: 'gallery', user: 'Admin', action: 'uploaded 4 images to Campus category', time: '5 hours ago' },
-    { id: 3, type: 'announcement', user: 'Admin', action: 'posted "Annual Sports Day 2024" notice', time: '1 day ago' },
-    { id: 4, type: 'enquiry', user: 'Sarah Malik', action: 'enquired about +1 Science admission', time: '2 days ago' },
-    { id: 5, type: 'status', user: 'Admin', action: 'marked enquiry #428 as "Read"', time: '3 days ago' },
-];
+interface Announcement {
+    _id: string;
+    title: string;
+    description: string;
+    isImportant: boolean;
+    createdAt: string;
+}
+
+interface GalleryImage {
+    _id: string;
+    title: string;
+    imageUrl: string;
+    category: string;
+    createdAt: string;
+}
+
+interface Activity {
+    id: string;
+    type: 'enquiry' | 'announcement' | 'gallery' | 'status';
+    user: string;
+    action: string;
+    time: string;
+    date: Date;
+}
 
 export default function AdminDashboardPage() {
+    const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
+    const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+    const [gallery, setGallery] = useState<GalleryImage[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const baseUrl = API_URL.endsWith('/api') ? API_URL : `${API_URL.replace(/\/$/, '')}/api`;
+
+            const [enqRes, annRes, galRes] = await Promise.all([
+                fetch(`${baseUrl}/enquiries`),
+                fetch(`${baseUrl}/announcements`),
+                fetch(`${baseUrl}/gallery`)
+            ]);
+
+            const [enqData, annData, galData] = await Promise.all([
+                enqRes.json(),
+                annRes.json(),
+                galRes.json()
+            ]);
+
+            if (enqData.success) setEnquiries(enqData.data);
+            if (annData.success) setAnnouncements(annData.data);
+            if (galData.success) setGallery(galData.data);
+
+            setError(null);
+        } catch (err) {
+            console.error('Error fetching dashboard data:', err);
+            setError('Failed to fetch dashboard data. Please check your connection.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const getTimeAgo = (dateString: string) => {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+        if (diffInSeconds < 60) return 'Just now';
+        if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+        if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+        if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)}d ago`;
+        return date.toLocaleDateString();
+    };
+
+    const activities: Activity[] = [
+        ...enquiries.slice(0, 3).map(e => ({
+            id: e._id,
+            type: 'enquiry' as const,
+            user: e.name,
+            action: 'submitted a new enquiry',
+            time: getTimeAgo(e.createdAt),
+            date: new Date(e.createdAt)
+        })),
+        ...announcements.slice(0, 2).map(a => ({
+            id: a._id,
+            type: 'announcement' as const,
+            user: 'Admin',
+            action: `posted "${a.title}" notice`,
+            time: getTimeAgo(a.createdAt),
+            date: new Date(a.createdAt)
+        })),
+        ...gallery.slice(0, 1).map(g => ({
+            id: g._id,
+            type: 'gallery' as const,
+            user: 'Admin',
+            action: 'uploaded a new image to Gallery',
+            time: getTimeAgo(g.createdAt),
+            date: new Date(g.createdAt)
+        }))
+    ].sort((a, b) => b.date.getTime() - a.date.getTime());
+
+    const stats = [
+        { name: 'Total Enquiries', value: enquiries.length.toString(), icon: '✉️', color: 'bg-blue-50 text-blue-600', trend: `${enquiries.filter(e => e.status === 'Pending').length} pending` },
+        { name: 'Announcements', value: announcements.length.toString(), icon: '📢', color: 'bg-emerald-50 text-emerald-600', trend: `${announcements.filter(a => a.isImportant).length} important` },
+        { name: 'Gallery Images', value: gallery.length.toString(), icon: '🖼️', color: 'bg-purple-50 text-purple-600', trend: 'Latest upload ' + (gallery[0] ? getTimeAgo(gallery[0].createdAt) : 'N/A') },
+        { name: 'Campus Visitors', value: '82', icon: '📍', color: 'bg-orange-50 text-orange-600', trend: 'Upcoming: 4 tours' },
+    ];
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-[400px]">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 border-4 border-emerald-100 border-t-emerald-600 rounded-full animate-spin"></div>
+                    <p className="text-zinc-500 font-medium">Loading dashboard data...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="bg-red-50 border border-red-100 p-8 rounded-2xl text-center">
+                <p className="text-red-600 font-medium mb-4">{error}</p>
+                <button
+                    onClick={fetchData}
+                    className="px-6 py-2 bg-red-600 text-white rounded-xl font-bold hover:bg-red-700 transition-colors"
+                >
+                    Retry Loading
+                </button>
+            </div>
+        );
+    }
+
     return (
         <div className="space-y-10">
             {/* Welcome Header */}
@@ -28,13 +161,12 @@ export default function AdminDashboardPage() {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {STATS.map((stat) => (
+                {stats.map((stat) => (
                     <div key={stat.name} className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 hover:shadow-md transition-shadow">
                         <div className="flex justify-between items-start mb-4">
                             <div className={`w-12 h-12 ${stat.color} rounded-xl flex items-center justify-center text-2xl shadow-sm italic`}>
                                 {stat.icon}
                             </div>
-                            <span className="text-emerald-500 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full">+12%</span>
                         </div>
                         <div>
                             <p className="text-zinc-500 text-sm font-medium">{stat.name}</p>
@@ -55,27 +187,28 @@ export default function AdminDashboardPage() {
                         <button className="text-emerald-600 text-sm font-bold hover:underline">View All</button>
                     </div>
                     <div className="p-0">
-                        {RECENT_ACTIVITY.map((activity, idx) => (
-                            <div key={activity.id} className={`p-6 flex items-center gap-4 ${idx !== RECENT_ACTIVITY.length - 1 ? 'border-b border-zinc-50' : ''} hover:bg-zinc-50/50 transition-colors`}>
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg ${activity.type === 'enquiry' ? 'bg-blue-50 text-blue-600' :
+                        {activities.length > 0 ? (
+                            activities.map((activity, idx) => (
+                                <div key={activity.id} className={`p-6 flex items-center gap-4 ${idx !== activities.length - 1 ? 'border-b border-zinc-50' : ''} hover:bg-zinc-50/50 transition-colors`}>
+                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg ${activity.type === 'enquiry' ? 'bg-blue-50 text-blue-600' :
                                         activity.type === 'gallery' ? 'bg-purple-50 text-purple-600' :
                                             activity.type === 'announcement' ? 'bg-emerald-50 text-emerald-600' : 'bg-zinc-50 text-zinc-600'
-                                    }`}>
-                                    {activity.type === 'enquiry' ? '✉️' : activity.type === 'gallery' ? '🖼️' : activity.type === 'announcement' ? '📢' : '⚙️'}
+                                        }`}>
+                                        {activity.type === 'enquiry' ? '✉️' : activity.type === 'gallery' ? '🖼️' : activity.type === 'announcement' ? '📢' : '⚙️'}
+                                    </div>
+                                    <div className="flex-grow">
+                                        <p className="text-sm text-zinc-800">
+                                            <span className="font-bold">{activity.user}</span> {activity.action}
+                                        </p>
+                                        <p className="text-xs text-zinc-400 mt-1 font-medium italic">{activity.time}</p>
+                                    </div>
                                 </div>
-                                <div className="flex-grow">
-                                    <p className="text-sm text-zinc-800">
-                                        <span className="font-bold">{activity.user}</span> {activity.action}
-                                    </p>
-                                    <p className="text-xs text-zinc-400 mt-1 font-medium italic">{activity.time}</p>
-                                </div>
-                                <button className="p-2 text-zinc-300 hover:text-zinc-600 transition-colors">
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
+                            ))
+                        ) : (
+                            <div className="p-12 text-center">
+                                <p className="text-zinc-400 italic">No recent activity found.</p>
                             </div>
-                        ))}
+                        )}
                     </div>
                 </div>
 
