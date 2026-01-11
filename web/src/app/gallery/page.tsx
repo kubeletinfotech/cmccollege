@@ -1,28 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const GALLERY_IMAGES = [
-    { id: "1", category: "Sports", src: "/images/school_sports_day_1768117809679.png", title: "Annual Sports Day 2024" },
-    { id: "2", category: "Events", src: "/images/cultural_fest_performance_1768117835053.png", title: "Cultural Fest Performance" },
-    { id: "3", category: "Academic", src: "/images/science_exhibition_project_1768117868795.png", title: "Science Exhibition" },
-    { id: "4", category: "Events", src: "/images/school_annual_award_ceremony_stage_1768117893644.png", title: "Award Ceremony" },
-    { id: "5", category: "Campus", src: "/images/hero_campus_background_1768115501790.png", title: "School Campus" },
-    { id: "6", category: "Academic", src: "/images/classroom_learning_1768115518451.png", title: "Classroom Learning" },
-    { id: "7", category: "Campus", src: "/images/school_hostel_1768115536813.png", title: "Hostel Facility" },
-    { id: "8", category: "Academic", src: "/images/school_library_1768115599802.png", title: "School Library" },
-];
+interface GalleryItem {
+    _id: string;
+    title: string;
+    imageUrl: string;
+    category: string;
+    createdAt: string;
+}
 
-const CATEGORIES = ["All", "Academic", "Campus", "Sports", "Events"];
+const CATEGORIES = ["All", "Academic", "Campus", "Sports", "Events", "Hostel", "Classroom"];
 
 export default function GalleryPage() {
+    const [items, setItems] = useState<GalleryItem[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const [activeCategory, setActiveCategory] = useState("All");
 
+    useEffect(() => {
+        const fetchGallery = async () => {
+            try {
+                const response = await fetch("http://localhost:5000/api/gallery");
+                if (response.ok) {
+                    const data = await response.json();
+                    setItems(data.data);
+                } else {
+                    setError(true);
+                }
+            } catch (err) {
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchGallery();
+    }, []);
+
     const filteredImages = activeCategory === "All"
-        ? GALLERY_IMAGES
-        : GALLERY_IMAGES.filter(img => img.category === activeCategory);
+        ? items
+        : items.filter(img => img.category === activeCategory);
 
     return (
         <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-20">
@@ -52,8 +72,8 @@ export default function GalleryPage() {
                             key={category}
                             onClick={() => setActiveCategory(category)}
                             className={`px-8 py-3 rounded-xl font-bold transition-all ${activeCategory === category
-                                    ? "bg-emerald-800 text-white shadow-lg scale-105"
-                                    : "bg-emerald-50 text-emerald-900 hover:bg-emerald-100"
+                                ? "bg-emerald-800 text-white shadow-lg scale-105"
+                                : "bg-emerald-50 text-emerald-900 hover:bg-emerald-100"
                                 }`}
                         >
                             {category}
@@ -62,32 +82,43 @@ export default function GalleryPage() {
                 </ScrollReveal>
 
                 {/* Image Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredImages.map((image, i) => (
-                        <ScrollReveal key={image.id} delay={i * 50} className="group">
-                            <div className="relative h-80 rounded-2xl overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-500 border border-emerald-50">
-                                <Image
-                                    src={image.src}
-                                    alt={image.title}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
-                                    <span className="text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2 block">
-                                        {image.category}
-                                    </span>
-                                    <h3 className="text-white text-xl font-bold">{image.title}</h3>
-                                </div>
-                            </div>
-                        </ScrollReveal>
-                    ))}
-                </div>
-
-                {filteredImages.length === 0 && (
+                {loading ? (
+                    <div className="py-24 text-center">
+                        <div className="w-12 h-12 border-4 border-emerald-100 border-t-emerald-600 rounded-full animate-spin mx-auto mb-6"></div>
+                        <p className="text-zinc-400 font-bold italic tracking-widest">Loading moments...</p>
+                    </div>
+                ) : error ? (
+                    <div className="text-center py-20 bg-red-50 rounded-3xl border border-red-100">
+                        <h2 className="text-2xl font-bold text-red-900 mb-2">Notice</h2>
+                        <p className="text-red-600">The gallery is temporarily unavailable. Please try again later.</p>
+                    </div>
+                ) : filteredImages.length === 0 ? (
                     <ScrollReveal className="text-center py-20 bg-zinc-50 rounded-3xl border-2 border-dashed border-zinc-200">
                         <p className="text-zinc-400 text-lg">No images found in this category.</p>
                     </ScrollReveal>
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredImages.map((image, i) => (
+                            <ScrollReveal key={image._id} delay={i * 50} className="group">
+                                <div className="relative h-80 rounded-2xl overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-500 border border-emerald-50">
+                                    <Image
+                                        src={image.imageUrl}
+                                        alt={image.title}
+                                        fill
+                                        unoptimized
+                                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
+                                        <span className="text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2 block">
+                                            {image.category}
+                                        </span>
+                                        <h3 className="text-white text-xl font-bold">{image.title}</h3>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        ))}
+                    </div>
                 )}
             </section>
 

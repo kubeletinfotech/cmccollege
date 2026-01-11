@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db';
 import enquiryRoutes from './routes/enquiryRoutes';
+import announcementRoutes from './routes/announcementRoutes';
+import galleryRoutes from './routes/galleryRoutes';
 
 // Load environment variables
 dotenv.config();
@@ -18,6 +20,8 @@ app.use(express.json());
 
 // Routes
 app.use('/api/enquiries', enquiryRoutes);
+app.use('/api/announcements', announcementRoutes);
+app.use('/api/gallery', galleryRoutes);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('School API is running');
