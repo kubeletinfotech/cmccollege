@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import { usePageContent } from "@/hooks/usePageContent";
 
 export default function AboutPage() {
+    const { getText, getImage } = usePageContent("about");
+
     return (
         <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-20">
             {/* Page Header */}
@@ -12,10 +17,10 @@ export default function AboutPage() {
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <ScrollReveal>
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6" data-editable="header-title" data-page="about">
-                            About Our School
+                            {getText("header-title", "About Our School")}
                         </h1>
                         <p className="text-xl md:text-2xl text-emerald-100 max-w-2xl mx-auto" data-editable="header-subtitle" data-page="about">
-                            Nurturing Excellence through Integrated Academic and Moral Education.
+                            {getText("header-subtitle", "Nurturing Excellence through Integrated Academic and Moral Education.")}
                         </p>
                     </ScrollReveal>
                 </div>
@@ -25,13 +30,13 @@ export default function AboutPage() {
             <section className="py-24 px-6 max-w-5xl mx-auto">
                 <ScrollReveal>
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-emerald-800 mb-8" data-editable="who-we-are-heading" data-page="about">Who We Are</h2>
+                        <h2 className="text-3xl font-bold text-emerald-800 mb-8" data-editable="who-we-are-heading" data-page="about">{getText("who-we-are-heading", "Who We Are")}</h2>
                         <div className="space-y-6 text-lg text-zinc-600 leading-relaxed text-left">
                             <p data-editable="who-we-are-text-1" data-page="about">
-                                Founded on the principles of academic discipline and spiritual growth, our institution serves as a cornerstone for students pursuing their +1 and +2 education. We provide an integrated environment where the curriculum is meticulously designed to meet modern educational standards while remaining deeply rooted in Islamic values.
+                                {getText("who-we-are-text-1", "Founded on the principles of academic discipline and spiritual growth, our institution serves as a cornerstone for students pursuing their +1 and +2 education. We provide an integrated environment where the curriculum is meticulously designed to meet modern educational standards while remaining deeply rooted in Islamic values.")}
                             </p>
                             <p data-editable="who-we-are-text-2" data-page="about">
-                                Our approach goes beyond traditional teaching; we focus on the holistic development of every student, ensuring they are not just exam-ready, but life-ready. With a specialization in integrated coaching for competitive exams, we empower our students to achieve their highest potential within a safe and supportive community.
+                                {getText("who-we-are-text-2", "Our approach goes beyond traditional teaching; we focus on the holistic development of every student, ensuring they are not just exam-ready, but life-ready. With a specialization in integrated coaching for competitive exams, we empower our students to achieve their highest potential within a safe and supportive community.")}
                             </p>
                         </div>
                     </div>
@@ -46,7 +51,7 @@ export default function AboutPage() {
                         <ScrollReveal className="flex flex-col">
                             <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl mb-8">
                                 <Image
-                                    src="/images/school_vision_academic_1768116074071.png"
+                                    src={getImage("vision-image", "/images/school_vision_academic_1768116074071.png")}
                                     alt="Our Vision"
                                     fill
                                     className="object-cover"
@@ -55,12 +60,12 @@ export default function AboutPage() {
                                 />
                                 <div className="absolute inset-0 bg-emerald-900/40" />
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="text-3xl font-bold text-white uppercase tracking-widest" data-editable="vision-title" data-page="about">Our Vision</h3>
+                                    <h3 className="text-3xl font-bold text-white uppercase tracking-widest" data-editable="vision-title" data-page="about">{getText("vision-title", "Our Vision")}</h3>
                                 </div>
                             </div>
                             <div className="bg-white p-8 rounded-2xl border border-emerald-50 shadow-sm flex-grow">
                                 <p className="text-lg text-zinc-600 leading-relaxed italic" data-editable="vision-text" data-page="about">
-                                    "To be a leading center of educational excellence that produces globally competent citizens anchored in Islamic ethics and character, contributing positively to society and the Ummah."
+                                    {getText("vision-text", "\"To be a leading center of educational excellence that produces globally competent citizens anchored in Islamic ethics and character, contributing positively to society and the Ummah.\"")}
                                 </p>
                             </div>
                         </ScrollReveal>
@@ -69,7 +74,7 @@ export default function AboutPage() {
                         <ScrollReveal delay={200} className="flex flex-col">
                             <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl mb-8">
                                 <Image
-                                    src="/images/school_mission_growth_1768116094993.png"
+                                    src={getImage("mission-image", "/images/school_mission_growth_1768116094993.png")}
                                     alt="Our Mission"
                                     fill
                                     className="object-cover"
@@ -78,7 +83,7 @@ export default function AboutPage() {
                                 />
                                 <div className="absolute inset-0 bg-emerald-900/40" />
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="text-3xl font-bold text-white uppercase tracking-widest" data-editable="mission-title" data-page="about">Our Mission</h3>
+                                    <h3 className="text-3xl font-bold text-white uppercase tracking-widest" data-editable="mission-title" data-page="about">{getText("mission-title", "Our Mission")}</h3>
                                 </div>
                             </div>
                             <div className="bg-white p-8 rounded-2xl border border-emerald-50 shadow-sm flex-grow">
@@ -97,8 +102,8 @@ export default function AboutPage() {
             {/* Why Choose Us */}
             <section className="py-24 px-6 max-w-7xl mx-auto">
                 <ScrollReveal className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="why-choose-us-heading" data-page="about">Why Choose Us</h2>
-                    <p className="text-zinc-600 text-lg" data-editable="why-choose-us-subtitle" data-page="about">Commitment to excellence in every aspect of student life.</p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="why-choose-us-heading" data-page="about">{getText("why-choose-us-heading", "Why Choose Us")}</h2>
+                    <p className="text-zinc-600 text-lg" data-editable="why-choose-us-subtitle" data-page="about">{getText("why-choose-us-subtitle", "Commitment to excellence in every aspect of student life.")}</p>
                 </ScrollReveal>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -122,7 +127,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                         <div className="md:col-span-5 relative h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                             <Image
-                                src="/images/principal_portrait_placeholder_1768116114971.png"
+                                src={getImage("principal-image", "/images/principal_portrait_placeholder_1768116114971.png")}
                                 alt="Principal"
                                 fill
                                 className="object-cover"
@@ -134,17 +139,17 @@ export default function AboutPage() {
                             <ScrollReveal>
                                 <div className="relative">
                                     <span className="text-7xl text-emerald-200 absolute -top-10 -left-6 opacity-50 font-serif">"</span>
-                                    <h2 className="text-3xl font-bold text-emerald-800 mb-8 relative z-10" data-editable="principal-heading" data-page="about">Principal's Message</h2>
+                                    <h2 className="text-3xl font-bold text-emerald-800 mb-8 relative z-10" data-editable="principal-heading" data-page="about">{getText("principal-heading", "Principal's Message")}</h2>
                                     <div className="space-y-6 text-lg text-zinc-700 leading-relaxed italic relative z-10">
                                         <p data-editable="principal-message-1" data-page="about">
-                                            At our school, we believe that education is the most powerful tool for positive change. Our mission is to provide an environment where students don't just achieve academic success, but also grow into principled and compassionate human beings.
+                                            {getText("principal-message-1", "At our school, we believe that education is the most powerful tool for positive change. Our mission is to provide an environment where students don't just achieve academic success, but also grow into principled and compassionate human beings.")}
                                         </p>
                                         <p data-editable="principal-message-2" data-page="about">
-                                            We are committed to maintaining the highest standards of safety, discipline, and academic rigor. Our faculty works tirelessly to ensure that every student receives the guidance and support they need to navigate their +1 and +2 years effectively and prepare for their future careers.
+                                            {getText("principal-message-2", "We are committed to maintaining the highest standards of safety, discipline, and academic rigor. Our faculty works tirelessly to ensure that every student receives the guidance and support they need to navigate their +1 and +2 years effectively and prepare for their future careers.")}
                                         </p>
                                         <div className="mt-10">
-                                            <p className="font-bold text-emerald-900 not-italic" data-editable="principal-name" data-page="about">Mrs. Sarah Johnson</p>
-                                            <p className="text-zinc-500 not-italic" data-editable="principal-role" data-page="about">Principal, Integrated School</p>
+                                            <p className="font-bold text-emerald-900 not-italic" data-editable="principal-name" data-page="about">{getText("principal-name", "Mrs. Sarah Johnson")}</p>
+                                            <p className="text-zinc-500 not-italic" data-editable="principal-role" data-page="about">{getText("principal-role", "Principal, Integrated School")}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -157,8 +162,8 @@ export default function AboutPage() {
             {/* Final Call to Action */}
             <section className="py-20 px-6 bg-emerald-900 text-white text-center">
                 <ScrollReveal className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-6" data-editable="final-cta-heading" data-page="about">Join Our Community</h2>
-                    <p className="text-emerald-100 text-lg mb-10" data-editable="final-cta-text" data-page="about">Discover a place where academic dreams meet moral values.</p>
+                    <h2 className="text-3xl font-bold mb-6" data-editable="final-cta-heading" data-page="about">{getText("final-cta-heading", "Join Our Community")}</h2>
+                    <p className="text-emerald-100 text-lg mb-10" data-editable="final-cta-text" data-page="about">{getText("final-cta-text", "Discover a place where academic dreams meet moral values.")}</p>
                     <button className="px-10 py-4 bg-white text-emerald-900 font-bold rounded-lg shadow-xl hover:scale-105 transition-transform text-lg">
                         Contact Admissions
                     </button>

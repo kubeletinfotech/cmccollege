@@ -201,9 +201,12 @@ export default function SiteEditorPage() {
 
         setIsPublishing(true);
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
-            // Ensure no double slashes if env var has trailing slash
-            const apiUrl = `${baseUrl.replace(/\/$/, '')}/pages/${pageKey}/publish-inline`;
+            let baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+            // Ensure baseUrl ends with /api if not present
+            if (!baseUrl.endsWith('/api')) {
+                baseUrl = `${baseUrl.replace(/\/$/, '')}/api`;
+            }
+            const apiUrl = `${baseUrl}/pages/${pageKey}/publish-inline`;
 
             const response = await fetch(apiUrl, {
                 method: 'POST',

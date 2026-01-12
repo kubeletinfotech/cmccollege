@@ -26,22 +26,24 @@ export const publishInlineContent = async (req: Request, res: Response) => {
         }
 
         // Upsert the page content
-        const pageDoc = await PageContent.findOne({ page: page.toLowerCase() });
+        const pageKey = page.toLowerCase();
+        const pageDoc = await PageContent.findOne({ page: pageKey });
 
         if (pageDoc) {
             // Merge new changes into existing map
-            // We use .set() for Maps in Mongoose if it's a defined Map type, 
-            // but since we defined content as type: Map, we can update it.
-            // However, spreading into a POJO might overwrite logic if strictly Map.
-            // Let's iterate.
             for (const [key, value] of Object.entries(changes)) {
                 pageDoc.content.set(key, value);
             }
             pageDoc.lastUpdated = new Date();
+            // Ensure slug is set for existing docs that might miss it
+            if (!pageDoc.slug) {
+                pageDoc.slug = pageKey;
+            }
             await pageDoc.save();
         } else {
             await PageContent.create({
-                page: page.toLowerCase(),
+                page: pageKey,
+                slug: pageKey,
                 content: changes
             });
         }

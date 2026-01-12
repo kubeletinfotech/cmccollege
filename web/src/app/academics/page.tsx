@@ -3,8 +3,11 @@
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
+import { usePageContent } from "@/hooks/usePageContent";
 
 export default function AcademicsPage() {
+    const { getText, getImage } = usePageContent("academics");
+
     return (
         <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-20">
             {/* Hero Section */}
@@ -15,10 +18,10 @@ export default function AcademicsPage() {
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <ScrollReveal>
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6" data-editable="header-title" data-page="academics">
-                            Academic Programs
+                            {getText("header-title", "Academic Programs")}
                         </h1>
                         <p className="text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto leading-relaxed" data-editable="header-desc" data-page="academics">
-                            Integrated +1 and +2 education combining rigorous academic excellence with Islamic values and professional entrance coaching.
+                            {getText("header-desc", "Integrated +1 and +2 education combining rigorous academic excellence with Islamic values and professional entrance coaching.")}
                         </p>
                     </ScrollReveal>
                 </div>
@@ -28,13 +31,13 @@ export default function AcademicsPage() {
             <section className="py-24 px-6 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <ScrollReveal>
-                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-8" data-editable="philosophy-heading" data-page="academics">Integrated Learning Approach</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-8" data-editable="philosophy-heading" data-page="academics">{getText("philosophy-heading", "Integrated Learning Approach")}</h2>
                         <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
                             <p data-editable="philosophy-text-1" data-page="academics">
-                                At our institution, we believe that academic success and moral integrity go hand in hand. Our unique **Integrated Program** is designed to provide students with a comprehensive learning experience that prepares them for both higher education and life.
+                                {getText("philosophy-text-1", "At our institution, we believe that academic success and moral integrity go hand in hand. Our unique **Integrated Program** is designed to provide students with a comprehensive learning experience that prepares them for both higher education and life.")}
                             </p>
                             <p data-editable="philosophy-text-2" data-page="academics">
-                                We don't just follow the standard curriculum; we enhance it with systematic entrance exam preparation, spiritual mentorship, and high-discipline study environments.
+                                {getText("philosophy-text-2", "We don't just follow the standard curriculum; we enhance it with systematic entrance exam preparation, spiritual mentorship, and high-discipline study environments.")}
                             </p>
                             <ul className="space-y-4 pt-4">
                                 {[
@@ -58,7 +61,7 @@ export default function AcademicsPage() {
 
                     <ScrollReveal delay={200} className="relative h-[500px] rounded-[60px] overflow-hidden shadow-2xl border border-emerald-50">
                         <Image
-                            src="/images/classroom_learning_1768115518451.png"
+                            src={getImage("philosophy-image", "/images/classroom_learning_1768115518451.png")}
                             alt="Interactive Learning"
                             fill
                             className="object-cover"
@@ -73,17 +76,17 @@ export default function AcademicsPage() {
             <section className="py-24 px-6 bg-zinc-50">
                 <div className="max-w-7xl mx-auto">
                     <ScrollReveal className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="streams-main-heading" data-page="academics">Academic Streams</h2>
-                        <p className="text-zinc-600 text-lg max-w-2xl mx-auto" data-editable="streams-main-desc" data-page="academics">Focused tracks tailored to help every student achieve their professional goals with moral clarity.</p>
+                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="streams-main-heading" data-page="academics">{getText("streams-main-heading", "Academic Streams")}</h2>
+                        <p className="text-zinc-600 text-lg max-w-2xl mx-auto" data-editable="streams-main-desc" data-page="academics">{getText("streams-main-desc", "Focused tracks tailored to help every student achieve their professional goals with moral clarity.")}</p>
                     </ScrollReveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {/* Science Stream */}
                         <ScrollReveal className="bg-white p-10 rounded-[40px] shadow-sm border border-emerald-50 hover:border-emerald-200 transition-all hover:shadow-xl group">
                             <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">🔬</div>
-                            <h3 className="text-2xl font-bold text-emerald-900 mb-4 uppercase tracking-wide" data-editable="science-title" data-page="academics">Science Stream</h3>
+                            <h3 className="text-2xl font-bold text-emerald-900 mb-4 uppercase tracking-wide" data-editable="science-title" data-page="academics">{getText("science-title", "Science Stream")}</h3>
                             <p className="text-zinc-600 mb-8 leading-relaxed" data-editable="science-desc" data-page="academics">
-                                Our Science stream is engineered for students aiming for careers in Medicine, Engineering, and Research. We provide intensive training in core subjects with integrated coaching modules for national level examinations.
+                                {getText("science-desc", "Our Science stream is engineered for students aiming for careers in Medicine, Engineering, and Research. We provide intensive training in core subjects with integrated coaching modules for national level examinations.")}
                             </p>
                             <div className="space-y-4">
                                 <h4 className="font-bold text-emerald-800">Key Subjects:</h4>
@@ -96,18 +99,18 @@ export default function AcademicsPage() {
                             <div className="mt-8 p-6 bg-emerald-50 rounded-2xl border border-emerald-100">
                                 <p className="text-sm font-bold text-emerald-800 mb-2 uppercase tracking-widest flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                    <span data-editable="science-focus-label" data-page="academics">Entrance Focus</span>
+                                    <span data-editable="science-focus-label" data-page="academics">{getText("science-focus-label", "Entrance Focus")}</span>
                                 </p>
-                                <p className="text-emerald-900 text-sm italic font-medium" data-editable="science-focus-text" data-page="academics">Systematic NEET & JEE preparation integrated within the weekly schedule.</p>
+                                <p className="text-emerald-900 text-sm italic font-medium" data-editable="science-focus-text" data-page="academics">{getText("science-focus-text", "Systematic NEET & JEE preparation integrated within the weekly schedule.")}</p>
                             </div>
                         </ScrollReveal>
 
                         {/* Commerce Stream */}
                         <ScrollReveal delay={200} className="bg-white p-10 rounded-[40px] shadow-sm border border-orange-50 hover:border-emerald-200 transition-all hover:shadow-xl group">
                             <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">📊</div>
-                            <h3 className="text-2xl font-bold text-emerald-900 mb-4 uppercase tracking-wide" data-editable="commerce-title" data-page="academics">Commerce Stream</h3>
+                            <h3 className="text-2xl font-bold text-emerald-900 mb-4 uppercase tracking-wide" data-editable="commerce-title" data-page="academics">{getText("commerce-title", "Commerce Stream")}</h3>
                             <p className="text-zinc-600 mb-8 leading-relaxed" data-editable="commerce-desc" data-page="academics">
-                                Designed for future entrepreneurs and financial experts, our Commerce stream emphasizes practical business knowledge, financial literacy, and ethical trade practices.
+                                {getText("commerce-desc", "Designed for future entrepreneurs and financial experts, our Commerce stream emphasizes practical business knowledge, financial literacy, and ethical trade practices.")}
                             </p>
                             <div className="space-y-4">
                                 <h4 className="font-bold text-emerald-800">Key Subjects:</h4>
@@ -120,9 +123,9 @@ export default function AcademicsPage() {
                             <div className="mt-8 p-6 bg-emerald-50 rounded-2xl border border-emerald-100">
                                 <p className="text-sm font-bold text-emerald-800 mb-2 uppercase tracking-widest flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                    <span data-editable="commerce-focus-label" data-page="academics">Professional Focus</span>
+                                    <span data-editable="commerce-focus-label" data-page="academics">{getText("commerce-focus-label", "Professional Focus")}</span>
                                 </p>
-                                <p className="text-emerald-900 text-sm italic font-medium" data-editable="commerce-focus-text" data-page="academics">Foundation training for CA, CS, and CMA integrated within the curriculum.</p>
+                                <p className="text-emerald-900 text-sm italic font-medium" data-editable="commerce-focus-text" data-page="academics">{getText("commerce-focus-text", "Foundation training for CA, CS, and CMA integrated within the curriculum.")}</p>
                             </div>
                         </ScrollReveal>
                     </div>
@@ -132,8 +135,8 @@ export default function AcademicsPage() {
             {/* Methodology & Exam Prep */}
             <section className="py-24 px-6 max-w-7xl mx-auto">
                 <ScrollReveal className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4 tracking-tight" data-editable="methodology-heading" data-page="academics">How We Prepare You</h2>
-                    <p className="text-zinc-600 text-lg" data-editable="methodology-desc" data-page="academics">Our systematic approach to excellence.</p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4 tracking-tight" data-editable="methodology-heading" data-page="academics">{getText("methodology-heading", "How We Prepare You")}</h2>
+                    <p className="text-zinc-600 text-lg" data-editable="methodology-desc" data-page="academics">{getText("methodology-desc", "Our systematic approach to excellence.")}</p>
                 </ScrollReveal>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -158,8 +161,8 @@ export default function AcademicsPage() {
                     <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
                 </div>
                 <ScrollReveal className="relative z-10 max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8 italic" data-editable="cta-heading" data-page="academics">Ready to transform your future?</h2>
-                    <p className="text-emerald-100 text-lg mb-12 opacity-80 leading-relaxed font-medium" data-editable="cta-desc" data-page="academics">Join our next batch of high achievers. Limited seats available for both Science and Commerce streams.</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 italic" data-editable="cta-heading" data-page="academics">{getText("cta-heading", "Ready to transform your future?")}</h2>
+                    <p className="text-emerald-100 text-lg mb-12 opacity-80 leading-relaxed font-medium" data-editable="cta-desc" data-page="academics">{getText("cta-desc", "Join our next batch of high achievers. Limited seats available for both Science and Commerce streams.")}</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Link href="/admissions">
                             <button className="px-10 py-5 bg-white text-emerald-900 font-bold rounded-2xl shadow-2xl hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all text-lg cursor-pointer">

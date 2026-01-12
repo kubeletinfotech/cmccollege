@@ -8,6 +8,13 @@ const pageContentSchema = new mongoose.Schema({
         trim: true,
         lowercase: true
     },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        lowercase: true
+    },
     content: {
         type: Map,
         of: mongoose.Schema.Types.Mixed,

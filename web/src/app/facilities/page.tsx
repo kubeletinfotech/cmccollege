@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { usePageContent } from "@/hooks/usePageContent";
 
 export default function FacilitiesPage() {
+    const { getText, getImage } = usePageContent("facilities");
+
     return (
         <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-20">
             {/* Page Header */}
@@ -13,10 +18,10 @@ export default function FacilitiesPage() {
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <ScrollReveal>
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6" data-editable="header-title" data-page="facilities">
-                            Our Facilities
+                            {getText("header-title", "Our Facilities")}
                         </h1>
                         <p className="text-xl md:text-2xl text-emerald-100 max-w-2xl mx-auto" data-editable="header-subtitle" data-page="facilities">
-                            Modern infrastructure designed to foster academic excellence and moral growth.
+                            {getText("header-subtitle", "Modern infrastructure designed to foster academic excellence and moral growth.")}
                         </p>
                     </ScrollReveal>
                 </div>
@@ -25,8 +30,8 @@ export default function FacilitiesPage() {
             {/* Academic Facilities */}
             <section className="py-24 px-6 max-w-7xl mx-auto">
                 <ScrollReveal className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="academic-heading" data-page="facilities">Academic Infrastructure</h2>
-                    <p className="text-zinc-600 text-lg" data-editable="academic-desc" data-page="facilities">State-of-the-art learning environments for students.</p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="academic-heading" data-page="facilities">{getText("academic-heading", "Academic Infrastructure")}</h2>
+                    <p className="text-zinc-600 text-lg" data-editable="academic-desc" data-page="facilities">{getText("academic-desc", "State-of-the-art learning environments for students.")}</p>
                 </ScrollReveal>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -68,8 +73,8 @@ export default function FacilitiesPage() {
             <section className="py-24 px-6 bg-emerald-900/5">
                 <div className="max-w-7xl mx-auto">
                     <ScrollReveal className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="residential-heading" data-page="facilities">Residential & Support</h2>
-                        <p className="text-zinc-600 text-lg" data-editable="residential-desc" data-page="facilities">A home away from home with essential support systems.</p>
+                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="residential-heading" data-page="facilities">{getText("residential-heading", "Residential & Support")}</h2>
+                        <p className="text-zinc-600 text-lg" data-editable="residential-desc" data-page="facilities">{getText("residential-desc", "A home away from home with essential support systems.")}</p>
                     </ScrollReveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -119,9 +124,9 @@ export default function FacilitiesPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                     <div className="lg:col-span-7">
                         <ScrollReveal>
-                            <h2 className="text-3xl md:text-5xl font-bold text-emerald-900 mb-8" data-editable="safety-heading" data-page="facilities">Safety & Discipline</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold text-emerald-900 mb-8" data-editable="safety-heading" data-page="facilities">{getText("safety-heading", "Safety & Discipline")}</h2>
                             <p className="text-xl text-zinc-600 mb-10 leading-relaxed" data-editable="safety-desc" data-page="facilities">
-                                We prioritize a safe and orderly environment. Our campus is monitored around the clock to ensure student security and maintain the high standards of discipline our institution is known for.
+                                {getText("safety-desc", "We prioritize a safe and orderly environment. Our campus is monitored around the clock to ensure student security and maintain the high standards of discipline our institution is known for.")}
                             </p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 {[
@@ -141,7 +146,7 @@ export default function FacilitiesPage() {
                     <div className="lg:col-span-5">
                         <ScrollReveal delay={200} className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-50">
                             <Image
-                                src="/images/school_security_surveillance_1768116718250.png"
+                                src={getImage("safety-image", "/images/school_security_surveillance_1768116718250.png")}
                                 alt="Security and Safety"
                                 fill
                                 className="object-cover"
@@ -157,8 +162,8 @@ export default function FacilitiesPage() {
             {/* Final Call to Action */}
             <section className="py-20 px-6 bg-emerald-900 text-white text-center">
                 <ScrollReveal className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6" data-editable="cta-heading" data-page="facilities">Experience our Infrastructure</h2>
-                    <p className="text-emerald-100 text-lg mb-10" data-editable="cta-desc" data-page="facilities">Visit our campus to see our facilities firsthand and start your journey today.</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6" data-editable="cta-heading" data-page="facilities">{getText("cta-heading", "Experience our Infrastructure")}</h2>
+                    <p className="text-emerald-100 text-lg mb-10" data-editable="cta-desc" data-page="facilities">{getText("cta-desc", "Visit our campus to see our facilities firsthand and start your journey today.")}</p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link
                             href="/admissions"
