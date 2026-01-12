@@ -8,56 +8,56 @@ dotenv.config();
 
 const galleryMockData = [
     {
-        title: 'Integrated Science Lab Session',
-        imageUrl: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200',
+        title: 'Science Practical Session',
+        imageUrl: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1200',
         category: 'Classroom',
         createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'Annual Sports Day 2024',
-        imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=1200',
+        title: 'Annual Sports Day',
+        imageUrl: 'https://images.unsplash.com/photo-1561948955-570b270e7c36?auto=format&fit=crop&q=80&w=1200',
         category: 'Events',
         createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'Main Campus Building Night View',
-        imageUrl: 'https://images.unsplash.com/photo-1541339907198-e08756eaa539?auto=format&fit=crop&q=80&w=1200',
+        title: 'Main Campus View',
+        imageUrl: 'https://images.unsplash.com/photo-1523050853063-bd8012fec21b?auto=format&fit=crop&q=80&w=1200',
         category: 'Campus',
         createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'School Library - Quiet Study Zone',
-        imageUrl: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=1200',
+        title: 'Library Study Zone',
+        imageUrl: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=1200',
         category: 'Campus',
         createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'Cultural Fest - Traditional Performance',
+        title: 'Cultural Fest Performance',
         imageUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200',
         category: 'Events',
         createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'Premium Hostel Accommodation',
-        imageUrl: 'https://images.unsplash.com/photo-1555854817-40e098ee7f27?auto=format&fit=crop&q=80&w=1200',
+        title: 'Premium Hostel Stay',
+        imageUrl: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45?auto=format&fit=crop&q=80&w=1200',
         category: 'Hostel',
         createdAt: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'Interactive Smart Classroom',
-        imageUrl: 'https://images.unsplash.com/photo-1509062522246-373b1e771108?auto=format&fit=crop&q=80&w=1200',
+        title: 'Advanced Computer Lab',
+        imageUrl: 'https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=1200',
         category: 'Classroom',
         createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'Science Exhibition Award Ceremony',
+        title: 'Exhibition Awards',
         imageUrl: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&q=80&w=1200',
         category: 'Events',
         createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000)
     },
     {
-        title: 'Modern Chemistry Laboratory',
-        imageUrl: 'https://images.unsplash.com/photo-1581093458791-9f3c3250bb8b?auto=format&fit=crop&q=80&w=1200',
+        title: 'Chemistry Lab Work',
+        imageUrl: 'https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?auto=format&fit=crop&q=80&w=1200',
         category: 'Classroom',
         createdAt: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000)
     }

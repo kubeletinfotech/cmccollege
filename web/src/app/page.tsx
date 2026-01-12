@@ -238,39 +238,44 @@ export default function Home() {
               />
             ))
           ) : (
-            imagesToRender.map((item, i) => (
-              <ScrollReveal
-                key={i}
-                delay={i * 100}
-                className={`group relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-emerald-50/20 hover:scale-[1.02]
-                  ${item.featured ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0 rounded-[30px]'}
-                  ${item.variant ? 'rounded-tr-[80px]' : ''}
-                  ${i === 1 ? 'rounded-bl-[80px]' : ''}
-                `}
-              >
-                {item.src && (
-                  <Image
-                    src={item.src}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out"
-                  />
-                )}
+            imagesToRender.map((item, i) => {
+              // Semantic Label Correction
+              const displayTag = item.tag === 'Classroom' ? 'Practical Session' : item.tag;
 
-                {/* Premium Overlay - Enhanced depth and readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent opacity-40 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                  <span className="text-emerald-300 text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    {item.tag}
-                  </span>
-                  <h3 className="text-white text-lg md:text-2xl font-bold leading-tight transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                    {item.title}
-                  </h3>
-                </div>
+              return (
+                <ScrollReveal
+                  key={i}
+                  delay={i * 100}
+                  className={`group relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-emerald-50/20 hover:scale-[1.02]
+                    ${item.featured ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0 rounded-[30px]'}
+                    ${item.variant ? 'rounded-tr-[80px]' : ''}
+                    ${i === 1 ? 'rounded-bl-[80px]' : ''}
+                  `}
+                >
+                  {item.src && (
+                    <Image
+                      src={item.src}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out"
+                    />
+                  )}
 
-                {/* Subtle border glint on hover */}
-                <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 transition-colors duration-700 pointer-events-none rounded-inherit" />
-              </ScrollReveal>
-            ))
+                  {/* Editorial-Style Overlay: Strictly Bottom-Anchored */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/95 via-emerald-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8 md:p-12">
+                    <span className="text-emerald-300/80 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      {displayTag}
+                    </span>
+                    <h3 className="text-white text-lg md:text-2xl font-bold leading-tight line-clamp-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  {/* Subtle border glint on hover */}
+                  <div className="absolute inset-0 border border-white/0 group-hover:border-white/10 transition-colors duration-700 pointer-events-none rounded-inherit" />
+                </ScrollReveal>
+              );
+            })
           )}
         </div>
 
