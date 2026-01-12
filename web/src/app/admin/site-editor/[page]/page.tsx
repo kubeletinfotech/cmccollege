@@ -201,10 +201,9 @@ export default function SiteEditorPage() {
 
         setIsPublishing(true);
         try {
-            // Hardcode base URL for now to guarantee correctness
-            const baseUrl = 'http://localhost:5000/api';
-            const apiUrl = `${baseUrl}/pages/${pageKey}/publish-inline`;
-
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+            // Ensure no double slashes if env var has trailing slash
+            const apiUrl = `${baseUrl.replace(/\/$/, '')}/pages/${pageKey}/publish-inline`;
 
             const response = await fetch(apiUrl, {
                 method: 'POST',

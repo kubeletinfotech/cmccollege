@@ -7,10 +7,21 @@ export function usePageContent(pageName: string) {
     useEffect(() => {
         const fetchContent = async () => {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/pages/${pageName}`);
+                let baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+                // Ensure baseUrl ends with /api if not present logic is tricky if user wants a different path
+                // But generally for this app it expects /api
+                if (!baseUrl.endsWith('/api')) {
+                    baseUrl = `${baseUrl.replace(/\/$/, '')}/api`;
+                }
+                const url = `${baseUrl}/pages/${pageName}`;
+                console.log("Fetching content from:", url);
+                const response = await fetch(url);
                 if (response.ok) {
                     const data = await response.json();
+                    console.log("Fetched content:", data);
                     setContent(data || {});
+                } else {
+                    console.error("Fetch failed:", response.status);
                 }
             } catch (error) {
                 console.error(`Error fetching content for ${pageName}:`, error);
