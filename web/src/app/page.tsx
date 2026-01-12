@@ -28,26 +28,33 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
   // Auto-play micro-carousel for small cards only
   useEffect(() => {
     if (featured || isHovered) {
-      if (featured) setIsCaptionVisible(false); // Large card remains hover-based
+      if (featured) setIsCaptionVisible(false);
       return;
     }
 
     const interval = setInterval(() => {
       setIsCaptionVisible((prev) => !prev);
-    }, 4000); // Cycle every 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [featured, isHovered]);
 
   const displayTag = item.tag === 'Classroom' ? 'Practical Session' : item.tag;
 
+  // Premium organic shapes based on index
+  const getRoundedClass = (i: number, isFeatured?: boolean) => {
+    if (isFeatured) return "rounded-[60px] md:rounded-[80px]";
+    if (i === 1) return "rounded-tr-[140px] rounded-bl-[140px] rounded-tl-[40px] rounded-br-[40px]";
+    if (i === 3) return "rounded-tl-[140px] rounded-br-[140px] rounded-tr-[40px] rounded-bl-[40px]";
+    return "rounded-[100px] md:rounded-full"; // Pill shapes
+  };
+
   return (
     <ScrollReveal
       delay={index * 100}
-      className={`group relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-emerald-50/20
-        ${item.featured ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0 rounded-[30px]'}
-        ${item.variant ? 'rounded-tr-[80px]' : ''}
-        ${index === 1 ? 'rounded-bl-[80px]' : ''}
+      className={`group relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 h-full border border-emerald-50/10
+        ${featured ? "md:col-span-2 md:row-span-2 min-h-[450px]" : "min-h-[300px] md:min-h-0"}
+        ${getRoundedClass(index, featured)}
       `}
     >
       <div
@@ -57,8 +64,8 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
       >
         <motion.div
           className="relative w-full h-full"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         >
           {item.src && (
             <Image
@@ -69,19 +76,20 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
             />
           )}
 
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {(isCaptionVisible || isHovered) && (
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 bg-gradient-to-t from-emerald-950/95 via-emerald-950/25 to-transparent flex flex-col justify-end p-8 md:p-12"
+                key="overlay"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 bg-emerald-950/60 backdrop-blur-[2px] flex flex-col items-center justify-center text-center p-8 md:p-12"
               >
-                <span className="text-emerald-300/80 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+                <span className="text-emerald-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4">
                   {displayTag}
                 </span>
-                <h3 className="text-white text-lg md:text-2xl font-bold leading-tight line-clamp-3">
+                <h3 className="text-white text-2xl md:text-3xl font-bold leading-tight max-w-[300px]">
                   {item.title}
                 </h3>
               </motion.div>
@@ -89,8 +97,8 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
           </AnimatePresence>
         </motion.div>
 
-        {/* Subtle border glint on hover */}
-        <div className="absolute inset-0 border border-white/0 group-hover:border-white/10 transition-colors duration-700 pointer-events-none rounded-inherit" />
+        {/* Premium glint layer */}
+        <div className={`absolute inset-0 border border-white/0 group-hover:border-white/20 transition-colors duration-1000 pointer-events-none ${getRoundedClass(index, featured)}`} />
       </div>
     </ScrollReveal>
   );
@@ -300,16 +308,17 @@ export default function Home() {
           <p className="text-zinc-600 text-lg max-w-2xl mx-auto italic font-medium">Capturing the vibrant energy and excellence of our integrated campus life.</p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 h-full md:h-[700px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-8 h-full md:h-[800px]">
           {isLoading ? (
-            // Loading State - Skeletons
+            // Loading State - Skeletons matching premium roundedness
             Array(5).fill(0).map((_, i) => (
               <div
                 key={i}
-                className={`animate-pulse bg-emerald-50 rounded-[30px] border border-emerald-100/50
-                  ${i === 0 ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0'}
-                  ${i === 3 ? 'rounded-tr-[80px]' : ''}
-                  ${i === 1 ? 'rounded-bl-[80px]' : ''}
+                className={`animate-pulse bg-emerald-50 border border-emerald-100/50
+                  ${i === 0 ? "md:col-span-2 md:row-span-2 min-h-[450px] rounded-[60px] md:rounded-[80px]" : "min-h-[300px] md:min-h-0"}
+                  ${i === 1 ? "rounded-tr-[140px] rounded-bl-[140px] rounded-tl-[40px] rounded-br-[40px]" : ""}
+                  ${i === 3 ? "rounded-tl-[140px] rounded-br-[140px] rounded-tr-[40px] rounded-bl-[40px]" : ""}
+                  ${i !== 0 && i !== 1 && i !== 3 ? "rounded-[100px] md:rounded-full" : ""}
                 `}
               />
             ))
