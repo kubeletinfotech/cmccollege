@@ -1,8 +1,61 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
+interface GalleryImage {
+  _id: string;
+  title: string;
+  imageUrl: string;
+  category: string;
+}
+
+const placeholderImages = [
+  { title: "Sports Day Excellence", src: "/images/school_sports_day_1768117809679.png", tag: "Sports" },
+  { title: "Cultural Performance", src: "/images/cultural_fest_performance_1768117835053.png", tag: "Events" },
+  { title: "Science Innovation", src: "/images/science_exhibition_project_1768117868795.png", tag: "Academic" },
+  { title: "School Library", src: "/images/school_library_1768115599802.png", tag: "Campus" },
+  { title: "Annual Awards", src: "/images/school_annual_award_ceremony_stage_1768117893644.png", tag: "Events" }
+];
+
 export default function Home() {
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchGallery = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gallery`);
+        const data = await response.json();
+        if (data.success && data.data) {
+          setGalleryImages(data.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch gallery images:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchGallery();
+  }, []);
+
+  const imagesToRender = galleryImages.length > 0
+    ? galleryImages.slice(0, 5).map((img, i) => ({
+      title: img.title,
+      src: img.imageUrl,
+      tag: img.category,
+      featured: i === 0,
+      variant: i === 3
+    }))
+    : placeholderImages.map((img, i) => ({
+      ...img,
+      featured: i === 0,
+      variant: i === 3
+    }));
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-20">
       {/* Hero Section */}
@@ -168,60 +221,75 @@ export default function Home() {
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-emerald-800 mb-4 tracking-tight">Gallery Preview</h2>
-          <p className="text-zinc-600 text-lg max-w-2xl mx-auto">Capturing the vibrant energy and excellence of our integrated campus life.</p>
+          <p className="text-zinc-600 text-lg max-w-2xl mx-auto italic font-medium">Capturing the vibrant energy and excellence of our integrated campus life.</p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 h-full md:h-[700px]">
-          {[
-            { title: "Sports Day Excellence", src: "/images/school_sports_day_1768117809679.png", featured: true, tag: "Sports" },
-            { title: "Cultural Performance", src: "/images/cultural_fest_performance_1768117835053.png", tag: "Events" },
-            { title: "Science Innovation", src: "/images/science_exhibition_project_1768117868795.png", tag: "Academic" },
-            { title: "School Library", src: "/images/school_library_1768115599802.png", variant: true, tag: "Campus" },
-            { title: "Annual Awards", src: "/images/school_annual_award_ceremony_stage_1768117893644.png", tag: "Events" }
-          ].map((item, i) => (
-            <ScrollReveal
-              key={i}
-              delay={i * 100}
-              className={`group relative overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 h-full border border-emerald-50/30
-                ${item.featured ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0 rounded-[30px]'}
-                ${item.variant ? 'rounded-tr-[80px]' : ''}
-                ${i === 1 ? 'rounded-bl-[80px]' : ''}
-              `}
-            >
-              <Image
-                src={item.src}
-                alt={item.title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
+          {isLoading ? (
+            // Loading State - Skeletons
+            Array(5).fill(0).map((_, i) => (
+              <div
+                key={i}
+                className={`animate-pulse bg-emerald-50 rounded-[30px] border border-emerald-100/50
+                  ${i === 0 ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0'}
+                  ${i === 3 ? 'rounded-tr-[80px]' : ''}
+                  ${i === 1 ? 'rounded-bl-[80px]' : ''}
+                `}
               />
+            ))
+          ) : (
+            imagesToRender.map((item, i) => (
+              <ScrollReveal
+                key={i}
+                delay={i * 100}
+                className={`group relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-emerald-50/20 hover:scale-[1.02]
+                  ${item.featured ? 'md:col-span-2 md:row-span-2 min-h-[400px] rounded-[40px]' : 'min-h-[250px] md:min-h-0 rounded-[30px]'}
+                  ${item.variant ? 'rounded-tr-[80px]' : ''}
+                  ${i === 1 ? 'rounded-bl-[80px]' : ''}
+                `}
+              >
+                {item.src && (
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out"
+                  />
+                )}
 
-              {/* Premium Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
-                <span className="text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  {item.tag}
-                </span>
-                <h3 className="text-white text-xl md:text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                  {item.title}
-                </h3>
-              </div>
+                {/* Premium Overlay - Enhanced depth and readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent opacity-40 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                  <span className="text-emerald-300 text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    {item.tag}
+                  </span>
+                  <h3 className="text-white text-lg md:text-2xl font-bold leading-tight transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                    {item.title}
+                  </h3>
+                </div>
 
-              {/* Subtle Initial Glint */}
-              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-700 rounded-inherit" />
-            </ScrollReveal>
-          ))}
+                {/* Subtle border glint on hover */}
+                <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 transition-colors duration-700 pointer-events-none rounded-inherit" />
+              </ScrollReveal>
+            ))
+          )}
         </div>
 
-        <div className="mt-16 text-center">
-          <Link href="/gallery" className="group inline-flex items-center gap-4 px-10 py-5 bg-emerald-50 text-emerald-900 font-bold rounded-2xl hover:bg-emerald-800 hover:text-white transition-all shadow-sm hover:shadow-xl">
-            <span className="text-lg">View Full Gallery</span>
+        <div className="mt-20 relative text-center">
+          {/* Subtle decoration line */}
+          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-100 to-transparent -z-10" />
+
+          <Link href="/gallery" className="group inline-flex items-center gap-4 px-10 py-5 bg-white text-emerald-900 font-bold rounded-2xl border border-emerald-100 hover:bg-emerald-800 hover:text-white transition-all shadow-sm hover:shadow-2xl hover:border-emerald-700">
+            <span className="text-lg tracking-tight">Explore Full Gallery</span>
             <div className="w-10 h-10 rounded-full bg-emerald-800 text-white flex items-center justify-center group-hover:bg-white group-hover:text-emerald-800 transition-colors shadow-inner">
               <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.6} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </div>
           </Link>
+          <p className="mt-6 text-zinc-400 text-sm font-medium tracking-wide">Detailed view of academic, sports, and cultural milestones</p>
         </div>
       </section>
+
 
       {/* Call to Action Section */}
       <section className="py-24 px-6 bg-emerald-900 text-white text-center relative overflow-hidden">
@@ -242,3 +310,4 @@ export default function Home() {
     </div>
   );
 }
+
