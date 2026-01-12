@@ -84,7 +84,7 @@ export default function Footer() {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/calendar" className="hover:text-white transition-colors">
+                            <Link href="https://www.hsslive.in/2017/06/general-educational-calendar.html" target="_blank" className="hover:text-white transition-colors">
                                 Academic Calendar
                             </Link>
                         </li>

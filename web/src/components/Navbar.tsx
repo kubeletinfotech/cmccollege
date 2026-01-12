@@ -13,7 +13,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-emerald-50">
+        <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-emerald-50 top-[var(--ticker-height,0px)]">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
