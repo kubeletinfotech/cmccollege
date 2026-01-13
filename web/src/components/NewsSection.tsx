@@ -7,27 +7,27 @@ import { motion } from 'framer-motion';
 const newsItems = [
     {
         id: 1,
-        date: "15 Aug 2026",
-        title: "Independence Day Celebration Conducted on Campus",
-        description: "Cultural programs and student activities marked the celebration, fostering patriotism and unity among students.",
-        image: "/images/cultural_fest_performance_1768117835053.png", // Using existing image
-        tag: "Event"
+        date: "12 Aug 2026",
+        title: "National Seminar on Artificial Intelligence",
+        description: "Faculty and students participated in an academic seminar led by industry experts.",
+        image: "/images/classroom_learning_1768115518451.png",
+        tag: "Seminar"
     },
     {
         id: 2,
-        date: "05 Aug 2026",
-        title: "Semester Examination Schedule Released",
-        description: "Students are advised to check the academic calendar for details regarding the upcoming semester examinations.",
-        image: "/images/classroom_learning_1768115518451.png", // Using existing image
-        tag: "Notice"
+        date: "28 Jul 2026",
+        title: "Annual Sports Meet 2026 Successfully Conducted",
+        description: "Students showcased talent and teamwork across multiple sports events.",
+        image: "/images/school_sports_day_1768117809679.png",
+        tag: "Sports"
     },
     {
         id: 3,
-        date: "28 Jul 2026",
-        title: "Admissions Open for 2026–2027",
-        description: "Applications are now open for UG and PG programs. Prospective students can apply online or visit the campus.",
-        image: "/images/admissions_open_hero_1768116412312.png", // Using existing image
-        tag: "Admission"
+        date: "10 Jul 2026",
+        title: "Cultural Fest “Harmony 2026”",
+        description: "A celebration of creativity, music, and student engagement on campus.",
+        image: "/images/cultural_fest_performance_1768117835053.png",
+        tag: "Cultural"
     }
 ];
 
@@ -44,7 +44,7 @@ export default function NewsSection() {
                         viewport={{ once: true }}
                         className="text-3xl md:text-4xl font-semibold text-zinc-900 mb-3 tracking-tight"
                     >
-                        Latest News & Announcements
+                        Latest News & Events
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function NewsSection() {
                         transition={{ delay: 0.1 }}
                         className="text-zinc-500 text-lg max-w-2xl mx-auto text-center font-medium"
                     >
-                        Stay updated with the latest happenings and important notices
+                        Highlights from campus life, academic activities, and events
                     </motion.p>
                 </div>
 
@@ -111,9 +111,9 @@ export default function NewsSection() {
 
                 {/* View All Button */}
                 <div className="mt-12 text-center">
-                    <Link href="/announcements">
+                    <Link href="/events">
                         <button className="px-8 py-3 rounded-full border border-zinc-200 text-zinc-600 font-semibold hover:bg-zinc-50 hover:text-emerald-800 hover:border-emerald-200 transition-all">
-                            View All News
+                            View All Events
                         </button>
                     </Link>
                 </div>
