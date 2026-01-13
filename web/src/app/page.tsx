@@ -193,6 +193,16 @@ export default function Home() {
       {/* About Section */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <ScrollReveal delay={200} className="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-emerald-50">
+            <Image
+              src="/images/college.png"
+              alt="College Building"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              data-editable="about-image"
+              data-page="home"
+            />
+          </ScrollReveal>
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-8" data-editable="about-heading" data-page="home">About Our College</h2>
             <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
@@ -209,19 +219,76 @@ export default function Home() {
               </Link>
             </div>
           </ScrollReveal>
-
-          <ScrollReveal delay={200} className="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-emerald-50">
+        </div>
+      </section>
+      {/* Principal section - Redesigned */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          {/* Left Side - Image */}
+          <ScrollReveal delay={200} className="relative w-full md:w-5/12 h-[500px] rounded-[40px] overflow-hidden shadow-2xl bg-zinc-100">
             <Image
               src="/images/college.png"
-              alt="College Building"
+              alt="College Campus"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700"
               data-editable="about-image"
               data-page="home"
             />
           </ScrollReveal>
+
+          {/* Right Side - Message Card */}
+          <ScrollReveal className="w-full md:w-7/12">
+            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-zinc-100 relative">
+              {/* Decorative Quote Icon */}
+              <div className="absolute top-12 left-8 text-emerald-100/50 text-8xl font-serif leading-none select-none">
+                &quot;
+              </div>
+
+              {/* Tag */}
+              <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-bold tracking-widest uppercase mb-6">
+                About Our Institution
+              </span>
+
+              {/* Title */}
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-8 relative z-10" data-editable="about-heading" data-page="home">
+                Welcome to <span className="text-emerald-800">CM College</span>
+              </h2>
+
+              {/* Content */}
+              <div className="space-y-6 text-zinc-600 leading-relaxed relative z-10 text-lg">
+                <p data-editable="about-text-1" data-page="home">
+                  CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut, run by CM center Madavoor, Calicut, Kerala. Established in the year April 2010, the college is situated in Panamaram, shares its 15 acres of beautiful land. Recognized by Government of kerala, the college is affiliated to the University of Calicut.
+                </p>
+                <div className="pl-6 border-l-4 border-emerald-500/30 italic text-zinc-500">
+                  <p data-editable="about-text-2" data-page="home">
+                    &quot;In a short span of time, our college has achieved greater heights since its inception a decade ago by educating thousands of students... we undertake the challenge to serve and provide better education for all the community.&quot;
+                  </p>
+                </div>
+              </div>
+
+              {/* Footer / Signature Area */}
+              <div className="mt-10 flex items-center gap-4 pt-8 border-t border-zinc-50">
+                <div className="w-12 h-12 rounded-full bg-emerald-800 flex items-center justify-center text-white shadow-lg shrink-0">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-zinc-900 leading-tight">CM College Administration</h4>
+                  <p className="text-sm text-zinc-500">Panamaram, Wayanad</p>
+                </div>
+
+                <Link href="/about" className="ml-auto">
+                  <button className="px-6 py-2.5 bg-white border-2 border-emerald-100 text-emerald-800 font-semibold rounded-xl hover:bg-emerald-800 hover:text-white hover:border-emerald-800 transition-all text-sm tracking-wide">
+                    Read More
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
+
 
       {/* Academic Programs Section */}
       <section className="py-24 px-6 bg-zinc-50">
