@@ -221,11 +221,22 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Premium Divider */}
+      <div className="relative py-8 md:py-12">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-300/50"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <div className="bg-zinc-50 px-4">
+            <div className="h-2 w-2 rounded-full bg-emerald-200 ring-4 ring-gray-300"></div>
+          </div>
+        </div>
+      </div>
       {/* Principal section - Redesigned */}
       <section className="py-20 px-4 md:px-6 bg-transparent">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-12">
-            {/* Left Side - Image */}
             {/* Left Side - Portrait Image */}
             <ScrollReveal delay={200} className="w-full md:w-5/12 relative min-h-[400px] md:min-h-auto">
               <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100 to-transparent rounded-[32px] transform -rotate-2 scale-95 opacity-60"></div>
