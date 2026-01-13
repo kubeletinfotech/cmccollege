@@ -194,7 +194,7 @@ export default function Home() {
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-8" data-editable="about-heading" data-page="home">About Our Integrated Education</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-8" data-editable="about-heading" data-page="home">About Our College</h2>
             <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
               <p data-editable="about-text-1" data-page="home">
                 CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut, run by CM center Madavoor, Calicut, Kerala. Established in the year April 2010, the college is situated in Panamaram, shares its 15 acres of beautiful land. Recognized by Government of kerala, the college is affiliated to the University of Calicut.
@@ -212,8 +212,8 @@ export default function Home() {
 
           <ScrollReveal delay={200} className="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-emerald-50">
             <Image
-              src="/images/classroom_learning_1768115518451.png"
-              alt="Classroom Learning"
+              src="/images/college.png"
+              alt="College Building"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700"
               data-editable="about-image"
