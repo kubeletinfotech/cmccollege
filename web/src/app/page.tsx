@@ -227,20 +227,22 @@ export default function Home() {
       <section className="py-24 px-6 bg-zinc-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="academic-heading" data-page="home">Academic Programs</h2>
-            <p className="text-zinc-600 text-lg max-w-2xl mx-auto" data-editable="academic-description" data-page="home">Tailored streams to help every student achieve their career goals with excellence.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="academic-heading" data-page="home">Our Departments</h2>
+            <p className="text-zinc-600 text-lg max-w-2xl mx-auto" data-editable="academic-description" data-page="home">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "+1 Science", desc: "Intensive training in Physics, Chemistry, and Biology/Maths with a focus on competitive exams." },
-              { title: "+2 Commerce", desc: "Expert guidance in Accountancy, Business Studies, and Economics for a strong future in finance." },
-              { title: "Integrated Coaching", desc: "Coaching for medical and engineering entrance exams integrated with regular school hours." }
-            ].map((program, i) => (
-              <ScrollReveal key={i} delay={i * 150}>
-                <div className="h-full p-8 bg-white rounded-xl shadow-sm border border-emerald-50 hover:border-emerald-200 transition-all hover:shadow-md group">
-                  <h3 className="text-xl font-bold text-emerald-900 mb-4 group-hover:text-emerald-700 transition-colors uppercase tracking-wide">{program.title}</h3>
-                  <p className="text-zinc-600 leading-relaxed text-lg">{program.desc}</p>
+              "Department Of Computer Science",
+              "Department Of Management",
+              "Department Of Mass Communication And Journalism",
+              "Department Of Economics",
+              "Department Of English",
+              "Department Of Commerce"
+            ].map((dept, i) => (
+              <ScrollReveal key={i} delay={i * 100}>
+                <div className="h-full p-6 bg-white rounded-xl shadow-sm border border-emerald-50 hover:bg-emerald-800 hover:border-emerald-800 transition-all hover:shadow-lg group cursor-default flex items-center justify-center text-center min-h-[120px]">
+                  <h3 className="text-lg font-bold text-emerald-900 group-hover:text-white transition-colors uppercase tracking-wide">{dept}</h3>
                 </div>
               </ScrollReveal>
             ))}
