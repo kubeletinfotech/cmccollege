@@ -346,7 +346,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Why Choose Us Section
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="why-choose-heading" data-page="home">Why Choose Us</h2>
@@ -366,7 +366,7 @@ export default function Home() {
             </ScrollReveal>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Facilities Preview Section */}
       <section className="py-24 px-6 bg-emerald-900/5">
