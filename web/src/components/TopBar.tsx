@@ -2,22 +2,23 @@ import Link from "next/link";
 
 export default function TopBar() {
     return (
-        <div className="w-full bg-emerald-900 text-white py-2 px-6">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-[10px] md:text-xs font-medium tracking-wider uppercase">
+        <div className="w-full bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 text-white py-2.5 px-6 border-b border-white/10 relative overflow-hidden">
+            {/* Glossy overlay effect */}
+            <div className="absolute inset-0 bg-white/5 pointer-events-none"></div>
+
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-[10px] md:text-xs font-medium tracking-widest uppercase relative z-10">
                 {/* Left Side */}
-                <div className="flex items-center">
-                    <span>Centre for Competitive Examination</span>
+                <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="opacity-90 font-semibold text-emerald-50">Centre for Competitive Examination</span>
                 </div>
 
                 {/* Right Side */}
-                <div className="flex items-center gap-4 text-emerald-100/80">
-                    <Link href="/research" className="hover:text-white transition-colors">Research</Link>
-                    <span className="hidden md:inline text-emerald-800">|</span>
-                    <Link href="/iqac" className="hover:text-white transition-colors">IQAC</Link>
-                    <span className="hidden md:inline text-emerald-800">|</span>
-                    <Link href="/alumni" className="hover:text-white transition-colors">Alumni</Link>
-                    <span className="hidden md:inline text-emerald-800">|</span>
-                    <Link href="/careers" className="hover:text-white transition-colors">Careers</Link>
+                <div className="flex items-center gap-6 text-emerald-100/70 text-[10px]">
+                    <Link href="/research" className="hover:text-white hover:scale-105 transition-all duration-300">Research</Link>
+                    <Link href="/iqac" className="hover:text-white hover:scale-105 transition-all duration-300">IQAC</Link>
+                    <Link href="/alumni" className="hover:text-white hover:scale-105 transition-all duration-300">Alumni</Link>
+                    <Link href="/careers" className="hover:text-white hover:scale-105 transition-all duration-300">Careers</Link>
                 </div>
             </div>
         </div>

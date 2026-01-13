@@ -78,8 +78,8 @@ export default function AnnouncementTicker() {
     const currentAnnouncement = announcements[currentIndex];
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-emerald-900 border-b border-white/10 shadow-lg h-10 flex items-center overflow-hidden">
-            <div className="flex-shrink-0 bg-emerald-950 px-4 h-full flex items-center border-r border-white/5">
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-emerald-950 border-b border-white/10 shadow-lg h-10 flex items-center overflow-hidden">
+            <div className="flex-shrink-0 bg-black/20 px-4 h-full flex items-center border-r border-white/5">
                 <span className="text-white font-black text-[10px] tracking-[0.2em] uppercase flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
