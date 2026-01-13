@@ -222,70 +222,79 @@ export default function Home() {
         </div>
       </section>
       {/* Principal section - Redesigned */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          {/* Left Side - Image */}
-          <ScrollReveal delay={200} className="relative w-full md:w-5/12 h-[500px] rounded-[40px] overflow-hidden shadow-2xl bg-zinc-100">
-            <Image
-              src="/images/college.png"
-              alt="College Campus"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-700"
-              data-editable="about-image"
-              data-page="home"
-            />
-          </ScrollReveal>
-
-          {/* Right Side - Message Card */}
-          <ScrollReveal className="w-full md:w-7/12">
-            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-zinc-100 relative">
-              {/* Decorative Quote Icon */}
-              <div className="absolute top-12 left-8 text-emerald-100/50 text-8xl font-serif leading-none select-none">
-                &quot;
+      <section className="py-20 px-4 md:px-6 bg-transparent">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-12">
+            {/* Left Side - Image */}
+            {/* Left Side - Portrait Image */}
+            <ScrollReveal delay={200} className="w-full md:w-5/12 relative min-h-[400px] md:min-h-auto">
+              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100 to-transparent rounded-[32px] transform -rotate-2 scale-95 opacity-60"></div>
+              <div className="relative h-full w-full rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
+                <Image
+                  src="/images/college.png"
+                  alt="Principal"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                />
               </div>
+            </ScrollReveal>
 
-              {/* Tag */}
-              <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-bold tracking-widest uppercase mb-6">
-                About Our Institution
-              </span>
+            {/* Right Side - Content Card */}
+            <ScrollReveal className="w-full md:w-7/12">
+              <div className="h-full bg-white rounded-[24px] md:rounded-[32px] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-emerald-50/50 flex flex-col justify-center relative overflow-hidden">
+                {/* Subtle background pattern */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-3xl -mr-16 -mt-16 opacity-50"></div>
 
-              {/* Title */}
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-8 relative z-10" data-editable="about-heading" data-page="home">
-                Welcome to <span className="text-emerald-800">CM College</span>
-              </h2>
-
-              {/* Content */}
-              <div className="space-y-6 text-zinc-600 leading-relaxed relative z-10 text-lg">
-                <p data-editable="about-text-1" data-page="home">
-                  CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut, run by CM center Madavoor, Calicut, Kerala. Established in the year April 2010, the college is situated in Panamaram, shares its 15 acres of beautiful land. Recognized by Government of kerala, the college is affiliated to the University of Calicut.
-                </p>
-                <div className="pl-6 border-l-4 border-emerald-500/30 italic text-zinc-500">
-                  <p data-editable="about-text-2" data-page="home">
-                    &quot;In a short span of time, our college has achieved greater heights since its inception a decade ago by educating thousands of students... we undertake the challenge to serve and provide better education for all the community.&quot;
-                  </p>
-                </div>
-              </div>
-
-              {/* Footer / Signature Area */}
-              <div className="mt-10 flex items-center gap-4 pt-8 border-t border-zinc-50">
-                <div className="w-12 h-12 rounded-full bg-emerald-800 flex items-center justify-center text-white shadow-lg shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-zinc-900 leading-tight">CM College Administration</h4>
-                  <p className="text-sm text-zinc-500">Panamaram, Wayanad</p>
+                {/* Label */}
+                <div className="flex items-center gap-3 mb-6 relative z-10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                  <span className="text-emerald-700 text-[11px] font-bold tracking-widest uppercase bg-emerald-50/80 px-3 py-1.5 rounded-lg backdrop-blur-sm border border-emerald-100">
+                    Principal&apos;s Message
+                  </span>
                 </div>
 
-                <Link href="/about" className="ml-auto">
-                  <button className="px-6 py-2.5 bg-white border-2 border-emerald-100 text-emerald-800 font-semibold rounded-xl hover:bg-emerald-800 hover:text-white hover:border-emerald-800 transition-all text-sm tracking-wide">
-                    Read More
-                  </button>
-                </Link>
+                {/* Heading */}
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 mb-6 leading-tight relative z-10">
+                  Message from <span className="text-emerald-800 block md:inline">The Principal</span>
+                </h2>
+
+                {/* Text Content */}
+                <div className="relative mb-8 z-10">
+                  <span className="absolute -top-6 -left-4 text-8xl text-emerald-100/40 font-serif leading-none select-none">&quot;</span>
+                  <div className="relative z-10 space-y-4 text-zinc-600 leading-relaxed text-[15px] md:text-lg">
+                    <p className="font-medium text-zinc-800">
+                      CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut.
+                    </p>
+                    <p>
+                      In a short span of time, our college has achieved greater heights since its inception a decade ago by educating thousands of students from various parts of our states.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Signature Block */}
+                <div className="mt-auto pt-6 border-t border-dashed border-zinc-200 flex items-center gap-4 relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-700 to-emerald-900 flex items-center justify-center text-white shadow-lg shadow-emerald-900/20">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-base font-bold text-zinc-900">Principal Name</h4>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-2">
+                      <p className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">CM College of Arts & Science</p>
+                      <span className="hidden sm:inline text-zinc-300">•</span>
+                      <p className="text-[11px] text-zinc-400">Wayanad, Kerala</p>
+                    </div>
+                  </div>
+
+                  <Link href="/about">
+                    <button className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 text-emerald-800 hover:bg-emerald-50 hover:border-emerald-200 transition-all">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  </Link>
+                </div>
+
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
