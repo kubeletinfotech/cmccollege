@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* About Section - Premium Bordered Card */}
-      <section className="py-24 px-6 bg-zinc-50/50">
+      <section className="pt-24 pb-12 px-6 bg-zinc-50/50">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto bg-white border-l-4 border-emerald-800 shadow-xl shadow-emerald-900/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
             {/* Background decoration */}
@@ -229,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* Premium Divider */}
-      <div className="relative py-8 md:py-12">
+      <div className="relative py-4 md:py-6">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-gray-300/50"></div>
         </div>
@@ -240,7 +240,7 @@ export default function Home() {
         </div>
       </div>
       {/* Principal section - Redesigned */}
-      <section className="py-20 px-4 md:px-6 bg-transparent">
+      <section className="pb-20 pt-8 px-4 md:px-6 bg-transparent">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-12">
             {/* Left Side - Portrait Image */}
