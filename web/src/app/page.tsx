@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import Gallery from "@/components/Gallery";
+import Professionals from "@/components/Professionals";
 import { usePageContent } from "@/hooks/usePageContent";
 
 
@@ -401,6 +402,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Meet the professionals section*/}
+      <Professionals />
 
       {/* Gallery Preview Section */}
 
