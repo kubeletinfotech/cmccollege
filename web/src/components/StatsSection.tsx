@@ -96,7 +96,7 @@ export default function StatsSection() {
                         boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'
                     }}
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                         {stats.map((stat, index) => (
                             <motion.div
                                 key={stat.id}
@@ -104,7 +104,12 @@ export default function StatsSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.15, duration: 0.6 }}
-                                className="flex flex-col items-center justify-center p-6 md:p-8 group relative"
+                                className={`flex flex-col items-center justify-center p-6 md:p-8 group relative border-white/10
+                                    ${index !== stats.length - 1 ? 'border-b md:border-b-0' : ''} 
+                                    ${index % 2 === 0 ? 'md:border-r lg:border-r-0' : ''}
+                                    ${index < 2 ? 'md:border-b' : ''}
+                                    ${index !== stats.length - 1 ? 'lg:border-r lg:border-b-0' : ''}
+                                `}
                             >
                                 <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
