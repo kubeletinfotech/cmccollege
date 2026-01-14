@@ -243,7 +243,7 @@ export default function Home() {
       </div>
       {/* Principal section - Redesigned */}
       <section className="pb-20 pt-8 px-4 md:px-6 bg-transparent">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-12">
             {/* Left Side - Portrait Image */}
             <ScrollReveal delay={200} className="w-full md:w-5/12 relative h-[400px] md:h-auto md:min-h-full">
@@ -282,10 +282,19 @@ export default function Home() {
                   <span className="absolute -top-6 -left-4 text-8xl text-emerald-100/40 font-serif leading-none select-none">&quot;</span>
                   <div className="relative z-10 space-y-4 text-zinc-600 leading-relaxed text-[15px] md:text-lg text-justify">
                     <p className="font-medium text-zinc-800">
-                      CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut.
+                      Welcome to CM College of Arts and Science. Our institution is built on quality education, discipline, and strong human values. Located in the peaceful surroundings of Wayanad, the college provides an ideal environment for focused learning and personal growth.
+                    </p>
+                    <p className="font-medium text-zinc-800">
+                      We believe education plays a vital role in shaping careers and responsible individuals. Our goal is to offer students the right balance of academic knowledge, practical skills, and value-based learning. Our dedicated faculty guide students toward success in higher studies, careers, and life.
+                    </p>
+                    <p className="font-medium text-zinc-800">
+                      The college offers a range of UG and PG programmes supported by modern facilities, including well-equipped laboratories, a library, digital classrooms, sports facilities, and active student clubs. Our eco-friendly campus further enhances the learning experience.
+                    </p>
+                    <p className="font-medium text-zinc-800">
+                      Through our placement cell, industry training, internships, and co-curricular activities, we help students grow with confidence and purpose.
                     </p>
                     <p>
-                      In a short span of time, our college has achieved greater heights since its inception a decade ago by educating thousands of students from various parts of our states.
+                      I warmly invite students from Kerala and beyond to join CM College and experience quality education in harmony with nature.
                     </p>
                   </div>
                 </div>
