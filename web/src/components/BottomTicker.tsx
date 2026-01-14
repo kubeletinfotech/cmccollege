@@ -77,8 +77,9 @@ export default function BottomTicker() {
                     {/* Gradient Mask Right */}
                     <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none"></div>
 
-                    <div className="flex items-center gap-12 animate-marquee whitespace-nowrap min-w-full pl-4" style={{ animationDuration: '20s' }}>
-                        {[...displayList, ...displayList].map((item, index) => (
+                    {/* Quadruple the content to ensure seamless looping. Decrease duration to increase speed. */}
+                    <div className="flex items-center gap-12 animate-marquee whitespace-nowrap min-w-full pl-4" style={{ animationDuration: '60s' }}>
+                        {[...displayList, ...displayList, ...displayList, ...displayList].map((item, index) => (
                             <div key={index} className="flex items-center gap-3 group cursor-pointer">
                                 <span className="text-neutral-300 text-xs md:text-sm font-medium hover:text-white transition-colors">
                                     {item}
