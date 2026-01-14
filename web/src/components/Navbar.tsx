@@ -16,7 +16,7 @@ export default function Navbar() {
     }
 
     return (
-        <header className="fixed w-full z-50 top-[var(--ticker-height,0px)] flex flex-col">
+        <header className="fixed w-full z-50 top-[var(--ticker-height,0px)] flex flex-col shadow-md">
             <TopBar />
             <nav className="w-full bg-white/80 backdrop-blur-md border-b border-emerald-50">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">

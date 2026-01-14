@@ -200,7 +200,7 @@ export default function Home() {
       {/* About Section - Premium Bordered Card */}
       <section className="pt-14 pb-10 px-4 md:px-6 bg-[#7B0046]/[0.03]">
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
+          <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
@@ -209,12 +209,12 @@ export default function Home() {
                 About Our College
               </h2>
 
-              <div className="space-y-5 text-lg text-zinc-600 leading-relaxed font-normal max-w-3xl">
-                <p data-editable="about-text-1" data-page="home">
-                  CM College of Arts and Science, Nadavayal, Wayanad, is a self-financing institution affiliated with the University of Calicut. Established in April 2010 under the guidance of CM Center Madavoor, the college is set across 15 acres of serene campus.
+              <div className="text-lg text-zinc-600 leading-relaxed font-normal space-y-5 lg:columns-2 lg:gap-12">
+                <p data-editable="about-text-1" data-page="home" className="break-inside-avoid">
+                  CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut, run by CM center Madavoor, Calicut, Kerala. Established in the year April 2010, the college is situated in Panamaram, shares its 15 acres of beautiful land. Recognized by Government of kerala, the college is affiliated to the University of Calicut.
                 </p>
-                <p data-editable="about-text-2" data-page="home">
-                  Over the years, the institution has remained committed to providing quality higher education, empowering students with academic excellence, integrity, and skills for a changing world.
+                <p data-editable="about-text-2" data-page="home" className="break-inside-avoid">
+                  In a short span of time, our college has achieved greater heights since its inception a decade ago by educating thousands of students from various parts of our states. Even though, Wayanad district has been little backward compared to many other districts of Kerala due to its geographical structure, we undertake the challenge to serve and provide better education for all the community.
                 </p>
               </div>
 
