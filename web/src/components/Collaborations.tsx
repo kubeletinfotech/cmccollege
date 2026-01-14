@@ -18,12 +18,22 @@ const programs = [
 
 const MarqueeRow = ({ title, items, reverse = false }: { title: string, items: typeof partners, reverse?: boolean }) => {
     return (
-        <div className="flex flex-col md:flex-row items-stretch border-b border-zinc-100 last:border-b-0 pt-10">
+        <div className="flex flex-col md:flex-row items-stretch border-b border-zinc-100 last:border-b-0 py-8">
             {/* Side Label */}
-            <div className="w-full md:w-64 md:flex-shrink-0 p-6 md:p-8 flex items-center justify-center md:justify-start">
-                <h3 className="text-sm font-bold text-[#7B0046] uppercase tracking-widest text-center md:text-left leading-relaxed">
-                    {title}
-                </h3>
+            <div className="w-full md:w-64 md:flex-shrink-0 p-4 md:p-6 flex items-center justify-center">
+                <div className="relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-white via-white/80 to-blue-50/20 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(93,16,53,0.1)] transition-all duration-500 group/card">
+                    {/* Maroon Accent Strip */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#5D1035] via-[#851E4E] to-[#5D1035]"></div>
+
+                    {/* Glass Shine */}
+                    <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-b from-white/40 to-transparent transform rotate-45 pointer-events-none transition-transform duration-700 group-hover/card:translate-x-full"></div>
+
+                    <div className="p-8 flex items-center justify-center min-h-[120px] relative z-10">
+                        <h3 className="text-sm font-bold text-[#5D1035] uppercase tracking-[0.2em] text-center leading-relaxed">
+                            {title}
+                        </h3>
+                    </div>
+                </div>
             </div>
 
             {/* Marquee Area */}
