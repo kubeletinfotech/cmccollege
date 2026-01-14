@@ -42,8 +42,6 @@ export default function Navbar() {
                                     { name: "HOME", href: "/" },
                                     { name: "ABOUT US", href: "/about" },
                                     { name: "DEPARTMENTS", href: "/academics" },
-                                    { name: "ADMISSION", href: "/admissions" },
-                                    { name: "STUDENTS ZONE", href: "/students-zone" },
                                     { name: "CAMPUS LIFE", href: "/campus-life" },
                                     { name: "AMENITIES", href: "/facilities" },
                                     { name: "GALLERY", href: "/gallery" },
@@ -58,6 +56,15 @@ export default function Navbar() {
                                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#5D1035] transition-all duration-300 group-hover:w-full"></span>
                                     </Link>
                                 ))}
+
+                                {/* Admission Button with Shine Effect */}
+                                <Link href="/admissions">
+                                    <button className="relative px-5 py-2.5 bg-[#5D1035] text-white text-[10px] lg:text-[11px] 2xl:text-[13px] font-bold uppercase tracking-widest rounded overflow-hidden group hover:bg-[#4a0d2a] transition-colors shadow-sm hover:cursor-pointer">
+                                        <span className="relative z-10">Admissions</span>
+                                        {/* Shine Effect */}
+                                        <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+                                    </button>
+                                </Link>
                             </div>
 
                             {/* Separator */}
