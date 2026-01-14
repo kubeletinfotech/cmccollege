@@ -197,9 +197,9 @@ export default function Home() {
       </section>
 
       {/* About Section - Premium Bordered Card */}
-      <section className="pt-14 pb-10 px-4 md:px-6 bg-zinc-50/50">
+      <section className="pt-14 pb-10 px-4 md:px-6 bg-[#7B0046]/[0.03]">
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto bg-white border-l-4 border-[#7B0046] shadow-xl shadow-[#7B0046]/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
@@ -259,7 +259,7 @@ export default function Home() {
 
             {/* Right Side - Content Card */}
             <ScrollReveal className="w-full md:w-7/12">
-              <div className="h-full bg-white rounded-[24px] md:rounded-[32px] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border-l-4 border-[#7B0046] flex flex-col justify-center relative overflow-hidden">
+              <div className="h-full bg-white rounded-[24px] md:rounded-[32px] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 flex flex-col justify-center relative overflow-hidden">
                 {/* Subtle background pattern */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-3xl -mr-16 -mt-16 opacity-50"></div>
 
