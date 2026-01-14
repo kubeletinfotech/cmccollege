@@ -199,9 +199,9 @@ export default function Home() {
       {/* About Section - Premium Bordered Card */}
       <section className="pt-14 pb-10 px-4 md:px-6 bg-zinc-50/50">
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto bg-white border-l-4 border-emerald-800 shadow-xl shadow-emerald-900/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-white border-l-4 border-[#7B0046] shadow-xl shadow-[#7B0046]/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50/50 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
             <div className="relative z-10 flex flex-col items-start text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6 tracking-tight" data-editable="about-heading" data-page="home">
@@ -219,7 +219,7 @@ export default function Home() {
 
               <div className="mt-8">
                 <Link href="/about">
-                  <button className="px-8 py-3 bg-emerald-800 text-white font-medium text-lg rounded-lg hover:bg-emerald-900 transition-all shadow-sm hover:shadow-md active:scale-95 cursor-pointer">
+                  <button className="px-8 py-3 bg-[#7B0046] text-white font-medium text-lg rounded-lg hover:bg-[#600036] transition-all shadow-sm hover:shadow-md active:scale-95 cursor-pointer">
                     Know More
                   </button>
                 </Link>
@@ -236,7 +236,7 @@ export default function Home() {
         </div>
         <div className="relative flex justify-center">
           <div className="bg-zinc-50 px-4">
-            <div className="h-2 w-2 rounded-full bg-emerald-200 ring-4 ring-gray-300"></div>
+            <div className="h-2 w-2 rounded-full bg-[#7B0046] ring-4 ring-gray-300"></div>
           </div>
         </div>
       </div>
