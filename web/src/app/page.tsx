@@ -343,14 +343,16 @@ export default function Home() {
             <p className="text-zinc-600 text-lg max-w-2xl mx-auto" data-editable="academic-description" data-page="home">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               "Department Of Computer Science",
               "Department Of Management",
               "Department Of Mass Communication And Journalism",
               "Department Of Economics",
               "Department Of English",
-              "Department Of Commerce"
+              "Department Of Commerce",
+              "Department Of Statistics",
+              "Department Of Statistics"
             ].map((dept, i) => (
               <ScrollReveal key={i} delay={i * 100}>
                 <div className="h-full p-6 bg-white rounded-xl shadow-sm border border-emerald-50 hover:bg-emerald-800 hover:border-emerald-800 transition-all hover:shadow-lg group cursor-default flex items-center justify-center text-center min-h-[120px]">
@@ -361,28 +363,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Why Choose Us Section
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="why-choose-heading" data-page="home">Why Choose Us</h2>
-          <p className="text-zinc-600 text-lg" data-editable="why-choose-description" data-page="home">The pillars of our institution that ensure your child's success.</p>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-          {[
-            { title: "Quality Education", icon: "🎓", delay: 0 },
-            { title: "Moral Training", icon: "✨", delay: 100 },
-            { title: "Experienced Faculty", icon: "👨‍🏫", delay: 200 },
-            { title: "Safe Campus", icon: "🛡️", delay: 300 }
-          ].map((point, i) => (point &&
-            <ScrollReveal key={i} delay={point.delay} className="text-center p-8 bg-emerald-50/30 rounded-2xl border border-emerald-100/50 hover:bg-white hover:shadow-xl hover:border-emerald-200 transition-all group">
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">{point.icon}</div>
-              <h3 className="text-xl font-bold text-emerald-900">{point.title}</h3>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section> */}
 
       {/* Facilities Preview Section */}
       <section className="py-24 px-6 bg-emerald-900/5">
