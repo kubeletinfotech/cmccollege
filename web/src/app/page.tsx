@@ -205,7 +205,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
             <div className="relative z-10 flex flex-col items-start text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6 tracking-tight" data-editable="about-heading" data-page="home">
+              <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-6 tracking-tight" data-editable="about-heading" data-page="home">
                 CM College
               </h2>
 
@@ -275,15 +275,10 @@ export default function Home() {
                 {/* Label */}
                 <div className="flex items-center gap-3 mb-6 relative z-10">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#7B0046] animate-pulse"></span>
-                  <span className="text-[#7B0046] text-[11px] font-bold tracking-widest uppercase bg-[#7B0046]/5 px-3 py-1.5 rounded-lg backdrop-blur-sm border border-[#7B0046]/10">
+                  <span className="text-[#7B0046] text-[11px] font-bold tracking-widest uppercase bg-[#7B0046]/5 px-4 py-2 md:px-6 md:py-3 rounded-lg backdrop-blur-sm border border-[#7B0046]/10">
                     Principal&apos;s Message
                   </span>
                 </div>
-
-                {/* Heading */}
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 mb-6 leading-tight relative z-10">
-                  Message from <span className="text-[#7B0046] block md:inline">The Principal</span>
-                </h2>
 
                 {/* Text Content */}
                 <div className="relative mb-8 z-10 text-left md:text-justify">
@@ -377,16 +372,18 @@ export default function Home() {
       <section className="py-24 px-6 bg-emerald-900/5">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="facilities-heading" data-page="home">Our Facilities</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="facilities-heading" data-page="home">Campus Facilities</h2>
             <p className="text-zinc-600 text-lg" data-editable="facilities-description" data-page="home">Premium infrastructure providing a comfortable learning experience.</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
             {[
               { name: "Hostel", img: "/images/school_hostel_1768115536813.png" },
               { name: "Masjid", img: "/images/school_masjid_1768115559090.png" },
               { name: "Labs", img: "/images/science_lab_1768115578614.png" },
-              { name: "Library", img: "/images/school_library_1768115599802.png" }
+              { name: "Library", img: "/images/school_library_1768115599802.png" },
+              { name: "Bus", img: "https://plus.unsplash.com/premium_photo-1765918653607-eb9aeeb61327?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+
             ].map((facility, i) => (
               <ScrollReveal key={i} delay={i * 100} className="group cursor-pointer">
                 <Link href="/facilities">

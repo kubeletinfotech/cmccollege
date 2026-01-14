@@ -87,7 +87,7 @@ export default function Testimonials() {
                         What Our Alumni Say
                     </span>
                     <h2 className="text-3xl md:text-5xl font-bold font-serif tracking-tight">
-                        Our Testimonials
+                        Testimonials
                     </h2>
                     <div className="w-16 h-1 bg-emerald-500 mx-auto mt-6 rounded-full opacity-80"></div>
                 </motion.div>

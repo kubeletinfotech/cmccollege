@@ -87,7 +87,7 @@ export default function Gallery() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold text-zinc-900 mb-4 tracking-tight"
+                        className="text-3xl md:text-5xl font-bold text-emerald-800 mb-4 tracking-tight"
                     >
                         Campus Highlights
                     </motion.h2>
