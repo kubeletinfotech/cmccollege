@@ -327,24 +327,45 @@ export default function Home() {
       <section className="py-24 px-6 bg-zinc-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="academic-heading" data-page="home">Our Departments</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="academic-heading" data-page="home">Departments of Academic Studies</h2>
             <p className="text-zinc-600 text-lg max-w-2xl mx-auto" data-editable="academic-description" data-page="home">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              "Department Of Computer Science",
-              "Department Of Management",
-              "Department Of Mass Communication And Journalism",
-              "Department Of Economics",
-              "Department Of English",
-              "Department Of Commerce",
-              "Department Of Statistics",
-              "Department Of Statistics"
+              { name: "Department Of Computer Science", img: "/images/science_exhibition_project_1768117868795.png" }, // Using valid science project image
+              { name: "Department Of Management", img: "/images/admission_counseling_session_1768116369318.png" },
+              { name: "Department Of Mass Communication And Journalism", img: "/images/cultural_fest_performance_1768117835053.png" },
+              { name: "Department Of Economics", img: "/images/school_library_1768115599802.png" },
+              { name: "Department Of English", img: "/images/classroom_learning_1768115518451.png" },
+              { name: "Department Of Commerce", img: "/images/document_verification_office_1768116391105.png" },
+              { name: "Department Of Statistics", img: "/images/modern_science_lab_1768116682208.png" },
+              { name: "Department Of Psychology", img: "/images/science_exhibition_project_1768117868795.png" } // Changed duplicate stats to Psychology or general
             ].map((dept, i) => (
               <ScrollReveal key={i} delay={i * 100}>
-                <div className="h-full p-6 bg-white rounded-xl shadow-sm border border-emerald-50 hover:bg-emerald-800 hover:border-emerald-800 transition-all hover:shadow-lg group cursor-default flex items-center justify-center text-center min-h-[120px]">
-                  <h3 className="text-lg font-bold text-emerald-900 group-hover:text-white transition-colors uppercase tracking-wide">{dept}</h3>
+                <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border border-zinc-100 hover:cursor-pointer">
+
+                  {/* Hover Background Image with subtle zoom */}
+                  <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
+                    <Image
+                      src={dept.img}
+                      alt={dept.name}
+                      fill
+                      className="object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
+                    />
+                    {/* Dark Gradient Overlay for readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10 w-full">
+                    <h3 className="text-sm md:text-base font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
+                      {dept.name}
+                    </h3>
+
+                    {/* Optional decorative line that appears on hover */}
+                    <div className="h-0.5 w-0 bg-emerald-400 mx-auto mt-0 group-hover:mt-3 group-hover:w-12 transition-all duration-500 opacity-0 group-hover:opacity-100 delay-100"></div>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
