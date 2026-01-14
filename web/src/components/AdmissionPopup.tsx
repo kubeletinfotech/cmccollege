@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { X, Calendar, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 // CONFIGURATION
 const ADMISSION_CONFIG = {
     // Set dates to include today for demonstration
     startDate: new Date("2026-01-13"),
     endDate: new Date("2026-05-31"),
-    academicYear: "2026–27",
+    academicYear: "2026–30",
 };
 
 export default function AdmissionPopup() {
@@ -96,7 +97,7 @@ export default function AdmissionPopup() {
                                     </h2>
 
                                     <p className="text-gray-600 max-w-md mx-auto">
-                                        Secure your future with our integrated +1 / +2 Science & Commerce programs combined with Islamic values.
+                                        Secure your future with our specialized Undergraduate (UG) and Postgraduate (PG) programs combined with Islamic values.
                                     </p>
                                 </div>
 
@@ -108,16 +109,14 @@ export default function AdmissionPopup() {
 
                                 {/* Actions */}
                                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                                    <button
-                                        onClick={() => {
-                                            // Navigate to admission page logic would go here
-                                            handleClose(); // Close popup when navigated? Or keep it? keeping it simple for now.
-                                        }}
+                                    <Link
+                                        href="/admissions"
+                                        onClick={handleClose}
                                         className="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white font-medium py-3 px-6 rounded-xl transition-all shadow-lg hover:shadow-emerald-900/20 active:scale-95 group"
                                     >
                                         Apply Now
                                         <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                                    </button>
+                                    </Link>
 
                                     <button
                                         onClick={handleClose}
