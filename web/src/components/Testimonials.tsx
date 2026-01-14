@@ -12,27 +12,28 @@ interface Testimonial {
     year: string;
 }
 
+
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        quote: "The academic rigor and supportive environment at CM College shaped my career foundation. It wasn't just about degrees; it was about character building and holistic growth.",
-        name: "Aysha R.",
-        program: "B.Sc. Psychology",
-        year: "Class of 2019",
+        quote: "CM College stands out as a beacon of excellence in education. The transformative years spent here were instrumental in honing my skills and shaping my perspective. The exceptional mentorship and state-of-the-art facilities provided a holistic learning experience. Beyond academics, the college encouraged a spirit of leadership and community service, qualities that continue to guide me in my career and life.",
+        name: "Muhammed Masood",
+        program: "B.Sc Computer Science",
+        year: "Class of 2020",
     },
     {
         id: 2,
-        quote: "From cultural fests to intense classroom sessions, my days here were unforgettable. The faculty truly cares about every student's potential and future success.",
-        name: "Muhammed Fasil",
-        program: "B.Com Computer Application",
-        year: "Class of 2021",
+        quote: "Attending CM College was an unforgettable journey that enriched my academic and personal growth. The dedicated faculty and innovative curriculum provided a solid foundation for my career. The college’s vibrant campus life and diverse student community fostered lifelong friendships and networking opportunities. Grateful for the nurturing environment that helped shape me into a successful professional.",
+        name: "Tony Martin",
+        program: "BA ENGLISH",
+        year: "Class of 2016",
     },
     {
         id: 3,
-        quote: "Being part of the NSS and various clubs gave me leadership skills I use every day in my corporate life. A wonderful place to learn and grow.",
-        name: "Fathima S.",
-        program: "BA English",
-        year: "Class of 2020",
+        quote: "Choosing CM College was a pivotal decision that I’ll forever cherish. The institution’s commitment to academic rigor, combined with its inclusive atmosphere, set the stage for my achievements. The interactive classroom sessions and emphasis on real-world applications equipped me with practical knowledge. I owe a significant part of my accomplishments to the solid education and values instilled by CM College.",
+        name: "Hashir Salim",
+        program: "BCA",
+        year: "Class of 2022",
     },
 ];
 
@@ -93,7 +94,7 @@ export default function Testimonials() {
                 </motion.div>
 
                 {/* Testimonial Carousel */}
-                <div className="relative h-[280px] md:h-[220px] flex items-center justify-center">
+                <div className="relative min-h-[350px] md:min-h-[300px] flex items-center justify-center">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={testimonials[currentIndex].id}
@@ -101,17 +102,17 @@ export default function Testimonials() {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: -10 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="absolute inset-0 flex flex-col items-center justify-center"
+                            className="absolute inset-0 flex flex-col items-center justify-center px-4"
                         >
-                            <div className="max-w-3xl">
-                                <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed italic opacity-90 mb-8">
+                            <div className="max-w-4xl">
+                                <p className="text-base md:text-lg lg:text-xl font-medium leading-loose italic opacity-90 mb-6 md:mb-8 font-serif">
                                     &quot;{testimonials[currentIndex].quote}&quot;
                                 </p>
-                                <div className="flex flex-col items-center gap-1">
-                                    <h4 className="text-lg md:text-xl font-bold text-emerald-200">
+                                <div className="flex flex-col items-center gap-1.5">
+                                    <h4 className="text-base md:text-lg font-bold text-emerald-200 uppercase tracking-wide">
                                         {testimonials[currentIndex].name}
                                     </h4>
-                                    <span className="text-sm text-gray-300 font-medium tracking-wide">
+                                    <span className="text-xs md:text-sm text-gray-300 font-medium tracking-wider bg-white/10 px-3 py-1 rounded-full">
                                         {testimonials[currentIndex].program} &bull; {testimonials[currentIndex].year}
                                     </span>
                                 </div>
