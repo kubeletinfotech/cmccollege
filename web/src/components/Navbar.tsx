@@ -19,10 +19,10 @@ export default function Navbar() {
         <header className="fixed w-full z-50 top-[var(--ticker-height,0px)] flex flex-col">
             <TopBar />
             <nav className="w-full bg-white/80 backdrop-blur-md border-b border-emerald-50">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="flex justify-between items-center h-20">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-2 md:-ml-3 lg:-ml-3">
+                        <Link href="/" className="flex items-center gap-2 -ml-4 md:-ml-30 lg:-ml-30">
                             <div className="relative w-64 h-16">
                                 <Image
                                     src="/images/logo.png"
