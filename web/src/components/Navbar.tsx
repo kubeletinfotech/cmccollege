@@ -24,7 +24,7 @@ export default function Navbar() {
                     <div className="flex justify-between items-center h-24">
                         {/* Logo (Left) */}
                         <Link href="/" className="flex items-center">
-                            <div className="relative w-48 xl:w-64 h-16 xl:h-20">
+                            <div className="relative w-40 lg:w-48 2xl:w-64 h-16 2xl:h-20">
                                 <Image
                                     src="/images/logo.png"
                                     alt="School Logo"
@@ -35,14 +35,13 @@ export default function Navbar() {
                         </Link>
 
                         {/* Right Section: Navigation & Socials */}
-                        <div className="hidden lg:flex items-center gap-6 xl:gap-3">
+                        <div className="hidden lg:flex items-center gap-4 2xl:gap-12">
                             {/* Desktop Navigation */}
-                            <div className="flex items-center gap-3 xl:gap-8">
+                            <div className="flex items-center gap-2 lg:gap-3 2xl:gap-8">
                                 {[
                                     { name: "HOME", href: "/" },
                                     { name: "ABOUT US", href: "/about" },
-                                    { name: "DEPARTMENTS", href: "/departments" },
-                                    { name: "ACADEMICS", href: "/academics" },
+                                    { name: "DEPARTMENTS", href: "/academics" },
                                     { name: "ADMISSION", href: "/admissions" },
                                     { name: "STUDENTS ZONE", href: "/students-zone" },
                                     { name: "CAMPUS LIFE", href: "/campus-life" },
@@ -53,7 +52,7 @@ export default function Navbar() {
                                     <Link
                                         key={link.name}
                                         href={link.href}
-                                        className="text-[10px] xl:text-[12px] font-black text-zinc-800 hover:text-[#5D1035] transition-colors uppercase tracking-widest relative group whitespace-nowrap"
+                                        className="text-[10px] lg:text-[11px] 2xl:text-[13px] font-black text-zinc-800 hover:text-[#5D1035] transition-colors uppercase tracking-widest relative group whitespace-nowrap"
                                     >
                                         {link.name}
                                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#5D1035] transition-all duration-300 group-hover:w-full"></span>
