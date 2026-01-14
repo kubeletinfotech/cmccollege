@@ -380,7 +380,7 @@ export default function Home() {
             {[
               { name: "Hostel", img: "/images/school_hostel_1768115536813.png" },
               { name: "Masjid", img: "/images/school_masjid_1768115559090.png" },
-              { name: "Labs", img: "/images/science_lab_1768115578614.png" },
+              { name: "Labs", img: "https://images.unsplash.com/photo-1636036766419-4e0e3e628acc?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
               { name: "Library", img: "/images/school_library_1768115599802.png" },
               { name: "Bus", img: "https://plus.unsplash.com/premium_photo-1765918653607-eb9aeeb61327?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
 
