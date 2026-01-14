@@ -158,7 +158,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex flex-col items-center justify-center py-24 px-6 md:py-40 text-white overflow-hidden">
+      <section className="relative min-h-[75vh] flex flex-col items-center justify-center py-24 px-6 md:py-40 text-white overflow-hidden">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
