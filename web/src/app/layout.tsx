@@ -18,6 +18,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { Playfair_Display } from "next/font/google";
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "CM College of Art and Science – Nadavayal, Wayanad",
   description: "Welcome to CM College of Arts and Science, I am proud to lead an institution that stands for better quality education, good discipline, and strong human values.",
@@ -51,7 +57,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased pt-[var(--ticker-height,0px)]`}
+          className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased pt-[var(--ticker-height,0px)]`}
         >
           <Navbar />
           <script
