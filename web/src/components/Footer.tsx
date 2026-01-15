@@ -22,7 +22,7 @@ export default function Footer() {
                                 src="/images/logo.png"
                                 alt="School Logo"
                                 fill
-                                className="object-contain brightness-0 invert"
+                                className="object-contain brightness-0 invert scale-[3] origin-left"
                             />
                         </div>
                     </div>
