@@ -25,9 +25,7 @@ export default function BottomTicker() {
     const [announcements, setAnnouncements] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
 
-    if (pathname?.startsWith('/admin')) {
-        return null;
-    }
+
 
     useEffect(() => {
         const fetchAnnouncements = async () => {
@@ -58,6 +56,10 @@ export default function BottomTicker() {
     // Let's rely on the useEffect setter.
 
     const displayList = announcements.length > 0 ? announcements : fallbackAnnouncements;
+
+    if (pathname?.startsWith('/admin')) {
+        return null;
+    }
 
     return (
         <Link href="/announcements">

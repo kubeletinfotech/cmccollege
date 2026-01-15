@@ -100,7 +100,7 @@ export default function AdminLayout({
                 <div className="p-4 border-t border-zinc-800">
                     <div className="p-4 border-t border-zinc-800">
                         <SignOutButton>
-                            <button className="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-red-400 transition-colors w-full text-left">
+                            <button className="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-red-400 transition-colors w-full text-left hover:cursor-pointer">
                                 <LogOut className="w-5 h-5" />
                                 Logout
                             </button>
