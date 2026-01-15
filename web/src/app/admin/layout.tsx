@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser, UserButton, useClerk } from '@clerk/nextjs';
-import { FileText, LogOut, Loader2, Newspaper } from 'lucide-react';
+import { FileText, LogOut, Loader2, Newspaper, Megaphone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AdminLayout({
@@ -81,6 +81,11 @@ export default function AdminLayout({
         {
             name: 'News', href: '/admin/news', icon: (
                 <Newspaper className="w-5 h-5" />
+            )
+        },
+        {
+            name: 'Admission Popup', href: '/admin/admission', icon: (
+                <Megaphone className="w-5 h-5" />
             )
         },
     ];

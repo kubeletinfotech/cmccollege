@@ -6,36 +6,57 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 // CONFIGURATION
-const ADMISSION_CONFIG = {
-    // Set dates to include today for demonstration
-    startDate: new Date("2026-01-13"),
-    endDate: new Date("2026-05-31"),
-    academicYear: "2026–30",
-};
-
 export default function AdmissionPopup() {
     const [isVisible, setIsVisible] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
+    const [config, setConfig] = useState({
+        startDate: new Date(),
+        endDate: new Date(),
+        academicYear: "",
+        title: "Admissions Open",
+        description: "Secure your future with our specialized Undergraduate (UG) and Postgraduate (PG) programs combined with Islamic values."
+    });
 
     useEffect(() => {
         setIsMounted(true);
 
-        const checkVisibility = () => {
-            const now = new Date();
-            const hasClosedPopup = sessionStorage.getItem("admission-popup-closed");
+        const fetchSettingsAndCheckVisibility = async () => {
+            try {
+                // Fetch settings from API
+                const rawUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+                const apiUrl = rawUrl.endsWith('/api') ? rawUrl : `${rawUrl.replace(/\/$/, '')}/api`;
 
-            if (
-                !hasClosedPopup &&
-                now >= ADMISSION_CONFIG.startDate &&
-                now <= ADMISSION_CONFIG.endDate
-            ) {
-                // Show immediately
-                setIsVisible(true);
-                return;
+                const res = await fetch(`${apiUrl}/admission/settings`);
+                if (!res.ok) return;
+
+                const data = await res.json();
+
+                if (!data.isActive) return;
+
+                const startDate = new Date(data.startDate);
+                const endDate = new Date(data.endDate);
+
+                // Update local config
+                setConfig({
+                    startDate,
+                    endDate,
+                    academicYear: data.academicYear,
+                    title: data.title || "Admissions Open",
+                    description: data.description || "Secure your future with our specialized Undergraduate (UG) and Postgraduate (PG) programs combined with Islamic values."
+                });
+
+                const now = new Date();
+                const hasClosedPopup = sessionStorage.getItem("admission-popup-closed");
+
+                if (!hasClosedPopup && now >= startDate && now <= endDate) {
+                    setIsVisible(true);
+                }
+            } catch (error) {
+                console.error("Failed to load admission popup settings", error);
             }
         };
 
-        checkVisibility();
+        fetchSettingsAndCheckVisibility();
     }, []);
 
     const handleClose = () => {
@@ -89,15 +110,15 @@ export default function AdmissionPopup() {
                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
                                         </span>
-                                        Admissions Open
+                                        {config.title}
                                     </div>
 
                                     <h2 className="text-3xl font-bold text-gray-900">
-                                        Apply for {ADMISSION_CONFIG.academicYear}
+                                        Apply for {config.academicYear}
                                     </h2>
 
                                     <p className="text-gray-600 max-w-md mx-auto">
-                                        Secure your future with our specialized Undergraduate (UG) and Postgraduate (PG) programs combined with Islamic values.
+                                        {config.description}
                                     </p>
                                 </div>
 

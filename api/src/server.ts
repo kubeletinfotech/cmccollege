@@ -10,6 +10,7 @@ import pageRoutes from './routes/pageRoutes';
 import userRoutes from './routes/userRoutes';
 
 import newsRoutes from './routes/newsRoutes';
+import admissionRoutes from './routes/admissionRoutes';
 
 // Load environment variables
 dotenv.config();
@@ -31,6 +32,7 @@ app.use('/api/imagekit', imagekitRoutes);
 app.use('/api/pages', pageRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/news', newsRoutes);
+app.use('/api/admission', admissionRoutes);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('School API is running');
@@ -40,4 +42,5 @@ app.get('/', (req: Request, res: Response) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+    // Server started
 });
