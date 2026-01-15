@@ -1,37 +1,69 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-const newsItems = [
+interface NewsItem {
+    _id: string;
+    title: string;
+    description: string;
+    date: string;
+    image: string;
+    tag: string;
+}
+
+const fallbackNews = [
     {
-        id: 1,
-        date: "12 Aug 2026",
+        _id: '1',
+        date: "2026-08-12",
         title: "National Seminar on Artificial Intelligence",
         description: "Faculty and students participated in an academic seminar led by industry experts.",
         image: "/images/classroom_learning_1768115518451.png",
         tag: "Seminar"
     },
     {
-        id: 2,
-        date: "28 Jul 2026",
+        _id: '2',
+        date: "2026-07-28",
         title: "Annual Sports Meet 2026 Successfully Conducted",
         description: "Students showcased talent and teamwork across multiple sports events.",
         image: "/images/school_sports_day_1768117809679.png",
         tag: "Sports"
-    },
-    {
-        id: 3,
-        date: "10 Jul 2026",
-        title: "Cultural Fest “Harmony 2026”",
-        description: "A celebration of creativity, music, and student engagement on campus.",
-        image: "/images/cultural_fest_performance_1768117835053.png",
-        tag: "Cultural"
     }
 ];
 
 export default function NewsSection() {
+    const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news`);
+                const data = await res.json();
+                if (data.success && data.data.length > 0) {
+                    setNewsItems(data.data.slice(0, 3)); // Show only latest 3
+                } else {
+                    setNewsItems(fallbackNews);
+                }
+            } catch (error) {
+                console.error("Failed to fetch news", error);
+                setNewsItems(fallbackNews);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchNews();
+    }, []);
+
+    const formatDate = (dateString: string) => {
+        return new Date(dateString).toLocaleDateString('en-GB', {
+            day: 'numeric', month: 'short', year: 'numeric'
+        });
+    };
+
     return (
         <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
@@ -61,7 +93,7 @@ export default function NewsSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {newsItems.map((item, index) => (
                         <motion.div
-                            key={item.id}
+                            key={item._id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -69,9 +101,9 @@ export default function NewsSection() {
                             className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-zinc-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col h-full"
                         >
                             {/* Image */}
-                            <div className="relative h-56 overflow-hidden">
+                            <div className="relative h-56 overflow-hidden bg-zinc-100">
                                 <Image
-                                    src={item.image}
+                                    src={item.image || '/images/college.png'}
                                     alt={item.title}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -87,7 +119,7 @@ export default function NewsSection() {
                                     <svg className="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
-                                    <span className="text-sm font-medium text-zinc-500">{item.date}</span>
+                                    <span className="text-sm font-medium text-zinc-500">{formatDate(item.date)}</span>
                                 </div>
 
                                 <h3 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-emerald-700 transition-colors line-clamp-2">
@@ -111,7 +143,7 @@ export default function NewsSection() {
 
                 {/* View All Button */}
                 <div className="mt-12 text-center">
-                    <Link href="/events">
+                    <Link href="/news">
                         <button className="px-8 py-3 rounded-full border border-zinc-200 text-zinc-600 font-semibold hover:bg-zinc-50 hover:text-emerald-800 hover:border-emerald-200 transition-all">
                             View All Events
                         </button>
