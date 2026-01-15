@@ -62,13 +62,13 @@ export default function Gallery() {
                 const data = await response.json();
 
                 if (data.success && data.data.length > 0) {
-                    setItems(data.data);
+                    setItems(data.data.slice(0, 6));
                 } else {
-                    setItems(fallbackItems);
+                    setItems(fallbackItems.slice(0, 6));
                 }
             } catch (error) {
                 console.error('Failed to fetch gallery:', error);
-                setItems(fallbackItems);
+                setItems(fallbackItems.slice(0, 4));
             } finally {
                 setLoading(false);
             }

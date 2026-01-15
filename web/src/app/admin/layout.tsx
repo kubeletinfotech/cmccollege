@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useUser, UserButton, SignOutButton } from '@clerk/nextjs';
-import { FileText, LogOut } from 'lucide-react';
+import { useUser, UserButton, useClerk } from '@clerk/nextjs';
+import { FileText, LogOut, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AdminLayout({
     children,
@@ -12,9 +13,18 @@ export default function AdminLayout({
     children: React.ReactNode;
 }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isLoggingOut, setIsLoggingOut] = useState(false);
     const pathname = usePathname();
     const { user, isLoaded } = useUser();
+    const { signOut } = useClerk();
     const router = useRouter();
+
+    const handleLogout = async () => {
+        setIsLoggingOut(true);
+        // Add a small delay for the animation to be visible
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        await signOut(() => router.push('/'));
+    };
 
     useEffect(() => {
         if (isLoaded && user) {
@@ -99,12 +109,13 @@ export default function AdminLayout({
 
                 <div className="p-4 border-t border-zinc-800">
                     <div className="p-4 border-t border-zinc-800">
-                        <SignOutButton>
-                            <button className="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-red-400 transition-colors w-full text-left hover:cursor-pointer">
-                                <LogOut className="w-5 h-5" />
-                                Logout
-                            </button>
-                        </SignOutButton>
+                        <button
+                            onClick={handleLogout}
+                            className="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-red-400 transition-colors w-full text-left hover:cursor-pointer"
+                        >
+                            <LogOut className="w-5 h-5" />
+                            Logout
+                        </button>
                     </div>
                 </div>
             </aside>
@@ -147,12 +158,13 @@ export default function AdminLayout({
                         </Link>
                     ))}
                     <div className="mt-8 border-t border-zinc-800 pt-2">
-                        <SignOutButton>
-                            <button className="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-red-400 transition-colors w-full text-left">
-                                <LogOut className="w-5 h-5" />
-                                Logout
-                            </button>
-                        </SignOutButton>
+                        <button
+                            onClick={handleLogout}
+                            className="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-red-400 transition-colors w-full text-left"
+                        >
+                            <LogOut className="w-5 h-5" />
+                            Logout
+                        </button>
                     </div>
                 </nav>
             </aside>
@@ -216,6 +228,32 @@ export default function AdminLayout({
                     {children}
                 </main>
             </div>
+
+            {/* Logout Animation Overlay */}
+            <AnimatePresence>
+                {isLoggingOut && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] bg-zinc-900 flex flex-col items-center justify-center text-white"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                            className="flex flex-col items-center gap-6"
+                        >
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full"></div>
+                                <Loader2 className="w-16 h-16 animate-spin text-emerald-500 relative z-10" />
+                            </div>
+                            <h2 className="text-2xl font-bold tracking-tight">Signing Out...</h2>
+                            <p className="text-zinc-400">See you again soon!</p>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
