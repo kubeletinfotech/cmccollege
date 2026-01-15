@@ -14,25 +14,6 @@ interface NewsItem {
     tag: string;
 }
 
-const fallbackNews = [
-    {
-        _id: '1',
-        date: "2026-08-12",
-        title: "National Seminar on Artificial Intelligence",
-        description: "Faculty and students participated in an academic seminar led by industry experts.",
-        image: "/images/classroom_learning_1768115518451.png",
-        tag: "Seminar"
-    },
-    {
-        _id: '2',
-        date: "2026-07-28",
-        title: "Annual Sports Meet 2026 Successfully Conducted",
-        description: "Students showcased talent and teamwork across multiple sports events.",
-        image: "/images/school_sports_day_1768117809679.png",
-        tag: "Sports"
-    }
-];
-
 export default function NewsSection() {
     const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -42,14 +23,11 @@ export default function NewsSection() {
             try {
                 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news`);
                 const data = await res.json();
-                if (data.success && data.data.length > 0) {
+                if (data.success) {
                     setNewsItems(data.data.slice(0, 3)); // Show only latest 3
-                } else {
-                    setNewsItems(fallbackNews);
                 }
             } catch (error) {
                 console.error("Failed to fetch news", error);
-                setNewsItems(fallbackNews);
             } finally {
                 setIsLoading(false);
             }
