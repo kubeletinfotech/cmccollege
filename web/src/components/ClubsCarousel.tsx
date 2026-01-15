@@ -1,38 +1,44 @@
 'use client';
 
+import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import { motion, useAnimation, useMotionValue } from 'framer-motion';
 
 const clubs = [
     {
         id: 1,
-        name: "TechSias",
-        icon: "💻"
+        name: "Nature Club",
+        image: "https://i.pinimg.com/1200x/9e/db/d8/9edbd8e1200b24f0e5bb560733a087e8.jpg"
     },
     {
         id: 2,
-        name: "Women Development Cell",
-        icon: "👩‍🎓"
+        name: "TechSias",
+        image: "https://i.pinimg.com/736x/d9/90/a9/d990a970d73df3c569b2e9a467d59922.jpg"
     },
     {
         id: 3,
-        name: "National Service Scheme",
-        icon: "🤝"
+        name: "Women Development Cell",
+        image: "https://i.pinimg.com/1200x/1e/1b/80/1e1b80ce59caa3bcf552518baadf513d.jpg"
     },
     {
         id: 4,
-        name: "Arts & Cultural Club",
-        icon: "🎨"
+        name: "National Service Scheme",
+        image: "https://i.pinimg.com/1200x/1e/1b/80/1e1b80ce59caa3bcf552518baadf513d.jpg"
     },
     {
         id: 5,
-        name: "Sports Club",
-        icon: "🏆"
+        name: "Arts & Cultural Club",
+        image: "https://i.pinimg.com/736x/7d/73/da/7d73da2678a646971f19004eeaec8eab.jpg"
     },
     {
         id: 6,
+        name: "Sports Club",
+        image: "https://i.pinimg.com/736x/83/c2/64/83c2648170276c460351205df7c36e34.jpg"
+    },
+    {
+        id: 7,
         name: "Entrepreneurship Cell",
-        icon: "🚀"
+        image: "https://i.pinimg.com/736x/34/7e/b8/347eb87ff820c17dcca0039e282e2059.jpg"
     }
 ];
 
@@ -45,7 +51,7 @@ export default function ClubsCarousel() {
 
     useEffect(() => {
         if (carouselRef.current) {
-            setWidth(carouselRef.current.scrollWidth / 2); // Divide by 2 because we duplicated items
+            setWidth(carouselRef.current.scrollWidth / 2);
         }
     }, []);
 
@@ -56,7 +62,7 @@ export default function ClubsCarousel() {
                     await controls.start({
                         x: -width,
                         transition: {
-                            duration: 20,
+                            duration: 25,
                             ease: "linear",
                             repeat: Infinity,
                             repeatType: "loop"
@@ -74,7 +80,7 @@ export default function ClubsCarousel() {
     }, [isHovered, width, controls]);
 
     // Duplicate clubs for seamless loop
-    const displayClubs = [...clubs, ...clubs, ...clubs]; // Tripled to ensure smoothness on large screens
+    const displayClubs = [...clubs, ...clubs, ...clubs];
 
     return (
         <section className="py-24 bg-zinc-50 overflow-hidden">
@@ -115,13 +121,18 @@ export default function ClubsCarousel() {
                     {displayClubs.map((club, index) => (
                         <motion.div
                             key={`${club.id}-${index}`}
-                            className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 w-32 h-32 md:w-64 md:h-64 flex flex-col items-center justify-center border border-zinc-100 group cursor-pointer"
+                            className="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 w-28 h-28 md:w-48 md:h-48 flex flex-col items-center justify-center border border-zinc-100 group cursor-pointer relative overflow-hidden"
                             whileHover={{ y: -8 }}
                         >
-                            <div className="text-3xl md:text-6xl mb-3 md:mb-6 bg-zinc-50 p-3 md:p-6 rounded-full group-hover:scale-110 transition-transform duration-300">
-                                {club.icon}
+                            <div className="relative w-14 h-14 md:w-24 md:h-24 mb-2 md:mb-4 transition-transform duration-500 group-hover:scale-110">
+                                <Image
+                                    src={club.image}
+                                    alt={club.name}
+                                    fill
+                                    className="object-contain"
+                                />
                             </div>
-                            <h3 className="text-xs md:text-lg font-bold text-zinc-800 text-center px-1 md:px-4 group-hover:text-emerald-700 transition-colors leading-tight">
+                            <h3 className="text-[10px] md:text-sm font-bold text-zinc-800 text-center px-1 md:px-4 group-hover:text-emerald-700 transition-colors leading-tight line-clamp-2">
                                 {club.name}
                             </h3>
                         </motion.div>
