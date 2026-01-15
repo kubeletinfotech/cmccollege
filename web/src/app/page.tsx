@@ -125,7 +125,7 @@ export default function Home() {
   const [isPaused, setIsPaused] = useState(false);
 
   const heroImages = [
-    "/images/hero_campus_background_1768115501790.png",
+    "https://cmcollege.edu.in/wp-content/uploads/2023/08/banner4.jpg",
     "/images/school_sports_day_1768117809679.png",
     "/images/school_library_1768115599802.png"
   ];
