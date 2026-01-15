@@ -55,7 +55,7 @@ export default function AdmissionPopup() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={handleClose}
-                        className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 sm:p-0"
+                        className="fixed inset-0 z-[100] bg-black/20 flex items-center justify-center p-4 sm:p-0"
                     />
 
                     {/* Modal Container */}
