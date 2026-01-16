@@ -14,6 +14,7 @@ import {
     Quote
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import AccreditationSection from "@/components/AccreditationSection";
 
 export default function AboutPage() {
     return (
@@ -92,6 +93,9 @@ export default function AboutPage() {
                 </div>
             </section>
 
+            {/* 2.5. ACCREDITATION SECTION */}
+            <AccreditationSection />
+
             {/* 3. CHAIRMAN'S MESSAGE */}
             <section className="py-20 bg-emerald-50">
                 <div className="container mx-auto px-4 md:px-6">
@@ -157,7 +161,7 @@ export default function AboutPage() {
                                 </div>
                                 <h3 className="text-xl font-bold font-serif text-zinc-900 mb-3">Our Vision</h3>
                                 <p className="text-zinc-600 leading-relaxed text-sm">
-                                    To be a center of excellence that empowers students with knowledge, skills, and values to contribute meaningfully to society and the nation.
+                                    A Centre of Excellence that moulds a community of learners equipped with outstanding life skills to serve the needs of society
                                 </p>
                             </div>
                         </ScrollReveal>
@@ -170,7 +174,7 @@ export default function AboutPage() {
                                 </div>
                                 <h3 className="text-xl font-bold font-serif text-zinc-900 mb-3">Our Mission</h3>
                                 <p className="text-zinc-600 leading-relaxed text-sm">
-                                    To provide holistic education that balances academic excellence with moral uprightness, fostering innovation, critical thinking, and social responsibility.
+                                    To provide a nurturing environment that inspires students to seek knowledge, acquire practical experience, and develop outstanding life skills, enabling them to grow as responsible individuals who contribute meaningfully to society.
                                 </p>
                             </div>
                         </ScrollReveal>
