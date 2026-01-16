@@ -26,7 +26,7 @@ const navItems = [
     { id: "about-college", label: "About College", icon: <Layout size={18} /> },
     { id: "accreditation", label: "Accreditation", icon: <ShieldCheck size={18} /> },
     { id: "vision-mission", label: "Vision & Mission", icon: <Target size={18} /> },
-    { id: "principal-message", label: "Principal's Message", icon: <UserCheck size={18} /> },
+    { id: "chairman-message", label: "Chairman's Message", icon: <UserCheck size={18} /> },
 ];
 
 export default function AboutPage() {
@@ -250,35 +250,49 @@ export default function AboutPage() {
                             </ScrollReveal>
                         </section>
 
-                        {/* 5. PRINCIPAL'S MESSAGE SECTION */}
-                        <section id="principal-message" className="scroll-mt-32">
+                        {/* 5. CHAIRMAN'S MESSAGE SECTION */}
+                        <section id="chairman-message" className="scroll-mt-32">
                             <ScrollReveal>
-                                <div className="bg-gradient-to-br from-[#7B0046] to-[#50002d] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
-                                    <div className="absolute top-0 right-0 p-12 opacity-10">
-                                        <Quote size={200} />
+                                <div className="bg-[#50002d] rounded-2xl p-8 md:p-14 text-white relative overflow-hidden shadow-xl">
+                                    {/* Quote Icon Background */}
+                                    <div className="absolute top-10 right-10 opacity-10 pointer-events-none">
+                                        <Quote size={180} />
                                     </div>
 
-                                    <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center relative z-10">
-                                        <div className="w-40 h-40 md:w-56 md:h-56 shrink-0 relative rounded-full border-4 border-white/20 shadow-2xl overflow-hidden">
-                                            <Image
-                                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
-                                                alt="Dr. Abdul Rahman"
-                                                fill
-                                                className="object-cover"
-                                            />
+                                    <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center relative z-10">
+                                        {/* Profile Image */}
+                                        <div className="shrink-0 relative">
+                                            <div className="w-48 h-48 md:w-60 md:h-60 rounded-full border-[6px] border-white/10 shadow-2xl overflow-hidden relative">
+                                                <Image
+                                                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+                                                    alt="Honorable Chairman"
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </div>
+                                            {/* Decorative Circle */}
+                                            <div className="absolute -inset-4 border border-white/10 rounded-full -z-10 scale-90"></div>
                                         </div>
 
-                                        <div className="text-center md:text-left space-y-6">
+                                        {/* Content */}
+                                        <div className="text-center md:text-left space-y-8 flex-1">
                                             <div>
-                                                <h2 className="text-2xl md:text-3xl font-bold font-serif mb-1">Principal's Message</h2>
-                                                <p className="text-rose-200 font-medium">Leading with Vision & Values</p>
+                                                <h2 className="text-3xl md:text-4xl font-bold font-serif mb-2 tracking-wide">Chairman's Message</h2>
+                                                <div className="flex items-center justify-center md:justify-start gap-3">
+                                                    <div className="h-0.5 w-12 bg-rose-400/50"></div>
+                                                    <p className="text-rose-200/90 font-medium text-sm uppercase tracking-wider">Leading with Vision</p>
+                                                </div>
                                             </div>
-                                            <p className="text-rose-50/90 leading-relaxed text-lg italic">
-                                                "Education is not merely the acquisition of knowledge; it is the shaping of character and the refinement of the soul. At CM College, we strive to provide an environment where students can discover their potential and develop into responsible citizens."
-                                            </p>
-                                            <div>
-                                                <p className="font-bold text-xl">Dr. Abdul Rahman</p>
-                                                <p className="text-rose-200 text-sm">Principal, CM College</p>
+
+                                            <div className="relative">
+                                                <p className="text-rose-50/90 leading-loose text-base md:text-lg text-justify font-light">
+                                                    "The CM Centre has had a successful journey spanning three decades, during which it has established educational institutions in various locations in Kozhikode and Wayanad. The organization has also undertaken charitable initiatives across Kerala, providing educational opportunities to people of all ages, from primary school to post-graduation, as well as conducting research. Through its efforts, the CM Centre has helped hundreds of students from disadvantaged financial and social backgrounds to pursue successful careers in fields such as Islamic Studies, Medicine, Engineering, Teaching, and Management. Students studying at the CM Centre’s campuses have achieved remarkable academic success, scoring high ranks in a variety of exams and setting new records. The CM Centre’s contributions to society are significant, as it has helped individuals improve their educational and social standing."
+                                                </p>
+                                            </div>
+
+                                            <div className="pt-4 border-t border-white/10 flex flex-col items-center md:items-start">
+                                                <p className="font-bold text-2xl tracking-tight">Dr. Abdul Rahman</p>
+                                                <p className="text-rose-200/80 text-sm font-medium uppercase tracking-wide mt-1">Chairman, CM College</p>
                                             </div>
                                         </div>
                                     </div>
