@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Users, ShieldCheck, FileText } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const councilMembers = [
@@ -40,79 +39,61 @@ const councilMembers = [
 
 export default function AdministrationPage() {
     return (
-        <main className="min-h-screen bg-stone-50/50 pt-32 pb-20 md:pt-40 md:pb-28">
+        <main className="min-h-screen emerald-50">
 
-            {/* 1. HERO SECTION */}
-            <section className="container mx-auto px-4 md:px-6 text-center mb-20">
-                <ScrollReveal>
-                    <span className="inline-block py-1 px-4 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-[0.3em] uppercase mb-4 border border-emerald-100">
-                        Leadership & Governance
-                    </span>
-                    <h1 className="text-4xl md:text-6xl font-bold font-serif text-zinc-900 mb-6">
-                        Administrative Council
-                    </h1>
-                    <div className="w-24 h-1 bg-emerald-800 mx-auto rounded-full mb-8"></div>
-                    <p className="text-zinc-500 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Dedicated individuals guiding our institution towards academic excellence
-                        with integrity and vision.
-                    </p>
-                </ScrollReveal>
-            </section>
-
-            {/* 2. COUNCIL MEMBERS GRID */}
-            <section className="container mx-auto px-4 md:px-6 mb-24">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
-                    {councilMembers.map((member, idx) => (
-                        <ScrollReveal key={idx} delay={idx * 50}>
-                            <div className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-zinc-100 flex flex-col h-full">
-
-                                {/* Portrait Image */}
-                                <div className="relative aspect-[4/5] overflow-hidden">
-                                    <Image
-                                        src={member.image}
-                                        alt={member.name}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    {/* Hover Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#7B0046]/40 via-[#7B0046]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                </div>
-
-                                {/* Details */}
-                                <div className="p-6 text-center">
-                                    <h3 className="text-xl font-bold text-zinc-900 group-hover:text-emerald-900 transition-colors duration-300">
-                                        {member.name}
-                                    </h3>
-                                    <p className="text-emerald-800 text-xs font-bold tracking-widest uppercase mt-2">
-                                        {member.role}
-                                    </p>
-                                </div>
-                            </div>
-                        </ScrollReveal>
-                    ))}
+            {/* 1. HERO SECTION - Clean White Band */}
+            <section className="bg-white pt-32 pb-20 md:pt-40 md:pb-28 border-b border-zinc-100">
+                <div className="container mx-auto px-4 md:px-6 text-center">
+                    <ScrollReveal>
+                        <span className="inline-block py-1 px-4 rounded-full bg-emerald-50 text-gray-800 text-[10px] font-bold tracking-[0.3em] uppercase mb-4 border border-emerald-100">
+                            Leadership & Governance
+                        </span>
+                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-emerald-800 mb-6">
+                            Administrative Council
+                        </h1>
+                        <div className="w-24 h-1 bg-emerald-800 mx-auto rounded-full mb-8"></div>
+                        <p className="text-zinc-500 max-w-2xl mx-auto text-lg leading-relaxed">
+                            Dedicated individuals guiding our institution towards academic excellence
+                            with integrity and vision.
+                        </p>
+                    </ScrollReveal>
                 </div>
             </section>
 
-            {/* 3. ACTION LINKS */}
-            <section className="container mx-auto px-4 md:px-6">
-                <ScrollReveal>
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                        <Link
-                            href="/administration/directory"
-                            className="inline-flex items-center px-8 py-3 bg-emerald-900 text-white font-bold rounded-full hover:bg-emerald-950 transition-all shadow-lg hover:shadow-xl active:scale-95"
-                        >
-                            <Users size={18} className="mr-2" />
-                            Full Directory
-                        </Link>
-                        <Link
-                            href="/administration/charter"
-                            className="inline-flex items-center text-emerald-900 font-bold hover:gap-2 transition-all border border-emerald-900/20 px-8 py-3 rounded-full hover:bg-emerald-50"
-                        >
-                            <FileText size={18} className="mr-2" />
-                            View Governance Charter <ArrowRight size={16} className="ml-2" />
-                        </Link>
+            {/* 2. COUNCIL MEMBERS GRID - Emerald Band */}
+            <section className="py-24 bg-emerald-50">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
+                        {councilMembers.map((member, idx) => (
+                            <ScrollReveal key={idx} delay={idx * 50}>
+                                <div className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-zinc-100 flex flex-col h-full">
+
+                                    {/* Portrait Image */}
+                                    <div className="relative aspect-[4/5] overflow-hidden">
+                                        <Image
+                                            src={member.image}
+                                            alt={member.name}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        {/* Hover Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#7B0046]/40 via-[#7B0046]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    </div>
+
+                                    {/* Details */}
+                                    <div className="p-6 text-center">
+                                        <h3 className="text-xl font-bold text-zinc-900 group-hover:text-emerald-900 transition-colors duration-300">
+                                            {member.name}
+                                        </h3>
+                                        <p className="text-emerald-800 text-xs font-bold tracking-widest uppercase mt-2">
+                                            {member.role}
+                                        </p>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        ))}
                     </div>
-                </ScrollReveal>
+                </div>
             </section>
 
         </main>
