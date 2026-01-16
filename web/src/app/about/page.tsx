@@ -14,14 +14,17 @@ import {
     UserCheck,
     Quote,
     Menu,
-    X
+    X,
+    ShieldCheck
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal"; // Ensure we use the shared component if available, or keep using similar logic
+import AccreditationSection from "@/components/AccreditationSection";
 
 // --- SIDEBAR NAVIGATION ITEMS ---
 const navItems = [
     { id: "history", label: "History", icon: <History size={18} /> },
     { id: "about-college", label: "About College", icon: <Layout size={18} /> },
+    { id: "accreditation", label: "Accreditation", icon: <ShieldCheck size={18} /> },
     { id: "vision-mission", label: "Vision & Mission", icon: <Target size={18} /> },
     { id: "principal-message", label: "Principal's Message", icon: <UserCheck size={18} /> },
 ];
@@ -202,7 +205,12 @@ export default function AboutPage() {
                             </ScrollReveal>
                         </section>
 
-                        {/* 3. VISION & MISSION SECTION */}
+                        {/* 3. ACCREDITATION SECTION */}
+                        <section id="accreditation" className="scroll-mt-32">
+                            <AccreditationSection />
+                        </section>
+
+                        {/* 4. VISION & MISSION SECTION */}
                         <section id="vision-mission" className="scroll-mt-32">
                             <ScrollReveal>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -242,7 +250,7 @@ export default function AboutPage() {
                             </ScrollReveal>
                         </section>
 
-                        {/* 4. PRINCIPAL'S MESSAGE SECTION */}
+                        {/* 5. PRINCIPAL'S MESSAGE SECTION */}
                         <section id="principal-message" className="scroll-mt-32">
                             <ScrollReveal>
                                 <div className="bg-gradient-to-br from-[#7B0046] to-[#50002d] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
