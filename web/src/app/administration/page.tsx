@@ -106,33 +106,6 @@ export default function AdministrationPage() {
                 </div>
             </section>
 
-            {/* 🎯 CTA SECTION */}
-            <section className="py-20 md:py-32 bg-white text-center border-t border-zinc-50">
-                <div className="container mx-auto px-4">
-                    <ScrollReveal>
-                        <h2 className="text-3xl md:text-4xl font-bold font-serif text-zinc-900 mb-12">
-                            Committed to Excellence
-                        </h2>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <Link
-                                href="/about"
-                                className="group inline-flex items-center px-8 py-4 bg-[#7B0046] text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#66063B] transition-all hover:scale-105 active:scale-95"
-                            >
-                                <Target size={20} className="mr-2" />
-                                View Vision & Mission
-                            </Link>
-                            <Link
-                                href="/management"
-                                className="inline-flex items-center px-8 py-4 bg-white text-[#7B0046] border-2 border-[#7B0046]/10 font-bold rounded-xl hover:bg-stone-50 transition-all hover:border-[#7B0046]/30"
-                            >
-                                <History size={20} className="mr-2" />
-                                Leadership History
-                            </Link>
-                        </div>
-                    </ScrollReveal>
-                </div>
-            </section>
-
-        </main>
+        </main >
     );
 }

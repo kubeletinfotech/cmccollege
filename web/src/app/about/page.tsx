@@ -11,7 +11,9 @@ import {
     Library,
     Monitor,
     ArrowRight,
-    Quote
+    Quote,
+    Users,
+    ShieldCheck
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import AccreditationSection from "@/components/AccreditationSection";
@@ -138,22 +140,69 @@ export default function AboutPage() {
                                     </div>
                                 </div>
 
-                                <div className="pt-6 border-t border-emerald-50 flex flex-col sm:flex-row items-center justify-between gap-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="h-1 w-20 bg-emerald-800 rounded-full"></div>
-                                        <p className="text-sm font-serif italic text-emerald-700">In Service of Education</p>
-                                    </div>
-                                    <Link
-                                        href="/administration"
-                                        className="inline-flex items-center text-sm font-bold text-emerald-900 hover:text-emerald-700 transition-colors gap-2"
-                                    >
-                                        View Administrative Council <ArrowRight size={16} />
-                                    </Link>
+                                <div className="pt-6 border-t border-emerald-50 flex items-center justify-center md:justify-start gap-4">
+                                    <div className="h-1 w-20 bg-emerald-800 rounded-full"></div>
+                                    <p className="text-sm font-serif italic text-emerald-700">In Service of Education</p>
                                 </div>
                             </div>
-
                         </div>
                     </ScrollReveal>
+                </div>
+            </section>
+
+            {/* 3.5. GOVERNANCE & LEADERSHIP SECTION */}
+            <section className="py-24 bg-white">
+                <div className="container mx-auto px-4 md:px-6">
+                    <ScrollReveal>
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl md:text-5xl font-bold font-serif text-zinc-900 mb-4">Governance & Leadership</h2>
+                            <p className="text-zinc-500 max-w-2xl mx-auto text-lg">Meet the visionaries and administrators behind our institution's growth and integrity.</p>
+                        </div>
+                    </ScrollReveal>
+
+                    <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                        {/* Management Card */}
+                        <ScrollReveal delay={100}>
+                            <Link href="/management" className="group block h-full">
+                                <div className="h-full bg-emerald-50/30 rounded-[2rem] p-10 border border-emerald-100/50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <ShieldCheck size={120} />
+                                    </div>
+                                    <div className="relative z-10 h-full flex flex-col items-start">
+                                        <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-[#7B0046] mb-8 group-hover:bg-[#7B0046] group-hover:text-white transition-colors duration-500">
+                                            <ShieldCheck size={32} />
+                                        </div>
+                                        <h3 className="text-3xl font-bold font-serif text-zinc-900 mb-4 group-hover:text-[#7B0046] transition-colors">Management</h3>
+                                        <p className="text-zinc-500 mb-10 leading-relaxed text-lg">The cornerstone of our strategic vision and long-term institutional stability.</p>
+                                        <div className="mt-auto inline-flex items-center text-[#7B0046] font-bold group-hover:gap-4 transition-all">
+                                            Meet the Board <ArrowRight size={20} className="ml-2" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        </ScrollReveal>
+
+                        {/* Administration Card */}
+                        <ScrollReveal delay={200}>
+                            <Link href="/administration" className="group block h-full">
+                                <div className="h-full bg-white rounded-[2rem] p-10 border border-emerald-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <Users size={120} />
+                                    </div>
+                                    <div className="relative z-10 h-full flex flex-col items-start">
+                                        <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-800 mb-8 group-hover:bg-emerald-800 group-hover:text-white transition-colors duration-500">
+                                            <Users size={32} />
+                                        </div>
+                                        <h3 className="text-3xl font-bold font-serif text-zinc-900 mb-4 group-hover:text-emerald-800 transition-colors">Administrative Council</h3>
+                                        <p className="text-zinc-500 mb-10 leading-relaxed text-lg">Ensuring operational excellence and day-to-day academic rigor.</p>
+                                        <div className="mt-auto inline-flex items-center text-emerald-800 font-bold group-hover:gap-4 transition-all">
+                                            View the Council <ArrowRight size={20} className="ml-2" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        </ScrollReveal>
+                    </div>
                 </div>
             </section>
 
