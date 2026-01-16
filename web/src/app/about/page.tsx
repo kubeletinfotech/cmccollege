@@ -138,9 +138,17 @@ export default function AboutPage() {
                                     </div>
                                 </div>
 
-                                <div className="pt-6 border-t border-emerald-50 flex items-center justify-center md:justify-start gap-4">
-                                    <div className="h-1 w-20 bg-emerald-800 rounded-full"></div>
-                                    <p className="text-sm font-serif italic text-emerald-700">In Service of Education</p>
+                                <div className="pt-6 border-t border-emerald-50 flex flex-col sm:flex-row items-center justify-between gap-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="h-1 w-20 bg-emerald-800 rounded-full"></div>
+                                        <p className="text-sm font-serif italic text-emerald-700">In Service of Education</p>
+                                    </div>
+                                    <Link
+                                        href="/administration"
+                                        className="inline-flex items-center text-sm font-bold text-emerald-900 hover:text-emerald-700 transition-colors gap-2"
+                                    >
+                                        View Administrative Council <ArrowRight size={16} />
+                                    </Link>
                                 </div>
                             </div>
 

@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Footer() {
     const pathname = usePathname();
 
-    if (pathname.startsWith('/admin')) {
+    if (pathname === '/admin' || pathname.startsWith('/admin/')) {
         return null;
     }
 
@@ -52,6 +52,11 @@ export default function Footer() {
                         <li>
                             <Link href="/about" className="hover:text-white transition-colors">
                                 About Us
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/administration" className="hover:text-white transition-colors">
+                                Administrative Council
                             </Link>
                         </li>
                         <li>

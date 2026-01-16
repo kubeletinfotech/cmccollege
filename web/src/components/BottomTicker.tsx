@@ -57,7 +57,7 @@ export default function BottomTicker() {
 
     const displayList = announcements.length > 0 ? announcements : fallbackAnnouncements;
 
-    if (pathname?.startsWith('/admin')) {
+    if (pathname === '/admin' || pathname.startsWith('/admin/')) {
         return null;
     }
 
