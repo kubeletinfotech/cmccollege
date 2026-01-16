@@ -154,8 +154,8 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid md:grid-cols-3 gap-8">
                         {/* Vision */}
-                        <ScrollReveal delay={0}>
-                            <div className="bg-emerald-50/50 rounded-2xl p-8 hover:bg-emerald-50 transition-colors duration-300">
+                        <ScrollReveal delay={0} className="h-full">
+                            <div className="bg-emerald-50/50 rounded-2xl p-8 hover:bg-emerald-50 transition-colors duration-300 border border-emerald-100 h-full">
                                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-emerald-800 mb-6">
                                     <Target size={24} />
                                 </div>
@@ -167,8 +167,8 @@ export default function AboutPage() {
                         </ScrollReveal>
 
                         {/* Mission */}
-                        <ScrollReveal delay={100}>
-                            <div className="bg-emerald-50/50 rounded-2xl p-8 hover:bg-emerald-50 transition-colors duration-300">
+                        <ScrollReveal delay={100} className="h-full">
+                            <div className="bg-emerald-50/50 rounded-2xl p-8 hover:bg-emerald-50 transition-colors duration-300 border border-emerald-100 h-full">
                                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-emerald-800 mb-6">
                                     <BookOpen size={24} />
                                 </div>
@@ -180,8 +180,8 @@ export default function AboutPage() {
                         </ScrollReveal>
 
                         {/* Values */}
-                        <ScrollReveal delay={200}>
-                            <div className="bg-emerald-50/50 rounded-2xl p-8 hover:bg-emerald-50 transition-colors duration-300">
+                        <ScrollReveal delay={200} className="h-full">
+                            <div className="bg-emerald-50/50 rounded-2xl p-8 hover:bg-emerald-50 transition-colors duration-300 border border-emerald-100 h-full">
                                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-emerald-800 mb-6">
                                     <Heart size={24} />
                                 </div>
@@ -229,7 +229,7 @@ export default function AboutPage() {
             </section>
 
             {/* 6. CALL TO ACTION - Strong Ending */}
-            <section className="py-24 bg-emerald-950 text-white relative overflow-hidden">
+            <section className="py-24 bg-emerald-900 text-white relative overflow-hidden mb-1 border-b border-white/10">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
                 <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
                     <ScrollReveal>
