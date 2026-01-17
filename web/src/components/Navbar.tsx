@@ -12,9 +12,11 @@ import {
 } from "lucide-react";
 
 import TopBar from "./TopBar";
+import SearchOverlay from "./SearchOverlay";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const pathname = usePathname();
 
     if (pathname === '/admin' || pathname.startsWith('/admin/')) {
@@ -85,7 +87,10 @@ export default function Navbar() {
                                 <Link href="https://instagram.com" target="_blank" className="text-[#5D1035] hover:opacity-80 transition-opacity">
                                     <Instagram className="w-5 h-5" />
                                 </Link>
-                                <button className="text-[#5D1035] hover:opacity-80 transition-opacity">
+                                <button
+                                    onClick={() => setIsSearchOpen(true)}
+                                    className="text-[#5D1035] hover:opacity-80 transition-opacity"
+                                >
                                     <Search className="w-5 h-5" />
                                 </button>
                             </div>
@@ -157,8 +162,8 @@ export default function Navbar() {
                                                     href={link.href}
                                                     onClick={() => setIsOpen(false)}
                                                     className={`flex flex-col items-center justify-center p-4 rounded-2xl transition-all border ${pathname === link.href
-                                                            ? "bg-[#5D1035] border-[#5D1035] text-white shadow-lg"
-                                                            : "bg-emerald-50/50 border-emerald-100/50 text-zinc-600 active:bg-emerald-100"
+                                                        ? "bg-[#5D1035] border-[#5D1035] text-white shadow-lg"
+                                                        : "bg-emerald-50/50 border-emerald-100/50 text-zinc-600 active:bg-emerald-100"
                                                         }`}
                                                 >
                                                     <link.icon className={`w-6 h-6 mb-2 ${pathname === link.href ? "text-white" : "text-[#5D1035]"}`} />
@@ -180,7 +185,13 @@ export default function Navbar() {
                                             <Link href="https://instagram.com" target="_blank" className="p-3 bg-emerald-50 rounded-xl text-[#5D1035]">
                                                 <Instagram className="w-6 h-6" />
                                             </Link>
-                                            <button className="p-3 bg-emerald-50 rounded-xl text-[#5D1035]">
+                                            <button
+                                                onClick={() => {
+                                                    setIsOpen(false);
+                                                    setIsSearchOpen(true);
+                                                }}
+                                                className="p-3 bg-emerald-50 rounded-xl text-[#5D1035]"
+                                            >
                                                 <Search className="w-6 h-6" />
                                             </button>
                                         </div>
@@ -191,6 +202,7 @@ export default function Navbar() {
                     </AnimatePresence>
                 </div>
             </nav>
+            <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
         </header>
     );
 }
