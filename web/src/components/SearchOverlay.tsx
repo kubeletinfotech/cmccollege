@@ -10,13 +10,13 @@ interface SearchOverlayProps {
 }
 
 const QUICK_LINKS = [
-    { name: "Academic Calendar", href: "/academics#calendar" },
-    { name: "Admission Forms", href: "/admissions" },
-    { name: "Campus Gallery", href: "/gallery" },
-    { name: "Contact Administration", href: "/contact" },
+    { name: "Academic Programs", href: "/academics" },
+    { name: "Admissions", href: "/admissions" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact & Enquiry", href: "/contact" },
 ];
 
-const TRENDING = ["NEET Coaching", "Hostel Facilities", "Scholarships", "Integrated Program"];
+const TRENDING = ["Integrated NEET/JEE", "Student Hostel", "Integrated +1 & +2", "Admission Process"];
 
 // Search Index Data
 const SEARCH_INDEX = [
