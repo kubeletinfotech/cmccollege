@@ -26,7 +26,7 @@ export default function AboutPage() {
             <section className="relative pt-16 pb-12 md:pt-28 md:pb-28 bg-gradient-to-b from-emerald-50/50 to-white overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
                     <ScrollReveal>
-                        <span className="inline-block py-1 px-3 rounded-full bg-emerald-100/50 text-emerald-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 border border-emerald-200/50">
+                        <span className="inline-block py-1 px-3 rounded-full bg-emerald-100/50 text-emerald-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 border border-emerald-200/50 mt-10">
                             Est. 2010
                         </span>
                         <h1 className="text-5xl md:text-7xl font-bold font-serif text-zinc-900 mb-6 tracking-tight leading-tight">

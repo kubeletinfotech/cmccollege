@@ -83,18 +83,18 @@ export default function DepartmentsPage() {
                                 </div>
 
                                 <h3 className="text-3xl md:text-4xl font-bold font-serif text-zinc-900 mb-6">
-                                    Can’t find what you’re looking for?
+                                    Curious about our programs?
                                 </h3>
 
                                 <p className="text-zinc-600 text-lg md:text-xl max-w-2xl mb-12 font-light leading-relaxed">
-                                    Explore our comprehensive academic catalog for detailed information on every coarse, syllabus, and credit requirement.
+                                    Our academic advisors are here to help. Reach out to us for detailed information on course structures, syllabus updates, and career pathways.
                                 </p>
 
                                 <Link
-                                    href="/academics"
+                                    href="/contact"
                                     className="px-10 py-5 bg-[#5D1035] text-white font-bold rounded-xl shadow-xl shadow-[#5D1035]/20 hover:bg-[#4a0d2a] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 active:scale-95"
                                 >
-                                    Full Course Directory
+                                    Contact Admissions Office
                                     <ArrowRight className="w-5 h-5" />
                                 </Link>
                             </div>
