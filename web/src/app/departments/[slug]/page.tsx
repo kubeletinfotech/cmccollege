@@ -221,7 +221,7 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                         </p>
                     </ScrollReveal>
 
-                    <div className="relative h-[600px] md:h-[700px] rounded-[3rem] overflow-hidden shadow-2xl group">
+                    <div className="relative h-[400px] md:h-[600px] lg:h-[700px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl group bg-zinc-900">
                         <AnimatePresence initial={false} custom={direction}>
                             <motion.div
                                 key={page}
@@ -255,24 +255,25 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                                     src={data.gallery[currentSlide].img}
                                     alt={`Gallery image ${currentSlide}`}
                                     fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="object-contain md:object-cover transition-transform duration-700 group-hover:scale-105"
+                                    priority
                                 />
                             </motion.div>
                         </AnimatePresence>
 
-                        {/* Navigation Arrows */}
-                        <div className="absolute bottom-10 right-10 flex gap-4 z-20">
+                        {/* Navigation Arrows - Repositioned for mobile */}
+                        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex gap-3 md:gap-4 z-20">
                             <button
                                 onClick={() => paginate(-1)}
-                                className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#5D1035] transition-all"
+                                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/20 md:bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#5D1035] transition-all"
                             >
-                                <ChevronLeft className="w-6 h-6" />
+                                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
                             </button>
                             <button
                                 onClick={() => paginate(1)}
-                                className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#5D1035] transition-all"
+                                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/20 md:bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#5D1035] transition-all"
                             >
-                                <ChevronRight className="w-6 h-6" />
+                                <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                             </button>
                         </div>
                     </div>
