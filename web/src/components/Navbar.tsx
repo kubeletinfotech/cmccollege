@@ -1,10 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Facebook, Instagram, Youtube, Search } from "lucide-react";
+import {
+    Instagram, Search, Menu, X, Facebook, Youtube,
+    Home, Info, LayoutGrid, GraduationCap, UserPlus,
+    Users, Sparkles, Building2, Image as ImageIcon, Phone
+} from "lucide-react";
 
 import TopBar from "./TopBar";
 
@@ -20,8 +25,8 @@ export default function Navbar() {
         <header className="fixed w-full z-50 top-[var(--ticker-height,0px)] flex flex-col shadow-lg">
             <TopBar />
             <nav className="w-full bg-gradient-to-r from-white via-white to-blue-50 border-b border-zinc-100">
-                <div className="w-full px-4 xl:px-8">
-                    <div className="flex justify-between items-center h-22 py-2">
+                <div className="w-full px-4 lg:px-8">
+                    <div className="flex justify-between items-center h-16 lg:h-22 py-2">
                         {/* Logo (Left) */}
                         <Link href="/" className="flex items-center ml-[50px]">
                             <div className="relative w-36 lg:w-40 2xl:w-56 h-12 2xl:h-18">
@@ -118,32 +123,72 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* Mobile Navigation */}
-                    {isOpen && (
-                        <div className="lg:hidden py-6 border-t border-emerald-50 flex flex-col gap-4 animate-in slide-in-from-top duration-300">
-                            {[
-                                { name: "HOME", href: "/" },
-                                { name: "ABOUT US", href: "/about" },
-                                { name: "DEPARTMENTS", href: "/departments" },
-                                { name: "ACADEMICS", href: "/academics" },
-                                { name: "ADMISSION", href: "/admissions" },
-                                { name: "STUDENTS ZONE", href: "/students-zone" },
-                                { name: "CAMPUS LIFE", href: "/campus-life" },
-                                { name: "AMENITIES", href: "/facilities" },
-                                { name: "GALLERY", href: "/gallery" },
-                                { name: "CONTACT", href: "/contact" },
-                            ].map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`text-lg font-bold transition-colors px-2 uppercase ${pathname === link.href ? "text-[#5D1035]" : "text-zinc-800 hover:text-emerald-800"}`}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div>
-                    )}
+                    {/* Mobile Navigation Drawer */}
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="lg:hidden overflow-hidden"
+                            >
+                                <div className="py-6 px-4 bg-white/90 backdrop-blur-2xl border-t border-emerald-50 rounded-b-[2.5rem] shadow-2xl mb-6">
+                                    <div className="grid grid-cols-2 gap-3">
+                                        {[
+                                            { name: "Home", href: "/", icon: Home },
+                                            { name: "About", href: "/about", icon: Info },
+                                            { name: "Academics", href: "/academics", icon: GraduationCap },
+                                            { name: "Admission", href: "/admissions", icon: UserPlus },
+                                            { name: "Departments", href: "/departments", icon: LayoutGrid },
+                                            { name: "Campus Life", href: "/campus-life", icon: Sparkles },
+                                            { name: "Students", href: "/students-zone", icon: Users },
+                                            { name: "Amenities", href: "/facilities", icon: Building2 },
+                                            { name: "Gallery", href: "/gallery", icon: ImageIcon },
+                                            { name: "Contact", href: "/contact", icon: Phone },
+                                        ].map((link, index) => (
+                                            <motion.div
+                                                key={link.name}
+                                                initial={{ opacity: 0, scale: 0.9 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{ delay: index * 0.03 }}
+                                            >
+                                                <Link
+                                                    href={link.href}
+                                                    onClick={() => setIsOpen(false)}
+                                                    className={`flex flex-col items-center justify-center p-4 rounded-2xl transition-all border ${pathname === link.href
+                                                            ? "bg-[#5D1035] border-[#5D1035] text-white shadow-lg"
+                                                            : "bg-emerald-50/50 border-emerald-100/50 text-zinc-600 active:bg-emerald-100"
+                                                        }`}
+                                                >
+                                                    <link.icon className={`w-6 h-6 mb-2 ${pathname === link.href ? "text-white" : "text-[#5D1035]"}`} />
+                                                    <span className="text-[11px] font-bold uppercase tracking-wider text-center">{link.name}</span>
+                                                </Link>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+
+                                    {/* Mobile Social Icons */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.6 }}
+                                        className="mt-8 pt-8 border-t border-zinc-100 flex items-center justify-between px-2"
+                                    >
+                                        <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Connect with us</span>
+                                        <div className="flex items-center gap-4">
+                                            <Link href="https://instagram.com" target="_blank" className="p-3 bg-emerald-50 rounded-xl text-[#5D1035]">
+                                                <Instagram className="w-6 h-6" />
+                                            </Link>
+                                            <button className="p-3 bg-emerald-50 rounded-xl text-[#5D1035]">
+                                                <Search className="w-6 h-6" />
+                                            </button>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </nav>
         </header>

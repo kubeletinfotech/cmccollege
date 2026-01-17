@@ -177,7 +177,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-[104px] lg:pt-[112px] bg-[#7B0046]/[0.03]">
       {/* Hero Section */}
       <section
-        className="relative min-h-[60vh] md:min-h-[75vh] flex flex-col items-center justify-center py-16 px-4 md:py-40 text-white overflow-hidden"
+        className="relative min-h-[45vh] md:min-h-[75vh] flex flex-col items-center justify-center py-12 px-4 md:py-40 text-white overflow-hidden"
       >
         {/* Hero Background Slider */}
         <div className="absolute inset-0 z-0 bg-black">
