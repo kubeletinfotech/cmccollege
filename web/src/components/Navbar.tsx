@@ -30,7 +30,7 @@ export default function Navbar() {
                 <div className="w-full px-4 lg:px-8">
                     <div className="flex justify-between items-center h-16 lg:h-22 py-2">
                         {/* Logo (Left) */}
-                        <Link href="/" className="flex items-center ml-[50px]">
+                        <Link href="/" className="flex items-center ml-0 lg:ml-[50px]">
                             <div className="relative w-36 lg:w-40 2xl:w-56 h-12 2xl:h-18">
                                 <Image
                                     src="/images/logo.png"
@@ -96,8 +96,15 @@ export default function Navbar() {
                             </div>
                         </div>
 
-                        {/* Mobile Menu Button */}
-                        <div className="lg:hidden">
+                        {/* Mobile Buttons */}
+                        <div className="lg:hidden flex items-center gap-2">
+                            <button
+                                onClick={() => setIsSearchOpen(true)}
+                                className="p-2 text-zinc-600 hover:text-[#5D1035] transition-colors"
+                                aria-label="Search"
+                            >
+                                <Search className="w-6 h-6" />
+                            </button>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="p-2 text-zinc-600 hover:text-emerald-800 transition-colors"
