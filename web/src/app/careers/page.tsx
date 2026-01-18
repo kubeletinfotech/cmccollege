@@ -2,6 +2,7 @@
 
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
+import { Upload } from "lucide-react";
 
 export default function CareersPage() {
     return (
@@ -23,29 +24,86 @@ export default function CareersPage() {
                 </div>
             </section>
 
-            {/* Careers Content */}
-            <section className="flex-grow py-32 px-6 flex items-center justify-center">
-                <ScrollReveal className="max-w-xl mx-auto text-center">
-                    <div className="w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center text-4xl mx-auto mb-10 border border-emerald-100 shadow-inner">
-                        💼
+            {/* Application Form Section */}
+            <section className="flex-grow py-20 px-6 bg-zinc-50">
+                <ScrollReveal className="max-w-4xl mx-auto">
+                    <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-zinc-100">
+                        <h2 className="text-3xl font-bold text-zinc-900 mb-8 text-center font-serif">Apply Now</h2>
+
+                        <form className="space-y-6">
+                            {/* Position Select */}
+                            <div>
+                                <select
+                                    className="w-full px-5 py-4 rounded-xl border border-zinc-200 bg-white text-zinc-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all appearance-none cursor-pointer"
+                                    defaultValue=""
+                                >
+                                    <option value="" disabled>— Please choose an option —</option>
+                                    <option value="teaching">Teaching Faculty</option>
+                                    <option value="admin">Administrative Staff</option>
+                                    <option value="support">Support Staff</option>
+                                </select>
+                            </div>
+
+                            {/* Name & Email */}
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <input
+                                    type="text"
+                                    placeholder="Your Name"
+                                    className="w-full px-5 py-4 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all placeholder:text-zinc-400"
+                                />
+                                <input
+                                    type="email"
+                                    placeholder="Your Email"
+                                    className="w-full px-5 py-4 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all placeholder:text-zinc-400"
+                                />
+                            </div>
+
+                            {/* Phone & Location */}
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <input
+                                    type="tel"
+                                    placeholder="Your Phone"
+                                    className="w-full px-5 py-4 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all placeholder:text-zinc-400"
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Your Location"
+                                    className="w-full px-5 py-4 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all placeholder:text-zinc-400"
+                                />
+                            </div>
+
+                            {/* File Upload */}
+                            <div className="relative">
+                                <input
+                                    type="file"
+                                    id="resume"
+                                    className="peer absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                />
+                                <div className="w-full px-5 py-4 rounded-xl border border-zinc-200 bg-white flex items-center gap-3 text-zinc-500 peer-focus:ring-2 peer-focus:ring-emerald-500/20 peer-focus:border-emerald-500 transition-all">
+                                    <span className="px-3 py-1 bg-zinc-100 rounded-md border border-zinc-200 text-xs font-bold text-zinc-600 uppercase tracking-wider">Choose File</span>
+                                    <span className="text-sm">No file chosen</span>
+                                </div>
+                            </div>
+
+                            {/* Cover Letter */}
+                            <textarea
+                                placeholder="Covering Letter"
+                                rows={6}
+                                className="w-full px-5 py-4 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all placeholder:text-zinc-400 resize-none"
+                            ></textarea>
+
+                            {/* Submit Button */}
+                            <div className="pt-4 flex justify-center">
+                                <button
+                                    type="submit"
+                                    className="px-10 py-4 bg-[#7B0046] text-white font-bold rounded-full hover:bg-[#5a0033] shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all text-sm tracking-widest uppercase"
+                                >
+                                    Submit Your Application
+                                </button>
+                            </div>
+
+                        </form>
                     </div>
-                    <h2 className="text-3xl font-bold text-emerald-900 mb-6">No Open Positions</h2>
-                    <p className="text-zinc-600 text-lg leading-relaxed mb-12">
-                        Thank you for your interest in joining our institution. Currently, there are no open vacancies. However, we are always looking for passionate talent to join our mailing list for future opportunities.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href="/contact">
-                            <button className="px-8 py-4 bg-emerald-800 text-white font-bold rounded-xl hover:bg-emerald-900 shadow-lg hover:scale-105 active:scale-95 transition-all text-lg cursor-pointer">
-                                Send Us Your Resume
-                            </button>
-                        </Link>
-                        <Link href="/">
-                            <button className="px-8 py-4 bg-transparent border-2 border-emerald-100 text-emerald-800 font-bold rounded-xl hover:bg-emerald-50 transition-all text-lg cursor-pointer">
-                                Back to Home
-                            </button>
-                        </Link>
-                    </div>
-                    <p className="mt-12 text-zinc-400 text-sm font-medium">Please check back later for updated recruitment notices.</p>
                 </ScrollReveal>
             </section>
         </div>
