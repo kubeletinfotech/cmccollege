@@ -23,16 +23,9 @@ const IQAC_TABS: IacTab[] = [
         title: "Internal Quality Assurance Cell",
         subtitle: "Commitment to Excellence",
         content: (
-            <div className="space-y-6 text-zinc-600 leading-relaxed text-lg">
+            <div className="space-y-6 text-zinc-600 leading-relaxed text-lg text-justify">
                 <p>
-                    The Internal Quality Assurance Cell (IQAC) was established to develop a system for conscious, consistent,
-                    and catalytic improvement in the overall performance of the institution. As a post-accreditation quality
-                    sustenance measure, the IQAC works towards realizing the goals of quality enhancement and sustenance.
-                </p>
-                <p>
-                    Its primary objective is to channelize all efforts and measures of the institution towards promoting
-                    holistic academic excellence. The IQAC functions as a participative organ of the institution, ensuring
-                    stakeholder engagement in all quality initiatives.
+                    Internal Quality Assurance Cell (IQAC), is to build and ensure a quality culture at the institutional level. The IQAC is meant to plan, guide and monitor Quality Assurance(QA) and Quality Enhancement (QE) activities of the College. The IQAC shall not be a record-keeping cell but shall channelize and systematize the effort to pull the College in the path of academic excellence.
                 </p>
             </div>
         )
@@ -46,14 +39,23 @@ const IQAC_TABS: IacTab[] = [
         content: (
             <div className="space-y-6 text-zinc-600 leading-relaxed">
                 <p>
-                    The IQAC is constituted under the chairmanship of the Head of the Institution with heads of important
-                    academic and administrative units and a few teachers and a few distinguished educationists and
-                    representatives of local management and stakeholders.
+                    The IQAC functions under the Chairmanship of the Principal with heads of important academic and
+                    administrative units and a few teachers and a few distinguished educationists and representatives
+                    of the College Management and other stakeholders.
                 </p>
                 <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100">
-                    <h4 className="font-bold text-emerald-900 mb-4 font-serif text-lg">Composition</h4>
+                    <h4 className="font-bold text-emerald-900 mb-4 font-serif text-lg">General Composition</h4>
+                    <p className="mb-4 text-sm font-medium text-zinc-700">The following is the general composition of the IQAC of the College:</p>
                     <ul className="space-y-3">
-                        {["Chairperson: Head of the Institution", "Teachers to represent all level (Three to eight)", "One member from the Management", "Few Senior administrative officers", "One nominee each from local society, Students and Alumni", "One nominee each from Employers/Industrialists/Stakeholders", "Coordinator/Director of the IQAC"].map((item, i) => (
+                        {[
+                            "Chairperson: Principal",
+                            "Three to eight teachers",
+                            "Office Superintendent",
+                            "One member from the College Management",
+                            "One/two nominees from Local Society, Students and Alumni",
+                            "One/two nominees from Employers/Industrialists/stakeholders",
+                            "One of the senior teachers as the Coordinator of the IQAC"
+                        ].map((item, i) => (
                             <li key={i} className="flex items-start gap-3 text-base">
                                 <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#7B0046] shrink-0" />
                                 <span>{item}</span>
@@ -75,12 +77,16 @@ const IQAC_TABS: IacTab[] = [
                 <p>The core functions of the IQAC include:</p>
                 <ul className="grid gap-4">
                     {[
-                        "Development and application of quality benchmarks/parameters for various academic and administrative activities of the institution.",
-                        "Facilitating the creation of a learner-centric environment conducive to quality education and faculty maturation.",
-                        "Arrangement for feedback response from students, parents and other stakeholders on quality-related institutional processes.",
-                        "Dissemination of information on various quality parameters of higher education.",
-                        "Organization of inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles.",
-                        "Documentation of the various programmes/activities leading to quality improvement."
+                        "Development and application of quality benchmarks/parameters for the various Academic and Administrative activities for quality assurance.",
+                        "Review the teaching, learning process, structure and methodology of operations and learning outcome of all the programmes at periodic intervals",
+                        "Organising Workshops, Seminars and Special lectures on quality related themes as well as promotion of Quality Circles.",
+                        "Ensuring maximum utilization of infrastructural facilities and the available ICT resources.",
+                        "Conducting Academic Administrative Audit (AAA) and Curricular Audit annually.",
+                        "Conducting Orientation and Training Programmes for Outcome based Education",
+                        "Development of Quality Culture in the institution.",
+                        "Preparation of the Annual Quality Assurance Report (AQAR) as per guidelines and parameters of NAAC, to be submitted to NAAC.",
+                        "Facilitating the creation of a learner-centric environment conducive to quality education and faculty maturation to adopt the required knowledge and technology for participatory teaching and learning process.",
+                        "Arrangement for feedback response from students, parents and other stakeholders on quality-related institutional processes."
                     ].map((func, i) => (
                         <li key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
                             <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold text-sm">
@@ -132,85 +138,98 @@ export default function IQACPage() {
     const activeTab = IQAC_TABS.find(t => t.id === activeTabId) || IQAC_TABS[0];
 
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen bg-emerald-50 pt-24 md:pt-28 pb-12 md:pb-20">
 
-            {/* HER0 / BREADCRUMB AREA */}
-            <div className="bg-zinc-50 border-b border-zinc-100 pt-28 pb-12 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex items-center gap-2 text-sm text-zinc-400 mb-4">
-                        <span>Home</span>
-                        <ChevronRight className="w-3 h-3" />
-                        <span className="text-emerald-800 font-medium">IQAC</span>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-bold font-serif text-zinc-900 tracking-tight">
-                        Internal Quality Assurance Cell
-                    </h1>
+            {/* HERO AREA - Matching Research/About style for consistency */}
+            <div className="pt-10 pb-12 px-6">
+                <div className="max-w-7xl mx-auto text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="inline-block py-1 px-3 rounded-full bg-emerald-100/50 text-emerald-800 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-4 md:mb-6 border border-emerald-200/50">
+                            Quality Assurance
+                        </span>
+                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-zinc-900 mb-6 tracking-tight leading-tight">
+                            Internal Quality <span className="text-[#7B0046] italic">Assurance Cell</span>
+                        </h1>
+                        <p className="text-base md:text-xl text-zinc-600 leading-relaxed font-light max-w-3xl mx-auto">
+                            Catalyzing academic excellence through consistent quality enhancement and stakeholder engagement.
+                        </p>
+                    </motion.div>
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                     {/* LEFT SIDEBAR NAVIGATION */}
-                    <div className="lg:col-span-3">
-                        <div className="sticky top-28 space-y-2">
-                            <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest px-4 mb-4 block">
-                                Contents
-                            </span>
-                            {IQAC_TABS.map((tab) => {
-                                const isActive = activeTabId === tab.id;
-                                return (
-                                    <button
-                                        key={tab.id}
-                                        onClick={() => setActiveTabId(tab.id)}
-                                        className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex items-center justify-between group ${isActive
-                                                ? "bg-emerald-50 text-emerald-900 font-bold border-l-4 border-[#7B0046]"
-                                                : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900 font-medium"
-                                            }`}
-                                    >
-                                        <span className="flex items-center gap-3">
-                                            {/* Optional: Icon for each item */}
-                                            {/* <tab.icon className={`w-4 h-4 ${isActive ? "text-[#7B0046]" : "text-zinc-400"}`} /> */}
-                                            {tab.label}
-                                        </span>
-                                        {isActive && <ChevronRight className="w-4 h-4 text-[#7B0046]" />}
-                                    </button>
-                                );
-                            })}
+                    <div className="lg:col-span-4">
+                        <div className="sticky top-32 bg-white rounded-2xl shadow-xl shadow-[#7B0046]/5 border border-zinc-100 overflow-hidden">
+                            <div className="p-6 border-b border-zinc-50 bg-emerald-50/10">
+                                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">
+                                    Navigation
+                                </span>
+                            </div>
+                            <div className="p-3 space-y-1">
+                                {IQAC_TABS.map((tab) => {
+                                    const isActive = activeTabId === tab.id;
+                                    return (
+                                        <button
+                                            key={tab.id}
+                                            onClick={() => setActiveTabId(tab.id)}
+                                            className={`w-full text-left px-5 py-4 rounded-xl transition-all duration-300 flex items-center justify-between group relative overflow-hidden ${isActive
+                                                ? "bg-[#7B0046] text-white shadow-md shadow-[#7B0046]/20"
+                                                : "text-zinc-600 hover:bg-zinc-50 font-medium"
+                                                }`}
+                                        >
+                                            <span className="flex items-center gap-3 relative z-10">
+                                                {tab.label}
+                                            </span>
+                                            {isActive && <ChevronRight className="w-4 h-4 relative z-10" />}
+                                        </button>
+                                    );
+                                })}
+                            </div>
 
-                            {/* Download / Extra Links Box (Optional) */}
-                            <div className="mt-8 p-6 bg-zinc-900 rounded-2xl text-white">
-                                <h4 className="font-bold mb-2 text-sm">IQAC Reports</h4>
-                                <p className="text-zinc-400 text-xs mb-4">Download annual quality assurance reports.</p>
-                                <button className="w-full py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-colors">
-                                    View Archive
+                            {/* Download Section */}
+                            <div className="p-6 mt-2 border-t border-zinc-100 bg-zinc-50/50">
+                                <h4 className="font-bold text-zinc-900 text-sm mb-2">IQAC Reports</h4>
+                                <p className="text-zinc-500 text-xs mb-4">Access annual quality assurance documents.</p>
+                                <button className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-emerald-900/10">
+                                    Download Archive
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    {/* RIGHT CONTENT AREA */}
-                    <div className="lg:col-span-9 min-h-[500px]">
+                    {/* RIGHT CONTENT AREA - Premium Card Style */}
+                    <div className="lg:col-span-8">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeTab.id}
-                                initial={{ opacity: 0, x: 10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -10 }}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.4, ease: "easeOut" }}
+                                className="bg-white rounded-[2rem] p-8 md:p-12 shadow-xl shadow-[#7B0046]/5 border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 relative overflow-hidden"
                             >
+                                {/* Decorative Background */}
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+
                                 {/* Header of Content Section */}
-                                <div className="mb-8 pb-8 border-b border-zinc-100">
-                                    <span className="text-[#7B0046] font-bold tracking-widest text-xs uppercase mb-2 block">
+                                <div className="mb-10 relative z-10">
+                                    <span className="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase mb-4 border border-emerald-100">
                                         {activeTab.subtitle}
                                     </span>
-                                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-zinc-900">
+                                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-zinc-900 leading-tight">
                                         {activeTab.title}
                                     </h2>
                                 </div>
 
                                 {/* Body Content */}
-                                <div className="prose prose-lg prose-emerald max-w-none">
+                                <div className="prose prose-lg prose-headings:font-serif prose-headings:text-zinc-900 prose-p:text-zinc-600 prose-li:text-zinc-600 prose-emerald max-w-none relative z-10">
                                     {activeTab.content}
                                 </div>
                             </motion.div>
