@@ -8,24 +8,24 @@ import { motion } from "framer-motion";
 
 const managementMembers = [
     {
-        name: "Dr. Abdul Rahman",
-        role: "CHAIRMAN",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+        name: "TK Abdu Rahman Baqavi",
+        role: "Chairman, CM College of Arts and Science and General Secretary, CM Centre, Madavoor",
+        image: "https://ik.imagekit.io/5c6j602yp/About/chairman.jpg"
     },
     {
-        name: "Dr. Sayeed Mohammed",
-        role: "VICE CHAIRMAN",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"
+        name: "CM Ibrahim",
+        role: "President, President CM Centre Madavoor",
+        image: "https://ik.imagekit.io/5c6j602yp/About/president.jpg"
     },
     {
-        name: "Adv. Ibrahim Kutty",
-        role: "SECRETARY",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop"
+        name: "NA Backer Haji",
+        role: "Finance Secretary, CM Centre Madavoor",
+        image: "https://ik.imagekit.io/5c6j602yp/About/finance.jpg"
     },
     {
         name: "Mr. Abdul Rasheed",
-        role: "TREASURER",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
+        role: "TGeneral Manager, CM Centre Madavoor",
+        image: "https://ik.imagekit.io/5c6j602yp/About/General-manager.jpg"
     }
 ];
 

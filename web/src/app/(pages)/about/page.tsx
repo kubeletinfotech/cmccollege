@@ -79,7 +79,7 @@ export default function AboutPage() {
                                     Founded with a vision to bridge the gap between traditional values and modern education, CM College has grown into a premier institution. We believe in nurturing not just students, but future leaders who are grounded in ethics and skilled for the global stage.
                                 </p>
 
-                                <div className="grid grid-cols-2 gap-8 pt-6 border-t border-zinc-100">
+                                {/* <div className="grid grid-cols-2 gap-8 pt-6 border-t border-zinc-100">
                                     <div>
                                         <div className="text-3xl font-bold text-zinc-900 mb-1">A+</div>
                                         <div className="text-sm text-zinc-500 font-medium">Accreditation Score</div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
                                         <div className="text-3xl font-bold text-zinc-900 mb-1">5k+</div>
                                         <div className="text-sm text-zinc-500 font-medium">Alumni Network</div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </ScrollReveal>
                     </div>
@@ -115,8 +115,8 @@ export default function AboutPage() {
                             <div className="shrink-0 mx-auto md:mx-0">
                                 <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-4 border-emerald-50 shadow-inner relative group">
                                     <Image
-                                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
-                                        alt="Dr. Abdul Rahman"
+                                        src="https://ik.imagekit.io/5c6j602yp/About/chairman.jpg"
+                                        alt="TK Abdu Rahman Baqavi"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
@@ -268,7 +268,7 @@ export default function AboutPage() {
                         {[
                             { icon: Leaf, title: "Eco-friendly Campus", desc: "Sustainable green environment" },
                             { icon: Microscope, title: "Advanced Labs", desc: "State-of-the-art research" },
-                            { icon: Library, title: "Rich Library", desc: "Extensive digital resources" },
+                            { icon: Library, title: "Modern Library", desc: "Extensive digital resources" },
                             { icon: Monitor, title: "Digital Classrooms", desc: "Smart learning enabled" },
                         ].map((item, idx) => (
                             <ScrollReveal key={idx} delay={idx * 100}>

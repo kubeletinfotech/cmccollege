@@ -8,29 +8,29 @@ import { motion } from "framer-motion";
 
 const councilMembers = [
     {
-        name: "Dr. Abdul Rahman",
-        role: "CHAIRMAN",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+        name: "T K Abdu Rahman Baqavi",
+        role: "Chairman – CM College of Arts and Science and General Secretary – CM Centre.",
+        image: "https://ik.imagekit.io/5c6j602yp/About/chairman.jpg"
     },
     {
-        name: "Dr. Sayeed Mohammed",
-        role: "VICE CHAIRMAN",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"
+        name: "Zainudheen T K",
+        role: "Director – CM College of Arts and Science",
+        image: "https://ik.imagekit.io/5c6j602yp/About/director.jpg"
     },
     {
-        name: "Adv. Ibrahim Kutty",
-        role: "SECRETARY",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop"
+        name: "Shafi Pulpara",
+        role: "Principal, CM College of Arts and Science",
+        image: "https://ik.imagekit.io/5c6j602yp/About/principal.jpg"
     },
     {
-        name: "Mr. Abdul Rasheed",
-        role: "TREASURER",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
+        name: "Uvais T K",
+        role: "Administrative Officer – CM College of Arts and Science",
+        image: "https://ik.imagekit.io/5c6j602yp/About/admin.jpg"
     },
     {
-        name: "Prof. Khadija Beevi",
-        role: "ACADEMIC ADVISOR",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop"
+        name: "Jabir Ali P P",
+        role: "IQAC Director, CM College of Arts and Science",
+        image: "https://ik.imagekit.io/5c6j602yp/About/iqac.jpg"
     }
 ];
 
