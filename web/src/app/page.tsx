@@ -409,41 +409,43 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Department Of Computer Science", img: "/images/science_exhibition_project_1768117868795.png" }, // Using valid science project image
-              { name: "Department Of Management", img: "/images/admission_counseling_session_1768116369318.png" },
-              { name: "Department Of Mass Communication And Journalism", img: "/images/cultural_fest_performance_1768117835053.png" },
-              { name: "Department Of Economics", img: "/images/school_library_1768115599802.png" },
-              { name: "Department Of English", img: "/images/classroom_learning_1768115518451.png" },
-              { name: "Department Of Commerce", img: "/images/document_verification_office_1768116391105.png" },
-              { name: "Department Of Statistics", img: "/images/modern_science_lab_1768116682208.png" },
-              { name: "Department Of Psychology", img: "/images/science_exhibition_project_1768117868795.png" } // Changed duplicate stats to Psychology or general
+              { name: "Department Of Computer Science", slug: "computer-science", img: "/images/science_exhibition_project_1768117868795.png" },
+              { name: "Department Of Management", slug: "management", img: "/images/admission_counseling_session_1768116369318.png" },
+              { name: "Department Of Mass Communication And Journalism", slug: "mass-communication", img: "/images/cultural_fest_performance_1768117835053.png" },
+              { name: "Department Of Economics", slug: "economics", img: "/images/school_library_1768115599802.png" },
+              { name: "Department Of English", slug: "english", img: "/images/classroom_learning_1768115518451.png" },
+              { name: "Department Of Commerce", slug: "commerce", img: "/images/document_verification_office_1768116391105.png" },
+              { name: "Department Of Statistics", slug: "statistics", img: "/images/modern_science_lab_1768116682208.png" },
+              { name: "Department Of Psychology", slug: "psychology", img: "/images/science_exhibition_project_1768117868795.png" }
             ].map((dept, i) => (
               <ScrollReveal key={i} delay={i * 100}>
-                <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border border-zinc-100 hover:cursor-pointer">
+                <Link href={`/departments/${dept.slug}`} className="block h-full">
+                  <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border border-zinc-100 hover:cursor-pointer">
 
-                  {/* Hover Background Image with subtle zoom */}
-                  <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
-                    <Image
-                      src={dept.img}
-                      alt={dept.name}
-                      fill
-                      className="object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    />
-                    {/* Dark Gradient Overlay for readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"></div>
+                    {/* Hover Background Image with subtle zoom */}
+                    <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
+                      <Image
+                        src={dept.img}
+                        alt={dept.name}
+                        fill
+                        className="object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      />
+                      {/* Dark Gradient Overlay for readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10 w-full">
+                      <h3 className="text-sm md:text-base font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
+                        {dept.name}
+                      </h3>
+
+                      {/* Optional decorative line that appears on hover */}
+                      <div className="h-0.5 w-0 bg-emerald-400 mx-auto mt-0 group-hover:mt-3 group-hover:w-12 transition-all duration-500 opacity-0 group-hover:opacity-100 delay-100"></div>
+                    </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="relative z-10 w-full">
-                    <h3 className="text-sm md:text-base font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
-                      {dept.name}
-                    </h3>
-
-                    {/* Optional decorative line that appears on hover */}
-                    <div className="h-0.5 w-0 bg-emerald-400 mx-auto mt-0 group-hover:mt-3 group-hover:w-12 transition-all duration-500 opacity-0 group-hover:opacity-100 delay-100"></div>
-                  </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
