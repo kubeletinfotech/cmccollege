@@ -111,23 +111,26 @@ export default function Footer() {
                     <h4 className="text-white font-bold mb-6">Contact Us</h4>
                     <ul className="space-y-4 text-emerald-200/80">
                         <li className="flex gap-3">
-                            <span className="text-white italic">📍</span>
-                            123 Educational Street, Knowledge City, State, Country
+                            <span className="text-white">📍</span>
+                            Mount Razi. Nadavayal (P.O)
+                            Wayanad-670646
                         </li>
                         <li className="flex gap-3">
-                            <span className="text-white italic">📞</span>
-                            +1 234 567 890
+                            <span className="text-white">📞</span>
+                            +91 7594 888 203
                         </li>
-                        <li className="flex gap-3">
-                            <span className="text-white italic">✉️</span>
-                            info@schoolname.edu
-                        </li>
+                        <a href="mailto:info@cmcollege.edu.in">
+                            <li className="flex gap-3">
+                                <span className="text-white">✉️</span>
+                                info@cmcollege.edu.in
+                            </li>
+                        </a>
                     </ul>
                 </div>
             </div>
 
             <div className="max-w-7xl mx-auto mt-10 pt-8 border-t border-emerald-900/50 text-center text-sm text-emerald-200/40">
-                <p>&copy; {new Date().getFullYear()} School Name. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} CM College. All rights reserved.</p>
             </div>
         </footer>
     );

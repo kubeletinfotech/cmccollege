@@ -117,7 +117,7 @@ export default function NotFound() {
                 transition={{ delay: 1, duration: 1 }}
                 className="absolute bottom-8 text-sm text-zinc-400"
             >
-                Lost? Contact us at <a href="mailto:info@cmcollege.edu" className="text-zinc-600 hover:underline">info@cmcollege.edu</a>
+                Lost? Contact us at <a href="mailto:info@cmcollege.edu.in" className="text-zinc-600 hover:underline">info@cmcollege.edu.in</a>
             </motion.p>
         </div>
     );
