@@ -167,11 +167,6 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                                                 &quot;{data.hod.quote}&quot;
                                             </p>
                                         </div>
-
-                                        <button className="w-full py-4 border border-zinc-200 rounded-xl font-bold text-zinc-900 hover:bg-zinc-50 hover:border-[#5D1035] transition-all duration-300 flex items-center justify-center gap-2 group">
-                                            View Full Profile
-                                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                                        </button>
                                     </div>
                                 </div>
                             </ScrollReveal>
