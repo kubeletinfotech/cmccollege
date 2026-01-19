@@ -178,14 +178,11 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                                             {Array.isArray(data.courses) ? (
                                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                                     {data.courses.map((course, idx) => (
-                                                        <div key={idx} className="bg-white/10 p-5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all group">
-                                                            <h4 className="font-bold text-white mb-2 flex items-start gap-2 text-sm leading-snug">
-                                                                <CheckCircle2 className="w-4 h-4 text-white/70 mt-0.5 shrink-0 group-hover:text-white transition-colors" />
+                                                        <div key={idx} className="bg-white/10 p-5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all group flex items-center">
+                                                            <h4 className="font-bold text-white flex items-center gap-3 text-lg leading-snug">
+                                                                <CheckCircle2 className="w-5 h-5 text-white/90 shrink-0 group-hover:text-white transition-colors" />
                                                                 {course.title}
                                                             </h4>
-                                                            <p className="text-white/80 text-xs leading-relaxed font-light pl-6">
-                                                                {course.description}
-                                                            </p>
                                                         </div>
                                                     ))}
                                                 </div>
