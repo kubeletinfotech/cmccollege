@@ -415,8 +415,8 @@ export default function Home() {
               { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
               { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/English/english-bg.jpg" },
               { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Commerce/commerce-bg.jpg" },
-              { name: "Department Of Statistics", slug: "statistics", img: "/images/modern_science_lab_1768116682208.png" },
-              { name: "Department Of Psychology", slug: "psychology", img: "/images/science_exhibition_project_1768117868795.png" }
+              { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "/images/modern_science_lab_1768116682208.png" },
+              { name: "Department Of Sociology", slug: "sociology", img: "/images/science_exhibition_project_1768117868795.png" }
             ].map((dept, i) => (
               <ScrollReveal key={i} delay={i * 100}>
                 <Link href={`/departments/${dept.slug}`} className="block h-full">

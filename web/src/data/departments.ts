@@ -10,7 +10,10 @@ import {
     TrendingUp,
     Brain,
     Microscope,
-    Scale
+    Scale,
+    Briefcase,
+    Search,
+    Heart
 } from "lucide-react";
 
 export interface DepartmentData {
@@ -334,70 +337,60 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Commerce/Gallery/image4", category: "" },
         ]
     },
-    "statistics": {
-        about: "Unlocking the power of data.",
-        vision: "To lead in statistical research and education.",
+    "human-resource-management": {
+        about: "Focusing on the strategic management of human capital.",
+        vision: "To develop future leaders in human resource management.",
         mission: [
-            "To decipher the language of data and provide students with the mathematical and computational tools to model uncertainty and drive discovery."
+            "To provide comprehensive education in human resource practices, organizational behavior, and strategic management."
         ],
-        objectives: "To develop strong analytical and statistical skills.",
-        courses: "B.Sc Statistics",
-        highlights: ["Data Analysis Lab", "Statistical Software Training"],
+        objectives: "To equip students with HR management skills.",
+        courses: "BA Human Resource Management",
+        highlights: ["HR Workshops", "Management Training"],
         strengths: [
-            { icon: PieChart, text: "Data Analytics", sub: "Specialization in R & Python" },
-            { icon: Microscope, text: "Probability Models", sub: "Real-world applications" },
-            { icon: Cpu, text: "Computation Lab", sub: "Advanced statistical software" },
-            { icon: Users, text: "Research Methods", sub: "Focus on survey design" }
+            { icon: Users, text: "HR Analytics", sub: "Data-driven decisions" },
+            { icon: TrendingUp, text: "Strategic Management", sub: "Leadership focus" },
+            { icon: Scale, text: "Labor Laws", sub: "Compliance & Relations" },
+            { icon: Briefcase, text: "Internships", sub: "Corporate exposure" }
         ],
         hod: {
-            name: "Dr. Sreekumar Menon",
-            qualification: "M.Sc, Ph.D in Statistics",
-            quote: "Statistics is the science of learning from data and measuring, controlling, and communicating uncertainty.",
-            img: "/images/Principal.jpeg"
+            name: "HOD Name",
+            qualification: "Qualification",
+            quote: "Leadership is about empowering others.",
+            img: "/images/default-user-placeholder.png"
         },
         faculty: [
-            { name: "Dr. Ada Lovelace", role: "Professor", spec: "Theoretical Stats", img: "/images/Principal.jpeg" },
-            { name: "Mr. Isaac Newton", role: "Assistant Professor", spec: "Probability", img: "/images/Principal.jpeg" },
-            { name: "Ms. Marie Curie", role: "Lecturer", spec: "Applied Stats", img: "/images/Principal.jpeg" },
-            { name: "Dr. Alan Turing", role: "Professor", spec: "Stochastic Processes", img: "/images/Principal.jpeg" },
+            { name: "Faculty 1", role: "Assistant Professor", spec: "HR", img: "/images/default-user-placeholder.png" }
         ],
         gallery: [
-            { img: "/images/modern_science_lab_1768116682208.png", category: "STAT LAB" },
-            { img: "/images/science_exhibition_project_1768117868795.png", category: "CALCULATION HUB" },
-            { img: "/images/academic_excellence_1768115933614.png", category: "LIBRARY" }
+            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image1?updatedAt=1768829462746", category: "HR LAB" }
         ]
     },
-    "psychology": {
-        about: "Understanding the human mind and behavior.",
-        vision: "To promote mental health and well-being.",
+    "sociology": {
+        about: "Studying the structure, development, and functioning of human society.",
+        vision: "To foster a deep understanding of social dynamics and cultural diversity.",
         mission: [
-            "To explore the intricacies of human behavior and mental processes, promoting well-being and understanding through scientific inquiry and empathy."
+            "To provide students with the theoretical and methodological tools to analyze social phenomena and contribute to social justice."
         ],
-        objectives: "To provide a scientific understanding of human behavior.",
-        courses: "B.Sc Psychology",
-        highlights: ["Counseling Center", "Behavioral Lab"],
+        objectives: "To develop critical sociological thinking.",
+        courses: "BA Sociology",
+        highlights: ["Social Research", "Community Outreach"],
         strengths: [
-            { icon: Brain, text: "Counseling Lab", sub: "Clinical observation setup" },
-            { icon: Users, text: "Behavior Studies", sub: "Experimental research focus" },
-            { icon: GraduationCap, text: "Therapy Workshops", sub: "Hands-on mental wellness" },
-            { icon: Globe, text: "Social Psychology", sub: "Understanding group dynamics" }
+            { icon: Users, text: "Social Theory", sub: "Classical & Contemporary" },
+            { icon: Globe, text: "Cultural Studies", sub: "Global perspectives" },
+            { icon: BookOpen, text: "Field Research", sub: "Ethnographic studies" },
+            { icon: Users, text: "Social Work", sub: "Community engagement" }
         ],
         hod: {
-            name: "Dr. Lakshmi Nair",
-            qualification: "Ph.D in Clinical Psychology",
-            quote: "The mind is the last frontier. We guide our students to navigate it with science and compassion.",
-            img: "/images/Principal.jpeg"
+            name: "HOD Name",
+            qualification: "Qualification",
+            quote: "Society is the mirror of our collective actions.",
+            img: "/images/default-user-placeholder.png"
         },
         faculty: [
-            { name: "Dr. Sigmund Freud", role: "Professor", spec: "Psychoanalysis", img: "/images/Principal.jpeg" },
-            { name: "Ms. Anna Wright", role: "Assistant Professor", spec: "Child Psychology", img: "/images/Principal.jpeg" },
-            { name: "Mr. Carl Jung", role: "Lecturer", spec: "Cognitive Psychology", img: "/images/Principal.jpeg" },
-            { name: "Ms. Helen Keller", role: "Professor", spec: "Educational Psy", img: "/images/Principal.jpeg" },
+            { name: "Faculty 1", role: "Assistant Professor", spec: "Sociology", img: "/images/default-user-placeholder.png" }
         ],
         gallery: [
-            { img: "/images/classroom_learning_1768115518451.png", category: "OBSERVATION LAB" },
-            { img: "/images/Principal.jpeg", category: "COUNSELING ROOM" },
-            { img: "/images/science_exhibition_project_1768117868795.png", category: "SEMINAR HALL" }
+            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image2", category: "SOCIAL LAB" }
         ]
     }
 };
