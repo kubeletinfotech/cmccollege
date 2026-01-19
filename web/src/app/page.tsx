@@ -126,17 +126,17 @@ export default function Home() {
 
   const heroImages = [
     "https://cmcollege.edu.in/wp-content/uploads/2023/08/banner4.jpg",
-    "https://ik.imagekit.io/5c6j602yp/Banner/DSC_1852.JPG",
-    "/images/school_library_1768115599802.png"
+    "https://ik.imagekit.io/5c6j602yp/Banner/Banner1?updatedAt=1768811009859",
+    "https://ik.imagekit.io/5c6j602yp/Banner/Banner2"
   ];
 
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [isPaused, heroImages.length]);
+  }, [isPaused, heroImages.length, currentSlide]);
 
   // Fetch dynamic page content
   const { content, getImage, getText } = usePageContent("home");
