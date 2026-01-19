@@ -7,6 +7,7 @@ import {
     Download,
     ChevronLeft,
     ChevronRight,
+    ChevronDown,
     CheckCircle2,
     Cpu,
     Users,
@@ -24,6 +25,39 @@ import { useState, useEffect, use } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 import { DEPARTMENT_DATA } from "@/data/departments";
+
+const CourseItem = ({ title, description }: { title: string, description: string }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div
+            onClick={() => setIsOpen(!isOpen)}
+            className="bg-white/10 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all group cursor-pointer overflow-hidden"
+        >
+            <div className="p-5 flex items-center justify-between gap-4">
+                <h4 className="font-bold text-white flex items-center gap-3 text-lg leading-snug">
+                    <CheckCircle2 className="w-5 h-5 text-white/90 shrink-0 group-hover:text-white transition-colors" />
+                    {title}
+                </h4>
+                <ChevronDown className={`w-5 h-5 text-white/70 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+            </div>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                    >
+                        <p className="text-white/80 text-base leading-relaxed font-light px-5 pb-5 pl-[3.25rem]">
+                            {description}
+                        </p>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
 
 export default function DepartmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
@@ -176,14 +210,9 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                                             </h3>
 
                                             {Array.isArray(data.courses) ? (
-                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                <div className="flex flex-col gap-4">
                                                     {data.courses.map((course, idx) => (
-                                                        <div key={idx} className="bg-white/10 p-5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all group flex items-center">
-                                                            <h4 className="font-bold text-white flex items-center gap-3 text-lg leading-snug">
-                                                                <CheckCircle2 className="w-5 h-5 text-white/90 shrink-0 group-hover:text-white transition-colors" />
-                                                                {course.title}
-                                                            </h4>
-                                                        </div>
+                                                        <CourseItem key={idx} title={course.title} description={course.description} />
                                                     ))}
                                                 </div>
                                             ) : (
