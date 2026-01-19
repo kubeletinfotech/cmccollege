@@ -420,8 +420,7 @@ export default function Home() {
             ].map((dept, i) => (
               <ScrollReveal key={i} delay={i * 100}>
                 <Link href={`/departments/${dept.slug}`} className="block h-full">
-                  <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border border-zinc-100 hover:cursor-pointer">
-
+                  <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
                     {/* Hover Background Image with subtle zoom */}
                     <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
                       <Image
@@ -462,10 +461,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
             {[
-              { name: "Hostel", img: "/images/school_hostel_1768115536813.png" },
-              { name: "Masjid", img: "/images/school_masjid_1768115559090.png" },
+              { name: "Hostel", img: "https://ik.imagekit.io/5c6j602yp/Home/images/school_hostel_1768115536813.png" },
+              { name: "Masjid", img: "https://ik.imagekit.io/5c6j602yp/Home/images/school_masjid_1768115559090.png" },
               { name: "Labs", img: "https://images.unsplash.com/photo-1636036766419-4e0e3e628acc?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-              { name: "Library", img: "/images/school_library_1768115599802.png" },
+              { name: "Library", img: "https://ik.imagekit.io/5c6j602yp/Home/images/school_library_1768115599802.png" },
               { name: "Bus", img: "https://plus.unsplash.com/premium_photo-1765918653607-eb9aeeb61327?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
 
             ].map((facility, i) => (

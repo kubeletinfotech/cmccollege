@@ -19,8 +19,8 @@ export default function Footer() {
                     <div className="flex items-center gap-2 mb-6">
                         <div className="relative w-16 h-16">
                             <Image
-                                src="/images/logo.png"
-                                alt="School Logo"
+                                src="https://ik.imagekit.io/5c6j602yp/Home/images/logo2.png"
+                                alt="College Logo"
                                 fill
                                 className="object-contain brightness-0 invert scale-[3] origin-left"
                             />

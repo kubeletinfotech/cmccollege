@@ -3,17 +3,17 @@
 import Image from "next/image";
 
 const partners = [
-    { name: "MMU", logo: "/images/mmu-logo.png" },
-    { name: "Oman", logo: "/images/oman-logo.png" },
-    { name: "Tally", logo: "/images/tally-logo.png" },
-    { name: "Keltron", logo: "/images/keltron-logo.png" },
+    { name: "MMU", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/plant-up.png" },
+    { name: "Oman", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/oman-logo.png" },
+    { name: "Tally", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/tally-logo.png" },
+    { name: "Keltron", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/keltron-logo.png" },
 ];
 
 const programs = [
-    { name: "Queens Drive", logo: "/images/queens-drive.png" },
-    { name: "Plant Up", logo: "/images/plant-up.png" },
-    { name: "Meet the Professional", logo: "/images/meet-professional.png" },
-    { name: "Chirakukal", logo: "/images/chirakukal.png" },
+    { name: "Queens Drive", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/queens-drive.png" },
+    { name: "Plant Up", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/plant-up.png" },
+    { name: "Meet the Professional", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/meet-professional.png" },
+    { name: "Chirakukal", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/chirakukal.png" },
 ];
 
 const MarqueeRow = ({ title, items, reverse = false }: { title: string, items: typeof partners, reverse?: boolean }) => {

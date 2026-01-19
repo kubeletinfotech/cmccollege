@@ -55,7 +55,7 @@ export default function DepartmentsPage() {
                             >
                                 <Link
                                     href={dept.href}
-                                    className="group flex items-center justify-between p-6 md:p-10 bg-white rounded-3xl transition-all duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border-t border-r border-b border-gray-100 border-l-4 border-l-[#5D1035] relative overflow-hidden h-full"
+                                    className="group flex items-center justify-between p-6 md:p-10 bg-white rounded-3xl transition-all duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] relative overflow-hidden h-full"
                                 >
                                     <div className="flex flex-col gap-1 transition-transform duration-300 group-hover:translate-x-2">
                                         <h2 className="text-xl md:text-2xl font-bold text-zinc-900 group-hover:text-[#5D1035] transition-colors leading-tight">
