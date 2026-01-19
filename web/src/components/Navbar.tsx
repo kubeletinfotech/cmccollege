@@ -31,12 +31,12 @@ export default function Navbar() {
                     <div className="flex justify-between items-center h-16 lg:h-22 py-2">
                         {/* Logo (Left) */}
                         <Link href="/" className="flex items-center ml-0 lg:ml-[50px]">
-                            <div className="relative w-36 lg:w-40 2xl:w-56 h-12 2xl:h-18">
+                            <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24">
                                 <Image
-                                    src="/images/logo.png"
+                                    src="/images/logo2.png"
                                     alt="School Logo"
                                     fill
-                                    className="object-contain"
+                                    className="object-contain scale-[1.7]"
                                 />
                             </div>
                         </Link>

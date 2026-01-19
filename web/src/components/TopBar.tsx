@@ -14,7 +14,7 @@ export default function TopBar() {
                 </div>
 
                 {/* Right Side */}
-                <div className="flex items-center font-bold gap-6 text-white/80 text-[12px]">
+                <div className="flex items-center font-black gap-6 text-white text-[11px] lg:text-[13px]">
                     <Link href="/research" className="hover:text-white hover:scale-105 transition-all duration-300">Research</Link>
                     <Link href="/iqac" className="hover:text-white hover:scale-105 transition-all duration-300">IQAC</Link>
                     <Link href="/alumni" className="hover:text-white hover:scale-105 transition-all duration-300">Alumni</Link>

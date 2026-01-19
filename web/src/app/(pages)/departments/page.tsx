@@ -18,9 +18,9 @@ const DEPARTMENTS = [
 
 export default function DepartmentsPage() {
     return (
-        <main className="min-h-screen bg-white text-zinc-900 pt-[112px]">
+        <main className="min-h-screen bg-emerald-50 text-zinc-900 pt-[112px]">
             {/* --- HEADER SECTION --- */}
-            <section className="py-20 md:py-32 px-6 lg:px-24 bg-gradient-to-b from-zinc-50/50 to-white overflow-hidden">
+            <section className="py-20 md:py-32 px-6 lg:px-24 bg-emerald-50/5 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <ScrollReveal>
                         <span className="inline-block py-1 px-3 rounded-full bg-emerald-100/50 text-[#5D1035] text-[10px] md:text-xs font-black tracking-[0.3em] uppercase mb-6 border border-emerald-200/30">
