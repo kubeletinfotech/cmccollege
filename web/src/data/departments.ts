@@ -235,14 +235,29 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "english": {
-        about: "Celebrating the power of language and literature.",
+        about: "Department provides education and training in various fields, and it is involved in many aspects of society. The department offers training in writing and communication skills across various disciplines. The department offers a wide range of courses and areas of specialization that focus on the study of language, literature, culture and Communication.",
         vision: "To be a hub of literary and cultural studies.",
         mission: [
             "To cultivate a lifetime appreciation for literature and language, enhancing students' communicative competence and critical literary analysis."
         ],
         objectives: "To enhance critical thinking through literature.",
-        courses: "BA English Language and Literature",
-        highlights: ["Literary Fest", "Creative Writing Workshops"],
+        courses: [
+            { title: "BA English Language and Literature Honours", description: "Undergraduate Programme" },
+            { title: "MA English Language and Literature", description: "Postgraduate Programme" },
+            { title: "Certificate in Communicative English Skills", description: "Add-on Course" },
+            { title: "Certificate in Digital Media and Communication", description: "Add-on Course" },
+            { title: "Certificate in Academic Writing and Professional Skill", description: "Add-on Course" }
+        ],
+        highlights: [
+            "Extensive library and reading room",
+            "Talk with experts",
+            "Meet with foreigners",
+            "Debate and Workshops",
+            "Discussion forums",
+            "Guidance for higher studies",
+            "CLF CM College Literature Festival",
+            "SPARK Monthly series talk"
+        ],
         strengths: [
             { icon: BookOpen, text: "Literary Societies", sub: "Focus on classics & modern" },
             { icon: Users, text: "Language Lab", sub: "Phonetics & communication" },
@@ -250,16 +265,17 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Globe, text: "Cultural Studies", sub: "Literature across borders" }
         ],
         hod: {
-            name: "Dr. Elizabeth George",
+            name: "Unais T A",
             qualification: "Ph.D in English Literature",
             quote: "Language is the portal to human experience. We aim to make our students masters of this portal.",
-            img: "/images/Principal.jpeg"
+            img: "/images/default-user-placeholder.png"
         },
         faculty: [
-            { name: "Ms. Susan Jacob", role: "Assistant Professor", spec: "British Literature", img: "/images/Principal.jpeg" },
-            { name: "Dr. Mark Twain", role: "Professor", spec: "American Lit", img: "/images/Principal.jpeg" },
-            { name: "Mr. Alan Poe", role: "Lecturer", spec: "Poetry & Arts", img: "/images/Principal.jpeg" },
-            { name: "Ms. Jane Austen", role: "Guest Faculty", spec: "Victorian Studies", img: "/images/Principal.jpeg" },
+            { name: "Ashif T A", role: "Assistant Professor", spec: "British Literature", img: "/images/default-user-placeholder.png" },
+            { name: "Ameera M", role: "Assistant Professor", spec: "American Lit", img: "/images/default-user-placeholder.png" },
+            { name: "Sara Subula", role: "Assistant Professor", spec: "Poetry & Arts", img: "/images/default-user-placeholder.png" },
+            { name: "Ajmal Musharaf", role: "Assistant Professor", spec: "Victorian Studies", img: "/images/default-user-placeholder.png" },
+            { name: "Aiswarya Manoj", role: "Assistant Professor", spec: "Victorian Studies", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [
             { img: "/images/academic_excellence_1768115933614.png", category: "LIBRARY" },
