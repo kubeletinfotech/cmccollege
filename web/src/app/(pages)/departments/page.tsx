@@ -8,7 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 const DEPARTMENTS = [
     { name: "Department of Computer Science", href: "/departments/computer-science" },
     { name: "Department of Management", href: "/departments/management" },
-    { name: "Department of Mass Communication and Journalism", href: "/departments/journalism" },
+    { name: "Department of Mass Communication and Journalism", href: "/departments/mass-communication" },
     { name: "Department of Economics", href: "/departments/economics" },
     { name: "Department of English", href: "/departments/english" },
     { name: "Department of Commerce", href: "/departments/commerce" },

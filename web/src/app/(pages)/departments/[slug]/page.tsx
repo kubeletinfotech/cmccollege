@@ -30,7 +30,7 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
     const data = DEPARTMENT_DATA[slug] || DEPARTMENT_DATA["computer-science"];
     const [currentSlide, setCurrentSlide] = useState(0);
     const [[page, direction], setPage] = useState([0, 0]);
-    const deptName = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    const deptName = data.displayName || slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection]);
@@ -169,27 +169,44 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                             <ScrollReveal delay={250}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Courses */}
-                                    <div className="bg-[#5D1035] p-8 rounded-[2rem] text-white relative overflow-hidden">
+                                    <div className={`bg-[#5D1035] p-8 rounded-[2rem] text-white relative overflow-hidden ${Array.isArray(data.courses) ? "md:col-span-2" : ""}`}>
                                         <div className="relative z-10">
-                                            <h3 className="text-xl font-bold mb-4 font-serif flex items-center gap-2">
-                                                <GraduationCap className="w-5 h-5" /> Courses Offered
+                                            <h3 className="text-xl font-bold mb-6 font-serif flex items-center gap-2">
+                                                <GraduationCap className="w-6 h-6" /> Courses Offered
                                             </h3>
-                                            <p className="text-white/90 leading-relaxed font-light">
-                                                {data.courses}
-                                            </p>
+
+                                            {Array.isArray(data.courses) ? (
+                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                    {data.courses.map((course, idx) => (
+                                                        <div key={idx} className="bg-white/10 p-5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all group">
+                                                            <h4 className="font-bold text-white mb-2 flex items-start gap-2 text-sm leading-snug">
+                                                                <CheckCircle2 className="w-4 h-4 text-white/70 mt-0.5 shrink-0 group-hover:text-white transition-colors" />
+                                                                {course.title}
+                                                            </h4>
+                                                            <p className="text-white/80 text-xs leading-relaxed font-light pl-6">
+                                                                {course.description}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-white/90 leading-relaxed font-light">
+                                                    {data.courses}
+                                                </p>
+                                            )}
                                         </div>
                                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16" />
                                     </div>
 
                                     {/* Highlights */}
-                                    <div className="bg-white p-8 rounded-[2rem] border border-zinc-100 shadow-lg">
+                                    <div className={`bg-white p-8 rounded-[2rem] border border-zinc-100 shadow-lg ${Array.isArray(data.courses) ? "md:col-span-2" : ""}`}>
                                         <h3 className="text-xl font-bold mb-4 font-serif text-[#5D1035] flex items-center gap-2">
                                             <TrendingUp className="w-5 h-5" /> Key Highlights
                                         </h3>
-                                        <ul className="space-y-3">
+                                        <ul className={`grid gap-4 ${Array.isArray(data.courses) ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4" : "space-y-3"}`}>
                                             {data.highlights.map((item, idx) => (
                                                 <li key={idx} className="flex items-center gap-3 text-sm font-semibold text-zinc-700">
-                                                    <div className="w-2 h-2 rounded-full bg-[#5D1035]" />
+                                                    <div className="w-2 h-2 rounded-full bg-[#5D1035] shrink-0" />
                                                     {item}
                                                 </li>
                                             ))}

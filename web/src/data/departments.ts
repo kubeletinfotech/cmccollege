@@ -14,11 +14,12 @@ import {
 } from "lucide-react";
 
 export interface DepartmentData {
+    displayName?: string;
     about: string;
     vision: string;
     mission: string[]; // Changed to array for bullet points
     objectives: string;
-    courses: string;
+    courses: string | { title: string; description: string }[];
     highlights: string[];
     strengths: {
         icon: any;
@@ -132,13 +133,35 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "mass-communication": {
+        displayName: "Mass Communication and Journalism",
         about: "The CM School of Media Studies offers a 4-year course in Mass Communication and Journalism, combining theoretical and practical concepts, with a focus on making students aware of various nuances of the media industry. The department has full-fledged faculties and a media lab for practical sessions. The School of Media studies introduces students to the media field scientifically and motivates them to think in the most creative way, as well as to mould a new media literate society.",
         vision: "Creating a generation of responsible journalists.",
         mission: [
             "To empower aspiring journalists with the skills, ethics, and critical thinking necessary to serve as the pillars of a democratic and informed society."
         ],
         objectives: "To train students in modern media practices.",
-        courses: "Introduction to Photography\nCapture the world through your lens and unleash your artistic vision with  our introduction to Photography course. Whether you’re a budding enthusiast or a complete novice, this course will teach you the fundamentals of photography, from mastering composition to understanding light and exposure.\n\nBasics of media software package\nLearn essential tools for media creation and editing and explore features of popular software like Adobe Creative Suite, including Photoshop for image editing, Premiere Pro for video editing, and Audition for audio editing, Gain skills in media manipulation enhancement and production workflows.\n\nBasics of Graphic Design\nDesign is everywhere, and in our basics of Graphic Design course, you’ll learn how to create impactful visual communication that stands out in a crowded digital landscape.\n\nFrom understanding color theory to mastering typography, this course will equip you with the foundational skills needed to craft compelling designs for print and digital media.\n\nIntroduction to RJ & VJ\nIntroduction to RJ & VJ course! Explore the dynamic world of Radio Jockeying (RJ) and Video Jockeying(VJ). Learn the art of engaging audiences through captivating storytelling, creative presentation skills, and effective communication techniques. Dive into the history, evolution, and modern practices of RJ & VJ, gaining insights into their roles in the entertainment industry. Whether you aspire to be the voice behind the mic or the face on the screen, this course is your gateway to mastering the craft of RJ & VJ. Join us on an exciting journey of discovery and expression!\n\nIntroduction to online content creation\nWith the rise of digital platforms, the demand for engaging online content has never been higher. Our introduction to online content creation course will teach you how to create competing content that captivates audiences across various online Platforms",
+        courses: [
+            {
+                title: "Introduction to Photography",
+                description: "Capture the world through your lens and unleash your artistic vision with our introduction to Photography course. Whether you’re a budding enthusiast or a complete novice, this course will teach you the fundamentals of photography, from mastering composition to understanding light and exposure."
+            },
+            {
+                title: "Basics of media software package",
+                description: "Learn essential tools for media creation and editing and explore features of popular software like Adobe Creative Suite, including Photoshop for image editing, Premiere Pro for video editing, and Audition for audio editing. Gain skills in media manipulation enhancement and production workflows."
+            },
+            {
+                title: "Basics of Graphic Design",
+                description: "Design is everywhere, and in our basics of Graphic Design course, you’ll learn how to create impactful visual communication that stands out in a crowded digital landscape. From understanding color theory to mastering typography, this course will equip you with the foundational skills needed to craft compelling designs for print and digital media."
+            },
+            {
+                title: "Introduction to RJ & VJ",
+                description: "Explore the dynamic world of Radio Jockeying (RJ) and Video Jockeying (VJ). Learn the art of engaging audiences through captivating storytelling, creative presentation skills, and effective communication techniques. Dive into the history, evolution, and modern practices of RJ & VJ, gaining insights into their roles in the entertainment industry."
+            },
+            {
+                title: "Introduction to online content creation",
+                description: "With the rise of digital platforms, the demand for engaging online content has never been higher. Our introduction to online content creation course will teach you how to create competing content that captivates audiences across various online Platforms."
+            }
+        ],
         highlights: [
             "Media lab and inhouse production unit",
             "Annual media festiva (aykya Media Festum)",
