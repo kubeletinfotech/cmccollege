@@ -338,7 +338,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100 to-transparent rounded-[32px] transform -rotate-2 scale-95 opacity-60"></div>
               <div className="relative h-full w-full rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
                 <Image
-                  src="/images/Principal.jpeg"
+                  src="https://ik.imagekit.io/5c6j602yp/About/principal.jpeg?updatedAt=1768826571745"
                   alt="Principal"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"

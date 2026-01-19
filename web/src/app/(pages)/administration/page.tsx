@@ -20,17 +20,17 @@ const councilMembers = [
     {
         name: "Shafi Pulpara",
         role: "Principal, CM College of Arts and Science",
-        image: "https://ik.imagekit.io/5c6j602yp/About/principal.jpg"
+        image: "https://ik.imagekit.io/5c6j602yp/About/principal.jpeg"
     },
     {
         name: "Uvais T K",
         role: "Administrative Officer – CM College of Arts and Science",
-        image: "https://ik.imagekit.io/5c6j602yp/About/admin.jpg"
+        image: "https://ui-avatars.com/api/?name=Uvais+T+K&background=0D8ABC&color=fff&size=500"
     },
     {
         name: "Jabir Ali P P",
         role: "IQAC Director, CM College of Arts and Science",
-        image: "https://ik.imagekit.io/5c6j602yp/About/iqac.jpg"
+        image: "https://ui-avatars.com/api/?name=Jabir+Ali+P+P&background=0D8ABC&color=fff&size=500"
     }
 ];
 
