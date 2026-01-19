@@ -211,12 +211,12 @@ export default function Home() {
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
               key={currentSlide}
-              initial={{ x: "100%", opacity: 1 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 1 }}
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 1.1, opacity: 0 }}
               transition={{
-                duration: 0.8,
-                ease: [0.32, 0.72, 0, 1] // Custom ease for smooth sliding
+                duration: 1.5,
+                ease: [0.25, 1, 0.5, 1] // Luxurious smooth ease
               }}
               className="absolute inset-0"
             >
@@ -258,7 +258,7 @@ export default function Home() {
                 CM College of Arts and Science
               </h1>
               <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto">
-                Academic Excellence with Islamic Values
+                Committed to Excellence in Higher Education
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/admissions">
