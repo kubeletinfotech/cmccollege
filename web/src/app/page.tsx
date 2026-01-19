@@ -223,28 +223,30 @@ export default function Home() {
           ))}
         </div>
 
-        {/* <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <ScrollReveal>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6" data-editable="hero-title" data-page="home">
-              {getText("hero-title", "Integrated School for Higher Secondary")}
-            </h1>
-            <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto" data-editable="hero-subtitle" data-page="home">
-              {getText("hero-subtitle", "Academic Excellence with Islamic Values")}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/admissions">
-                <button className="px-8 py-4 bg-white text-emerald-900 font-semibold rounded-lg shadow-lg hover:bg-emerald-50 transition-transform text-lg hover:scale-105 active:scale-95 cursor-pointer">
-                  Admissions Open
-                </button>
-              </Link>
-              <Link href="/about">
-                <button className="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-lg hover:scale-105 active:scale-95 cursor-pointer">
-                  Learn More
-                </button>
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div> */}
+        {getText("show_hero_alert", "false") === "true" && (
+          <div className="relative z-10 max-w-5xl mx-auto text-center" data-editable="show_hero_alert" data-type="boolean" data-page="home">
+            <ScrollReveal>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6" data-editable="hero-title" data-page="home">
+                {getText("hero-title", "Integrated School for Higher Secondary")}
+              </h1>
+              <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto" data-editable="hero-subtitle" data-page="home">
+                {getText("hero-subtitle", "Academic Excellence with Islamic Values")}
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/admissions">
+                  <button className="px-8 py-4 bg-white text-emerald-900 font-semibold rounded-lg shadow-lg hover:bg-emerald-50 transition-transform text-lg hover:scale-105 active:scale-95 cursor-pointer">
+                    Admissions Open
+                  </button>
+                </Link>
+                <Link href="/about">
+                  <button className="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-lg hover:scale-105 active:scale-95 cursor-pointer">
+                    Learn More
+                  </button>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        )}
       </section>
 
       {/* About Section - Premium Bordered Card */}
