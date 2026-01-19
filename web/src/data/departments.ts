@@ -14,7 +14,12 @@ import {
 } from "lucide-react";
 
 export interface DepartmentData {
-    mission: string;
+    about: string;
+    vision: string;
+    mission: string[]; // Changed to array for bullet points
+    objectives: string;
+    courses: string;
+    highlights: string[];
     strengths: {
         icon: any;
         text: string;
@@ -40,7 +45,26 @@ export interface DepartmentData {
 
 export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
     "computer-science": {
-        mission: "To produce globally competent computer professionals by providing high-quality education, encouraging research mindset, and instilling strong ethical values tailored to meet industrial demands.",
+        about: "The Department of Computer Science was established in the year 2010. The department curriculum has to keep abreast of the new concepts and applications and keep the students updated. The department is well equipped, and Project work is a part of the curriculum. Department exposure to latest technologies to inculcate ideas which bridge the industry gap in the IT sector by bounding to social ethics by conducting workshops, seminars, and tech talks.",
+        vision: "BCA programme is to empower students with cutting-edge knowledge and skills in computer applications, preparing them to become innovative professionals and leaders in the IT industry.",
+        mission: [
+            "Impart quality education in computer applications with a strong theoretical and practical foundation.",
+            "Develop proficient software professionals with skills in programming, database management, and system design.",
+            "Encourage analytical thinking and problem-solving abilities through real-world project exposure.",
+            "Promote ethical values and professionalism in the field of Information Technology.",
+            "Prepare students for careers in the IT industry and for pursuing higher studies in computer science.",
+            "Foster innovation and adaptability to meet the evolving demands of technology.",
+            "Enhance communication and teamwork skills for effective collaboration in professional environments.",
+            "Encourage continuous learning and research in emerging areas of computing."
+        ],
+        objectives: "BCA (Bachelor of Computer Applications) course is to provide students with a solid foundation in computer science and its practical applications. It aims to develop their programming skills, analytical thinking, and problem-solving abilities through hands-on experience with modern programming languages and software development tools. The course prepares students for successful careers in the IT industry by equipping them with knowledge in areas like software development, web technologies, databases, and networking. It also fosters communication, teamwork, and ethical values while encouraging continuous learning and innovation to keep up with the evolving technological landscape and to pursue higher education or professional certifications.",
+        courses: "The Department of Computer Science offers a 4year BCA and BSc Computer Science honours degree with the following add on courses.",
+        highlights: [
+            "Annual IT Fest ‘Techastra”",
+            "Modern Computer Lab",
+            "Strong Industry Connections",
+            "Industry Ready Graduates"
+        ],
         strengths: [
             { icon: Cpu, text: "AI & Robotics Labs", sub: "Cutting-edge infrastructure" },
             { icon: Users, text: "Industry Partnerships", sub: "MOU with tech giants" },
@@ -54,10 +78,10 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             img: "/images/Principal.jpeg"
         },
         faculty: [
-            { name: "Dr. Sarah Chen", role: "Professor", spec: "Artificial Intelligence", img: "/images/Principal.jpeg" },
-            { name: "Prof. James Wilson", role: "Assistant Professor", spec: "Cyber Security", img: "/images/Principal.jpeg" },
-            { name: "Dr. Emily Rodriguez", role: "Lecturer", spec: "Data Science", img: "/images/Principal.jpeg" },
-            { name: "Prof. Michael Zhang", role: "Industry Expert", spec: "Software Architecture", img: "/images/Principal.jpeg" },
+            { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/sumayya-u.jpg" },
+            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/rijila-nath.jpg" },
+            { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/vivek-mv-200x250.jpg" },
+            { name: "Asliya A", role: "Assistant Professor", spec: "Software Architecture", img: "/images/Principal.jpeg" },
         ],
         gallery: [
             { img: "/images/modern_science_lab_1768116682208.png", category: "AI LAB" },
@@ -66,7 +90,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "management": {
-        mission: "To nurture future-ready business leaders through a blend of academic rigor, practical exposure, and ethical grounding in the global management landscape.",
+        about: "The Department of Management Studies focuses on creating future leaders who are ethically grounded and professionally competent.",
+        vision: "To be a center of excellence in management education.",
+        mission: [
+            "To nurture future-ready business leaders through a blend of academic rigor, practical exposure, and ethical grounding in the global management landscape."
+        ],
+        objectives: "To provide comprehensive management education and develop leadership skills.",
+        courses: "BBA (Bachelor of Business Administration)",
+        highlights: ["Business Analytics Workshops", "Leadership Camps"],
         strengths: [
             { icon: TrendingUp, text: "Business Analytics", sub: "Data-driven decision making" },
             { icon: Globe, text: "Global Exposure", sub: "International seminars" },
@@ -92,7 +123,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "journalism": {
-        mission: "To empower aspiring journalists with the skills, ethics, and critical thinking necessary to serve as the pillars of a democratic and informed society.",
+        about: "Dedicated to fostering truth and integrity in media.",
+        vision: "Creating a generation of responsible journalists.",
+        mission: [
+            "To empower aspiring journalists with the skills, ethics, and critical thinking necessary to serve as the pillars of a democratic and informed society."
+        ],
+        objectives: "To train students in modern media practices.",
+        courses: "BA Mass Communication and Journalism",
+        highlights: ["Media Lab", "Live News Production"],
         strengths: [
             { icon: Mic2, text: "Media Studio", sub: "Full HD production setup" },
             { icon: BookOpen, text: "Print Media Lab", sub: "Desktop publishing" },
@@ -118,7 +156,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "economics": {
-        mission: "To analyze and interpret complex economic phenomena, fostering a deep understanding of market dynamics and social welfare policies.",
+        about: "Analyzing the forces that shape our world.",
+        vision: "To create economic thinkers for a better tomorrow.",
+        mission: [
+            "To analyze and interpret complex economic phenomena, fostering a deep understanding of market dynamics and social welfare policies."
+        ],
+        objectives: "To provide deep insights into economic theories and policies.",
+        courses: "BA Economics",
+        highlights: ["Economic Forum", "Budget Analysis Sessions"],
         strengths: [
             { icon: PieChart, text: "Statistical Analysis", sub: "Advanced econometrics" },
             { icon: TrendingUp, text: "Policy Research", sub: "Global economic trends" },
@@ -144,7 +189,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "english": {
-        mission: "To cultivate a lifetime appreciation for literature and language, enhancing students' communicative competence and critical literary analysis.",
+        about: "Celebrating the power of language and literature.",
+        vision: "To be a hub of literary and cultural studies.",
+        mission: [
+            "To cultivate a lifetime appreciation for literature and language, enhancing students' communicative competence and critical literary analysis."
+        ],
+        objectives: "To enhance critical thinking through literature.",
+        courses: "BA English Language and Literature",
+        highlights: ["Literary Fest", "Creative Writing Workshops"],
         strengths: [
             { icon: BookOpen, text: "Literary Societies", sub: "Focus on classics & modern" },
             { icon: Users, text: "Language Lab", sub: "Phonetics & communication" },
@@ -170,7 +222,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "commerce": {
-        mission: "To produce ethical business professionals equipped with modern accounting, taxation, and financial management skills for the corporate world.",
+        about: "Building the financial backbone of the future.",
+        vision: "Excellence in commerce and financial education.",
+        mission: [
+            "To produce ethical business professionals equipped with modern accounting, taxation, and financial management skills for the corporate world."
+        ],
+        objectives: "To prepare students for professional careers in finance and commerce.",
+        courses: "B.Com Finance, B.Com Co-operation",
+        highlights: ["Tally & GST Training", "Investment Workshops"],
         strengths: [
             { icon: TrendingUp, text: "Accounting Tally", sub: "Industry standard training" },
             { icon: Scale, text: "Taxation Laws", sub: "Direct & Indirect tax focus" },
@@ -196,7 +255,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "statistics": {
-        mission: "To decipher the language of data and provide students with the mathematical and computational tools to model uncertainty and drive discovery.",
+        about: "Unlocking the power of data.",
+        vision: "To lead in statistical research and education.",
+        mission: [
+            "To decipher the language of data and provide students with the mathematical and computational tools to model uncertainty and drive discovery."
+        ],
+        objectives: "To develop strong analytical and statistical skills.",
+        courses: "B.Sc Statistics",
+        highlights: ["Data Analysis Lab", "Statistical Software Training"],
         strengths: [
             { icon: PieChart, text: "Data Analytics", sub: "Specialization in R & Python" },
             { icon: Microscope, text: "Probability Models", sub: "Real-world applications" },
@@ -222,7 +288,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "psychology": {
-        mission: "To explore the intricacies of human behavior and mental processes, promoting well-being and understanding through scientific inquiry and empathy.",
+        about: "Understanding the human mind and behavior.",
+        vision: "To promote mental health and well-being.",
+        mission: [
+            "To explore the intricacies of human behavior and mental processes, promoting well-being and understanding through scientific inquiry and empathy."
+        ],
+        objectives: "To provide a scientific understanding of human behavior.",
+        courses: "B.Sc Psychology",
+        highlights: ["Counseling Center", "Behavioral Lab"],
         strengths: [
             { icon: Brain, text: "Counseling Lab", sub: "Clinical observation setup" },
             { icon: Users, text: "Behavior Studies", sub: "Experimental research focus" },

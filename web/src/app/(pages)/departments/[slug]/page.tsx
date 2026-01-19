@@ -15,7 +15,9 @@ import {
     Phone,
     GraduationCap,
     Lightbulb,
-    Target
+    Target,
+    BookOpen,
+    TrendingUp
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, use } from "react";
@@ -100,54 +102,131 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-zinc-50 to-transparent pointer-events-none" />
             </section>
 
-            {/* --- OVERVIEW SECTION --- */}
+            {/* --- DETAILED CONTENT SECTION --- */}
             <section className="py-20 px-6 lg:px-24">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                        {/* Left Column - Content Cards */}
-                        <div className="lg:col-span-7 space-y-8">
+                        {/* Left Column - Main Content */}
+                        <div className="lg:col-span-7 space-y-12">
+
+                            {/* About Section */}
                             <ScrollReveal>
-                                <div className="bg-white p-10 rounded-[2rem] border border-zinc-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition-all duration-500 group">
-                                    <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 text-[#5D1035]">
-                                        <Target className="w-6 h-6" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold mb-4 font-serif">Mission Statement</h3>
-                                    <p className="text-zinc-600 leading-relaxed text-lg font-light">
-                                        {data.mission}
+                                <div>
+                                    <h3 className="text-2xl font-bold mb-4 font-serif text-[#5D1035] flex items-center gap-3">
+                                        <BookOpen className="w-6 h-6" /> About the Department
+                                    </h3>
+                                    <p className="text-zinc-600 leading-relaxed text-lg font-light text-justify">
+                                        {data.about}
                                     </p>
                                 </div>
                             </ScrollReveal>
 
-                            <ScrollReveal delay={100}>
-                                <div className="bg-white p-10 rounded-[2rem] border border-zinc-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition-all duration-500">
-                                    <div className="w-12 h-12 bg-[#5D1035]/5 rounded-xl flex items-center justify-center mb-6 text-[#5D1035]">
-                                        <Lightbulb className="w-6 h-6" />
+                            {/* Vision & Objectives Grid */}
+                            <div className="grid grid-cols-1 gap-8">
+                                <ScrollReveal delay={100}>
+                                    <div className="bg-emerald-50/50 p-8 rounded-[2rem] border border-emerald-100/50">
+                                        <h3 className="text-xl font-bold mb-3 font-serif text-emerald-900 flex items-center gap-2">
+                                            <Target className="w-5 h-5" /> Vision
+                                        </h3>
+                                        <p className="text-zinc-700 italic font-medium leading-relaxed">
+                                            &quot;{data.vision}&quot;
+                                        </p>
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-6 font-serif">Academic Strengths</h3>
-                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                </ScrollReveal>
+
+                                <ScrollReveal delay={150}>
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-3 font-serif text-[#5D1035] flex items-center gap-2">
+                                            <Lightbulb className="w-5 h-5" /> Objectives
+                                        </h3>
+                                        <p className="text-zinc-600 leading-relaxed text-justify">
+                                            {data.objectives}
+                                        </p>
+                                    </div>
+                                </ScrollReveal>
+                            </div>
+
+                            {/* Mission Section */}
+                            <ScrollReveal delay={200}>
+                                <div className="bg-white p-8 md:p-10 rounded-[2rem] border border-zinc-100 shadow-xl shadow-zinc-200/40">
+                                    <h3 className="text-2xl font-bold mb-6 font-serif text-[#5D1035] flex items-center gap-3">
+                                        <Target className="w-6 h-6" /> Mission
+                                    </h3>
+                                    <ul className="space-y-4">
+                                        {data.mission.map((item, idx) => (
+                                            <li key={idx} className="flex gap-4 items-start group">
+                                                <div className="shrink-0 w-6 h-6 rounded-full bg-[#5D1035]/10 flex items-center justify-center text-[#5D1035] mt-1 group-hover:bg-[#5D1035] group-hover:text-white transition-colors">
+                                                    <CheckCircle2 className="w-4 h-4" />
+                                                </div>
+                                                <p className="text-zinc-700 leading-relaxed">{item}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </ScrollReveal>
+
+                            {/* Courses & Highlights */}
+                            <ScrollReveal delay={250}>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* Courses */}
+                                    <div className="bg-[#5D1035] p-8 rounded-[2rem] text-white relative overflow-hidden">
+                                        <div className="relative z-10">
+                                            <h3 className="text-xl font-bold mb-4 font-serif flex items-center gap-2">
+                                                <GraduationCap className="w-5 h-5" /> Courses Offered
+                                            </h3>
+                                            <p className="text-white/90 leading-relaxed font-light">
+                                                {data.courses}
+                                            </p>
+                                        </div>
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16" />
+                                    </div>
+
+                                    {/* Highlights */}
+                                    <div className="bg-white p-8 rounded-[2rem] border border-zinc-100 shadow-lg">
+                                        <h3 className="text-xl font-bold mb-4 font-serif text-[#5D1035] flex items-center gap-2">
+                                            <TrendingUp className="w-5 h-5" /> Key Highlights
+                                        </h3>
+                                        <ul className="space-y-3">
+                                            {data.highlights.map((item, idx) => (
+                                                <li key={idx} className="flex items-center gap-3 text-sm font-semibold text-zinc-700">
+                                                    <div className="w-2 h-2 rounded-full bg-[#5D1035]" />
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+
+                            {/* Academic Strengths (Previously existed, keeping relevant parts) */}
+                            <ScrollReveal delay={300}>
+                                <div>
+                                    <h3 className="text-xl font-bold mb-6 font-serif text-zinc-900">Core Competencies</h3>
+                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         {data.strengths.map((item, idx) => (
-                                            <li key={idx} className="flex gap-4 group/item">
-                                                <div className="shrink-0 w-10 h-10 rounded-lg bg-zinc-50 flex items-center justify-center text-[#5D1035] group-hover/item:bg-[#5D1035] group-hover/item:text-white transition-colors">
+                                            <li key={idx} className="flex gap-4 p-4 rounded-xl bg-zinc-50 hover:bg-white hover:shadow-md transition-all border border-transparent hover:border-zinc-100">
+                                                <div className="shrink-0 w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-[#5D1035]">
                                                     <item.icon className="w-5 h-5" />
                                                 </div>
                                                 <div>
-                                                    <p className="font-bold text-zinc-900">{item.text}</p>
-                                                    <p className="text-sm text-zinc-400">{item.sub}</p>
+                                                    <p className="font-bold text-zinc-900 text-sm">{item.text}</p>
+                                                    <p className="text-xs text-zinc-500">{item.sub}</p>
                                                 </div>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                             </ScrollReveal>
+
                         </div>
 
-                        {/* Right Column - HOD Card */}
+                        {/* Right Column - HOD Card (Sticky) */}
                         <div className="lg:col-span-5 lg:sticky lg:top-32">
                             <ScrollReveal delay={200}>
                                 <div className="bg-white rounded-[2.5rem] overflow-hidden border border-zinc-100 shadow-2xl shadow-zinc-200/50">
                                     <div className="relative h-80 w-full overflow-hidden group">
                                         <Image
-                                            src="/images/Principal.jpeg"
+                                            src={data.hod.img} // Corrected property access
                                             alt="HOD Portrait"
                                             fill
                                             className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -198,7 +277,6 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                                     </div>
                                     <h4 className="text-xl font-bold text-zinc-900 mb-1">{member.name}</h4>
                                     <p className="text-[#5D1035] text-xs font-bold uppercase tracking-wider mb-2">{member.role}</p>
-                                    <p className="text-zinc-400 text-sm font-light">{member.spec}</p>
                                 </div>
                             </ScrollReveal>
                         ))}
