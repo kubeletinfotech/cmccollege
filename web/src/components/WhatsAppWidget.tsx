@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, X, MessageCircle } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 // Replace with actual college number
 const WHATSAPP_NUMBER = "916282592895";
@@ -14,6 +15,9 @@ export default function WhatsAppWidget() {
     const [message, setMessage] = useState("");
     const [isHovered, setIsHovered] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
+    const pathname = usePathname();
+
+    if (pathname?.startsWith("/admin")) return null;
 
     // Auto-focus input when opened
     useEffect(() => {
