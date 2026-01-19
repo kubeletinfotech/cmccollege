@@ -176,16 +176,14 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Globe, text: "Digital Journalism", sub: "Focus on social media trends" }
         ],
         hod: {
-            name: "Prof. Sarah Mathews",
-            qualification: "M.A. Journalism, M.Phil",
+            name: "Vidhya Viswanath",
+            qualification: "M.A. Journalism",
             quote: "Truth is the only currency in journalism. We prepare our students to find it and tell it effectively.",
-            img: "/images/Principal.jpeg"
+            img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Masscom/hod-masscom.jpg"
         },
         faculty: [
-            { name: "Mr. Arun Varghese", role: "Assistant Professor", spec: "Broadcast Journalism", img: "/images/Principal.jpeg" },
-            { name: "Ms. Meera Iyer", role: "Lecturer", spec: "Mass Communication", img: "/images/Principal.jpeg" },
-            { name: "Dr. John Doe", role: "Professor", spec: "Media Ethics", img: "/images/Principal.jpeg" },
-            { name: "Ms. Lisa Wong", role: "Guest Faculty", spec: "Photojournalism", img: "/images/Principal.jpeg" },
+            { name: "Athira P R", role: "Assistant Professor", spec: "Broadcast Journalism", img: "/images/default-user-placeholder.png" },
+            { name: "Shafvana Sherin M", role: "Assistant Professor", spec: "Mass Communication", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [
             { img: "/images/modern_science_lab_1768116682208.png", category: "MEDIA LAB" },
@@ -209,21 +207,16 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Users, text: "Seminar Series", sub: "Dialogues with economists" }
         ],
         hod: {
-            name: "Dr. Rajesh Kumar",
+            name: "Safiya E C",
             qualification: "Ph.D in Applied Economics",
             quote: "Understanding scarcity and choice is fundamental to building a more equitable and efficient world.",
-            img: "/images/Principal.jpeg"
+            img: "/images/default-user-placeholder.png"
         },
         faculty: [
-            { name: "Dr. Linda Garcia", role: "Professor", spec: "Development Economics", img: "/images/Principal.jpeg" },
-            { name: "Mr. Kevin Peters", role: "Assistant Professor", spec: "Microeconomics", img: "/images/Principal.jpeg" },
-            { name: "Ms. Sara Ali", role: "Lecturer", spec: "Mathematical Economics", img: "/images/Principal.jpeg" },
-            { name: "Dr. Paul Walker", role: "Professor", spec: "Econometrics", img: "/images/Principal.jpeg" },
+            { name: "Anna Biju", role: "Assistant Professor", spec: "Development Economics", img: "/images/default-user-placeholder.png" }
         ],
         gallery: [
-            { img: "/images/clg_1.png", category: "RESEARCH WING" },
-            { img: "/images/academic_excellence_1768115933614.png", category: "ARCHIVE" },
-            { img: "/images/Principal.jpeg", category: "DEBATE HALL" }
+            { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX9R9qeanfxjMODGRgK_Lx9pgzgwgZ7zEmwQ&s", category: "RESEARCH WING" }
         ]
     },
     "english": {

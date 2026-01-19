@@ -119,7 +119,7 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                             </motion.p>
                         </div>
 
-                        <motion.button
+                        {/* <motion.button
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             whileHover={{ scale: 1.05 }}
@@ -128,7 +128,7 @@ export default function DepartmentDetailPage({ params }: { params: Promise<{ slu
                         >
                             <Download className="w-5 h-5 group-hover:animate-bounce" />
                             Download Curriculum
-                        </motion.button>
+                        </motion.button> */}
                     </div>
                 </div>
 
