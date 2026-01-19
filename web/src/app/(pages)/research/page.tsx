@@ -64,7 +64,7 @@ export default function ResearchPage() {
     return (
         <main className="min-h-screen bg-emerald-50 pt-24 md:pt-28 pb-12 md:pb-20">
             {/* Page Header */}
-            <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
+            <section className="relative py-24 px-6 bg-[#7B0046] text-white overflow-hidden mb-12">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
                 </div>

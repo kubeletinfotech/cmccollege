@@ -25,7 +25,7 @@ export default function AboutPage() {
 
             {/* 1. HERO SECTION - Institutional Identity */}
             {/* 1. HERO SECTION - Institutional Identity */}
-            <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
+            <section className="relative py-24 px-6 bg-[#7B0046] text-white overflow-hidden mb-12">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
                 </div>
