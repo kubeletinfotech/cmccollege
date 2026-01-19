@@ -26,7 +26,7 @@ const placeholderImages = [
   { title: "Sports Day Excellence", src: "/images/school_sports_day_1768117809679.png", tag: "Sports" },
   { title: "Cultural Performance", src: "/images/cultural_fest_performance_1768117835053.png", tag: "Events" },
   { title: "Science Innovation", src: "/images/science_exhibition_project_1768117868795.png", tag: "Academic" },
-  { title: "School Library", src: "/images/school_library_1768115599802.png", tag: "Campus" },
+  { title: "College Library", src: "/images/school_library_1768115599802.png", tag: "Campus" },
   { title: "Annual Awards", src: "/images/school_annual_award_ceremony_stage_1768117893644.png", tag: "Events" }
 ];
 
@@ -227,7 +227,7 @@ export default function Home() {
           <div className="relative z-10 max-w-5xl mx-auto text-center" data-editable="show_hero_alert" data-type="boolean" data-page="home">
             <ScrollReveal>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6" data-editable="hero-title" data-page="home">
-                {getText("hero-title", "Integrated School for Higher Secondary")}
+                {getText("hero-title", "CM College of Arts and Science")}
               </h1>
               <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto" data-editable="hero-subtitle" data-page="home">
                 {getText("hero-subtitle", "Academic Excellence with Islamic Values")}
