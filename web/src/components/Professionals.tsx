@@ -46,7 +46,7 @@ export default function Professionals() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-semibold text-emerald-800 mb-3 tracking-tight"
+                        className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-3 uppercase"
                     >
                         Meet The Professionals
                     </motion.h2>

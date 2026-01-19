@@ -100,7 +100,7 @@ export default function Testimonials() {
                     <span className="block text-[#fff] text-xs md:text-sm font-bold tracking-[0.2em] uppercase opacity-80 mb-3">
                         What Our Alumni Say
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-serif tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-agency font-bold tracking-normal uppercase">
                         Testimonials
                     </h2>
                     <div className="w-16 h-1 bg-emerald-500 mx-auto mt-6 rounded-full opacity-80"></div>

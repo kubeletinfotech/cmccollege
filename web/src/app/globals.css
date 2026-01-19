@@ -78,3 +78,8 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+.font-agency {
+  font-family: var(--font-oswald), sans-serif;
+  letter-spacing: 0.05em;
+}

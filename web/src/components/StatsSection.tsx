@@ -122,7 +122,7 @@ export default function StatsSection() {
                                 </div>
 
                                 {/* Number */}
-                                <div className="text-3xl md:text-4xl font-bold text-white mb-1 tracking-tight flex items-baseline gap-1 drop-shadow-sm">
+                                <div className="text-3xl md:text-4xl font-agency font-bold text-white mb-1 flex items-baseline gap-1 drop-shadow-sm">
                                     <Counter value={stat.value} />
                                     <span className="text-emerald-400/80 text-2xl font-light">{stat.suffix}</span>
                                 </div>

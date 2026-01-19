@@ -254,7 +254,7 @@ export default function Home() {
         {isAdmissionOpen && (
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <ScrollReveal>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-4xl md:text-6xl font-agency font-bold mb-6 uppercase">
                 CM College of Arts and Science
               </h1>
               <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto">
@@ -285,7 +285,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
             <div className="relative z-10 flex flex-col items-start text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-6 tracking-tight" data-editable="about-heading" data-page="home">
+              <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-6 uppercase" data-editable="about-heading" data-page="home">
                 CM College
               </h2>
 
@@ -403,7 +403,7 @@ export default function Home() {
       <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-900/5">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-4" data-editable="academic-heading" data-page="home">Departments of Academic Studies</h2>
+            <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-4 uppercase" data-editable="academic-heading" data-page="home">Departments of Academic Studies</h2>
             <p className="text-zinc-600 text-lg max-w-2xl mx-auto" data-editable="academic-description" data-page="home">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
           </ScrollReveal>
 
@@ -456,7 +456,7 @@ export default function Home() {
       <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-900/5">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-emerald-800 mb-3 md:mb-4" data-editable="facilities-heading" data-page="home">Campus Facilities</h2>
+            <h2 className="text-2xl md:text-4xl font-agency font-bold text-emerald-800 mb-3 md:mb-4 uppercase" data-editable="facilities-heading" data-page="home">Campus Facilities</h2>
             <p className="text-zinc-600 text-sm md:text-lg" data-editable="facilities-description" data-page="home">Premium infrastructure providing a comfortable learning experience.</p>
           </ScrollReveal>
 
@@ -523,7 +523,7 @@ export default function Home() {
           <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
         </div>
         <ScrollReveal className="relative z-10 max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8" data-editable="cta-heading" data-page="home">Admissions Now Open</h2>
+          <h2 className="text-3xl md:text-5xl font-agency font-bold mb-8 uppercase" data-editable="cta-heading" data-page="home">Admissions Now Open</h2>
           <p className="text-emerald-100 text-xl mb-12 max-w-2xl mx-auto" data-editable="cta-description" data-page="home">Start your journey towards academic excellence and strong moral values today.</p>
           <Link href="/contact">
             <button className="px-12 py-5 bg-white text-emerald-900 font-bold rounded-lg shadow-2xl hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-transform text-xl cursor-pointer">

@@ -53,7 +53,7 @@ export default function ClubsCarousel() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-2xl md:text-4xl font-semibold text-emerald-800 mb-2 md:mb-3 tracking-tight"
+                        className="text-2xl md:text-4xl font-agency font-bold text-emerald-800 mb-2 md:mb-3 uppercase"
                     >
                         Student Clubs & Activities
                     </motion.h2>
