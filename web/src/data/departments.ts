@@ -72,8 +72,8 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Building2, text: "Innovation Hub", sub: "Entrepreneurship cell" }
         ],
         hod: {
-            name: "Dr. Abdul Rasheed",
-            qualification: "Ph.D in Cloud Architectures",
+            name: "Rajitha P",
+            qualification: "Master of Computer Applications",
             quote: "Our goal is to transcend traditional learning and build a bridge between academia and the ever-evolving tech industry.",
             img: "/images/Principal.jpeg"
         },
@@ -90,14 +90,24 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         ]
     },
     "management": {
-        about: "The Department of Management Studies focuses on creating future leaders who are ethically grounded and professionally competent.",
-        vision: "To be a center of excellence in management education.",
+        about: "BBA programmes typically cover a wide range of business related subjects. It is designed to provide students with a comprehensive understanding of various aspects of business administration. Additionally, students may have the opportunity to specialize in areas such as entrepreneurship, international business or human resource management. The curriculum often includes a mix of theoretical knowledge, practical skill development and internships.",
+        vision: "The BBA course is to develop future business leaders with strong analytical, managerial, and entrepreneurial skills, grounded in ethical and global perspectives.",
         mission: [
-            "To nurture future-ready business leaders through a blend of academic rigor, practical exposure, and ethical grounding in the global management landscape."
+            "Provide foundational knowledge in core areas of business such as management, marketing, finance, and accounting.",
+            "Develop critical thinking and problem-solving skills for effective decision-making in business environments.",
+            "Enhance leadership and communication abilities to prepare students for managerial roles.",
+            "Promote ethical and socially responsible business practices.",
+            "Encourage innovation and entrepreneurial thinking for adapting to a dynamic global market.",
+            "Foster a global perspective through exposure to international business trends and practices.",
+            "Prepare students for higher studies or professional careers through practical learning and internships."
         ],
         objectives: "To provide comprehensive management education and develop leadership skills.",
         courses: "BBA (Bachelor of Business Administration)",
-        highlights: ["Business Analytics Workshops", "Leadership Camps"],
+        highlights: [
+            "Management Fest",
+            "Placement Cell",
+            "Business startup ideas"
+        ],
         strengths: [
             { icon: TrendingUp, text: "Business Analytics", sub: "Data-driven decision making" },
             { icon: Globe, text: "Global Exposure", sub: "International seminars" },
@@ -105,16 +115,15 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Building2, text: "Leadership Cell", sub: "Executive development" }
         ],
         hod: {
-            name: "Dr. Thomas Kurian",
+            name: "Athira P",
             qualification: "MBA, Ph.D in Strategic Management",
             quote: "Management is about more than just business; it is about leading with integrity and vision in a complex world.",
             img: "/images/Principal.jpeg"
         },
         faculty: [
-            { name: "Prof. Anjali Nair", role: "Assistant Professor", spec: "Marketing", img: "/images/Principal.jpeg" },
-            { name: "Dr. Robert Smith", role: "Professor", spec: "Finance", img: "/images/Principal.jpeg" },
-            { name: "Ms. Priya Sharma", role: "Lecturer", spec: "HR Management", img: "/images/Principal.jpeg" },
-            { name: "Mr. David Miller", role: "Adjunct Professor", spec: "Operations", img: "/images/Principal.jpeg" },
+            { name: "Jaseela C M", role: "Assistant Professor", spec: "Finance", img: "/images/Principal.jpeg" },
+            { name: "Aysha K P", role: "Assistant Professor", spec: "HR Management", img: "/images/Principal.jpeg" },
+            { name: "Sini John", role: "Assistant Professor", spec: "Operations", img: "/images/Principal.jpeg" },
         ],
         gallery: [
             { img: "/images/clg_1.png", category: "CONFERENCE ROOM" },
