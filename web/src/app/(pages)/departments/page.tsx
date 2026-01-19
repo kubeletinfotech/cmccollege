@@ -20,19 +20,27 @@ export default function DepartmentsPage() {
     return (
         <main className="min-h-screen bg-emerald-50 text-zinc-900 pt-[112px]">
             {/* --- HEADER SECTION --- */}
-            <section className="py-20 md:py-32 px-6 lg:px-24 bg-emerald-50/5 overflow-hidden">
-                <div className="max-w-7xl mx-auto">
-                    <ScrollReveal>
-                        <span className="inline-block py-1 px-3 rounded-full bg-emerald-100/50 text-[#5D1035] text-[10px] md:text-xs font-black tracking-[0.3em] uppercase mb-6 border border-emerald-200/30">
+            {/* --- PAGE HEADER - Research Style --- */}
+            <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
+                </div>
+                <div className="relative z-10 max-w-5xl mx-auto text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-6 border border-white/20">
                             Academic Excellence
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-bold font-serif text-zinc-900 mb-8 tracking-tight leading-tight">
-                            Departments <span className="text-[#5D1035] italic">of Academic Studies</span>
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                            Departments of Academic Studies
                         </h1>
-                        <p className="text-lg md:text-2xl text-zinc-600 max-w-3xl font-light leading-relaxed">
+                        <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
                             At CM College, we are committed to fostering academic excellence, innovation, and research through specialized departments designed for student-centered learning and professional growth.
                         </p>
-                    </ScrollReveal>
+                    </motion.div>
                 </div>
             </section>
 

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
     BookOpen,
     Target,
@@ -23,25 +24,27 @@ export default function AboutPage() {
         <main className="min-h-screen bg-white">
 
             {/* 1. HERO SECTION - Institutional Identity */}
-            <section className="relative pt-16 pb-12 md:pt-28 md:pb-28 bg-gradient-to-b from-emerald-50/50 to-white overflow-hidden">
-                <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-                    <ScrollReveal>
-                        <span className="inline-block py-1 px-3 rounded-full bg-emerald-100/50 text-emerald-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 border border-emerald-200/50 mt-10">
+            {/* 1. HERO SECTION - Institutional Identity */}
+            <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
+                </div>
+                <div className="relative z-10 max-w-5xl mx-auto text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-xs font-bold tracking-[0.2em] uppercase mb-6 border border-white/20">
                             Est. 2010
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-bold font-serif text-zinc-900 mb-6 tracking-tight leading-tight">
-                            Institutional <span className="text-emerald-800 italic">Excellence</span>
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                            Institutional Excellence
                         </h1>
-                        <p className="text-lg md:text-2xl text-zinc-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
                             Fostering a legacy of academic rigor, moral integrity, and relentless innovation in a world-class learning environment.
                         </p>
-                    </ScrollReveal>
-                </div>
-
-                {/* Decorative Background Elements */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
-                    <div className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-emerald-100/30 blur-3xl"></div>
-                    <div className="absolute top-[20%] -left-[10%] w-[400px] h-[400px] rounded-full bg-rose-100/30 blur-3xl"></div>
+                    </motion.div>
                 </div>
             </section>
 

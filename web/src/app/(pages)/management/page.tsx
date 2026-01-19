@@ -33,41 +33,25 @@ export default function ManagementPage() {
     return (
         <main className="min-h-screen bg-white pt-[112px]">
 
-            {/* 🔴 HERO SECTION - Full-width Maroon Gradient */}
-            <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
-                {/* Homepage-style Maroon Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#7B0046] via-[#5D1035] to-[#3B001F]"></div>
-
-                {/* Decorative Pattern Overlay */}
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-
-                {/* Animated content */}
-                <div className="relative z-10 text-center px-4">
+            {/* 🔴 PAGE HEADER - Research Style */}
+            <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
+                </div>
+                <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-serif text-white tracking-widest uppercase mb-6">
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
                             Management
                         </h1>
-                        <div className="w-24 md:w-32 h-0.5 bg-white/40 mx-auto"></div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* 🧠 INTRO SECTION */}
-            <section className="py-20 md:py-28 bg-white border-b border-zinc-50">
-                <div className="container mx-auto px-4 text-center max-w-3xl">
-                    <ScrollReveal>
-                        <h2 className="text-3xl md:text-5xl font-bold font-serif text-zinc-900 mb-8 tracking-tight">
-                            Our Visionary Leadership
-                        </h2>
-                        <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-light">
+                        <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
                             Guided by a commitment to academic excellence and institutional integrity, our management
                             team ensures a nurturing environment where innovation and tradition coexist.
                         </p>
-                    </ScrollReveal>
+                    </motion.div>
                 </div>
             </section>
 
