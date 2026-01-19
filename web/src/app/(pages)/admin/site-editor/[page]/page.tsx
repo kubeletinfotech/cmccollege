@@ -7,11 +7,11 @@ import EditorModal from "../_components/EditorModal";
 
 // Import Page Components
 import HomePage from "@/app/page";
-import AboutPage from "@/app/about/page";
-import AcademicsPage from "@/app/academics/page";
-import AdmissionsPage from "@/app/admissions/page";
-import FacilitiesPage from "@/app/facilities/page";
-import ContactPage from "@/app/contact/page";
+import AboutPage from "@/app/(pages)/about/page";
+import AcademicsPage from "@/app/(pages)/academics/page";
+import AdmissionsPage from "@/app/(pages)/admissions/page";
+import FacilitiesPage from "@/app/(pages)/facilities/page";
+import ContactPage from "@/app/(pages)/contact/page";
 
 const PAGES: Record<string, React.ComponentType<any>> = {
     home: HomePage,
