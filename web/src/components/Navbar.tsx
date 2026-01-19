@@ -19,6 +19,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const pathname = usePathname();
+    const { isAdmissionOpen } = useAdmissionStatus();
 
     if (pathname === '/admin' || pathname.startsWith('/admin/')) {
         return null;
@@ -142,7 +143,7 @@ export default function Navbar() {
                                             { name: "Home", href: "/", icon: Home },
                                             { name: "About", href: "/about", icon: Info },
                                             { name: "Academics", href: "/academics", icon: GraduationCap },
-                                            { name: "Admission", href: "/admissions", icon: UserPlus },
+                                            { name: isAdmissionOpen ? "Admissions Open" : "Admission", href: "/admissions", icon: UserPlus },
                                             { name: "Departments", href: "/departments", icon: LayoutGrid },
                                             { name: "Campus Life", href: "/campus-life", icon: Sparkles },
                                             { name: "Students", href: "/students-zone", icon: Users },

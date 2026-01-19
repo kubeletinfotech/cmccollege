@@ -7,7 +7,7 @@ interface DynamicCTAProps {
     description?: string; // Optional override for closed state description
 }
 
-export default function DynamicCTA({ className = "py-20 px-6 bg-emerald-900 text-white text-center", description }: DynamicCTAProps) {
+export default function DynamicCTA({ className = "py-12 md:py-20 px-6 bg-emerald-900 text-white text-center", description }: DynamicCTAProps) {
     const { isAdmissionOpen } = useAdmissionStatus();
 
     return (
@@ -16,7 +16,7 @@ export default function DynamicCTA({ className = "py-20 px-6 bg-emerald-900 text
                 <h2 className="text-3xl md:text-5xl font-agency font-bold mb-6 text-white text-center">
                     {isAdmissionOpen ? "Ready to begin your journey?" : "Plan Your Future With Us"}
                 </h2>
-                <p className="text-emerald-100 text-lg mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                <p className="text-emerald-100 text-base md:text-lg mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                     {isAdmissionOpen
                         ? "Join a community dedicated to excellence. Apply today or request a prospectus to learn more about our programs."
                         : (description || "Explore our academic programs and facilities. Contact us to know about the next admission cycle.")}
