@@ -173,6 +173,33 @@ export default function Home() {
       variant: i === 3
     }));
 
+  // Admission visibility state
+  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
+
+  useEffect(() => {
+    const checkAdmissionStatus = async () => {
+      try {
+        const rawUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        const apiUrl = rawUrl.endsWith('/api') ? rawUrl : `${rawUrl.replace(/\/$/, '')}/api`;
+
+        const res = await fetch(`${apiUrl}/admission/settings`);
+        if (res.ok) {
+          const data = await res.json();
+          const now = new Date();
+          const startDate = new Date(data.startDate);
+          const endDate = new Date(data.endDate);
+
+          if (data.isActive && now >= startDate && now <= endDate) {
+            setIsAdmissionOpen(true);
+          }
+        }
+      } catch (error) {
+        console.error("Failed to check admission status", error);
+      }
+    };
+    checkAdmissionStatus();
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-[104px] lg:pt-[112px] bg-[#7B0046]/[0.03]">
       {/* Hero Section */}
@@ -193,6 +220,7 @@ export default function Home() {
               }}
               className="absolute inset-0"
             >
+              using {heroImages[currentSlide]}
               <Image
                 src={heroImages[currentSlide]}
                 alt={`Hero Slide ${currentSlide + 1}`}
@@ -223,13 +251,13 @@ export default function Home() {
           ))}
         </div>
 
-        {getText("show_hero_alert", "false") === "true" && (
-          <div className="relative z-10 max-w-5xl mx-auto text-center" data-editable="show_hero_alert" data-type="boolean" data-page="home">
+        {isAdmissionOpen && (
+          <div className="relative z-10 max-w-5xl mx-auto text-center">
             <ScrollReveal>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6" data-editable="hero-title" data-page="home">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
                 {getText("hero-title", "CM College of Arts and Science")}
               </h1>
-              <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto" data-editable="hero-subtitle" data-page="home">
+              <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto">
                 {getText("hero-subtitle", "Academic Excellence with Islamic Values")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
