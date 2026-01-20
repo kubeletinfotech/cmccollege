@@ -47,7 +47,7 @@ export default function AboutSidebar() {
     };
 
     return (
-        <aside className="w-full lg:w-72 flex-shrink-0">
+        <aside className="w-full lg:w-72 flex-shrink-0 lg:sticky lg:top-32 lg:self-start h-fit">
             {/* Mobile Toggle */}
             <div className="lg:hidden mb-6">
                 <button
@@ -61,7 +61,7 @@ export default function AboutSidebar() {
 
             {/* Sidebar Content */}
             <div className={`lg:block ${isMobileOpen ? "block" : "hidden"}`}>
-                <div className="bg-[#fcf9f5] rounded-xl border border-[#e5e0d8] overflow-hidden shadow-sm sticky top-32">
+                <div className="bg-[#fcf9f5] rounded-xl border border-[#e5e0d8] overflow-hidden shadow-sm">
                     <div className="p-6 bg-[#7a0b3a] text-white">
                         <h3 className="font-bold font-serif text-xl tracking-wide">About Us</h3>
                     </div>
