@@ -123,3 +123,16 @@ html.lenis body {
     page-break-inside: avoid;
   }
 }
+
+@media print {
+  @page {
+    margin: 1cm;
+    size: landscape;
+  }
+  .print-full {
+     max-width: none !important;
+  }
+  .no-break-inside {
+    break-inside: avoid;
+  }
+}
