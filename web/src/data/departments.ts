@@ -76,10 +76,10 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Building2, text: "Innovation Hub", sub: "Entrepreneurship cell" }
         ],
         hod: {
-            name: "Rajitha P",
+            name: "Rajitha P R",
             qualification: "Master of Computer Applications",
             quote: "Our goal is to transcend traditional learning and build a bridge between academia and the ever-evolving tech industry.",
-            img: "/images/default-user-placeholder.png"
+            img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/rajitha"
         },
         faculty: [
             { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/sumayya-u.jpg" },
