@@ -290,10 +290,10 @@ export default function Home() {
         {isAdmissionOpen && (
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <ScrollReveal>
-              <h1 className="text-4xl md:text-6xl font-agency font-bold mb-6 uppercase">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-agency font-bold mb-4 md:mb-6 uppercase leading-tight">
                 CM College of Arts and Science
               </h1>
-              <p className="text-xl md:text-2xl text-emerald-100 mb-10 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl md:text-2xl text-emerald-100 mb-8 md:mb-10 max-w-2xl mx-auto px-2">
                 Committed to Excellence in Higher Education
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -303,7 +303,7 @@ export default function Home() {
                   </button>
                 </Link>
                 <Link href="/about">
-                  <button className="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-lg hover:scale-105 active:scale-95 cursor-pointer">
+                  <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-lg hover:scale-105 active:scale-95 cursor-pointer">
                     Learn More
                   </button>
                 </Link>
@@ -316,7 +316,7 @@ export default function Home() {
       {/* About Section - Premium Bordered Card */}
       <section className="pt-14 pb-10 px-4 md:px-6 bg-[#7B0046]/[0.03]">
         <ScrollReveal>
-          <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-8 md:p-14 rounded-r-2xl relative overflow-hidden">
+          <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-6 md:p-14 rounded-r-2xl relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
@@ -366,7 +366,7 @@ export default function Home() {
       </div>
 
       {/* Principal section - Redesigned */}
-      <section className="pb-20 pt-8 px-4 md:px-6 bg-transparent">
+      <section className="pb-16 md:pb-20 pt-8 px-4 md:px-6 bg-transparent overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-12">
             {/* Left Side - Portrait Image */}
@@ -385,7 +385,7 @@ export default function Home() {
 
             {/* Right Side - Content Card */}
             <ScrollReveal className="w-full md:w-7/12">
-              <div className="h-full bg-white rounded-[24px] md:rounded-[32px] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 flex flex-col justify-center relative overflow-hidden">
+              <div className="h-full bg-white rounded-[24px] md:rounded-[32px] p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 flex flex-col justify-center relative overflow-hidden">
                 {/* Subtle background pattern */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-3xl -mr-16 -mt-16 opacity-50"></div>
 

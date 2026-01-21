@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
                 {/* College Info */}
                 <div className="col-span-1 md:col-span-1 flex flex-col items-center text-center">
-                    <div className="relative w-64 h-24 mb-4">
+                    <div className="relative md:w-64 w-32 h-24 mb-4">
                         <Image
                             src="https://ik.imagekit.io/5c6j602yp/Home/images/Logo-footer"
                             alt="College Logo"
