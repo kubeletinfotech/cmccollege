@@ -12,7 +12,7 @@ export default function DepartmentAboutPage({ params }: { params: Promise<{ slug
 
     return (
         <div className="space-y-12">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                 {/* Left Column (in this context) - About Text */}
                 <div className="lg:col-span-2 space-y-8">
                     <ScrollReveal>
@@ -42,7 +42,7 @@ export default function DepartmentAboutPage({ params }: { params: Promise<{ slug
                 </div>
 
                 {/* Right Column - HOD Card */}
-                <div className="lg:col-span-1 sticky top-32">
+                <div className="lg:col-span-1 sticky top-32 max-w-sm mx-auto w-full lg:w-auto">
                     <ScrollReveal delay={200}>
                         <div className="bg-white rounded-[2.5rem] overflow-hidden border border-zinc-100 shadow-xl hover:shadow-2xl transition-shadow duration-500">
                             <div className="relative aspect-[3/4] w-full overflow-hidden group bg-zinc-50">
