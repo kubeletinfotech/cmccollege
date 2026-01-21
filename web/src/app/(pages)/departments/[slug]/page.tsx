@@ -44,22 +44,24 @@ export default function DepartmentAboutPage({ params }: { params: Promise<{ slug
                 {/* Right Column - HOD Card */}
                 <div className="lg:col-span-1 sticky top-32">
                     <ScrollReveal delay={200}>
-                        <div className="bg-white rounded-[2.5rem] overflow-hidden border border-zinc-100 shadow-2xl shadow-zinc-200/50">
-                            <div className="relative h-80 w-full overflow-hidden group bg-zinc-200">
+                        <div className="bg-white rounded-[2.5rem] overflow-hidden border border-zinc-100 shadow-xl hover:shadow-2xl transition-shadow duration-500">
+                            <div className="relative aspect-[3/4] w-full overflow-hidden group bg-zinc-50">
                                 <Image
                                     src={data.hod.img}
-                                    alt="HOD Portrait"
+                                    alt={data.hod.name}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                                    priority
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#5D1035]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#5D1035]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </div>
-                            <div className="p-8 text-center relative">
-                                <span className="inline-block py-1 px-4 rounded-full bg-[#5D1035]/10 text-[#5D1035] text-[10px] font-black tracking-widest uppercase mb-4">
+                            <div className="p-6 text-center relative bg-white">
+                                <span className="inline-block py-1 px-4 rounded-full bg-[#5D1035]/5 text-[#5D1035] text-[10px] font-black tracking-widest uppercase mb-3">
                                     Head of Department
                                 </span>
-                                <h3 className="text-3xl font-bold text-zinc-900 mb-1">{data.hod.name}</h3>
-                                <p className="text-[#5D1035] font-medium italic text-sm">{data.hod.qualification}</p>
+                                <h3 className="text-2xl font-bold text-zinc-900 mb-1 font-serif">{data.hod.name}</h3>
+                                <p className="text-[#5D1035]/80 font-medium text-sm">{data.hod.qualification}</p>
                             </div>
                         </div>
                     </ScrollReveal>
