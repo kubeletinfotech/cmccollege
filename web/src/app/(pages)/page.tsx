@@ -16,6 +16,7 @@ import { usePageContent } from "@/hooks/usePageContent";
 import { useAdmissionStatus } from "@/hooks/useAdmissionStatus";
 import DynamicCTA from "@/components/DynamicCTA";
 import HomeMap from "@/components/HomeMap";
+import toast from "react-hot-toast";
 
 
 interface GalleryImage {
@@ -160,6 +161,20 @@ export default function Home() {
   // Fetch dynamic page content
   const { getImage } = usePageContent("home");
   const { isAdmissionOpen } = useAdmissionStatus();
+
+  const handleDeptClick = (e: React.MouseEvent, slug: string) => {
+    if (slug === "human-resource-management" || slug === "sociology") {
+      e.preventDefault();
+      toast("Content coming soon!", {
+        icon: "🚧",
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
+    }
+  };
 
   useEffect(() => {
     const fetchGallery = async () => {
@@ -440,7 +455,11 @@ export default function Home() {
               { name: "Department Of Sociology", slug: "sociology", img: "/images/science_exhibition_project_1768117868795.png" }
             ].map((dept, i) => (
               <ScrollReveal key={i} delay={i * 100}>
-                <Link href={`/departments/${dept.slug}`} className="block h-full">
+                <Link
+                  href={`/departments/${dept.slug}`}
+                  className="block h-full"
+                  onClick={(e) => handleDeptClick(e, dept.slug)}
+                >
                   <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
                     {/* Hover Background Image with subtle zoom */}
                     <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">

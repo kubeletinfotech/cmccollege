@@ -8,6 +8,7 @@ import SmoothScroll from "./SmoothScroll";
 import AdmissionPopup from "./AdmissionPopup";
 import WhatsAppWidget from "./WhatsAppWidget";
 import UserSync from "./UserSync";
+import { Toaster } from "react-hot-toast";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -24,6 +25,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             <AdmissionPopup />
             <WhatsAppWidget />
             <UserSync />
+            <Toaster position="top-right" />
         </>
     );
 }

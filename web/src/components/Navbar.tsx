@@ -11,6 +11,7 @@ import {
 
 import TopBar from "./TopBar";
 import SearchOverlay from "./SearchOverlay";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,25 @@ export default function Navbar() {
     if (pathname === '/admin' || pathname.startsWith('/admin/')) {
         return null;
     }
+
+    const handleLinkClick = (e: React.MouseEvent, href: string) => {
+        if (href === "/departments/human-resource-management" || href === "/departments/sociology" || href === "/departments/multimedia") {
+            e.preventDefault();
+            toast("Content coming soon!", {
+                icon: "🚧",
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            });
+            setIsOpen(false);
+            setActiveDropdown(null);
+        } else {
+            setIsOpen(false);
+            setActiveDropdown(null);
+        }
+    };
 
     const navigation = [
         { name: "Home", href: "/" },
@@ -45,6 +65,7 @@ export default function Navbar() {
                 { name: "Commerce", href: "/departments/commerce" },
                 { name: "Human Resource Management", href: "/departments/human-resource-management" },
                 { name: "Sociology", href: "/departments/sociology" },
+                { name: "Multimedia", href: "/departments/multimedia" },
             ]
         },
         {
@@ -120,6 +141,7 @@ export default function Navbar() {
                                                             <Link
                                                                 key={subItem.name}
                                                                 href={subItem.href}
+                                                                onClick={(e) => handleLinkClick(e, subItem.href)}
                                                                 className="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors font-medium border-l-2 border-transparent hover:border-white"
                                                             >
                                                                 {subItem.name}
@@ -224,7 +246,7 @@ export default function Navbar() {
                                                                     <Link
                                                                         key={subItem.name}
                                                                         href={subItem.href}
-                                                                        onClick={() => setIsOpen(false)}
+                                                                        onClick={(e) => handleLinkClick(e, subItem.href)}
                                                                         className="block px-10 py-3 text-sm text-zinc-600 hover:text-[#7a0b3a] font-medium border-l-[3px] border-transparent hover:border-[#7a0b3a] transition-colors"
                                                                     >
                                                                         {subItem.name}

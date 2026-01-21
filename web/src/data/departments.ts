@@ -392,5 +392,33 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         gallery: [
             { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image2", category: "SOCIAL LAB" }
         ]
+    },
+    "Multimedia": {
+        about: "Studying the structure, development, and functioning of human society.",
+        vision: "To foster a deep understanding of social dynamics and cultural diversity.",
+        mission: [
+            "To provide students with the theoretical and methodological tools to analyze social phenomena and contribute to social justice."
+        ],
+        objectives: "To develop critical sociological thinking.",
+        courses: "BA Sociology",
+        highlights: ["Social Research", "Community Outreach"],
+        strengths: [
+            { icon: Users, text: "Social Theory", sub: "Classical & Contemporary" },
+            { icon: Globe, text: "Cultural Studies", sub: "Global perspectives" },
+            { icon: BookOpen, text: "Field Research", sub: "Ethnographic studies" },
+            { icon: Users, text: "Social Work", sub: "Community engagement" }
+        ],
+        hod: {
+            name: "HOD Name",
+            qualification: "Qualification",
+            quote: "Society is the mirror of our collective actions.",
+            img: "/images/default-user-placeholder.png"
+        },
+        faculty: [
+            { name: "Faculty 1", role: "Assistant Professor", spec: "Sociology", img: "/images/default-user-placeholder.png" }
+        ],
+        gallery: [
+            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image2", category: "SOCIAL LAB" }
+        ]
     }
 };

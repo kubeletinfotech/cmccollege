@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
+import toast from "react-hot-toast";
 
 const DEPARTMENTS = [
     { name: "Department of Computer Science", href: "/departments/computer-science" },
@@ -14,9 +15,24 @@ const DEPARTMENTS = [
     { name: "Department of Commerce", href: "/departments/commerce" },
     { name: "Department of Statistics", href: "/departments/statistics" },
     { name: "Department of Psychology", href: "/departments/psychology" },
+    { name: "Department of Multimedia", href: "/departments/multimedia" },
 ];
 
 export default function DepartmentsPage() {
+    const handleDeptClick = (e: React.MouseEvent, href: string) => {
+        if (href === "/departments/human-resource-management" || href === "/departments/sociology" || href === "/departments/multimedia") {
+            e.preventDefault();
+            toast("Content coming soon!", {
+                icon: "🚧",
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            });
+        }
+    };
+
     return (
         <main className="min-h-screen bg-emerald-50 text-zinc-900 pt-[112px]">
             {/* --- HEADER SECTION --- */}
@@ -55,6 +71,7 @@ export default function DepartmentsPage() {
                             >
                                 <Link
                                     href={dept.href}
+                                    onClick={(e) => handleDeptClick(e, dept.href)}
                                     className="group flex items-center justify-between p-6 md:p-10 bg-white rounded-3xl transition-all duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] relative overflow-hidden h-full"
                                 >
                                     <div className="flex flex-col gap-1 transition-transform duration-300 group-hover:translate-x-2">
