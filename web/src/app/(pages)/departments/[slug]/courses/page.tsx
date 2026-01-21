@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, TrendingUp, CheckCircle2, ChevronDown, ArrowRight } from "lucide-react";
+import { GraduationCap, TrendingUp, CheckCircle2, ChevronDown, ArrowRight, BookOpen } from "lucide-react";
 import { use, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -57,6 +57,11 @@ export default function CoursesPage({ params }: { params: Promise<{ slug: string
     const { slug } = use(params);
     const data = DEPARTMENT_DATA[slug] || DEPARTMENT_DATA["computer-science"];
 
+    const hasAddOnCourses = data.addOnCourses && data.addOnCourses.length > 0;
+    const sectionTitle = hasAddOnCourses ? "Add-on Courses" : "Key Highlights";
+    const SectionIcon = hasAddOnCourses ? BookOpen : TrendingUp;
+    const sectionItems = hasAddOnCourses ? data.addOnCourses : data.highlights;
+
     return (
         <div className="space-y-8">
             <div className="border-b border-zinc-100 pb-8">
@@ -78,7 +83,7 @@ export default function CoursesPage({ params }: { params: Promise<{ slug: string
                             {Array.isArray(data.courses) ? (
                                 <div className="flex flex-col gap-4">
                                     {data.courses.map((course, idx) => (
-                                        <CourseItem key={idx} title={course.title} description={course.description} />
+                                        <CourseItem key={idx} title={typeof course === 'string' ? course : course.title} description={typeof course === 'string' ? undefined : course.description} />
                                     ))}
                                 </div>
                             ) : (
@@ -90,13 +95,13 @@ export default function CoursesPage({ params }: { params: Promise<{ slug: string
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16" />
                     </div>
 
-                    {/* Highlights */}
+                    {/* Add-on Courses / Highlights */}
                     <div className="bg-white p-8 rounded-[2rem] border border-zinc-100 shadow-lg">
                         <h3 className="text-xl font-bold mb-4 font-serif text-[#5D1035] flex items-center gap-2">
-                            <TrendingUp className="w-5 h-5" /> Key Highlights
+                            <SectionIcon className="w-5 h-5" /> {sectionTitle}
                         </h3>
                         <ul className="grid gap-6 grid-cols-1 sm:grid-cols-2">
-                            {data.highlights.map((item, idx) => (
+                            {sectionItems?.map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-4 text-base font-bold text-zinc-700 leading-snug">
                                     <div className="w-2.5 h-2.5 rounded-full bg-[#5D1035] shrink-0 mt-1.5" />
                                     {item}

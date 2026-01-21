@@ -23,6 +23,7 @@ export interface DepartmentData {
     mission: string[]; // Changed to array for bullet points
     objectives: string;
     courses: string | { title: string; description?: string }[];
+    addOnCourses?: string[];
     highlights: string[];
     strengths: {
         icon: any;
@@ -65,6 +66,12 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         courses: [
             { title: "BCA Honours" },
             { title: "BSc Computer Science Honours" }
+        ],
+        addOnCourses: [
+            "Cloud Computing",
+            "Cyber Security",
+            "Data Analytics",
+            "Artificial Intelligence"
         ],
         highlights: [
             "Annual IT Fest ‘Techastra”",
