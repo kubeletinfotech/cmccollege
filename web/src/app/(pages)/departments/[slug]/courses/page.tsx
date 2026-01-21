@@ -1,13 +1,27 @@
 "use client";
 
-import { GraduationCap, TrendingUp, CheckCircle2, ChevronDown } from "lucide-react";
+import { GraduationCap, TrendingUp, CheckCircle2, ChevronDown, ArrowRight } from "lucide-react";
 import { use, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import { DEPARTMENT_DATA } from "@/data/departments";
 
-const CourseItem = ({ title, description }: { title: string, description: string }) => {
+const CourseItem = ({ title, description }: { title: string, description?: string }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    // If no description, render as a static card with an arrow
+    if (!description) {
+        return (
+            <div className="bg-white/10 rounded-xl backdrop-blur-sm border border-white/10 p-5 flex items-center justify-between gap-4 group hover:bg-white/20 transition-all cursor-default">
+                <h4 className="font-bold text-white flex items-center gap-3 text-lg leading-snug">
+                    <CheckCircle2 className="w-5 h-5 text-white/90 shrink-0 group-hover:text-white transition-colors" />
+                    {title}
+                </h4>
+                <ArrowRight className="w-5 h-5 text-white/70 group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+        );
+    }
+
     return (
         <div
             onClick={() => setIsOpen(!isOpen)}

@@ -22,7 +22,7 @@ export interface DepartmentData {
     vision: string;
     mission: string[]; // Changed to array for bullet points
     objectives: string;
-    courses: string | { title: string; description: string }[];
+    courses: string | { title: string; description?: string }[];
     highlights: string[];
     strengths: {
         icon: any;
@@ -62,7 +62,10 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             "Encourage continuous learning and research in emerging areas of computing."
         ],
         objectives: "BCA (Bachelor of Computer Applications) course is to provide students with a solid foundation in computer science and its practical applications. It aims to develop their programming skills, analytical thinking, and problem-solving abilities through hands-on experience with modern programming languages and software development tools. The course prepares students for successful careers in the IT industry by equipping them with knowledge in areas like software development, web technologies, databases, and networking. It also fosters communication, teamwork, and ethical values while encouraging continuous learning and innovation to keep up with the evolving technological landscape and to pursue higher education or professional certifications.",
-        courses: "The Department of Computer Science offers a 4year BCA and BSc Computer Science honours degree with the following add on courses.",
+        courses: [
+            { title: "BCA Honours" },
+            { title: "BSc Computer Science Honours" }
+        ],
         highlights: [
             "Annual IT Fest ‘Techastra”",
             "Modern Computer Lab",
