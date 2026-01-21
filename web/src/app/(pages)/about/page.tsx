@@ -121,49 +121,57 @@ export default function AboutPage() {
         SECTION 3: GROWTH & RECOGNITION (STATS)
         Layout: Full width with stats
       */}
-            <section className="py-20 bg-emerald-900 text-white relative overflow-hidden">
+            {/* 
+        SECTION 3: GROWTH & RECOGNITION (STATS)
+        Layout: Compact Layout - Stat Strip
+      */}
+            <section className="py-16 bg-gradient-to-r from-emerald-950 to-emerald-900 text-white relative overflow-hidden">
 
-                {/* Decorative background element */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-                    <div className="absolute -top-[50%] -left-[20%] w-[800px] h-[800px] rounded-full bg-white blur-3xl" />
+                {/* Subtle Background Pattern */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[120px] -mr-32 -mt-32 mix-blend-overlay" />
+                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-emerald-400 rounded-full blur-[100px] -ml-20 -mb-20 opacity-20" />
                 </div>
 
                 <div className="container mx-auto px-4 relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-center max-w-3xl mx-auto mb-16"
+                        className="text-center max-w-3xl mx-auto mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                        <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3 tracking-wide">
                             Growth & Recognition
                         </h2>
-                        <p className="text-emerald-100 text-lg font-light">
-                            Our journey is marked by milestones of academic brilliance and institutional achievements.
-                            Recognized by the University and accredited for our high standards.
+                        <p className="text-emerald-100/80 text-sm md:text-base font-light max-w-2xl mx-auto">
+                            Milestones of academic brilliance and institutional excellence.
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-                        {stats.map((stat, index) => (
-                            <motion.div
-                                key={stat.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="text-center group"
-                            >
-                                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-800 text-emerald-200 group-hover:bg-white group-hover:text-emerald-900 transition-colors duration-300">
-                                    <stat.icon className="w-8 h-8" />
-                                </div>
-                                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
-                                <div className="text-sm md:text-base text-emerald-200 uppercase tracking-widest font-medium">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
+                    <div className="max-w-6xl mx-auto">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center border-t border-emerald-800/50 pt-10">
+                            {stats.map((stat, index) => (
+                                <motion.div
+                                    key={stat.id}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="flex flex-col items-center justify-center group"
+                                >
+                                    <div className="flex items-center gap-3 mb-1.5 transition-transform duration-300 group-hover:-translate-y-1">
+                                        <stat.icon className="w-5 h-5 text-emerald-300/90" strokeWidth={1.5} />
+                                        <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                                            {stat.value}
+                                        </span>
+                                    </div>
+                                    <span className="text-xs md:text-sm text-emerald-100/70 uppercase tracking-widest font-medium">
+                                        {stat.label}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
