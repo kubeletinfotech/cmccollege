@@ -209,32 +209,49 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                         {/* Expanded Timeline View */}
                                                         <div className={`grid transition-[grid-template-rows] duration-500 ease-out ${isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                                                             <div className="overflow-hidden">
-                                                                <div className="p-6 md:p-8 pt-0 border-t border-white/10 mt-2">
-                                                                    <div className="relative pl-4 md:pl-8 space-y-0 mt-6">
-                                                                        {/* Vertical Line */}
-                                                                        <div className="absolute left-[27px] md:left-[43px] top-2 bottom-4 w-0.5 border-l-2 border-dashed border-white/20"></div>
-
+                                                                <div className="p-6 md:p-8 pt-2 border-t border-white/10 mt-2">
+                                                                    <div className="space-y-0">
                                                                         {schedule.stops.map((stop, sIdx) => {
                                                                             const isStart = sIdx === 0;
                                                                             const isEnd = sIdx === schedule.stops.length - 1;
 
                                                                             return (
-                                                                                <div key={sIdx} className="relative flex items-center gap-6 md:gap-10 py-3 group">
-                                                                                    {/* Time */}
-                                                                                    <div className={`w-16 text-right text-sm md:text-base font-mono ${isStart || isEnd ? "text-white font-bold" : "text-white/60"}`}>
+                                                                                <div key={sIdx} className="grid grid-cols-[80px_40px_1fr] md:grid-cols-[100px_60px_1fr] items-stretch group relative">
+                                                                                    {/* Time Column */}
+                                                                                    <div className={`text-right py-4 pr-4 border-r border-white/10 font-mono text-sm md:text-base ${isStart || isEnd ? "text-white font-bold" : "text-white/60"}`}>
                                                                                         {stop.time}
                                                                                     </div>
 
-                                                                                    {/* Node */}
-                                                                                    <div className="relative z-10 flex items-center justify-center text-[#5D1035]">
-                                                                                        <div className={`w-3 h-3 md:w-4 md:h-4 rounded-full border-2 transition-all duration-300 ${isStart || isEnd ? "bg-white border-white scale-125 shadow-[0_0_15px_rgba(255,255,255,0.5)]" : "bg-[#5D1035] border-white/50 group-hover:bg-white group-hover:border-white"}`}></div>
+                                                                                    {/* Timeline Node Column */}
+                                                                                    <div className="relative flex flex-col items-center justify-center">
+                                                                                        {/* Connecting Line (conditionally rendered to not stick out top/bottom) */}
+                                                                                        {!isStart && (
+                                                                                            <div className="absolute top-0 bottom-1/2 w-0.5 bg-white/20"></div>
+                                                                                        )}
+                                                                                        {!isEnd && (
+                                                                                            <div className="absolute top-1/2 bottom-0 w-0.5 bg-white/20"></div>
+                                                                                        )}
+
+                                                                                        {/* Node/Icon */}
+                                                                                        <div className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${isStart || isEnd ? "bg-white border-white scale-110 shadow-[0_0_15px_rgba(255,255,255,0.4)] text-[#5D1035]" : "bg-[#5D1035] border-white/40 text-transparent group-hover:bg-white group-hover:border-white"
+                                                                                            }`}>
+                                                                                            {isStart ? (
+                                                                                                <Play className="w-3 h-3 ml-0.5" fill="currentColor" />
+                                                                                            ) : isEnd ? (
+                                                                                                <MapPin className="w-3 h-3" fill="currentColor" />
+                                                                                            ) : (
+                                                                                                <div className="w-2 h-2 rounded-full bg-white/80" />
+                                                                                            )}
+                                                                                        </div>
                                                                                     </div>
 
-                                                                                    {/* Stop Detail */}
-                                                                                    <div className={`px-4 py-2 rounded-lg transition-colors flex-1 ${isStart || isEnd ? "bg-white/10 border border-white/10" : "hover:bg-white/5"}`}>
-                                                                                        <span className={`text-sm md:text-base block ${isStart || isEnd ? "font-bold text-white" : "font-medium text-white/90"}`}>
-                                                                                            {stop.route}
-                                                                                        </span>
+                                                                                    {/* Details Column */}
+                                                                                    <div className="py-4 pl-4 flex items-center">
+                                                                                        <div className={`px-4 py-2 rounded-xl transition-all w-full md:w-auto ${isStart || isEnd ? "bg-white/15 border border-white/20" : "group-hover:bg-white/5 border border-transparent"}`}>
+                                                                                            <span className={`text-sm md:text-base block ${isStart || isEnd ? "font-bold text-white" : "font-medium text-white/90"}`}>
+                                                                                                {stop.route}
+                                                                                            </span>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             )
