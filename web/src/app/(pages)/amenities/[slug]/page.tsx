@@ -1,10 +1,10 @@
 "use client";
 
-import { use } from "react";
+import { use, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle2, ArrowLeft, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Bus, MapPin, Play, Flag, Timer, Users, Bed, Cpu, Layers, AlertCircle } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { AMENITIES_DATA } from "@/data/amenities";
 import AmenitiesSidebar from "@/components/AmenitiesSidebar";
@@ -12,141 +12,384 @@ import AmenitiesSidebar from "@/components/AmenitiesSidebar";
 export default function AmenityDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
     const data = AMENITIES_DATA[slug];
+    const [activeHostelTab, setActiveHostelTab] = useState<'boys' | 'girls'>('boys');
 
     if (!data) {
         return notFound();
     }
 
     return (
-        <div className="min-h-screen bg-white text-zinc-900 pt-[112px]">
+        <div className="min-h-screen bg-[#FDFCFB] text-zinc-900 pt-[112px]">
             {/* Header / Hero */}
-            <section className="relative py-20 px-6 bg-[#5D1035] text-white overflow-hidden">
-                <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
-                </div>
-                <div className="relative z-10 max-w-5xl mx-auto">
-                    <Link href="/amenities" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
-                        <ArrowLeft className="w-4 h-4" /> Back to Amenities
-                    </Link>
-                    <ScrollReveal>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 font-serif">
-                            {data.title}
-                        </h1>
-                    </ScrollReveal>
+            <section className="relative py-20 px-6 bg-gradient-to-br from-[#5D1035] via-[#4a0d2a] to-[#2a0616] text-white overflow-hidden">
+                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }}></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+
+                <div className="relative z-10 max-w-7xl mx-auto">
+                    <div className="flex flex-col gap-6">
+                        {/* Breadcrumbs */}
+                        <div className="flex items-center gap-3 text-sm font-medium text-white/60">
+                            <Link href="/amenities" className="hover:text-white transition-colors flex items-center gap-1 group">
+                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                                Amenities
+                            </Link>
+                            <span className="opacity-50">/</span>
+                            <span className="text-white">{data.title}</span>
+                        </div>
+
+                        <ScrollReveal>
+                            <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-serif text-white mb-2">
+                                {data.title}
+                            </h1>
+                            <p className="text-lg md:text-xl text-white/80 max-w-2xl font-light leading-relaxed">
+                                {data.description.split('.')[0]}.
+                            </p>
+                        </ScrollReveal>
+                    </div>
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-6 py-16">
-                <div className="flex flex-col lg:flex-row gap-12 items-start">
-                    {/* Sidebar */}
-                    <AmenitiesSidebar />
+            <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+                <div className="flex flex-col lg:flex-row gap-16 items-start">
+                    {/* Sidebar - Sticky Wrapper */}
+                    <div className="hidden lg:block w-80 shrink-0 sticky top-32 self-start">
+                        <AmenitiesSidebar />
+                    </div>
 
                     {/* Main Content */}
-                    <div className="flex-1 w-full min-w-0 space-y-12">
-                        {/* Images */}
-                        <div className="space-y-8">
-                            <ScrollReveal>
-                                <div className="relative h-[400px] rounded-[2rem] overflow-hidden shadow-2xl border border-zinc-100">
-                                    <Image
-                                        src={data.image}
-                                        alt={data.title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+                    <div className="flex-1 w-full min-w-0 space-y-16">
+
+                        {/* Featured Image & Gallery */}
+                        <div className="space-y-6">
+                            <ScrollReveal className="relative h-[300px] md:h-[500px] w-full rounded-[2rem] overflow-hidden shadow-2xl shadow-[#5D1035]/10 group">
+                                <Image
+                                    src={data.image}
+                                    alt={data.title}
+                                    fill
+                                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                                    priority
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
                             </ScrollReveal>
 
-                            {data.gallery && (
-                                <div className="grid grid-cols-2 gap-4">
-                                    {data.gallery.slice(0, 2).map((img, i) => (
-                                        <ScrollReveal key={i} delay={100 + (i * 100)} className="relative h-40 rounded-xl overflow-hidden shadow-md">
+                            {data.gallery && data.gallery.length > 0 && (
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                    {data.gallery.map((img, i) => (
+                                        <ScrollReveal key={i} delay={100 + (i * 100)} className="group relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all">
                                             <Image
                                                 src={img}
                                                 alt={`${data.title} gallery ${i}`}
                                                 fill
-                                                className="object-cover hover:scale-110 transition-transform duration-500"
+                                                className="object-cover group-hover:scale-110 transition-transform duration-700"
                                             />
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
                                         </ScrollReveal>
                                     ))}
                                 </div>
                             )}
                         </div>
 
-                        {/* Content */}
-                        <ScrollReveal delay={200}>
-                            <h2 className="text-3xl font-bold text-[#5D1035] mb-6 font-serif">Overview</h2>
-                            <p className="text-xl text-zinc-600 leading-relaxed mb-10 text-justify">
-                                {data.description}
-                            </p>
+                        {/* Overview & Features */}
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
+                            <ScrollReveal>
+                                <h2 className="text-3xl font-bold text-[#5D1035] mb-6 font-serif flex items-center gap-3">
+                                    <span className="w-8 h-1 bg-[#5D1035] rounded-full"></span>
+                                    Overview
+                                </h2>
+                                <p className="text-lg text-zinc-600 leading-relaxed text-left text-justify">
+                                    {data.description}
+                                </p>
+                            </ScrollReveal>
 
-                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {data.features.map((feature, idx) => (
-                                    <li key={idx} className="flex items-start gap-4 p-4 bg-zinc-50 rounded-xl border border-zinc-100/50">
-                                        <div className="w-6 h-6 rounded-full bg-[#5D1035]/10 flex items-center justify-center text-[#5D1035] mt-0.5 shrink-0">
-                                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            <ScrollReveal delay={200} className="bg-white p-8 rounded-3xl shadow-xl shadow-zinc-100 border border-zinc-100/50">
+                                <h3 className="text-xl font-bold text-zinc-900 mb-6 font-serif">Key Highlights</h3>
+                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {data.features.map((feature, idx) => (
+                                        <li key={idx} className="flex items-start gap-3 group">
+                                            <div className="w-8 h-8 rounded-full bg-[#5D1035]/5 flex items-center justify-center text-[#5D1035] mt-1 shrink-0 group-hover:bg-[#5D1035] group-hover:text-white transition-all duration-300">
+                                                <CheckCircle2 className="w-4 h-4" />
+                                            </div>
+                                            <span className="text-zinc-700 font-medium text-sm leading-relaxed pt-1.5 border-b border-transparent group-hover:border-zinc-200 transition-colors pb-1">
+                                                {feature}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </ScrollReveal>
+                        </div>
+
+                        {/* Transportation Schedule UI (Enhanced) */}
+                        {data.busSchedules && (
+                            <ScrollReveal delay={300}>
+                                <div className="bg-[#5D1035] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl shadow-[#5D1035]/20">
+                                    {/* Background decorative elements */}
+                                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+                                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+
+                                    <div className="relative z-10">
+                                        <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 text-center md:text-left">
+                                            <div>
+                                                <h2 className="text-3xl md:text-4xl font-bold font-serif mb-2">Transportation Schedule</h2>
+                                                <p className="text-white/80 font-light text-lg">Daily shuttle services for students and staff.</p>
+                                            </div>
+                                            <button className="bg-white text-[#5D1035] px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                                                Download PDF <ArrowRight className="w-4 h-4" />
+                                            </button>
                                         </div>
-                                        <span className="text-zinc-700 font-medium">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
 
-                            {data.busSchedules && (
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
-                                    {data.busSchedules.map((schedule, sIdx) => (
-                                        <div key={sIdx}>
-                                            <h3 className="text-2xl font-bold text-zinc-800 mb-8 font-serif">{schedule.busName} Schedule</h3>
-                                            <div className="relative">
-                                                {/* Vertical Guide Line */}
-                                                <div className="absolute left-[6.5rem] top-2 bottom-2 w-0.5 bg-[#5D1035]/20 hidden md:block" />
-
-                                                <div className="space-y-8">
-                                                    {schedule.stops.map((item, idx) => (
-                                                        <div key={idx} className="flex flex-col md:flex-row gap-6 relative group">
-                                                            {/* Time (Left) */}
-                                                            <div className="w-full md:w-24 shrink-0 md:text-right pt-0.5">
-                                                                <span className="text-xl font-bold text-[#5D1035]">{item.time}</span>
-                                                            </div>
-
-                                                            {/* Dot (Center) */}
-                                                            <div className="hidden md:flex flex-col items-center">
-                                                                <div className="w-4 h-4 rounded-full border-[3px] border-[#5D1035] bg-white z-10 group-hover:scale-125 transition-transform duration-300" />
-                                                            </div>
-
-                                                            {/* Details (Right) */}
-                                                            <div className="flex-1 pb-2">
-                                                                <h4 className="text-lg font-bold text-zinc-800 mb-1">{item.route}</h4>
-                                                                {item.driver && (
-                                                                    <p className="text-sm text-zinc-500 font-medium uppercase tracking-wide">
-                                                                        DRIVER: {item.driver}
-                                                                    </p>
-                                                                )}
-                                                            </div>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+                                            {data.busSchedules.map((schedule, idx) => (
+                                                <div key={idx} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all group">
+                                                    <div className="flex items-start justify-between mb-4">
+                                                        <div className="w-10 h-10 rounded-full bg-white text-[#5D1035] flex items-center justify-center shadow-lg font-bold">
+                                                            {idx + 1}
                                                         </div>
-                                                    ))}
+                                                        <div className="text-right">
+                                                            <div className="text-2xl font-bold font-serif">{schedule.stops.length}</div>
+                                                            <div className="text-xs text-white/60 uppercase tracking-widest font-medium">Stops</div>
+                                                        </div>
+                                                    </div>
+                                                    <h4 className="text-lg font-bold mb-1">{schedule.busName}</h4>
+                                                    <div className="flex items-center gap-2 text-white/70 text-sm">
+                                                        <Timer className="w-4 h-4" />
+                                                        <span>{schedule.stops[0].time} - {schedule.stops[schedule.stops.length - 1].time}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                            {data.busSchedules.map((schedule, sIdx) => (
+                                                <div key={sIdx} className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/5">
+                                                    <div className="flex items-center gap-4 mb-8 pb-4 border-b border-white/10">
+                                                        <div className="w-12 h-12 rounded-2xl bg-[#5D1035] text-white flex items-center justify-center shadow-lg ring-4 ring-[#5D1035]/20">
+                                                            <Bus className="w-6 h-6" />
+                                                        </div>
+                                                        <div>
+                                                            <h3 className="text-xl font-bold">{schedule.busName} Route</h3>
+                                                            <p className="text-white/60 text-sm font-medium">via {schedule.stops[1].route}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="space-y-0 relative ml-2">
+                                                        {/* Dashed Journey Line */}
+                                                        <div className="absolute left-[19px] top-6 bottom-6 w-0.5 border-l-2 border-dashed border-white/20" />
+
+                                                        {schedule.stops.map((item, idx) => {
+                                                            const isFirst = idx === 0;
+                                                            const isLast = idx === schedule.stops.length - 1;
+
+                                                            return (
+                                                                <div key={idx} className="relative pl-12 py-3 group cursor-default">
+                                                                    {/* Timeline Node */}
+                                                                    <div
+                                                                        className={`absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full border-[3px] border-[#5D1035] shadow-lg transition-all duration-300 z-10 group-hover:scale-110 group-hover:border-white
+                                                                        ${isFirst ? "bg-emerald-500 text-white" : isLast ? "bg-rose-500 text-white" : "bg-white text-[#5D1035] w-3 h-3 left-[14px]"}`}
+                                                                    >
+                                                                        {isFirst ? <Play className="w-4 h-4 fill-current ml-0.5" /> :
+                                                                            isLast ? <Flag className="w-4 h-4 fill-current ml-0.5" /> : null}
+                                                                    </div>
+
+                                                                    {/* Clean Content Item */}
+                                                                    <div className="flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/10 transition-colors border border-transparent hover:border-white/5">
+                                                                        <div>
+                                                                            <span className={`text-lg block mb-0.5 ${isFirst || isLast ? "font-bold text-white" : "font-medium text-white/90"}`}>
+                                                                                {item.time}
+                                                                            </span>
+                                                                            <div className="flex items-center gap-2 text-white/70 text-sm group-hover:text-white transition-colors">
+                                                                                {item.route}
+                                                                            </div>
+                                                                        </div>
+                                                                        {item.driver && (
+                                                                            <div className="hidden sm:block text-[10px] font-bold bg-[#5D1035] px-3 py-1 rounded-full border border-white/10 shadow-sm whitespace-nowrap uppercase tracking-wider text-white/80">
+                                                                                Driver: {item.driver.split(' ')[1]}
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        )}
+
+                        {/* Hostel Specific UI */}
+                        {data.hostelDetails && (
+                            <ScrollReveal delay={300} className="space-y-8">
+                                <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 rounded-3xl shadow-lg border border-zinc-100">
+                                    <div>
+                                        <h2 className="text-2xl font-bold font-serif text-[#5D1035]">Hostel Facilities</h2>
+                                        <p className="text-zinc-500 text-sm">Select wing to view details</p>
+                                    </div>
+                                    <div className="flex bg-zinc-100 p-1.5 rounded-full relative">
+                                        <div
+                                            className={`absolute inset-y-1.5 w-1/2 bg-[#5D1035] rounded-full shadow-sm transition-all duration-300 ${activeHostelTab === 'girls' ? 'translate-x-[98%]' : 'translate-x-0'}`}
+                                        ></div>
+                                        <button
+                                            onClick={() => setActiveHostelTab('boys')}
+                                            className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-bold transition-colors ${activeHostelTab === 'boys' ? 'text-white' : 'text-zinc-600 hover:text-[#5D1035]'}`}
+                                        >
+                                            Boys Wing
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveHostelTab('girls')}
+                                            className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-bold transition-colors ${activeHostelTab === 'girls' ? 'text-white' : 'text-zinc-600 hover:text-[#5D1035]'}`}
+                                        >
+                                            Girls Wing
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    {/* Stats Cards */}
+                                    <div className="bg-white p-6 rounded-3xl shadow-md border border-zinc-100 flex flex-col items-center justify-center text-center group hover:border-[#5D1035]/20 transition-all">
+                                        <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                            <Users className="w-6 h-6" />
+                                        </div>
+                                        <div className="text-3xl font-bold text-zinc-900 mb-1">
+                                            {data.hostelDetails[activeHostelTab].capacity}
+                                        </div>
+                                        <div className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Total Capacity</div>
+                                    </div>
+                                    <div className="bg-white p-6 rounded-3xl shadow-md border border-zinc-100 flex flex-col items-center justify-center text-center group hover:border-[#5D1035]/20 transition-all">
+                                        <div className="w-12 h-12 rounded-full bg-green-50 text-green-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                            <Bed className="w-6 h-6" />
+                                        </div>
+                                        <div className="text-3xl font-bold text-zinc-900 mb-1">
+                                            {data.hostelDetails[activeHostelTab].vacancies}
+                                        </div>
+                                        <div className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Available Spots</div>
+                                    </div>
+                                    <div className="bg-white p-6 rounded-3xl shadow-md border border-zinc-100 flex flex-col items-center justify-center text-center group hover:border-[#5D1035]/20 transition-all">
+                                        <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                            <CheckCircle2 className="w-6 h-6" />
+                                        </div>
+                                        <div className="text-lg font-bold text-zinc-900 mb-1 truncate px-2">
+                                            {data.hostelDetails[activeHostelTab].warden}
+                                        </div>
+                                        <div className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Warden In-Charge</div>
+                                    </div>
+                                </div>
+
+                                <div className="bg-[#5D1035] rounded-3xl p-8 text-white relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+                                    <h3 className="text-xl font-bold font-serif mb-6 relative z-10 flex items-center gap-2">
+                                        <AlertCircle className="w-5 h-5" />
+                                        Hostel Rules & Regulations
+                                    </h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+                                        {data.hostelDetails.rules.map((rule, idx) => (
+                                            <div key={idx} className="flex items-start gap-3 bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/5 hover:bg-white/20 transition-colors">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-white mt-2 shrink-0"></div>
+                                                <span className="text-sm font-medium leading-relaxed opacity-90">{rule}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        )}
+
+                        {/* Computer Lab Specific UI */}
+                        {data.labDetails && (
+                            <ScrollReveal delay={300} className="space-y-12">
+                                <div>
+                                    <h2 className="text-3xl font-bold font-serif text-zinc-900 mb-8 flex items-center gap-3">
+                                        <Cpu className="w-8 h-8 text-[#5D1035]" />
+                                        System Configuration
+                                    </h2>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {data.labDetails.specs.map((spec, idx) => (
+                                            <div key={idx} className="bg-white p-6 rounded-3xl shadow-xl shadow-zinc-100 border border-zinc-100 duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#5D1035]/5 group">
+                                                <div className="flex items-center justify-between mb-6">
+                                                    <span className="bg-[#5D1035] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                                        Workstation Type {idx + 1}
+                                                    </span>
+                                                    <Layers className="w-5 h-5 text-zinc-300 group-hover:text-[#5D1035] transition-colors" />
+                                                </div>
+                                                <div className="space-y-4">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-zinc-500 group-hover:bg-[#5D1035] group-hover:text-white transition-all">
+                                                            <Cpu className="w-5 h-5" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-xs text-zinc-500 font-bold uppercase">Processor</div>
+                                                            <div className="font-bold text-zinc-900">{spec.cpu}</div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-zinc-500 group-hover:bg-[#5D1035] group-hover:text-white transition-all delay-75">
+                                                            <Layers className="w-5 h-5" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-xs text-zinc-500 font-bold uppercase">Memory</div>
+                                                            <div className="font-bold text-zinc-900">{spec.ram}</div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-zinc-500 group-hover:bg-[#5D1035] group-hover:text-white transition-all delay-100">
+                                                            <Users className="w-5 h-5" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-xs text-zinc-500 font-bold uppercase">Graphics</div>
+                                                            <div className="font-bold text-zinc-900">{spec.gpu}</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
-                            )}
-                        </ScrollReveal>
+
+                                <div className="bg-zinc-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+                                    <div className="relative z-10">
+                                        <h3 className="text-2xl font-bold font-serif mb-8 text-center">Installed Software Suite</h3>
+                                        <div className="flex flex-wrap justify-center gap-3">
+                                            {data.labDetails.software.map((sw, idx) => (
+                                                <div key={idx} className="px-6 py-3 rounded-xl bg-white/10 border border-white/10 hover:bg-white/20 transition-all cursor-default font-medium">
+                                                    {sw}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        )}
                     </div>
                 </div>
             </div>
 
-            {/* Other Amenities Navigation */}
-            <section className="bg-zinc-50 py-16 px-6 border-t border-zinc-100">
+            {/* Other Amenities Navigation (Footer Style) */}
+            <section className="bg-white py-20 px-6 border-t border-zinc-100">
                 <div className="max-w-7xl mx-auto">
-                    <h3 className="text-2xl font-bold text-zinc-800 mb-8 font-serif">Explore Other Amenities</h3>
+                    <div className="flex items-center justify-between mb-10">
+                        <h3 className="text-2xl font-bold text-zinc-900 font-serif">More to Explore</h3>
+                        <Link href="/amenities" className="text-[#5D1035] font-bold text-sm hover:underline">View All Amenities</Link>
+                    </div>
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                         {Object.entries(AMENITIES_DATA)
                             .filter(([key]) => key !== slug)
                             .slice(0, 4)
                             .map(([key, item]) => (
-                                <Link key={key} href={`/amenities/${key}`} className="group bg-white p-5 rounded-xl border border-zinc-200 hover:border-[#5D1035] transition-all shadow-sm hover:shadow-md">
-                                    <h4 className="font-bold text-zinc-800 group-hover:text-[#5D1035] mb-2">{item.title}</h4>
-                                    <div className="flex items-center gap-2 text-sm text-zinc-500 font-medium group-hover:translate-x-1 transition-transform">
-                                        View Details <ArrowRight className="w-4 h-4" />
+                                <Link key={key} href={`/amenities/${key}`} className="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                                    <div className="absolute bottom-4 left-4 text-white">
+                                        <h4 className="font-bold text-lg leading-tight">{item.title}</h4>
+                                        <div className="flex items-center gap-2 text-xs font-medium text-white/80 mt-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                                            View Details <ArrowRight className="w-3 h-3" />
+                                        </div>
                                     </div>
                                 </Link>
                             ))}

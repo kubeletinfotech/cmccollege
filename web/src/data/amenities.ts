@@ -1,4 +1,4 @@
-import { LucideIcon, Book, Wifi, Coffee, Monitor, Dumbbell, Bus, Stethoscope, Home, Music, Drama } from "lucide-react";
+import { LucideIcon, Book, Wifi, Coffee, Monitor, Dumbbell, Bus, Stethoscope, Home, Music, Drama, Cpu, HardDrive } from "lucide-react";
 
 export interface AmenityData {
     title: string;
@@ -8,6 +8,15 @@ export interface AmenityData {
     icon?: any;
     gallery?: string[];
     busSchedules?: { busName: string; stops: { route: string; time: string; driver?: string }[] }[];
+    hostelDetails?: {
+        boys: { capacity: number; vacancies: number; warden: string };
+        girls: { capacity: number; vacancies: number; warden: string };
+        rules: string[];
+    };
+    labDetails?: {
+        specs: { cpu: string; ram: string; storage: string; gpu: string }[];
+        software: string[];
+    };
 }
 
 export const AMENITIES_DATA: Record<string, AmenityData> = {
@@ -31,19 +40,31 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             {
                 busName: "Bus 1",
                 stops: [
-                    { route: "City Centre", time: "7:30 AM", driver: "Mr. Rajan" },
-                    { route: "North Junction", time: "7:40 AM" },
-                    { route: "East End", time: "7:45 AM" },
-                    { route: "College Campus", time: "8:00 AM" }
+                    { route: "Kalliyod", time: "7:15 AM", driver: "Mr. Rajan" },
+                    { route: "Pilakkav", time: "7:25 AM" },
+                    { route: "Mananthavady", time: "7:40 AM" },
+                    { route: "Thonichal", time: "7:50 AM" },
+                    { route: "4th mile, Anjukunnu", time: "8:00 AM" },
+                    { route: "Panamaram", time: "8:15 AM" },
+                    { route: "Nadavayal", time: "8:30 AM" }
                 ]
             },
             {
                 busName: "Bus 2",
                 stops: [
-                    { route: "West Gate", time: "7:30 AM", driver: "Mr. Babu" },
-                    { route: "South Avenue", time: "7:40 AM" },
-                    { route: "Green Park", time: "7:50 AM" },
-                    { route: "College Campus", time: "8:05 AM" }
+                    { route: "Korom", time: "7:00 AM", driver: "Mr. Babu" },
+                    { route: "Makkiyad", time: "7:10 AM" },
+                    { route: "12th Mile", time: "7:20 AM" },
+                    { route: "Kandathuvayal", time: "7:25 AM" },
+                    { route: "10th Mile", time: "7:35 AM" },
+                    { route: "Vellamunda 8/4", time: "7:45 AM" },
+                    { route: "Tharuvana", time: "7:55 AM" },
+                    { route: "Puthusserikkadavu", time: "8:05 AM" },
+                    { route: "Padinjarathara", time: "8:15 AM" },
+                    { route: "Cheriyamkolly", time: "8:25 AM" },
+                    { route: "5th Mile", time: "8:35 AM" },
+                    { route: "Panamaram", time: "8:45 AM" },
+                    { route: "Nadavayal", time: "9:00 AM" }
                 ]
             }
         ]
@@ -63,7 +84,18 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
         icon: Home,
         gallery: [
             "/images/school_hostel_1768115536813.png"
-        ]
+        ],
+        hostelDetails: {
+            boys: { capacity: 150, vacancies: 12, warden: "Mr. Thomas K." },
+            girls: { capacity: 200, vacancies: 8, warden: "Mrs. Sheela V." },
+            rules: [
+                "Students must be inside before 8:00 PM.",
+                "Visitors are allowed only on weekends.",
+                "Silence hours: 10:00 PM - 6:00 AM.",
+                "Mess timings must be strictly followed.",
+                "Ragging is strictly prohibited."
+            ]
+        }
     },
     "central-library": {
         title: "Central Library",
@@ -89,7 +121,16 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Project work support"
         ],
         image: "/images/science_lab_1768115578614.png",
-        icon: Monitor
+        icon: Monitor,
+        labDetails: {
+            specs: [
+                { cpu: "Intel Core i7 12th Gen", ram: "16GB DDR4", storage: "512GB NVMe SSD", gpu: "NVIDIA RTX 3060" },
+                { cpu: "Intel Core i5 11th Gen", ram: "16GB DDR4", storage: "512GB SSD", gpu: "Integrated Iris Xe" }
+            ],
+            software: [
+                "Visual Studio Code", "Python 3.11", "Adobe Creative Cloud", "AutoCAD 2024", "MATLAB", "Android Studio"
+            ]
+        }
     },
     "cafeteria": {
         title: "Cafeteria",
