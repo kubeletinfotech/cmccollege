@@ -75,11 +75,7 @@ export default function FacultyPage({ params }: { params: Promise<{ slug: string
                         <div className="bg-[#FDFCFB] p-4 rounded-xl border border-zinc-100 group-hover:border-[#5D1035]/10 transition-colors shadow-sm group-hover:shadow-md">
                             <h4 className="font-serif text-lg font-medium text-zinc-900 mb-1 group-hover:text-[#5D1035] transition-colors">{member.name}</h4>
                             <p className="text-xs font-bold tracking-wider text-[#5D1035]/80 uppercase">{member.role}</p>
-                            {member.spec && (
-                                <p className="text-xs text-zinc-500 mt-2 font-light border-t border-zinc-100 pt-2">
-                                    {member.spec}
-                                </p>
-                            )}
+
                         </div>
                     </motion.div>
                 ))}
