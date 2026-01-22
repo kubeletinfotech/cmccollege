@@ -69,37 +69,42 @@ export default function AmenitiesPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
                 >
                     {amenitiesList.map((item) => (
                         <motion.div
                             key={item.id}
                             variants={cardVariants}
-                            className="group relative h-[400px] md:h-[500px] rounded-[20px] overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-shadow duration-500"
+                            className="group relative h-[280px] md:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-[#5D1035]/20 transition-all duration-500"
                         >
-                            <Link href={`/amenities/${item.slug}`} className="block h-full w-full">
+                            <Link href={`/amenities/${item.slug}`} className="block h-full w-full relative">
                                 {/* Background Image */}
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     fill
-                                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.4,0.25,1)] group-hover:scale-110"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                 />
 
-                                {/* Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                                {/* Modern Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
                                 {/* Content */}
-                                <div className="absolute bottom-0 left-0 p-8 w-full transform transition-transform duration-500 group-hover:-translate-y-2">
-                                    <div className="flex flex-col gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/10 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <div className="absolute bottom-0 left-0 p-6 w-full transform transition-transform duration-500 group-hover:-translate-y-1">
+                                    <div className="flex flex-col gap-3 items-start">
+                                        {/* Icon Bubble */}
+                                        <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 group-hover:bg-white group-hover:text-[#5D1035] transition-all duration-300 shadow-lg">
                                             <item.icon strokeWidth={1.5} className="w-5 h-5" />
                                         </div>
-                                        <h3 className="text-2xl font-bold font-serif text-white tracking-wide">
-                                            {item.title}
-                                        </h3>
-                                        <div className="h-0.5 w-12 bg-[#5D1035] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+                                        {/* Title */}
+                                        <div className="space-y-1">
+                                            <h3 className="text-xl font-bold font-serif text-white tracking-wide group-hover:text-white/90 transition-colors">
+                                                {item.title}
+                                            </h3>
+                                            <div className="h-0.5 w-0 bg-white/50 rounded-full group-hover:w-8 transition-all duration-500 ease-out" />
+                                        </div>
                                     </div>
                                 </div>
                             </Link>
