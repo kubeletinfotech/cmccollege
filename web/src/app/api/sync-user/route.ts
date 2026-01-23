@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import User from '@/models/User';
 import { auth, currentUser, clerkClient, verifyToken } from '@clerk/nextjs/server';
@@ -7,12 +7,7 @@ export async function GET() {
     return NextResponse.json({ message: 'Sync API is alive' });
 }
 
-<<<<<<< HEAD
-export async function POST(req: NextRequest) {
-    console.log('>>> [Sync API] POST request received');
-=======
 export async function POST(req: Request) {
->>>>>>> UI
     const authHeader = req.headers.get('authorization');
 
     try {
@@ -58,52 +53,35 @@ export async function POST(req: Request) {
         const client = await clerkClient();
         const fullUser = await client.users.getUser(userId);
 
-<<<<<<< HEAD
         // Fetch email and role from Clerk
         const email = bodyEmail || fullUser.emailAddresses[0]?.emailAddress;
-        const role = (fullUser.publicMetadata as any)?.role || 'user';
-=======
-        let email = bodyEmail;
-        if (!email) {
-            try {
-                const fullUser = await client.users.getUser(userId);
-                email = fullUser.emailAddresses[0]?.emailAddress;
-            } catch (err) {
-                // Email fetch failed
-            }
-        }
->>>>>>> UI
 
         if (!email) {
             return NextResponse.json({ error: 'Email not found' }, { status: 400 });
         }
 
-<<<<<<< HEAD
-        console.log('>>> [Sync API] Synchronizing user records for:', email, '| Role:', role);
+        const role = (fullUser.publicMetadata as any)?.role || 'user';
 
-        // Update DB with the role from Clerk
-=======
->>>>>>> UI
+        // Update DB with the role from Clerk (source of truth)
         const dbUser = await User.findOneAndUpdate(
             { clerkId: userId },
             {
                 clerkId: userId,
                 email: email,
-                role: role // Clerk is the source of truth
+                role: role
             },
             { upsert: true, new: true, setDefaultsOnInsert: true }
         );
 
-<<<<<<< HEAD
-=======
+        // Ensure Clerk has the metadata (in case it was just created in DB)
         await client.users.updateUserMetadata(userId, {
             publicMetadata: {
                 role: dbUser.role,
             },
         });
 
->>>>>>> UI
         return NextResponse.json({
+            success: true,
             message: 'User synced successfully',
             user: {
                 id: dbUser._id,

@@ -81,7 +81,7 @@ export default function AdminLayoutClient({
                     </Link>
                 </div>
 
-                <nav className="flex-grow py-8 px-4 space-y-2">
+                <nav className="grow py-8 px-4 space-y-2">
                     {navigation.map((item) => (
                         <Link
                             key={item.name}
@@ -115,16 +115,16 @@ export default function AdminLayoutClient({
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/60 z-[60] lg:hidden backdrop-blur-sm"
+                        className="fixed inset-0 bg-black/60 z-60 lg:hidden backdrop-blur-sm"
                         onClick={() => setIsSidebarOpen(false)}
                     />
                 )}
             </AnimatePresence>
 
             {/* Mobile Sidebar */}
-            <aside className={`fixed inset-y-0 left-0 w-64 bg-zinc-900 text-white transform transition-transform duration-300 ease-in-out z-[70] lg:hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+            <aside className={`fixed inset-y-0 left-0 w-64 bg-zinc-900 text-white transform transition-transform duration-300 ease-in-out z-70 lg:hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}>
-                <div className="h-20 flex items-center px-8 border-b border-zinc-800 flex justify-between">
+                <div className="h-20 flex items-center px-8 border-b border-zinc-800 justify-between">
                     <Link href="/admin" className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-emerald-600 rounded flex items-center justify-center font-bold">A</div>
                         <span className="text-xl font-bold tracking-tight">Admin Portal</span>
@@ -163,7 +163,7 @@ export default function AdminLayoutClient({
             </aside>
 
             {/* Main Content Area */}
-            <div className="flex-grow lg:ml-64 flex flex-col transition-all duration-300">
+            <div className="grow lg:ml-64 flex flex-col transition-all duration-300">
                 {/* Top Header */}
                 <header className="h-20 bg-white border-b border-zinc-200 sticky top-0 z-40 flex items-center justify-between px-6 lg:px-10">
                     <div className="flex items-center gap-4">
@@ -216,7 +216,7 @@ export default function AdminLayoutClient({
                 </header>
 
                 {/* Page Content */}
-                <main className="p-6 lg:p-10 flex-grow">
+                <main className="p-6 lg:p-10 grow">
                     {children}
                 </main>
             </div>
@@ -228,7 +228,7 @@ export default function AdminLayoutClient({
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-zinc-900 flex flex-col items-center justify-center text-white"
+                        className="fixed inset-0 z-100 bg-zinc-900 flex flex-col items-center justify-center text-white"
                     >
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}

@@ -110,11 +110,7 @@ export default function Navbar() {
                                     >
                                         <Link
                                             href={link.href}
-<<<<<<< HEAD
-                                            className={`px-2 py-2 text-[13px] xl:text-[16px] font-bold uppercase tracking-wide transition-colors relative z-10 flex items-center gap-1
-=======
                                             className={`px-2 py-2 text-[13px] xl:text-[13px] font-bold uppercase tracking-wide transition-colors relative z-10 flex items-center gap-1
->>>>>>> UI
                                                 ${pathname === link.href || (link.dropdown && pathname.startsWith(link.href)) ? "text-[#7a0b3a]" : "text-zinc-700 hover:text-[#7a0b3a]"}`}
                                         >
                                             {link.name}
