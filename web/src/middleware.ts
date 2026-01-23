@@ -13,24 +13,28 @@ const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
 const isSyncRoute = createRouteMatcher(["/api/sync-user"]);
 
 export default clerkMiddleware(async (auth, req) => {
-    console.log('Middleware Request:', req.url);
-
-    // Log all requests for debugging
-    if (isSyncRoute(req)) {
-        console.log('>>> [Middleware] Sync route detected');
-    }
-
     // Protect all routes starting with `/admin`
     if (isAdminRoute(req)) {
-        // Redirect to sign-in if not authenticated
-        const session = await auth();
+        const { userId, sessionClaims, redirectToSignIn } = await auth();
 
-        if (!session.userId) {
-            return session.redirectToSignIn();
+        // Redirect to sign-in if not authenticated
+        if (!userId) {
+            return redirectToSignIn();
         }
 
         // Check for admin role in metadata
-        const role = session.sessionClaims?.metadata?.role;
+        // OPTION A: Fast (reads from JWT). Requires Clerk Dashboard configuration:
+        // { "metadata": "{{user.public_metadata}}" }
+        let role = (sessionClaims as any)?.metadata?.role;
+
+        // OPTION B: Fallback (fetches from API). Works without configuration but is slower.
+        if (!role) {
+            const { clerkClient } = await import('@clerk/nextjs/server');
+            const client = await clerkClient();
+            const user = await client.users.getUser(userId);
+            role = (user.publicMetadata as any)?.role;
+        }
+
         if (role !== 'admin') {
             return NextResponse.redirect(new URL('/', req.url));
         }
