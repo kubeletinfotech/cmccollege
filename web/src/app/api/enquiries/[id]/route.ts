@@ -15,7 +15,7 @@ async function checkAdmin() {
 
 export async function PATCH(
     req: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         if (!(await checkAdmin())) {
@@ -25,7 +25,7 @@ export async function PATCH(
             );
         }
 
-        const { id } = params;
+        const { id } = await params;
         const { status } = await req.json();
 
         await connectDB();

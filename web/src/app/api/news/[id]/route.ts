@@ -15,7 +15,7 @@ async function checkAdmin() {
 
 export async function PUT(
     req: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         if (!(await checkAdmin())) {
@@ -25,7 +25,7 @@ export async function PUT(
             );
         }
 
-        const { id } = params;
+        const { id } = await params;
         const body = await req.json();
         await connectDB();
         const updated = await News.findByIdAndUpdate(id, body, { new: true });
@@ -49,7 +49,7 @@ export async function PUT(
 
 export async function DELETE(
     req: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         if (!(await checkAdmin())) {
@@ -59,7 +59,7 @@ export async function DELETE(
             );
         }
 
-        const { id } = params;
+        const { id } = await params;
         await connectDB();
         const deleted = await News.findByIdAndDelete(id);
 

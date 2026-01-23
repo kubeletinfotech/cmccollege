@@ -15,7 +15,7 @@ async function checkAdmin() {
 
 export async function DELETE(
     req: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         if (!(await checkAdmin())) {
@@ -25,7 +25,7 @@ export async function DELETE(
             );
         }
 
-        const { id } = params;
+        const { id } = await params;
         await connectDB();
         const deleted = await Gallery.findByIdAndDelete(id);
 

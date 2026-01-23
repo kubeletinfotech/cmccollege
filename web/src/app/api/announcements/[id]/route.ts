@@ -15,7 +15,7 @@ async function checkAdmin() {
 
 export async function DELETE(
     req: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         if (!(await checkAdmin())) {
