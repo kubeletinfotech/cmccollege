@@ -13,7 +13,7 @@ export default function AdmissionsPage() {
             {/* Page Header */}
             <section className="relative py-24 px-6 bg-emerald-900 text-white overflow-hidden">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
+                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-[30px_30px]" />
                 </div>
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <ScrollReveal>
@@ -209,7 +209,7 @@ export default function AdmissionsPage() {
                                 fill
                                 className="object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-emerald-950/60 to-transparent" />
                             <div className="absolute bottom-10 left-10 right-10">
                                 <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-emerald-100 shadow-xl">
                                     <p className="text-emerald-900 font-bold text-xl mb-2 italic">

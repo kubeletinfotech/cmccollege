@@ -209,7 +209,7 @@ export default function Home() {
   // Admission visibility state removed (handled in DynamicCTA)
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-[104px] lg:pt-[112px] bg-[#7B0046]/[0.03]">
+    <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[104px] lg:pt-[112px] bg-[#7B0046]/3">
       {/* Hero Section */}
       <section
         className="relative min-h-[70vh] md:min-h-[80vh] flex flex-col items-center justify-center py-16 px-4 md:py-32 text-white overflow-hidden"
@@ -267,7 +267,7 @@ export default function Home() {
           </AnimatePresence>
 
           {/* Dark Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40 z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-black/40 z-10" />
         </div>
 
         {/* Navigation Dots */}
@@ -312,7 +312,7 @@ export default function Home() {
       </section>
 
       {/* About Section - Premium Bordered Card */}
-      <section className="pt-14 pb-10 px-4 md:px-6 bg-[#7B0046]/[0.03]">
+      <section className="pt-14 pb-10 px-4 md:px-6 bg-[#7B0046]/3">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-6 md:p-14 rounded-r-2xl relative overflow-hidden">
             {/* Background decoration */}
@@ -369,7 +369,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-12">
             {/* Left Side - Portrait Image */}
             <ScrollReveal delay={200} className="w-full md:w-5/12 relative h-[400px] md:h-auto md:min-h-full">
-              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100 to-transparent rounded-[32px] transform -rotate-2 scale-95 opacity-60"></div>
+              <div className="absolute inset-0 bg-linear-to-tr from-emerald-100 to-transparent rounded-[32px] transform -rotate-2 scale-95 opacity-60"></div>
               <div className="relative h-full w-full rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
                 <Image
                   src="https://ik.imagekit.io/5c6j602yp/About/principal.jpeg?updatedAt=1768826571745"
@@ -407,7 +407,7 @@ export default function Home() {
 
                 {/* Signature Block */}
                 <div className="mt-auto pt-6 border-t border-dashed border-zinc-200 flex items-center gap-4 relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-700 to-emerald-900 flex items-center justify-center text-white shadow-lg shadow-emerald-900/20">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-emerald-700 to-emerald-900 flex items-center justify-center text-white shadow-lg shadow-emerald-900/20">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                   </div>
                   <div className="flex-1">
@@ -469,7 +469,7 @@ export default function Home() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       />
                       {/* Dark Gradient Overlay for readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"></div>
+                      <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/30"></div>
                     </div>
 
                     {/* Content */}
