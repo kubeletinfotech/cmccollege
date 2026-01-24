@@ -3,57 +3,29 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 interface GalleryItem {
     _id: string;
-    title: string;
-    category: string;
+    title?: string;
+    category?: string;
     imageUrl: string;
 }
 
 const fallbackItems: GalleryItem[] = [
-    {
-        _id: '1',
-        title: 'Academic Resources',
-        category: 'Library',
-        imageUrl: '/images/college.png',
-    },
-    {
-        _id: '2',
-        title: 'Modern Infrastructure',
-        category: 'Facilities',
-        imageUrl: '/images/college.png',
-    },
-    {
-        _id: '3',
-        title: 'Student Events',
-        category: 'Activities',
-        imageUrl: '/images/college.png',
-    },
-    {
-        _id: '4',
-        title: 'Learning Environment',
-        category: 'Campus',
-        imageUrl: '/images/college.png',
-    },
-    {
-        _id: '5',
-        title: 'Student Communities',
-        category: 'Clubs',
-        imageUrl: '/images/college.png',
-    },
-    {
-        _id: '6',
-        title: 'Physical Fitness',
-        category: 'Sports',
-        imageUrl: '/images/college.png',
-    }
+    { _id: '1', imageUrl: '/images/college.png' },
+    { _id: '2', imageUrl: '/images/college.png' },
+    { _id: '3', imageUrl: '/images/college.png' },
+    { _id: '4', imageUrl: '/images/college.png' },
+    { _id: '5', imageUrl: '/images/college.png' },
+    { _id: '6', imageUrl: '/images/college.png' }
 ];
 
 export default function Gallery() {
     const [items, setItems] = useState<GalleryItem[]>([]);
     const [loading, setLoading] = useState(true);
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
     useEffect(() => {
         const fetchGallery = async () => {
@@ -68,7 +40,7 @@ export default function Gallery() {
                 }
             } catch (error) {
                 console.error('Failed to fetch gallery:', error);
-                setItems(fallbackItems.slice(0, 4));
+                setItems(fallbackItems.slice(0, 6));
             } finally {
                 setLoading(false);
             }
@@ -77,94 +49,172 @@ export default function Gallery() {
         fetchGallery();
     }, []);
 
+    const openLightbox = (index: number) => {
+        setSelectedImageIndex(index);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        setSelectedImageIndex(null);
+        document.body.style.overflow = 'unset';
+    };
+
+    const nextImage = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex((selectedImageIndex + 1) % items.length);
+        }
+    };
+
+    const prevImage = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex((selectedImageIndex - 1 + items.length) % items.length);
+        }
+    };
+
     return (
-        <section className="py-12 md:py-20 bg-zinc-50">
+        <section className="py-12 md:py-24 bg-zinc-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 md:px-6">
 
                 {/* Header */}
-                <div className="text-center mb-10 md:mb-16">
+                <div className="text-center mb-16 md:mb-20">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-2xl md:text-5xl font-bold text-emerald-800 mb-3 tracking-tight"
+                        className="text-3xl md:text-5xl lg:text-6xl font-agency font-bold text-emerald-950 mb-3 uppercase tracking-tight"
                     >
-                        Campus Highlights
+                        Campus <span className="text-[#7B0046]">Experience</span>
                     </motion.h2>
-                    <div className="h-1 w-16 md:w-20 bg-emerald-600 mx-auto rounded-full mb-4 md:mb-6"></div>
+                    <div className="h-1.5 w-24 bg-emerald-600 mx-auto rounded-full mb-6"></div>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-zinc-500 text-sm md:text-lg max-w-2xl mx-auto text-center font-medium"
+                        className="text-zinc-500 text-base md:text-lg max-w-2xl mx-auto font-medium"
                     >
-                        Discover the vibrant life and world-class facilities at CM College
+                        A window into the vibrant life and excellence at CM College.
                     </motion.p>
                 </div>
 
                 {/* Grid Layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {items.map((item, index) => (
                         <motion.div
                             key={item._id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-zinc-100"
+                            transition={{ delay: index * 0.05 }}
+                            className="relative aspect-4/3 rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 group cursor-pointer border-4 border-white"
+                            onClick={() => openLightbox(index)}
                         >
-                            {/* Image Container */}
-                            <div className="relative h-52 overflow-hidden">
-                                <Image
-                                    src={item.imageUrl || '/images/college.png'}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
+                            <Image
+                                src={item.imageUrl || '/images/college.png'}
+                                alt="Gallery Thumbnail"
+                                fill
+                                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                            />
 
-                                {/* Subtle overlay on hover */}
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-5 relative">
-                                {/* Category Tag */}
-                                <span className="inline-block text-[10px] md:text-xs font-bold tracking-wider uppercase text-emerald-600 mb-1.5 pl-0.5">
-                                    {item.category}
-                                </span>
-
-                                {/* Title */}
-                                <h3 className="text-lg font-semibold text-zinc-900 mb-0.5 group-hover:text-emerald-800 transition-colors leading-tight">
-                                    {item.title}
-                                </h3>
+                            {/* Hover Overlay */}
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 transform scale-90 group-hover:scale-100 transition-all duration-500">
+                                    <Maximize2 className="text-white w-8 h-8" />
+                                </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
 
                 {/* Explore Button */}
-                <div className="mt-10 md:mt-16 text-center">
+                <div className="mt-16 md:mt-24 text-center">
                     <Link href="/gallery">
                         <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 bg-white rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition-all group"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-[#7B0046] text-white rounded-4xl shadow-xl overflow-hidden cursor-pointer"
                         >
-                            <span className="text-emerald-900 font-bold text-sm md:text-lg">Explore Full Gallery</span>
-                            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-emerald-900 flex items-center justify-center group-hover:bg-emerald-800 transition-colors">
-                                <svg className="w-3 md:w-4 h-3 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7-7 7" />
-                                </svg>
+                            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                            <span className="text-lg font-black tracking-tight uppercase">Enter Gallery</span>
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors backdrop-blur-sm">
+                                <ChevronRight className="w-6 h-6 text-white" />
                             </div>
                         </motion.button>
                     </Link>
-                    <p className="mt-4 md:mt-6 text-zinc-400 text-xs md:text-sm font-medium tracking-wide">
-                        Detailed view of academic, sports, and cultural milestones
-                    </p>
                 </div>
-
             </div>
+
+            {/* Lightbox / Image Viewer */}
+            <AnimatePresence>
+                {selectedImageIndex !== null && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-200 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-12"
+                        onClick={closeLightbox}
+                    >
+                        {/* Close button */}
+                        <motion.button
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="absolute top-10 right-10 text-white/50 hover:text-white transition-colors z-210 bg-white/10 p-4 rounded-4xl border border-white/10 hover:bg-white/20"
+                            onClick={closeLightbox}
+                        >
+                            <X className="w-10 h-10" />
+                        </motion.button>
+
+                        {/* Navigation buttons */}
+                        <div className="absolute inset-x-6 md:inset-x-12 top-1/2 -translate-y-1/2 flex justify-between z-210 pointer-events-none">
+                            <motion.button
+                                whileHover={{ scale: 1.1, x: -5 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="w-20 h-20 rounded-4xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all pointer-events-auto backdrop-blur-xl shadow-2xl"
+                                onClick={prevImage}
+                            >
+                                <ChevronLeft className="w-10 h-10" />
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.1, x: 5 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="w-20 h-20 rounded-4xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all pointer-events-auto backdrop-blur-xl shadow-2xl"
+                                onClick={nextImage}
+                            >
+                                <ChevronRight className="w-10 h-10" />
+                            </motion.button>
+                        </div>
+
+                        {/* Image Container */}
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+                            className="relative w-full h-full flex items-center justify-center pointer-events-none"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="relative w-full h-full max-w-6xl max-h-[85vh] pointer-events-auto shadow-[0_100px_200px_rgba(0,0,0,0.8)] rounded-[3rem] overflow-hidden border-8 border-white/5">
+                                <Image
+                                    src={items[selectedImageIndex].imageUrl}
+                                    alt="Full View"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+
+                                {/* Snapshot Counter */}
+                                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 px-8 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full">
+                                    <p className="text-white/80 font-black tracking-widest text-xs uppercase">
+                                        Slide <span className="text-emerald-400">{selectedImageIndex + 1}</span> of {items.length}
+                                    </p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
