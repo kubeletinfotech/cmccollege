@@ -312,7 +312,7 @@ export default function Home() {
       </section>
 
       {/* About Section - Premium Bordered Card */}
-      <section className="pt-14 pb-10 px-4 md:px-6 bg-[#7B0046]/3">
+      <section className="pt-14 pb-10 px-4 md:px-6 bg-emerald-50">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-6 md:p-14 rounded-r-2xl relative overflow-hidden">
             {/* Background decoration */}
@@ -352,7 +352,7 @@ export default function Home() {
       {/* Collaborations Section */}
       <Collaborations />
       {/* Premium Divider */}
-      <div className="relative py-4 md:py-6">
+      <div className="relative py-4 md:py-6 bg-white">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-gray-300/50"></div>
         </div>
@@ -364,7 +364,7 @@ export default function Home() {
       </div>
 
       {/* Principal section - Redesigned */}
-      <section className="pb-16 md:pb-20 pt-8 px-4 md:px-6 bg-transparent overflow-hidden">
+      <section className="pb-16 md:pb-20 pt-8 px-4 md:px-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-12">
             {/* Left Side - Portrait Image */}
@@ -434,7 +434,7 @@ export default function Home() {
 
 
       {/* Academic Programs Section */}
-      <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-900/5">
+      <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-4 uppercase">Departments of Academic Studies</h2>
@@ -490,7 +490,7 @@ export default function Home() {
       </section>
 
       {/* Facilities Preview Section */}
-      <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-900/5">
+      <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-agency font-bold text-emerald-800 mb-3 md:mb-4 uppercase">Campus Facilities</h2>
