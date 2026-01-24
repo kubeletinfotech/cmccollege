@@ -2,6 +2,7 @@
 
 import React, { useState, FormEvent } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { MapPin, Phone, Smartphone, Mail, Clock } from "lucide-react";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -78,14 +79,16 @@ export default function ContactPage() {
                             <h2 className="text-3xl font-bold text-emerald-800 mb-8 border-b-2 border-emerald-100 pb-4">Get in Touch</h2>
                             <div className="space-y-8">
                                 {[
-                                    { title: "Our Location", detail: "123 Educational Street, Knowledge City, State, Country", icon: "📍" },
-                                    { title: "Phone Number", detail: "+1 234 567 890", icon: "📞" },
-                                    { title: "Email Address", detail: "info@schoolname.edu", icon: "✉️" },
-                                    { title: "Office Hours", detail: "Mon - Sat: 8:00 AM - 4:00 PM", icon: "⏰" }
+                                    { title: "Our Location", detail: "Mount Razi, Nadavayal (P.O), Wayanad-670646", icon: MapPin },
+                                    { title: "Landline", detail: "04936 210 178", icon: Phone },
+                                    { title: "Mobile (Office)", detail: "+91 7594 888 203", icon: Smartphone },
+                                    { title: "Mobile (Office)", detail: "+91 7594 888 202", icon: Smartphone },
+                                    { title: "Email Address", detail: "info@cmcollege.edu.in", icon: Mail },
+                                    { title: "Office Hours", detail: "Mon - Sat: 9:00 AM - 4:00 PM", icon: Clock }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-6 items-start group">
-                                        <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shrink-0">
-                                            {item.icon}
+                                        <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-800 group-hover:scale-110 group-hover:bg-emerald-800 group-hover:text-white transition-all shrink-0">
+                                            <item.icon size={24} />
                                         </div>
                                         <div>
                                             <h3 className="font-bold text-emerald-900 text-lg">{item.title}</h3>
@@ -229,7 +232,7 @@ export default function ContactPage() {
                         <button className="px-10 py-5 bg-white text-emerald-900 font-bold rounded-xl shadow-xl hover:scale-105 transition-transform text-lg">
                             View FAQ
                         </button>
-                        <a href="tel:+1234567890" className="px-10 py-5 bg-emerald-800 text-white font-bold rounded-xl border border-emerald-700 hover:bg-emerald-700 transition-colors text-lg">
+                        <a href="tel:+917594888203" className="px-10 py-5 bg-emerald-800 text-white font-bold rounded-xl border border-emerald-700 hover:bg-emerald-700 transition-colors text-lg">
                             Call Now
                         </a>
                     </div>

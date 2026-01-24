@@ -28,8 +28,8 @@ const MarqueeRow = ({ title, items, reverse = false }: { title: string, items: t
                     {/* Glass Shine */}
                     <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-b from-white/40 to-transparent transform rotate-45 pointer-events-none transition-transform duration-700 group-hover/card:translate-x-full"></div>
 
-                    <div className="p-8 flex items-center justify-center min-h-[120px] relative z-10">
-                        <h3 className="text-sm font-agency font-bold text-[#5D1035] uppercase text-center leading-relaxed">
+                    <div className="p-4 md:p-8 flex items-center justify-center min-h-[80px] md:min-h-[120px] relative z-10">
+                        <h3 className="text-[12px] md:text-sm font-agency font-bold text-[#5D1035] uppercase text-center leading-relaxed">
                             {title}
                         </h3>
                     </div>
@@ -43,20 +43,20 @@ const MarqueeRow = ({ title, items, reverse = false }: { title: string, items: t
                 <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
                 <div
-                    className="flex items-center gap-10 flex-nowrap min-w-full animate-marquee"
+                    className="flex items-center gap-6 md:gap-10 flex-nowrap min-w-full animate-marquee"
                     style={{ width: "fit-content", animationDirection: reverse ? "reverse" : "normal" }}
                 >
                     {[...items, ...items, ...items, ...items].map((item, index) => (
                         <div
                             key={index}
-                            className="relative w-40 h-20 flex-shrink-0 flex items-center justify-center p-2 bg-white rounded-lg border border-zinc-100 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                            className="relative w-28 h-16 md:w-40 md:h-24 flex-shrink-0 flex items-center justify-center p-1.5 md:p-2 bg-white rounded-lg border border-zinc-100 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
                         >
                             <div className="relative w-full h-full">
                                 <Image
                                     src={item.logo}
                                     alt={`${item.name} logo`}
                                     fill
-                                    className="object-contain filter grayscale-0 opacity-90 hover:opacity-100 transition-opacity"
+                                    className="object-cover filter grayscale-0 opacity-90 hover:opacity-100 transition-opacity"
                                 />
                             </div>
                         </div>

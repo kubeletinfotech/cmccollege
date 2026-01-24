@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { MapPin, Phone, Smartphone, Mail } from "lucide-react";
 
 export default function Footer() {
     const pathname = usePathname();
@@ -105,21 +106,29 @@ export default function Footer() {
                 <div className="mt-3 flex flex-col items-center md:items-start text-center md:text-left">
                     <h4 className="text-white font-bold mb-6">Contact Us</h4>
                     <ul className="space-y-4 text-emerald-200/80">
-                        <li className="flex gap-3 justify-center md:justify-start">
-                            <span className="text-white">📍</span>
+                        <li className="flex gap-3 justify-center md:justify-start items-start">
+                            <MapPin size={18} className="text-white mt-1 shrink-0" />
                             <span>
                                 Mount Razi, Nadavayal (P.O) <br />
                                 Wayanad-670646
                             </span>
                         </li>
-                        <li className="flex gap-3 justify-center md:justify-start">
-                            <span className="text-white">📞</span>
+                        <li className="flex gap-3 justify-center md:justify-start items-center">
+                            <Phone size={18} className="text-white shrink-0" />
+                            <span>04936 210 178</span>
+                        </li>
+                        <li className="flex gap-3 justify-center md:justify-start items-center">
+                            <Smartphone size={18} className="text-white shrink-0" />
                             <span>+91 7594 888 203</span>
                         </li>
-                        <a href="mailto:info@cmcollege.edu.in">
-                            <li className="flex gap-3 justify-center md:justify-start">
-                                <span className="text-white">✉️</span>
-                                <span>info@cmcollege.edu.in</span>
+                        <li className="flex gap-3 justify-center md:justify-start items-center">
+                            <Smartphone size={18} className="text-white shrink-0" />
+                            <span>+91 7594 888 202</span>
+                        </li>
+                        <a href="mailto:info@cmcollege.edu.in" className="block group">
+                            <li className="flex gap-3 justify-center md:justify-start items-center">
+                                <Mail size={18} className="text-white shrink-0 group-hover:text-emerald-300 transition-colors" />
+                                <span className="group-hover:text-white transition-colors">info@cmcollege.edu.in</span>
                             </li>
                         </a>
                     </ul>
