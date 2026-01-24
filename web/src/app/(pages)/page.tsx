@@ -142,17 +142,20 @@ export default function Home() {
 
   const mobileImages = [
     "https://cmcollege.edu.in/wp-content/uploads/2023/08/banner4.jpg",
-    "https://ik.imagekit.io/5c6j602yp/Banner/Banner1?updatedAt=1768811009859",
-    "https://ik.imagekit.io/5c6j602yp/Banner/Banner2"
+    "https://ik.imagekit.io/5c6j602yp/Banner/bannerMobile1",
+    "https://ik.imagekit.io/5c6j602yp/Banner/bannerMobile2",
+    "https://ik.imagekit.io/5c6j602yp/Banner/bannerMobile",
   ];
+
+  const slideCount = Math.max(desktopImages.length, tabletImages.length, mobileImages.length);
 
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % desktopImages.length);
+      setCurrentSlide((prev) => (prev + 1) % slideCount);
     }, 5000);
     return () => clearInterval(interval);
-  }, [isPaused, desktopImages.length, currentSlide]);
+  }, [isPaused, slideCount]);
 
   // Fetch dynamic page content
   const { isAdmissionOpen } = useAdmissionStatus();
@@ -209,7 +212,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[104px] lg:pt-[112px] bg-[#7B0046]/3">
       {/* Hero Section */}
       <section
-        className="relative min-h-[60vh] md:min-h-0 md:aspect-16/7 lg:aspect-auto lg:min-h-[80vh] flex flex-col items-center justify-center py-16 px-4 md:py-12 lg:py-32 text-white overflow-hidden"
+        className="relative min-h-[80vh] md:min-h-0 md:aspect-16/7 lg:aspect-auto lg:min-h-[80vh] flex flex-col items-center justify-center py-16 px-4 md:py-12 lg:py-32 text-white overflow-hidden"
       >
         {/* Hero Background Slider */}
         <div className="absolute inset-0 z-0 bg-black">
@@ -228,7 +231,7 @@ export default function Home() {
               {/* Desktop Image (LG+) */}
               <div className="hidden lg:block w-full h-full relative">
                 <Image
-                  src={desktopImages[currentSlide]}
+                  src={desktopImages[currentSlide % desktopImages.length]}
                   alt={`Hero Slide ${currentSlide + 1} Desktop`}
                   fill
                   className="object-cover"
@@ -240,7 +243,7 @@ export default function Home() {
               {/* Tablet Image (MD to LG) */}
               <div className="hidden md:block lg:hidden w-full h-full relative">
                 <Image
-                  src={tabletImages[currentSlide]}
+                  src={tabletImages[currentSlide % tabletImages.length]}
                   alt={`Hero Slide ${currentSlide + 1} Tablet`}
                   fill
                   className="object-contain object-center"
@@ -252,7 +255,7 @@ export default function Home() {
               {/* Mobile Image (<MD) */}
               <div className="block md:hidden w-full h-full relative">
                 <Image
-                  src={mobileImages[currentSlide]}
+                  src={mobileImages[currentSlide % mobileImages.length]}
                   alt={`Hero Slide ${currentSlide + 1} Mobile`}
                   fill
                   className="object-cover object-center"
@@ -269,7 +272,7 @@ export default function Home() {
 
         {/* Navigation Dots */}
         <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-3">
-          {desktopImages.map((_, index) => (
+          {Array.from({ length: slideCount }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
