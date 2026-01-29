@@ -33,11 +33,11 @@ export default function ManagementPage() {
     return (
         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Header Section */}
-            <div className="relative rounded-[32px] overflow-hidden bg-[#7a0b3a] text-white p-8 md:p-16 shadow-2xl shadow-[#7a0b3a]/20">
+            <div className="relative rounded-[32px] overflow-hidden bg-linear-to-br from-[#7a0b3a] via-[#9f0f4e] to-[#7a0b3a] text-white p-8 md:p-16 shadow-2xl shadow-[#7a0b3a]/20">
                 {/* Decorative Background Elements */}
-                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-black/20 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none mix-blend-overlay"></div>
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/20 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
 
                 <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                     <motion.div
@@ -49,7 +49,7 @@ export default function ManagementPage() {
                             <span className="w-1.5 h-1.5 rounded-full bg-[#0CA789] shadow-[0_0_10px_#0CA789]"></span>
                             <span className="text-sm font-bold tracking-widest text-[#0CA789] uppercase">Management</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold font-sans leading-tight tracking-wide">
+                        <h1 className="text-5xl md:text-7xl font-bold font-sans leading-tight tracking-wide drop-shadow-md">
                             CM Centre Madavoor
                         </h1>
                     </motion.div>
@@ -61,14 +61,16 @@ export default function ManagementPage() {
                         transition={{ duration: 0.8, delay: 0.1 }}
                         className="flex justify-center md:justify-end"
                     >
-                        <div className="relative w-48 h-48 md:w-64 md:h-64 bg-white/10 backdrop-blur-md rounded-full p-8 border border-white/20 shadow-inner flex items-center justify-center group hover:bg-white/20 transition-colors duration-500">
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="relative w-64 h-64 md:w-96 md:h-96 bg-white/5 backdrop-blur-xl rounded-full p-10 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.2)] flex items-center justify-center group hover:bg-white/10 transition-all duration-500 hover:scale-105">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)] opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                            {/* Inner Glow Circle */}
+                            <div className="absolute inset-4 rounded-full border border-white/5"></div>
                             <Image
                                 src="https://ik.imagekit.io/5c6j602yp/Home/images/cm-center-logo?updatedAt=1769708637046"
                                 alt="CM Center Logo"
-                                width={200}
-                                height={200}
-                                className="object-contain drop-shadow-2xl"
+                                width={300}
+                                height={300}
+                                className="object-contain drop-shadow-2xl w-full h-full p-4"
                             />
                         </div>
                     </motion.div>
