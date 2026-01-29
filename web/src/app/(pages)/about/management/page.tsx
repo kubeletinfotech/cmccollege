@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, History, Target } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { motion } from "framer-motion";
+import InstitutionsCarousel from "@/components/InstitutionsCarousel";
 
 const managementMembers = [
     {
@@ -85,8 +86,8 @@ export default function ManagementPage() {
                         <div className="absolute top-4 -right-4 w-full h-full border-2 border-[#7a0b3a]/10 rounded-2xl md:rounded-[32px] -z-10 group-hover:top-2 group-hover:-right-2 transition-all duration-500"></div>
                         <div className="relative aspect-3/4 w-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-xl shadow-zinc-200/50">
                             <Image
-                                src="https://ik.imagekit.io/5c6j602yp/About/"
-                                alt="CM Centre Madavoor"
+                                src="https://ik.imagekit.io/5c6j602yp/About/chairman.jpg"
+                                alt="TK Abdurahiman Baquavi - Chairman"
                                 fill
                                 className="object-cover transition-transform duration-700 hover:scale-105"
                             />
@@ -168,54 +169,23 @@ export default function ManagementPage() {
             </div>
 
             {/* Our Institutions Section */}
-            <div className="py-12 border-t border-zinc-100">
-                <div className="text-center mb-10">
+            <div className="py-12 border-t border-zinc-100 bg-[#fcf9f5]/50">
+                <div className="text-center mb-8">
                     <span className="text-[#0CA789] font-bold tracking-widest uppercase text-sm">Network</span>
                     <h2 className="text-3xl md:text-4xl font-bold text-[#7a0b3a] mt-2 font-agency">Our Institutions</h2>
                 </div>
 
-                <div className="relative overflow-hidden group">
-                    {/* Gradient Masks */}
-                    <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
-
-                    <div className="flex items-center gap-8 md:gap-16 animate-marquee whitespace-nowrap min-w-full">
-                        {[
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/mmu-logo.png?updatedAt=1768844964283",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/oman-logo.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/tally-logo.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/keltron-logo.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/queens-drive.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/plant-up.png"
-                        ].map((logo, idx) => (
-                            <div key={idx} className="relative w-40 h-24 md:w-52 md:h-32 shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-500 cursor-pointer">
-                                <Image
-                                    src={logo}
-                                    alt="Institution Logo"
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                        ))}
-                        {[
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/mmu-logo.png?updatedAt=1768844964283",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/oman-logo.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/tally-logo.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/keltron-logo.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/queens-drive.png",
-                            "https://ik.imagekit.io/5c6j602yp/Home/images/plant-up.png"
-                        ].map((logo, idx) => (
-                            <div key={`dup-${idx}`} className="relative w-40 h-24 md:w-52 md:h-32 shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-500 cursor-pointer">
-                                <Image
-                                    src={logo}
-                                    alt="Institution Logo"
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <InstitutionsCarousel
+                    items={[
+                        "https://ik.imagekit.io/5c6j602yp/About/ifer.png?updatedAt=1769710741851",
+                        "https://ik.imagekit.io/5c6j602yp/About/osams.png?updatedAt=1769710741865",
+                        "https://ik.imagekit.io/5c6j602yp/About/keep.png?updatedAt=1769710741844",
+                        "https://ik.imagekit.io/5c6j602yp/About/ceas.png?updatedAt=1769710741807",
+                        "https://ik.imagekit.io/5c6j602yp/About/imsar.png?updatedAt=1769710741733",
+                        "https://ik.imagekit.io/5c6j602yp/About/afaq.png?updatedAt=1769710741445",
+                        "https://ik.imagekit.io/5c6j602yp/Home/images/PNG%20CM%20COLLEGE.png?updatedAt=1768917745508"
+                    ]}
+                />
             </div>
         </div>
     );
