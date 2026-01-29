@@ -537,10 +537,11 @@ export default function Home() {
                       alt={facility.name}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 20vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      quality={90}
                     />
-                    {/* Overlay removed */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center z-10">
                       <span className="text-xl font-bold text-white tracking-widest uppercase">{facility.name}</span>
                     </div>
                   </div>
