@@ -33,28 +33,48 @@ export default function ManagementPage() {
     return (
         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Header Section */}
-            <div className="relative rounded-3xl overflow-hidden bg-zinc-50 border border-zinc-100 p-8 md:p-12">
-                {/* Decorative Background */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#7a0b3a]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-2xl -ml-24 -mb-24 pointer-events-none"></div>
+            <div className="relative rounded-[32px] overflow-hidden bg-[#7a0b3a] text-white p-8 md:p-16 shadow-2xl shadow-[#7a0b3a]/20">
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-black/20 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
 
-                <div className="relative z-10 max-w-3xl">
+                <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="flex items-center gap-3 mb-4">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#7a0b3a]"></span>
-                            <span className="text-sm font-bold tracking-widest text-[#7a0b3a] uppercase">Management</span>
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#0CA789] shadow-[0_0_10px_#0CA789]"></span>
+                            <span className="text-sm font-bold tracking-widest text-[#0CA789] uppercase">Management</span>
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold text-zinc-900 mb-6 font-agency">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6 font-agency leading-tight">
                             Advisory Board
                         </h1>
-                        <p className="text-lg text-zinc-600 leading-relaxed">
+                        <p className="text-lg text-white/80 leading-relaxed max-w-xl">
                             Guided by a commitment to academic excellence and institutional integrity, our management
                             team ensures a nurturing environment where innovation and tradition coexist.
                         </p>
+                    </motion.div>
+
+                    {/* Logo Section */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="flex justify-center md:justify-end"
+                    >
+                        <div className="relative w-48 h-48 md:w-64 md:h-64 bg-white/10 backdrop-blur-md rounded-full p-8 border border-white/20 shadow-inner flex items-center justify-center group hover:bg-white/20 transition-colors duration-500">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                            <Image
+                                src="https://ik.imagekit.io/5c6j602yp/Home/images/cm-center-logo?updatedAt=1769708637046"
+                                alt="CM Center Logo"
+                                width={200}
+                                height={200}
+                                className="object-contain drop-shadow-2xl"
+                            />
+                        </div>
                     </motion.div>
                 </div>
             </div>
@@ -67,8 +87,8 @@ export default function ManagementPage() {
                         <div className="absolute top-4 -right-4 w-full h-full border-2 border-[#7a0b3a]/10 rounded-2xl md:rounded-[32px] -z-10 group-hover:top-2 group-hover:-right-2 transition-all duration-500"></div>
                         <div className="relative aspect-3/4 w-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-xl shadow-zinc-200/50">
                             <Image
-                                src="https://ik.imagekit.io/5c6j602yp/About/chairman"
-                                alt="TK Abdurahiman Baquavi - Chairman"
+                                src="https://ik.imagekit.io/5c6j602yp/About/"
+                                alt="CM Centre Madavoor"
                                 fill
                                 className="object-cover transition-transform duration-700 hover:scale-105"
                             />
