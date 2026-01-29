@@ -45,17 +45,13 @@ export default function ManagementPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="flex items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3 mb-4">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#0CA789] shadow-[0_0_10px_#0CA789]"></span>
                             <span className="text-sm font-bold tracking-widest text-[#0CA789] uppercase">Management</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 font-agency leading-tight">
-                            Advisory Board
+                        <h1 className="text-4xl md:text-6xl font-bold font-sans leading-tight tracking-wide">
+                            CM Centre Madavoor
                         </h1>
-                        <p className="text-lg text-white/80 leading-relaxed max-w-xl">
-                            Guided by a commitment to academic excellence and institutional integrity, our management
-                            team ensures a nurturing environment where innovation and tradition coexist.
-                        </p>
                     </motion.div>
 
                     {/* Logo Section */}
