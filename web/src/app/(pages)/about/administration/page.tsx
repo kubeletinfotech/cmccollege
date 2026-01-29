@@ -36,23 +36,25 @@ const councilMembers = [
 
 export default function AdministrationPage() {
     return (
-        <main className="min-h-screen bg-white pt-[112px]">
+        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
 
             {/* 🔴 HERO SECTION - Full-width Maroon Gradient */}
-            <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#7B0046] via-[#5D1035] to-[#3B001F]"></div>
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <section className="relative h-[300px] md:h-[400px] rounded-[24px] md:rounded-[32px] flex items-center justify-center overflow-hidden bg-linear-to-br from-[#7a0b3a] via-[#9f0f4e] to-[#7a0b3a] text-white shadow-xl md:shadow-2xl shadow-[#7a0b3a]/20">
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none mix-blend-overlay"></div>
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/20 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
 
                 <div className="relative z-10 text-center px-4">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-serif text-white tracking-widest uppercase mb-6">
-                            Administrative Council
+                        <h1 className="text-4xl md:text-7xl font-bold font-sans tracking-[0.15em] uppercase leading-tight drop-shadow-2xl">
+                            Administrative <br className="md:hidden" /> Council
                         </h1>
-                        <div className="w-24 md:w-32 h-0.5 bg-white/40 mx-auto"></div>
+                        <div className="w-16 md:w-24 h-0.5 bg-white/30 mx-auto mt-8 opacity-50"></div>
                     </motion.div>
                 </div>
             </section>
@@ -72,40 +74,80 @@ export default function AdministrationPage() {
                 </div>
             </section>
 
-            {/* 👥 COUNCIL MEMBERS SECTION - 5 Members Grid */}
-            <section className="py-24 bg-stone-50/30">
+            {/* 👥 COUNCIL MEMBERS SECTION - Single Row Layout */}
+            <section className="pb-32 bg-white overflow-x-hidden">
                 <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 xl:gap-8 max-w-[1600px] mx-auto">
-                        {councilMembers.map((member, idx) => (
-                            <ScrollReveal key={idx} delay={idx * 100}>
-                                <div className="group flex flex-col items-center">
-                                    {/* 🪪 Portrait Image Container */}
-                                    <div className="relative aspect-[4/5] w-full bg-white rounded-2xl overflow-hidden shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-3 mb-8 border border-zinc-100/50">
-                                        <Image
-                                            src={member.image}
-                                            alt={member.name}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                        />
-                                        <div className="absolute inset-0 bg-[#7B0046]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Decorative Header */}
+                    <div className="flex justify-center mb-16 opacity-50">
+                        <div className="h-1 w-24 bg-[#7a0b3a] rounded-full"></div>
+                    </div>
+
+                    {/* All Council Members in One Centered Row */}
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-10">
+                        {councilMembers.map((member, idx) => {
+                            const isChairman = idx === 0;
+                            return (
+                                <ScrollReveal key={idx} delay={idx * 100}>
+                                    <div className={`group flex flex-col items-center transition-all duration-500 ${isChairman ? 'z-10' : 'z-0'}`}>
+                                        {/* Card Container - Size varies based on role */}
+                                        <div
+                                            className={`relative bg-white rounded-[24px] overflow-hidden shadow-lg border border-zinc-100 transition-all duration-500 
+                                            ${isChairman
+                                                    ? 'w-[320px] md:w-[380px] aspect-4/5 shadow-2xl scale-105 border-[#7a0b3a]/10 ring-4 ring-[#7a0b3a]/5'
+                                                    : 'w-[260px] md:w-[280px] aspect-4/5 hover:-translate-y-2'
+                                                }`}
+                                        >
+                                            <Image
+                                                src={member.image}
+                                                alt={member.name}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            />
+                                            {/* Gradient Overlay for Chairman */}
+                                            {isChairman && (
+                                                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-black/60 to-transparent opacity-80"></div>
+                                            )}
+                                            {/* Lighter Gradient for others */}
+                                            {!isChairman && (
+                                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            )}
+
+                                            {/* Name on Card for Chairman */}
+                                            {isChairman && (
+                                                <div className="absolute bottom-6 left-0 w-full text-center px-4">
+                                                    <h3 className="text-2xl font-bold text-white tracking-wide drop-shadow-md mb-1">{member.name}</h3>
+                                                    <p className="text-[#ffcbde] text-xs font-bold uppercase tracking-widest">{member.role.split('–')[0]}</p>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Name below card for others */}
+                                        {!isChairman && (
+                                            <div className="text-center mt-6 max-w-[260px]">
+                                                <h3 className="text-xl font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors duration-300">
+                                                    {member.name}
+                                                </h3>
+                                                <p className="text-[#7a0b3a]/80 text-[11px] font-bold tracking-wider uppercase mt-1 leading-relaxed">
+                                                    {member.role}
+                                                </p>
+                                            </div>
+                                        )}
                                     </div>
 
-                                    {/* Details */}
-                                    <div className="text-center space-y-2">
-                                        <h3 className="text-lg font-bold text-zinc-900 transition-colors duration-300 group-hover:text-[#7B0046]">
-                                            {member.name}
-                                        </h3>
-                                        <p className="text-[#7B0046] text-[10px] font-bold tracking-[0.2em] uppercase">
-                                            {member.role}
-                                        </p>
-                                    </div>
-                                </div>
-                            </ScrollReveal>
-                        ))}
+                                    {isChairman && (
+                                        <div className="text-center mt-8 max-w-[320px] md:max-w-[360px]">
+                                            <p className="text-zinc-500 text-xs font-medium italic border-t border-zinc-100 pt-4">
+                                                Leading with vision and integrity.
+                                            </p>
+                                        </div>
+                                    )}
+                                </ScrollReveal>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
-
-        </main >
+        </div>
     );
 }
