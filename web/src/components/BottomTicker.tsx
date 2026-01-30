@@ -86,7 +86,14 @@ export default function BottomTicker() {
                     {/* Gradient Mask Right */}
                     <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none"></div>
 
-                    <div className="flex animate-marquee whitespace-nowrap w-max" style={{ animationDuration: '25s', willChange: 'transform' }}>
+                    {/* Dynamic duration based on content length (approx 8s per item for consistent speed) */}
+                    <div
+                        className="flex animate-marquee whitespace-nowrap w-max"
+                        style={{
+                            animationDuration: `${Math.max(10, displayList.length * 8)}s`,
+                            willChange: 'transform'
+                        }}
+                    >
                         {[0, 1].map((part) => (
                             <div key={part} className="flex items-center gap-12 pr-12">
                                 {Array(4).fill(displayList).flat().map((item, index) => (

@@ -17,6 +17,13 @@ export interface AmenityData {
         specs: { cpu: string; ram: string; storage: string; gpu: string }[];
         software: string[];
     };
+    achievements?: {
+        title: string;
+        event: string;
+        rank: string;
+        image: string;
+        date: string;
+    }[];
 }
 
 export const AMENITIES_DATA: Record<string, AmenityData> = {
@@ -172,6 +179,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Fleet of 10+ buses covering 50km radius",
             "Experienced and licensed drivers",
             "GPS tracking for safety",
+            "CCTV Surveillance for Enhanced Security",
             "Separate seating for staff and students",
             "Affordable pass rates"
         ],
@@ -225,6 +233,29 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Annual Sports Meet"
         ],
         image: "https://i.pinimg.com/736x/eb/d9/86/ebd986bdea50b13bb15f3b8c5bf4fc57.jpg",
-        icon: Dumbbell
+        icon: Dumbbell,
+        achievements: [
+            {
+                title: "University Champions",
+                event: "Inter-Zone Football 2024",
+                rank: "Winner",
+                image: "https://ik.imagekit.io/5c6j602yp/Home/images/football-team.jpeg", // Placeholder
+                date: "March 2024"
+            },
+            {
+                title: "Best Athlete Award",
+                event: "State Athletics Meet",
+                rank: "Gold",
+                image: "https://ik.imagekit.io/5c6j602yp/Home/images/athlete.jpeg", // Placeholder
+                date: "Jan 2024"
+            },
+            {
+                title: "Cricket Runners Up",
+                event: "District Cricket League",
+                rank: "Runner Up",
+                image: "https://ik.imagekit.io/5c6j602yp/Home/images/cricket.jpeg", // Placeholder
+                date: "Dec 2023"
+            }
+        ]
     }
 };

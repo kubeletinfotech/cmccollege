@@ -411,6 +411,58 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                 </div>
                             </ScrollReveal>
                         )}
+
+                        {/* Achievements Section (Sports etc.) */}
+                        {data.achievements && (
+                            <ScrollReveal delay={300} className="space-y-8">
+                                <h2 className="text-3xl font-bold font-serif text-[#5D1035] flex items-center gap-3">
+                                    <span className="w-8 h-1 bg-[#5D1035] rounded-full"></span>
+                                    Achievements & Glory
+                                </h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {data.achievements.map((item, idx) => (
+                                        <div key={idx} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-zinc-100">
+                                            {/* Image */}
+                                            <div className="relative h-48 w-full overflow-hidden">
+                                                <Image
+                                                    src={item.image}
+                                                    alt={item.title}
+                                                    fill
+                                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                                <div className="absolute bottom-3 left-3 text-white">
+                                                    <span className="bg-[#5D1035] text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider mb-1 inline-block">
+                                                        {item.date}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            {/* Content */}
+                                            <div className="p-5">
+                                                <div className="flex items-start justify-between mb-2">
+                                                    <h3 className="text-lg font-bold text-zinc-900 leading-tight group-hover:text-[#5D1035] transition-colors">
+                                                        {item.title}
+                                                    </h3>
+                                                    {/* Rank Badge */}
+                                                    <div className={`shrink-0 px-2 py-1 rounded-lg text-xs font-bold uppercase tracking-wider ${item.rank.toLowerCase().includes('gold') || item.rank.toLowerCase().includes('winner')
+                                                            ? 'bg-yellow-100 text-yellow-700'
+                                                            : item.rank.toLowerCase().includes('silver') || item.rank.toLowerCase().includes('runner')
+                                                                ? 'bg-zinc-100 text-zinc-600'
+                                                                : 'bg-orange-50 text-orange-600'
+                                                        }`}>
+                                                        {item.rank}
+                                                    </div>
+                                                </div>
+                                                <p className="text-sm text-zinc-500 font-medium">
+                                                    {item.event}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </ScrollReveal>
+                        )}
                     </div>
                 </div>
             </div>
