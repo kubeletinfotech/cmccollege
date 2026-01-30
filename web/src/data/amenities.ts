@@ -2,6 +2,7 @@ import { LucideIcon, Book, Wifi, Coffee, Monitor, Dumbbell, Bus, Stethoscope, Ho
 
 export interface AmenityData {
     title: string;
+    heading?: string; // Optional full heading for the page hero
     description: string;
     features: string[];
     image: string;
@@ -78,6 +79,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
     },
     "library": {
         title: "Library",
+        heading: "Maulana Abul Kalam Memorial Digital Library",
         description: "The heart of academic resources, our library houses a vast collection of books, journals, and digital archives to support research and learning.",
         features: [
             "Over 10,000 books and reference materials",

@@ -48,7 +48,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
 
                         <ScrollReveal>
                             <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-serif text-white mb-2">
-                                {data.title}
+                                {data.heading || data.title}
                             </h1>
                             <p className="text-lg md:text-xl text-white/80 max-w-2xl font-light leading-relaxed">
                                 {data.description.split('.')[0]}.
