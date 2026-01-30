@@ -47,7 +47,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                         </div>
 
                         <ScrollReveal>
-                            <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-serif text-white mb-2">
+                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight font-serif text-white mb-2 leading-tight">
                                 {data.heading || data.title}
                             </h1>
                             <p className="text-lg md:text-xl text-white/80 max-w-2xl font-light leading-relaxed">
@@ -58,8 +58,8 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
-                <div className="flex flex-col lg:flex-row gap-16 items-start">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-24">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
                     {/* Sidebar - Sticky Wrapper */}
                     <div className="hidden lg:block w-80 shrink-0 sticky top-32 self-start">
                         <AmenitiesSidebar />
@@ -153,14 +153,14 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         <div className="inline-block px-3 py-1 bg-[#5D1035]/10 text-[#5D1035] text-xs font-bold uppercase tracking-wider rounded-full mb-3">
                                             {data.librarian.designation}
                                         </div>
-                                        <h3 className="text-3xl md:text-4xl font-bold font-serif text-zinc-900 mb-2">
+                                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-zinc-900 mb-2">
                                             {data.librarian.name}
                                         </h3>
                                         {data.librarian.qualification && (
-                                            <div className="text-lg font-medium text-zinc-500 mb-6 flex items-center justify-center md:justify-start gap-2">
-                                                <span className="w-8 h-[1px] bg-zinc-300"></span>
+                                            <div className="text-base sm:text-lg font-medium text-zinc-500 mb-6 flex items-center justify-center md:justify-start gap-2">
+                                                <span className="w-8 h-px bg-zinc-300"></span>
                                                 {data.librarian.qualification}
-                                                <span className="w-8 h-[1px] bg-zinc-300 md:hidden"></span>
+                                                <span className="w-8 h-px bg-zinc-300 md:hidden"></span>
                                             </div>
                                         )}
 
@@ -179,7 +179,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
 
                         {data.busSchedules && (
                             <ScrollReveal delay={300}>
-                                <div className="bg-[#5D1035] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl shadow-[#5D1035]/20">
+                                <div className="bg-[#5D1035] rounded-3xl md:rounded-[2.5rem] p-6 md:p-12 text-white relative overflow-hidden shadow-2xl shadow-[#5D1035]/20">
                                     {/* Background decorative elements */}
                                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
                                     <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
@@ -327,19 +327,19 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         <h2 className="text-2xl font-bold font-serif text-[#5D1035]">Hostel Facilities</h2>
                                         <p className="text-zinc-500 text-sm">Select wing to view details</p>
                                     </div>
-                                    <div className="flex bg-zinc-100 p-1.5 rounded-full relative">
+                                    <div className="flex bg-zinc-100 p-1.5 rounded-full relative w-full sm:w-auto">
                                         <div
                                             className={`absolute inset-y-1.5 w-1/2 bg-[#5D1035] rounded-full shadow-sm transition-all duration-300 ${activeHostelTab === 'girls' ? 'translate-x-[98%]' : 'translate-x-0'}`}
                                         ></div>
                                         <button
                                             onClick={() => setActiveHostelTab('boys')}
-                                            className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-bold transition-colors ${activeHostelTab === 'boys' ? 'text-white' : 'text-zinc-600 hover:text-[#5D1035]'}`}
+                                            className={`relative z-10 flex-1 sm:flex-none px-6 sm:px-8 py-2.5 rounded-full text-sm font-bold transition-colors text-center whitespace-nowrap ${activeHostelTab === 'boys' ? 'text-white' : 'text-zinc-600 hover:text-[#5D1035]'}`}
                                         >
                                             Boys Wing
                                         </button>
                                         <button
                                             onClick={() => setActiveHostelTab('girls')}
-                                            className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-bold transition-colors ${activeHostelTab === 'girls' ? 'text-white' : 'text-zinc-600 hover:text-[#5D1035]'}`}
+                                            className={`relative z-10 flex-1 sm:flex-none px-6 sm:px-8 py-2.5 rounded-full text-sm font-bold transition-colors text-center whitespace-nowrap ${activeHostelTab === 'girls' ? 'text-white' : 'text-zinc-600 hover:text-[#5D1035]'}`}
                                         >
                                             Girls Wing
                                         </button>
@@ -518,19 +518,19 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* Other Amenities Navigation (Footer Style) */}
-            {/* <section className="bg-white py-20 px-6 border-t border-zinc-100">
+            <section className="bg-white py-16 px-6 border-t border-zinc-100 lg:hidden">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex items-center justify-between mb-10">
+                    <div className="flex items-center justify-between mb-8">
                         <h3 className="text-2xl font-bold text-zinc-900 font-serif">More to Explore</h3>
-                        <Link href="/amenities" className="text-[#5D1035] font-bold text-sm hover:underline">View All Amenities</Link>
+                        <Link href="/amenities" className="text-[#5D1035] font-bold text-sm hover:underline">View All</Link>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {Object.entries(AMENITIES_DATA)
                             .filter(([key]) => key !== slug)
                             .slice(0, 4)
                             .map(([key, item]) => (
-                                <Link key={key} href={`/amenities/${key}`} className="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+                                <Link key={key} href={`/amenities/${key}`} className="group relative h-40 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
                                     <Image
                                         src={item.image}
                                         alt={item.title}
@@ -548,7 +548,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                             ))}
                     </div>
                 </div>
-            </section> */}
+            </section>
         </div>
     );
 }
