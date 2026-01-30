@@ -9,9 +9,7 @@ import {
     FileText,
     Image as ImageIcon,
     Trophy,
-    ChevronRight
 } from "lucide-react";
-import { motion } from "framer-motion";
 
 const menuItems = [
     { label: "About Alumni", href: "/alumni", icon: Info },
@@ -26,34 +24,32 @@ export default function AlumniSidebar() {
 
     return (
         <aside className="w-full">
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200 sticky top-24">
-                <h3 className="text-lg font-bold text-zinc-900 mb-6 px-2">Navigation</h3>
-                <nav className="space-y-2">
-                    {menuItems.map((item) => {
-                        const isActive = pathname === item.href;
-                        return (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className={cn(
-                                    "flex items-center justify-between p-3 rounded-xl transition-all group",
-                                    isActive
-                                        ? "bg-emerald-50 text-emerald-700 font-semibold"
-                                        : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900"
-                                )}
-                            >
-                                <div className="flex items-center gap-3">
-                                    <item.icon className={cn("w-5 h-5", isActive ? "text-emerald-600" : "text-zinc-400 group-hover:text-zinc-600")} />
-                                    <span>{item.label}</span>
-                                </div>
-                                {isActive && (
-                                    <motion.div layoutId="active-nav-indicator">
-                                        <ChevronRight className="w-4 h-4 text-emerald-600" />
-                                    </motion.div>
-                                )}
-                            </Link>
-                        );
-                    })}
+            <div className="bg-[#fcf9f5] rounded-xl border border-[#e5e0d8] overflow-hidden shadow-sm sticky top-24">
+                <div className="p-6 bg-[#7a0b3a] text-white">
+                    <h3 className="font-bold font-serif text-xl tracking-wide">Alumni Association</h3>
+                </div>
+                <nav className="p-3">
+                    <ul className="space-y-1">
+                        {menuItems.map((item) => {
+                            const isActive = pathname === item.href;
+                            return (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className={cn(
+                                            "flex items-center gap-3 px-4 py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 border-l-4",
+                                            isActive
+                                                ? "bg-white border-[#7a0b3a] text-[#7a0b3a] shadow-sm"
+                                                : "border-transparent text-zinc-700 hover:bg-zinc-100 hover:text-[#7a0b3a]"
+                                        )}
+                                    >
+                                        <item.icon className={cn("w-5 h-5", isActive ? "text-[#7a0b3a]" : "text-zinc-400 group-hover:text-[#7a0b3a]")} />
+                                        <span>{item.label}</span>
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </nav>
             </div>
         </aside>
