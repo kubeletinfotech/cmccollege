@@ -141,8 +141,8 @@ export default function AdminAchieversPage() {
 
                 {showForm && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                        <div className="bg-white rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-                            <h2 className="text-2xl font-bold mb-6">Add New Achiever</h2>
+                        <div className="bg-white rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto text-zinc-900">
+                            <h2 className="text-2xl font-bold mb-6 text-zinc-900">Add New Achiever</h2>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="flex gap-6">
                                     <div
@@ -173,7 +173,7 @@ export default function AdminAchieversPage() {
                                             placeholder="Name"
                                             value={formData.name}
                                             onChange={handleInputChange}
-                                            className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                            className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-zinc-900 placeholder:text-zinc-400"
                                             required
                                         />
                                         <input
@@ -181,7 +181,7 @@ export default function AdminAchieversPage() {
                                             placeholder="Batch (e.g. 2015-2019)"
                                             value={formData.batch}
                                             onChange={handleInputChange}
-                                            className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                            className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-zinc-900 placeholder:text-zinc-400"
                                             required
                                         />
                                         <input
@@ -189,7 +189,7 @@ export default function AdminAchieversPage() {
                                             placeholder="Achievement/Role"
                                             value={formData.achievement}
                                             onChange={handleInputChange}
-                                            className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                            className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-zinc-900 placeholder:text-zinc-400"
                                             required
                                         />
                                     </div>
@@ -199,7 +199,7 @@ export default function AdminAchieversPage() {
                                     placeholder="Description"
                                     value={formData.description}
                                     onChange={handleInputChange}
-                                    className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 h-32"
+                                    className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 h-32 text-zinc-900 placeholder:text-zinc-400"
                                     required
                                 />
                                 <div className="flex gap-4 pt-4">
