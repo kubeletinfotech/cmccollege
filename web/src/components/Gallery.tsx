@@ -99,28 +99,30 @@ export default function Gallery() {
                     </motion.p>
                 </div>
 
-                {/* Grid Layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {/* Mobile: Horizontal Scroll Snap | Desktop: Grid */}
+                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                     {items.map((item, index) => (
                         <motion.div
                             key={item._id}
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: index * 0.05 }}
-                            className="relative aspect-4/3 rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 group cursor-pointer border-4 border-white"
+                            className="relative shrink-0 w-[85vw] md:w-auto aspect-[4/3] rounded-2xl md:rounded-[32px] overflow-hidden shadow-sm md:shadow-md hover:shadow-xl transition-all duration-500 group cursor-pointer border-2 md:border-4 border-white snap-center"
                             onClick={() => openLightbox(index)}
                         >
                             <Image
                                 src={item.imageUrl || '/images/college.png'}
                                 alt="Gallery Thumbnail"
                                 fill
-                                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 768px) 85vw, 33vw"
                             />
 
-                            {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 transform scale-90 group-hover:scale-100 transition-all duration-500">
+                            {/* Mobile: Simple Gradient | Desktop: Hover Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 md:duration-500 flex items-end md:items-center justify-start md:justify-center p-6">
+                                <span className="text-white text-sm font-bold md:hidden">View Image</span>
+                                <div className="hidden md:flex w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md items-center justify-center border border-white/30 transform scale-90 group-hover:scale-100 transition-all duration-500">
                                     <Maximize2 className="text-white w-8 h-8" />
                                 </div>
                             </div>
@@ -129,17 +131,17 @@ export default function Gallery() {
                 </div>
 
                 {/* Explore Button */}
-                <div className="mt-16 md:mt-24 text-center">
+                <div className="mt-8 md:mt-24 text-center">
                     <Link href="/gallery">
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-[#7B0046] text-white rounded-4xl shadow-xl overflow-hidden cursor-pointer"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="group relative inline-flex items-center gap-3 md:gap-4 px-8 md:px-10 py-4 md:py-5 bg-[#7B0046] text-white rounded-2xl md:rounded-4xl shadow-lg md:shadow-xl overflow-hidden cursor-pointer w-full md:w-auto justify-center"
                         >
                             <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                            <span className="text-lg font-black tracking-tight uppercase">Enter Gallery</span>
-                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors backdrop-blur-sm">
-                                <ChevronRight className="w-6 h-6 text-white" />
+                            <span className="text-base md:text-lg font-bold md:font-black tracking-tight uppercase">View Full Gallery</span>
+                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors backdrop-blur-sm">
+                                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
                             </div>
                         </motion.button>
                     </Link>

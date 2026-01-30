@@ -75,15 +75,15 @@ export default function NewsSection() {
                         ))}
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 min-h-[400px]">
+                    <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                         {newsItems.map((item, index) => (
                             <motion.div
                                 key={item._id}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, margin: "-50px" }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group bg-white rounded-xl overflow-hidden shadow-sm border border-zinc-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col h-full"
+                                className="group bg-white rounded-xl overflow-hidden shadow-sm border border-zinc-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col h-full shrink-0 w-[85vw] md:w-auto snap-center"
                             >
                                 {/* Image */}
                                 <div className="relative h-48 overflow-hidden bg-zinc-100">

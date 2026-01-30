@@ -62,18 +62,18 @@ export default function Professionals() {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                     {alumni.map((alum, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: index * 0.1 }}
-                            className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                            className="group bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 shrink-0 w-[75vw] md:w-auto snap-center border border-zinc-100"
                         >
                             {/* Profile Image (Color) */}
-                            <div className="relative w-32 h-32 mx-auto mb-6">
+                            <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6">
                                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-zinc-50 shadow-inner">
                                     <Image
                                         src={alum.image}
@@ -86,7 +86,7 @@ export default function Professionals() {
 
                             {/* Text Content */}
                             <div className="text-center">
-                                <h3 className="text-xl font-semibold text-zinc-900 mb-1 group-hover:text-emerald-800 transition-colors">
+                                <h3 className="text-lg md:text-xl font-semibold text-zinc-900 mb-1 group-hover:text-emerald-800 transition-colors">
                                     {alum.name}
                                 </h3>
                                 <p className="text-sm font-medium text-zinc-600 mb-1">
