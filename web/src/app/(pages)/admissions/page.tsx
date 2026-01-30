@@ -74,7 +74,7 @@ export default function AdmissionsPage() {
                             Looking for Management Quota, Sports Quota, or have other general enquiries? We are here to assist you with all other admission categories.
                         </p>
                     </div>
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                         <Link
                             href="/contact"
                             className="inline-flex items-center justify-center px-8 py-4 bg-zinc-900 text-white font-bold rounded-xl hover:bg-zinc-800 transition-all hover:-translate-y-1 shadow-lg shadow-zinc-200"

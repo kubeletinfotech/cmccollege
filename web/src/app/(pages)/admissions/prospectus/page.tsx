@@ -8,7 +8,7 @@ export default function ProspectusPage() {
             <h1 className="text-3xl font-bold text-[#004d40] mb-6 font-serif">College Prospectus 2024-25</h1>
 
             <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-full md:w-1/3 bg-zinc-100 rounded-xl aspect-[3/4] flex items-center justify-center border border-zinc-200">
+                <div className="w-full md:w-1/3 bg-zinc-100 rounded-xl aspect-3/4 flex items-center justify-center border border-zinc-200">
                     <BookOpen className="w-24 h-24 text-zinc-300" />
                 </div>
 

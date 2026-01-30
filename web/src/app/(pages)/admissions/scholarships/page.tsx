@@ -148,39 +148,19 @@ export default function ScholarshipsPage() {
             </div>
 
             {/* Content Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {(activeTab === "govt" ? GOVERNMENT_SCHOLARSHIPS : MANAGEMENT_SCHOLARSHIPS).map((sch, idx) => (
                     <div
                         key={idx}
-                        className="p-6 rounded-2xl border border-zinc-100 hover:border-emerald-200 hover:shadow-lg transition-all bg-zinc-50 group hover:-translate-y-1"
+                        className="p-5 rounded-2xl border border-zinc-100 hover:border-emerald-200 hover:shadow-md transition-all bg-white group flex items-center gap-4"
                     >
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="p-3 bg-white rounded-xl shadow-sm group-hover:bg-emerald-50 transition-colors">
-                                <GraduationCap className="w-6 h-6 text-[#004d40]" />
-                            </div>
-                            <span className="px-3 py-1 bg-emerald-100 text-[#004d40] text-xs font-bold rounded-full uppercase tracking-wider">
-                                {activeTab === "govt" ? "Govt" : "CM College"}
-                            </span>
+                        <div className="p-3 bg-emerald-50 rounded-xl shrink-0">
+                            <GraduationCap className="w-6 h-6 text-[#004d40]" />
                         </div>
 
-                        <h3 className="text-lg font-bold text-zinc-900 mb-2 group-hover:text-[#004d40] transition-colors leading-tight">
+                        <h3 className="font-bold text-lg text-zinc-900 group-hover:text-[#004d40] transition-colors">
                             {sch.title}
                         </h3>
-
-                        <p className="text-sm text-zinc-600 mb-4 line-clamp-2 h-10">
-                            {sch.description}
-                        </p>
-
-                        <div className="pt-4 border-t border-zinc-200/60 space-y-2">
-                            <div className="flex items-center justify-between text-sm">
-                                <span className="text-zinc-500 font-medium">Amount:</span>
-                                <span className="font-bold text-zinc-900">{sch.amount}</span>
-                            </div>
-                            <div className="text-xs text-zinc-500 bg-white p-2 rounded-lg border border-zinc-100">
-                                <span className="font-semibold text-zinc-700">Eligibility: </span>
-                                {sch.eligibility}
-                            </div>
-                        </div>
                     </div>
                 ))}
             </div>
