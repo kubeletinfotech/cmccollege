@@ -3,7 +3,7 @@
 import { useSignIn, useAuth } from "@clerk/nextjs";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Lock, ArrowRight, Loader2, AlertCircle, User, Eye, EyeOff } from "lucide-react";
 
 export default function SignInPage() {
@@ -91,59 +91,68 @@ export default function SignInPage() {
     };
 
     return (
-        <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden bg-zinc-900">
-            {/* Ambient Background Effects */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-900/40 rounded-full blur-[120px] animate-pulse"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-900/40 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden bg-[#0A0A0A] selection:bg-emerald-500/30 selection:text-emerald-400">
+            {/* Background Effects */}
+            <div className="absolute inset-0 w-full h-full">
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-900/20 rounded-full blur-[120px] animate-pulse"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-900/20 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+                <div className="absolute top-[40%] left-[40%] w-[30%] h-[30%] bg-zinc-800/20 rounded-full blur-[100px] animate-pulse delay-700"></div>
+
+                {/* Grid Pattern Overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
             </div>
 
             <motion.div
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="relative z-10 w-full max-w-md p-6"
             >
-                <div className="bg-white/10 backdrop-blur-xl border border-white/10 shadow-2xl rounded-3xl overflow-hidden">
-                    <div className="p-8 space-y-8 relative">
-                        {/* Decorative Top Line */}
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-pink-500 to-emerald-500"></div>
-
+                <div className="bg-zinc-900/40 backdrop-blur-xl border border-white/5 shadow-2xl shadow-black/50 rounded-3xl overflow-hidden ring-1 ring-white/10">
+                    <div className="p-8 space-y-8">
                         {/* Header */}
-                        <div className="text-center space-y-2">
-                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 mb-4 shadow-lg shadow-emerald-500/20">
-                                <Lock className="w-8 h-8 text-white" />
+                        <div className="text-center space-y-6">
+                            <div className="relative inline-flex mb-2">
+                                <div className="absolute inset-0 bg-emerald-500 blur-xl opacity-20 rounded-full"></div>
+                                <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 ring-1 ring-white/20">
+                                    <Lock className="w-7 h-7 text-white drop-shadow-md" />
+                                </div>
                             </div>
-                            <h1 className="text-3xl font-bold text-white tracking-tight">Welcome Back</h1>
-                            <p className="text-zinc-400 text-sm">Sign in to access the admin dashboard</p>
+                            <div className="space-y-1.5">
+                                <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/60 tracking-tight">Welcome Back</h1>
+                                <p className="text-zinc-500 text-sm font-medium">Sign in to access the admin dashboard</p>
+                            </div>
                         </div>
 
                         {/* Error Message */}
-                        {error && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-center gap-3 text-red-200 text-sm"
-                            >
-                                <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                                <p>{error}</p>
-                            </motion.div>
-                        )}
+                        <AnimatePresence mode="wait">
+                            {error && (
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95, height: 0 }}
+                                    animate={{ opacity: 1, scale: 1, height: "auto" }}
+                                    exit={{ opacity: 0, scale: 0.95, height: 0 }}
+                                    className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-start gap-3 text-red-200 text-sm"
+                                >
+                                    <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-400" />
+                                    <p className="leading-snug">{error}</p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
 
                         {/* Form */}
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="space-y-4">
+                            <div className="space-y-5">
                                 <div className="space-y-2">
-                                    <label className="text-xs font-medium text-zinc-300 ml-1 uppercase tracking-wider">Email or Username</label>
+                                    <label className="text-xs font-semibold text-zinc-400 ml-1 uppercase tracking-wider">Email or Username</label>
                                     <div className="relative group">
-                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                            <User className="h-5 w-5 text-zinc-500 group-focus-within:text-emerald-400 transition-colors" />
+                                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none z-10">
+                                            <User className="h-5 w-5 text-zinc-500 group-focus-within:text-emerald-400 transition-colors duration-300" />
                                         </div>
                                         <input
                                             type="text"
                                             value={text}
                                             onChange={(e) => setText(e.target.value)}
-                                            className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-transparent transition-all"
+                                            className="block w-full pl-11 pr-4 py-3.5 bg-black/20 hover:bg-black/30 border border-white/5 hover:border-white/10 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
                                             placeholder="admin_user or email@example.com"
                                             required
                                         />
@@ -151,23 +160,23 @@ export default function SignInPage() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-xs font-medium text-zinc-300 ml-1 uppercase tracking-wider">Password</label>
+                                    <label className="text-xs font-semibold text-zinc-400 ml-1 uppercase tracking-wider">Password</label>
                                     <div className="relative group">
-                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                            <Lock className="h-5 w-5 text-zinc-500 group-focus-within:text-emerald-400 transition-colors" />
+                                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none z-10">
+                                            <Lock className="h-5 w-5 text-zinc-500 group-focus-within:text-emerald-400 transition-colors duration-300" />
                                         </div>
                                         <input
                                             type={showPassword ? "text" : "password"}
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            className="block w-full pl-11 pr-12 py-3.5 bg-black/20 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-transparent transition-all"
+                                            className="block w-full pl-11 pr-12 py-3.5 bg-black/20 hover:bg-black/30 border border-white/5 hover:border-white/10 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
                                             placeholder="••••••••"
                                             required
                                         />
                                         <button
                                             type="button"
                                             onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-500 hover:text-emerald-400 transition-colors cursor-pointer"
+                                            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-500 hover:text-emerald-400 distinct-colors cursor-pointer transition-colors duration-200"
                                         >
                                             {showPassword ? (
                                                 <EyeOff className="h-5 w-5" />
@@ -182,18 +191,18 @@ export default function SignInPage() {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full relative group overflow-hidden bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-bold py-4 rounded-xl shadow-lg transition-all duration-300 hover:shadow-emerald-500/25 disabled:opacity-70 disabled:cursor-not-allowed hover:cursor-pointer"
+                                className="w-full relative group overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold py-4 rounded-xl shadow-lg transition-all duration-300 hover:shadow-emerald-500/25 disabled:opacity-70 disabled:cursor-not-allowed hover:cursor-pointer transform hover:scale-[1.01] active:scale-[0.99]"
                             >
-                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out "></div>
+                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out skew-y-12"></div>
                                 <div className="relative flex items-center justify-center gap-2">
                                     {isLoading ? (
                                         <>
                                             <Loader2 className="w-5 h-5 animate-spin" />
-                                            <span>Verifying...</span>
+                                            <span className="tracking-wide">Verifying...</span>
                                         </>
                                     ) : (
                                         <>
-                                            <span>Sign In to Dashboard</span>
+                                            <span className="tracking-wide">Sign In to Dashboard</span>
                                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                         </>
                                     )}
@@ -201,12 +210,12 @@ export default function SignInPage() {
                             </button>
 
                             {/* Separator */}
-                            <div className="relative">
+                            <div className="relative py-2">
                                 <div className="absolute inset-0 flex items-center">
-                                    <div className="w-full border-t border-white/10"></div>
+                                    <div className="w-full border-t border-white/5"></div>
                                 </div>
-                                <div className="relative flex justify-center text-xs uppercase">
-                                    <span className="bg-zinc-900 px-2 text-zinc-500">Or continue with</span>
+                                <div className="relative flex justify-center text-xs uppercase letter-spacing-wide">
+                                    <span className="bg-[#0e0e11] px-3 text-zinc-600 font-medium">Or continue with</span>
                                 </div>
                             </div>
 
@@ -215,9 +224,9 @@ export default function SignInPage() {
                                 type="button"
                                 onClick={handleGoogleSignIn}
                                 disabled={isLoading}
-                                className="w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3.5 rounded-xl transition-all flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-white/5 hover:bg-white/10 active:bg-white/15 border border-white/5 hover:border-white/10 text-zinc-200 font-medium py-3.5 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5 opacity-90 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24">
                                     <path
                                         fill="currentColor"
                                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -241,9 +250,11 @@ export default function SignInPage() {
                     </div>
 
                     {/* Footer decoration */}
-                    <div className="bg-black/20 p-4 text-center border-t border-white/5">
-                        <p className="text-xs text-zinc-500">
+                    <div className="bg-black/40 p-4 text-center border-t border-white/5 backdrop-blur-md">
+                        <p className="text-[10px] text-zinc-600 uppercase tracking-widest font-semibold flex items-center justify-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/50"></span>
                             Restricted Access • Authorized Personnel Only
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/50"></span>
                         </p>
                     </div>
                 </div>
