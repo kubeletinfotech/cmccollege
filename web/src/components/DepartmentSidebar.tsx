@@ -33,7 +33,7 @@ export default function DepartmentSidebar() {
     };
 
     return (
-        <aside className="w-full lg:w-72 flex-shrink-0 lg:sticky lg:top-32 lg:self-start h-fit">
+        <aside className="w-full lg:w-72 shrink-0 sticky top-34 z-30 lg:top-32 lg:self-start h-fit">
             {/* Mobile Toggle */}
             <div className="lg:hidden mb-6">
                 <button
