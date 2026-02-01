@@ -10,7 +10,7 @@ const imagekit = new ImageKit({
     urlEndpoint: process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT || "",
 });
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const user = await currentUser();
         if (!user) {

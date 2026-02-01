@@ -3,7 +3,7 @@ import connectDB from "@/lib/mongodb";
 import Enquiry from "@/models/Enquiry";
 import { currentUser } from "@clerk/nextjs/server";
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const user = await currentUser();
         if (!user) {
