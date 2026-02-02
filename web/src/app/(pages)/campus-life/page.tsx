@@ -17,7 +17,7 @@ export default function CampusLifePage() {
                             Discover CM College
                         </div>
                         <h1 className="text-5xl md:text-7xl font-agency font-bold text-emerald-50 mb-6 uppercase tracking-tight">
-                            Campus <span className="text-white">Life</span>
+                            Campus <span className="text-pink-200/50 font-semibold">Life</span>
                         </h1>
                         <p className="text-lg md:text-xl text-zinc-100 max-w-2xl mx-auto font-medium leading-relaxed">
                             Experience the vibrant energy, culture, and community that makes life at CM College truly exceptional.
