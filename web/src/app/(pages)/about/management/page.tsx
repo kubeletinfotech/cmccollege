@@ -48,7 +48,7 @@ export default function ManagementPage() {
                     >
                         <div className="flex items-center gap-3 mb-4">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#0CA789] shadow-[0_0_10px_#0CA789]"></span>
-                            <span className="text-sm font-bold tracking-widest text-[#0CA789] uppercase">Management</span>
+                            <span className="text-sm font-bold tracking-widest text-white uppercase">Management</span>
                         </div>
                         <h1 className="text-4xl md:text-7xl font-bold font-sans leading-tight tracking-wide drop-shadow-md">
                             CM Centre Madavoor
@@ -62,7 +62,7 @@ export default function ManagementPage() {
                         transition={{ duration: 0.8, delay: 0.1 }}
                         className="flex justify-center md:justify-end"
                     >
-                        <div className="relative w-40 h-40 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-white/5 backdrop-blur-xl rounded-full p-6 md:p-10 border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.1)] md:shadow-[0_0_40px_rgba(0,0,0,0.2)] flex items-center justify-center group hover:bg-white/10 transition-all duration-500 hover:scale-105">
+                        <div className="relative w-40 h-40 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-white rounded-full p-6 md:p-10 border border-zinc-100 shadow-xl flex items-center justify-center group transition-all duration-500 hover:scale-105">
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)] opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
                             {/* Inner Glow Circle */}
                             <div className="absolute inset-4 rounded-full border border-white/5"></div>
@@ -71,7 +71,7 @@ export default function ManagementPage() {
                                 alt="CM Center Logo"
                                 width={300}
                                 height={300}
-                                className="object-contain drop-shadow-2xl w-full h-full p-4"
+                                className="object-contain drop-shadow-2xl w-full h-full p-4 md:scale-[1.5]"
                             />
                         </div>
                     </motion.div>
