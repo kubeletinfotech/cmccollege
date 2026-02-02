@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, BookOpen, Download, Filter, ChevronRight, Book, GraduationCap, Clock } from "lucide-react";
+import { Search, BookOpen, Download, Filter, ChevronRight, Book, GraduationCap, Clock, Loader2 } from "lucide-react";
+
 import ScrollReveal from "@/components/ScrollReveal";
 
 const departments = [
@@ -23,12 +24,20 @@ const mockQuestions = [
     { id: 4, title: "Python Programming", code: "BCS4B05", department: "Computer Science", semester: "Semester 4", year: "2022", type: "Supplementary" },
     { id: 5, title: "Digital Journalism", code: "JOU2B02", department: "Mass Communication", semester: "Semester 2", year: "2023", type: "Main Exam" },
     { id: 6, title: "Financial Accounting", code: "BCM2B02", department: "Commerce", semester: "Semester 2", year: "2023", type: "Main Exam" },
+    { id: 7, title: "Operating Systems", code: "BCS4B06", department: "Computer Science", semester: "Semester 4", year: "2023", type: "Main Exam" },
+    { id: 8, title: "Managerial Economics", code: "ECO2B02", department: "Economics", semester: "Semester 2", year: "2022", type: "Main Exam" },
+    { id: 9, title: "Marketing Management", code: "BBA2B02", department: "Management", semester: "Semester 2", year: "2023", type: "Main Exam" },
+    { id: 10, title: "English Grammar", code: "ENG1B01", department: "English", semester: "Semester 1", year: "2023", type: "Main Exam" },
+    { id: 11, title: "Database Systems", code: "BCS5B07", department: "Computer Science", semester: "Semester 5", year: "2023", type: "Main Exam" },
+    { id: 12, title: "Corporate Accounting", code: "BCM3B03", department: "Commerce", semester: "Semester 3", year: "2022", type: "Main Exam" },
 ];
 
 export default function QuestionBankPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedDept, setSelectedDept] = useState("All");
     const [selectedSem, setSelectedSem] = useState("All");
+    const [visibleCount, setVisibleCount] = useState(6);
+    const [isMoreLoading, setIsMoreLoading] = useState(false);
 
     const filteredQuestions = mockQuestions.filter(q => {
         const matchesSearch = q.title.toLowerCase().includes(searchQuery.toLowerCase()) || q.code.toLowerCase().includes(searchQuery.toLowerCase());
@@ -36,6 +45,17 @@ export default function QuestionBankPage() {
         const matchesSem = selectedSem === "All" || q.semester === selectedSem;
         return matchesSearch && matchesDept && matchesSem;
     });
+
+    const displayedQuestions = filteredQuestions.slice(0, visibleCount);
+
+    const handleLoadMore = () => {
+        setIsMoreLoading(true);
+        // Simulate network delay
+        setTimeout(() => {
+            setVisibleCount(prev => prev + 4);
+            setIsMoreLoading(false);
+        }, 800);
+    };
 
     return (
         <div className="flex min-h-screen flex-col bg-zinc-50 text-zinc-900 font-sans pt-[104px] lg:pt-[112px]">
@@ -173,8 +193,8 @@ export default function QuestionBankPage() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <AnimatePresence mode="popLayout">
-                                {filteredQuestions.length > 0 ? (
-                                    filteredQuestions.map((q, idx) => (
+                                {displayedQuestions.length > 0 ? (
+                                    displayedQuestions.map((q, idx) => (
                                         <motion.div
                                             key={q.id}
                                             layout
@@ -233,13 +253,26 @@ export default function QuestionBankPage() {
                             </AnimatePresence>
                         </div>
 
-                        {/* Pagination / Load More (Placeholder) */}
-                        {filteredQuestions.length > 0 && (
+                        {/* Pagination / Load More */}
+                        {filteredQuestions.length > visibleCount && (
                             <ScrollReveal>
                                 <div className="mt-12 flex justify-center">
-                                    <button className="group flex items-center gap-2 px-8 py-4 border-2 border-zinc-200 rounded-2xl text-zinc-700 font-bold hover:bg-[#7a0b3a] hover:text-white hover:border-[#7a0b3a] transition-all duration-300 uppercase tracking-widest text-sm cursor-pointer">
-                                        Load More Papers
-                                        <ChevronRight size={18} className="translate-x-0 group-hover:translate-x-1 transition-transform" />
+                                    <button
+                                        onClick={handleLoadMore}
+                                        disabled={isMoreLoading}
+                                        className="group flex items-center justify-center min-w-[220px] gap-2 px-8 py-4 border-2 border-zinc-200 rounded-2xl text-zinc-700 font-bold hover:bg-[#7a0b3a] hover:text-white hover:border-[#7a0b3a] transition-all duration-300 uppercase tracking-widest text-sm cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                                    >
+                                        {isMoreLoading ? (
+                                            <>
+                                                <Loader2 size={18} className="animate-spin" />
+                                                <span>Loading...</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                Load More Papers
+                                                <ChevronRight size={18} className="translate-x-0 group-hover:translate-x-1 transition-transform" />
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </ScrollReveal>
