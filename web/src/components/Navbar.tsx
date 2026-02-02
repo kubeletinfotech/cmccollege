@@ -93,7 +93,7 @@ export default function Navbar() {
                                     alt="College Logo"
                                     fill
                                     priority
-                                    className="object-contain scale-[1.8] lg:scale-[2.5]"
+                                    className="object-contain scale-[3] lg:scale-[2.5]"
                                 />
                             </div>
                         </Link>

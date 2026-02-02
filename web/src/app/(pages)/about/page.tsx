@@ -29,7 +29,7 @@ export default function AboutPage() {
                         className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="https://ik.imagekit.io/5c6j602yp/About/college-image"
+                            src="https://ik.imagekit.io/5c6j602yp/About/Untitled%20design.png?updatedAt=1768755140239"
                             alt="CM College Campus"
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-700"
@@ -104,13 +104,13 @@ export default function AboutPage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="order-1 lg:order-2 relative h-[350px] md:h-[450px] w-full rounded-2xl overflow-hidden shadow-xl"
+                            className="order-1 lg:order-2 relative h-[130px] md:h-[200px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
-                                src="https://ik.imagekit.io/5c6j602yp/Banner/Untitled%20design.png?updatedAt=1768553045031" // Valid placeholder for now
+                                src="https://ik.imagekit.io/5c6j602yp/About/college-image-1" // Valid placeholder for now
                                 alt="Institutional Overview"
                                 fill
-                                className="object-cover hover:scale-105 transition-transform duration-700"
+                                className="object-contain hover:scale-105 transition-transform duration-700"
                             />
                         </motion.div>
                     </div>
