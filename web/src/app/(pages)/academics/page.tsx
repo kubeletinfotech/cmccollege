@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { BookOpen, Calendar, Clock, FileText, ChevronRight, GraduationCap } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const academicFeatures = [
@@ -42,28 +43,63 @@ const academicFeatures = [
 
 export default function AcademicsPage() {
     return (
-        <div className="flex min-h-screen flex-col bg-white">
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-zinc-900 text-white text-center md:text-left">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 pointer-events-none" />
-                {/* Optimized Blur - Reduced radius for better performance */}
-                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#7a0b3a]/15 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none transform-gpu" />
-                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[60px] -ml-20 -mb-20 pointer-events-none transform-gpu" />
+        <div className="flex min-h-screen flex-col bg-[#7B0046]/3">
+            {/* Hero Section - Matching Home Page Slider Pattern */}
+            <section className="relative min-h-[50vh] lg:min-h-[60vh] flex flex-col items-center justify-center pt-32 pb-20 px-6 overflow-hidden text-white text-center md:text-left">
+                {/* Background Pattern Cluster */}
+                <div className="absolute inset-0 z-0 bg-emerald-800">
+                    {/* Animated Particles for "Premium" feel */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        {[...Array(6)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-40"
+                                animate={{
+                                    x: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
+                                    y: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
+                                }}
+                                transition={{
+                                    duration: 10 + Math.random() * 10,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                                style={{
+                                    left: `${Math.random() * 100}%`,
+                                    top: `${Math.random() * 100}%`,
+                                }}
+                            />
+                        ))}
+                    </div>
 
-                <div className="container mx-auto relative z-10">
+                    {/* Attractive UI Dot Grid */}
+                    <div className="absolute inset-0 opacity-[0.2] z-10"
+                        style={{
+                            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+                            backgroundSize: '32px 32px'
+                        }}
+                    />
+
+                    {/* Dark Pattern Overlay */}
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-15 pointer-events-none z-10" />
+
+                    {/* Premium Gradient Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-black/20 z-20" />
+                </div>
+
+                <div className="container mx-auto relative z-30">
                     <ScrollReveal>
-                        <div className="max-w-3xl mx-auto md:mx-0">
-                            <div className="inline-flex items-center gap-3 mb-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                        <div className="max-w-4xl mx-auto md:mx-0">
+                            <div className="inline-flex items-center gap-3 mb-8 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                                 <GraduationCap size={18} className="text-pink-400" />
-                                <span className="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase text-pink-100">Academic Hub</span>
+                                <span className="text-[10px] md:text-xs font-black tracking-[0.3em] uppercase text-pink-100">Academic Hub</span>
                             </div>
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-agency font-bold mb-6 leading-tight tracking-tight uppercase">
                                 Empowering Minds, <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-600">
                                     Enriching Futures
                                 </span>
                             </h1>
-                            <p className="text-sm md:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl opacity-90">
+                            <p className="text-base md:text-xl text-zinc-300 font-medium leading-relaxed max-w-2xl opacity-90 drop-shadow-sm">
                                 Access all the resources you need for a successful academic journey. From detailed syllabi to organized schedules and preparation materials.
                             </p>
                         </div>
@@ -79,29 +115,29 @@ export default function AcademicsPage() {
                             <ScrollReveal key={idx} delay={idx * 50}>
                                 <Link
                                     href={feature.link}
-                                    className="group block relative h-full bg-white p-5 md:p-8 rounded-[32px] border border-zinc-100 shadow-sm hover:shadow-2xl hover:shadow-[#7a0b3a]/5 transition-all duration-700 hover:-translate-y-2 overflow-hidden transform-gpu will-change-transform"
+                                    className="group block relative h-full bg-white p-5 md:p-8 rounded-[32px] border border-zinc-100 shadow-sm hover:shadow-2xl hover:bg-emerald-800 transition-all duration-500 hover:-translate-y-2 overflow-hidden transform-gpu will-change-transform"
                                 >
                                     {/* Icon Box */}
-                                    <div className={`w-10 h-10 md:w-14 md:h-14 ${feature.bgLight} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 transition-transform duration-500 transform-gpu will-change-transform`}>
-                                        <feature.icon size={20} className={feature.title === "Question Bank" ? "text-[#7a0b3a]" : feature.color.replace('bg-', 'text-')} />
+                                    <div className={`w-10 h-10 md:w-14 md:h-14 ${feature.bgLight} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500 transform-gpu will-change-transform`}>
+                                        <feature.icon size={20} className={`${feature.title === "Question Bank" ? "text-[#7a0b3a]" : feature.color.replace('bg-', 'text-')} group-hover:text-white transition-colors duration-500`} />
                                     </div>
 
                                     {/* Content */}
-                                    <h3 className="text-base md:text-2xl font-bold text-zinc-900 mb-2 md:mb-4 group-hover:text-[#7a0b3a] transition-colors leading-tight tracking-tight">
+                                    <h3 className="text-base md:text-2xl font-bold text-zinc-900 mb-2 md:mb-4 group-hover:text-white transition-colors duration-500 leading-tight tracking-tight">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-[12px] md:text-sm text-zinc-500 leading-relaxed mb-6 md:mb-8 line-clamp-2 md:line-clamp-none opacity-80">
+                                    <p className="text-[12px] md:text-sm text-zinc-500 leading-relaxed mb-6 md:mb-8 line-clamp-2 md:line-clamp-none opacity-80 group-hover:text-white/80 transition-colors duration-500">
                                         {feature.description}
                                     </p>
 
                                     {/* Action Link */}
-                                    <div className="hidden md:flex items-center gap-2 text-[#7a0b3a] font-bold text-xs uppercase tracking-widest mt-auto">
+                                    <div className="hidden md:flex items-center gap-2 text-[#7a0b3a] group-hover:text-white font-bold text-xs uppercase tracking-widest mt-auto transition-colors duration-500">
                                         Explore Resource
                                         <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform transform-gpu" />
                                     </div>
 
                                     {/* Mobile Indicator */}
-                                    <div className="md:hidden absolute bottom-5 right-5 text-[#7a0b3a]/40">
+                                    <div className="md:hidden absolute bottom-5 right-5 text-[#7a0b3a]/40 group-hover:text-white/50 transition-colors duration-500">
                                         <ChevronRight size={18} />
                                     </div>
 
@@ -114,12 +150,15 @@ export default function AcademicsPage() {
                 </div>
             </section>
 
-            {/* Academic Philosophy */}
-            <section className="py-24 px-6 bg-zinc-50 border-y border-zinc-100">
+            {/* Academic Philosophy - Sync with Home Page About Style */}
+            <section className="py-24 px-6 bg-emerald-50 border-y border-[#7B0046]/10 relative overflow-hidden">
+                {/* Background Decoration from Home Page */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-[#7B0046]/5 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
+
                 <div className="container mx-auto">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <ScrollReveal>
-                            <div className="relative aspect-video rounded-[40px] overflow-hidden shadow-2xl border-8 border-white">
+                            <div className="relative aspect-video rounded-[40px] overflow-hidden shadow-2xl border-l-[6px] border-[#7B0046] shadow-[#7B0046]/10 bg-white">
                                 <iframe
                                     className="w-full h-full"
                                     src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -131,26 +170,26 @@ export default function AcademicsPage() {
                         </ScrollReveal>
                         <ScrollReveal delay={200}>
                             <div className="space-y-8">
-                                <h2 className="text-4xl font-bold text-zinc-900 leading-tight tracking-tight">
+                                <h2 className="text-4xl lg:text-5xl font-agency font-bold text-emerald-800 leading-tight tracking-tight uppercase">
                                     Our Commitment to <br />
                                     <span className="text-[#7a0b3a]">Academic Excellence</span>
                                 </h2>
-                                <div className="space-y-6 text-zinc-500 text-lg leading-relaxed font-medium">
+                                <div className="space-y-6 text-zinc-600 text-lg leading-relaxed font-normal text-justify">
                                     <p>
-                                        At CM College, we believe that education is a transformative journey. Our academic framework is designed to challenge students, foster critical thinking, and provide the practical skills needed in today's global landscape.
+                                        At CM College, we believe that education is a transformative journey. Our academic framework is designed to challenge students, foster critical thinking, and provide the practical skills needed in today&apos;s global landscape.
                                     </p>
                                     <p>
                                         We provide a holistic learning environment where traditional values meet modern innovation, ensuring our graduates are well-prepared for both professional success and social leadership.
                                     </p>
                                 </div>
-                                <div className="grid grid-cols-2 gap-8 pt-4">
+                                <div className="grid grid-cols-2 gap-8 pt-8 border-t border-[#7B0046]/10">
                                     <div className="transform-gpu">
-                                        <div className="text-3xl font-black text-[#7a0b3a] mb-1">98%</div>
-                                        <div className="text-sm font-bold uppercase tracking-widest text-zinc-400">Success Rate</div>
+                                        <div className="text-4xl font-black text-[#7a0b3a] mb-1">98%</div>
+                                        <div className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Success Rate</div>
                                     </div>
                                     <div className="transform-gpu">
-                                        <div className="text-3xl font-black text-[#7a0b3a] mb-1">20+</div>
-                                        <div className="text-sm font-bold uppercase tracking-widest text-zinc-400">Research Projects</div>
+                                        <div className="text-4xl font-black text-[#7a0b3a] mb-1">20+</div>
+                                        <div className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Research Projects</div>
                                     </div>
                                 </div>
                             </div>
