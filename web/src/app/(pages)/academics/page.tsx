@@ -89,7 +89,7 @@ export default function AcademicsPage() {
                 <div className="container mx-auto relative z-30">
                     <ScrollReveal>
                         <div className="max-w-4xl mx-auto md:mx-0">
-                            <div className="inline-flex items-center gap-3 mb-8 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                            <div className="inline-flex mt-6 items-center gap-3 mb-8 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                                 <GraduationCap size={18} className="text-pink-400" />
                                 <span className="text-[10px] md:text-xs font-black tracking-[0.3em] uppercase text-pink-100">Academic Hub</span>
                             </div>
@@ -118,8 +118,8 @@ export default function AcademicsPage() {
                                     className="group block relative h-full bg-white p-5 md:p-8 rounded-[32px] border border-zinc-100 shadow-sm hover:shadow-2xl hover:bg-emerald-800 transition-all duration-500 hover:-translate-y-2 overflow-hidden transform-gpu will-change-transform"
                                 >
                                     {/* Icon Box */}
-                                    <div className={`w-10 h-10 md:w-14 md:h-14 ${feature.bgLight} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500 transform-gpu will-change-transform`}>
-                                        <feature.icon size={20} className={`${feature.title === "Question Bank" ? "text-[#7a0b3a]" : feature.color.replace('bg-', 'text-')} group-hover:text-white transition-colors duration-500`} />
+                                    <div className={`w-10 h-10 md:w-14 md:h-14 ${feature.bgLight} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500 border border-transparent group-hover:border-white/20 transform-gpu will-change-transform`}>
+                                        <feature.icon size={22} className={`${feature.title === "Question Bank" ? "text-emerald-800" : feature.color.replace('bg-', 'text-').replace('-500', '-600')} group-hover:text-white transition-colors duration-500 opacity-100 shadow-sm`} />
                                     </div>
 
                                     {/* Content */}
