@@ -29,7 +29,7 @@ export default function AboutPage() {
                         className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="https://ik.imagekit.io/5c6j602yp/Banner/Untitled%20design.png?updatedAt=1768553045031"
+                            src="https://ik.imagekit.io/5c6j602yp/About/college-image"
                             alt="CM College Campus"
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-700"

@@ -39,53 +39,33 @@ export default function ManagementPage() {
                 {/* Dynamic Background Elements */}
                 <div className="absolute inset-0 bg-linear-to-br from-[#7a0b3a] via-[#910d44] to-[#60082d]"></div>
 
-                {/* Animated Patches */}
-                <motion.div
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                        x: [0, 50, 0],
-                        y: [0, -30, 0]
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] -mr-32 -mt-32 pointer-events-none mix-blend-overlay"
-                />
-
-                <motion.div
-                    animate={{
-                        scale: [1, 1.3, 1],
-                        opacity: [0.2, 0.4, 0.2],
-                        x: [0, -40, 0],
-                        y: [0, 40, 0]
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                    className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-black/30 rounded-full blur-[100px] -ml-32 -mb-32 pointer-events-none"
-                />
+                {/* Simplified Background Patches (Static to save GPU) */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none mix-blend-overlay" />
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/20 rounded-full blur-[60px] -ml-32 -mb-32 pointer-events-none" />
 
                 {/* Texture Overlay */}
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
 
-                {/* Floating Particles (Mobile Flair) */}
+                {/* Simplified Floating Particles */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {[...Array(6)].map((_, i) => (
+                    {[...Array(4)].map((_, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: Math.random() * 400 }}
+                            initial={{ opacity: 0 }}
                             animate={{
-                                opacity: [0, 0.5, 0],
-                                y: [null, -100],
-                                x: [null, (Math.random() - 0.5) * 100]
+                                opacity: [0, 0.4, 0],
+                                y: [-10, -80],
                             }}
                             transition={{
-                                duration: 5 + Math.random() * 5,
+                                duration: 10 + i * 2,
                                 repeat: Infinity,
-                                delay: Math.random() * 5,
+                                delay: i * 2,
                                 ease: "linear"
                             }}
-                            className="absolute w-1 h-1 bg-white rounded-full"
+                            className="absolute w-1 h-1 bg-white rounded-full bg-linear-to-b from-white to-transparent"
                             style={{
-                                left: `${Math.random() * 100}%`,
-                                top: `${Math.random() * 100}%`
+                                left: `${25 + i * 20}%`,
+                                top: `${60 + i * 10}%`
                             }}
                         />
                     ))}
@@ -123,38 +103,27 @@ export default function ManagementPage() {
                         </motion.p>
                     </div>
 
-                    {/* Logo Section - Enhanced for Mobile */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{
-                            type: "spring",
-                            stiffness: 100,
-                            damping: 15,
-                            delay: 0.3
+                            duration: 0.6,
+                            delay: 0.2
                         }}
                         className="flex justify-center"
                     >
-                        <div className="relative">
-                            {/* Rotating Outer Rings */}
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-[-20px] border border-white/10 rounded-full border-dashed"
-                            />
-                            <motion.div
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-[-40px] border border-white/5 rounded-full"
-                            />
+                        <div className="relative will-change-transform">
+                            {/* CSS-based Rotating Outer Rings (Hardware Accelerated) */}
+                            <div className="absolute inset-[-20px] border border-white/10 rounded-full border-dashed animate-spin-slow pointer-events-none will-change-transform" />
+                            <div className="absolute inset-[-40px] border border-white/5 rounded-full animate-spin-reverse-slow pointer-events-none will-change-transform" />
 
-                            <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-white rounded-full p-8 md:p-12 shadow-[0_0_50px_rgba(255,255,255,0.15)] flex items-center justify-center group flex-col">
+                            <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-white rounded-full p-8 md:p-12 shadow-[0_0_50px_rgba(255,255,255,0.1)] flex items-center justify-center group flex-col overflow-hidden will-change-transform">
                                 <Image
                                     src="https://ik.imagekit.io/5c6j602yp/Home/images/cm-center-logo?updatedAt=1769708637046"
                                     alt="CM Center Logo"
                                     width={300}
                                     height={300}
-                                    className="object-contain w-full h-full p-2 transform group-hover:scale-110 transition-transform duration-500 scale-125 md:scale-[1.6]"
+                                    className="object-contain w-full h-full p-2 transition-transform duration-500 scale-125 md:scale-[1.6] group-hover:scale-[1.7] transform-gpu"
                                 />
                             </div>
                         </div>
