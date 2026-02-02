@@ -9,17 +9,17 @@ export default function CampusLifePage() {
     return (
         <div className="min-h-screen bg-zinc-50 pt-[112px]">
             {/* Hero Header */}
-            <section className="py-24 px-6 bg-white border-b border-zinc-100 overflow-hidden">
+            <section className="py-24 px-6 bg-emerald-800 border-b border-zinc-100 overflow-hidden">
                 <div className="max-w-7xl mx-auto text-center relative">
                     <ScrollReveal>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-100">
                             <Sparkles size={14} className="animate-pulse" />
                             Discover CM College
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-agency font-bold text-emerald-900 mb-6 uppercase tracking-tight">
-                            Campus <span className="text-[#7B0046]">Life</span>
+                        <h1 className="text-5xl md:text-7xl font-agency font-bold text-emerald-50 mb-6 uppercase tracking-tight">
+                            Campus <span className="text-white">Life</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto font-medium leading-relaxed">
+                        <p className="text-lg md:text-xl text-zinc-100 max-w-2xl mx-auto font-medium leading-relaxed">
                             Experience the vibrant energy, culture, and community that makes life at CM College truly exceptional.
                         </p>
                     </ScrollReveal>

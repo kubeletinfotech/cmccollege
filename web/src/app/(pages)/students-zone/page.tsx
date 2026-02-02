@@ -124,7 +124,7 @@ export default function StudentsZonePage() {
                             <span className="text-[10px] font-black uppercase tracking-[0.2em]">Student Life</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 uppercase">
-                            Students <span className="text-pink-200/50 italic font-light">Zone</span>
+                            Students <span className="text-pink-200/50 font-light">Zone</span>
                         </h1>
                         <p className="text-lg md:text-xl text-pink-100/70 max-w-2xl mx-auto font-medium leading-relaxed">
                             A centralized hub designed to provide every resource, support system, and opportunity needed to thrive at CM College.
