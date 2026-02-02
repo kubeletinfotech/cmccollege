@@ -34,45 +34,129 @@ export default function ManagementPage() {
     return (
         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Header Section */}
-            <div className="relative rounded-[24px] md:rounded-[32px] overflow-hidden bg-linear-to-br from-[#7a0b3a] via-[#9f0f4e] to-[#7a0b3a] text-white p-6 md:p-16 shadow-xl md:shadow-2xl shadow-[#7a0b3a]/20">
-                {/* Decorative Background Elements */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none mix-blend-overlay"></div>
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/20 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none"></div>
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
+            <div className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-[#7a0b3a] text-white py-12 px-6 md:p-20 shadow-2xl shadow-maroon-900/40 min-h-[400px] flex items-center">
 
-                <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <div className="flex items-center gap-3 mb-4">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#0CA789] shadow-[0_0_10px_#0CA789]"></span>
-                            <span className="text-sm font-bold tracking-widest text-white uppercase">Management</span>
-                        </div>
-                        <h1 className="text-4xl md:text-7xl font-bold font-sans leading-tight tracking-wide drop-shadow-md">
-                            CM Centre Madavoor
-                        </h1>
-                    </motion.div>
+                {/* Dynamic Background Elements */}
+                <div className="absolute inset-0 bg-linear-to-br from-[#7a0b3a] via-[#910d44] to-[#60082d]"></div>
 
-                    {/* Logo Section */}
+                {/* Animated Patches */}
+                <motion.div
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.5, 0.3],
+                        x: [0, 50, 0],
+                        y: [0, -30, 0]
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] -mr-32 -mt-32 pointer-events-none mix-blend-overlay"
+                />
+
+                <motion.div
+                    animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.2, 0.4, 0.2],
+                        x: [0, -40, 0],
+                        y: [0, 40, 0]
+                    }}
+                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                    className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-black/30 rounded-full blur-[100px] -ml-32 -mb-32 pointer-events-none"
+                />
+
+                {/* Texture Overlay */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
+
+                {/* Floating Particles (Mobile Flair) */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {[...Array(6)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: Math.random() * 400 }}
+                            animate={{
+                                opacity: [0, 0.5, 0],
+                                y: [null, -100],
+                                x: [null, (Math.random() - 0.5) * 100]
+                            }}
+                            transition={{
+                                duration: 5 + Math.random() * 5,
+                                repeat: Infinity,
+                                delay: Math.random() * 5,
+                                ease: "linear"
+                            }}
+                            className="absolute w-1 h-1 bg-white rounded-full"
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`
+                            }}
+                        />
+                    ))}
+                </div>
+
+                <div className="relative z-10 w-full max-w-7xl mx-auto grid md:grid-cols-[1fr_auto] gap-12 items-center">
+                    <div className="text-center md:text-left">
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="inline-flex items-center gap-3 mb-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20"
+                        >
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_12px_#34d399] animate-pulse"></span>
+                            <span className="text-[10px] md:text-xs font-black tracking-[0.3em] text-white uppercase">Management Board</span>
+                        </motion.div>
+
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tight mb-4"
+                        >
+                            CM <span className="text-white/40 font-light">Centre</span> <br className="hidden lg:block" />
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-pink-200/50">Madavoor</span>
+                        </motion.h1>
+
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1, delay: 0.4 }}
+                            className="text-pink-100/60 font-medium text-sm md:text-lg tracking-wide uppercase max-w-xl mx-auto md:mx-0"
+                        >
+                            Upholding values through educational excellence
+                        </motion.p>
+                    </div>
+
+                    {/* Logo Section - Enhanced for Mobile */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="flex justify-center md:justify-end"
+                        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 100,
+                            damping: 15,
+                            delay: 0.3
+                        }}
+                        className="flex justify-center"
                     >
-                        <div className="relative w-40 h-40 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-white rounded-full p-6 md:p-10 border border-zinc-100 shadow-xl flex items-center justify-center group transition-all duration-500 hover:scale-105">
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)] opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-                            {/* Inner Glow Circle */}
-                            <div className="absolute inset-4 rounded-full border border-white/5"></div>
-                            <Image
-                                src="https://ik.imagekit.io/5c6j602yp/Home/images/cm-center-logo?updatedAt=1769708637046"
-                                alt="CM Center Logo"
-                                width={300}
-                                height={300}
-                                className="object-contain drop-shadow-2xl w-full h-full p-4 md:scale-[1.5]"
+                        <div className="relative">
+                            {/* Rotating Outer Rings */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-[-20px] border border-white/10 rounded-full border-dashed"
                             />
+                            <motion.div
+                                animate={{ rotate: -360 }}
+                                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-[-40px] border border-white/5 rounded-full"
+                            />
+
+                            <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-white rounded-full p-8 md:p-12 shadow-[0_0_50px_rgba(255,255,255,0.15)] flex items-center justify-center group flex-col">
+                                <Image
+                                    src="https://ik.imagekit.io/5c6j602yp/Home/images/cm-center-logo?updatedAt=1769708637046"
+                                    alt="CM Center Logo"
+                                    width={300}
+                                    height={300}
+                                    className="object-contain w-full h-full p-2 transform group-hover:scale-110 transition-transform duration-500 scale-125 md:scale-[1.6]"
+                                />
+                            </div>
                         </div>
                     </motion.div>
                 </div>
