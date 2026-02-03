@@ -4,9 +4,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
   images: {
-    // Disable built-in optimization so external images from any domain work without explicit domains
-    unoptimized: true,
-    // Also allow any https hostname via a wildcard remotePattern
+    qualities: [75, 90],
+    // Allow any https hostname via a wildcard remotePattern
     remotePatterns: [
       {
         protocol: 'https',
