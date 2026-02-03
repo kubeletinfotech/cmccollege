@@ -26,7 +26,7 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
                             src="https://ik.imagekit.io/5c6j602yp/About/Untitled%20design.png?updatedAt=1768755140239"
