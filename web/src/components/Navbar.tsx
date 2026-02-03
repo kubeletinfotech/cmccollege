@@ -118,11 +118,11 @@ export default function Navbar() {
     return (
         <header className="fixed w-full z-50 top-(--ticker-height,0px) flex flex-col shadow-sm">
             <TopBar />
-            <nav className="w-full bg-white/95 backdrop-blur-md border-b border-zinc-100">
+            <nav className="w-full bg-white/95 backdrop-blur-md border-b border-zinc-100 relative">
                 <div className="w-full px-4 lg:px-8">
                     <div className="flex justify-between items-center h-20 lg:h-24">
                         {/* Logo (Left) */}
-                        <Link href="/" className="flex items-center ml-0 lg:ml-[50px]">
+                        <Link href="/" className="flex items-center ml-0 lg:ml-[50px] relative z-20">
                             <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24">
                                 <Image
                                     src="https://ik.imagekit.io/5c6j602yp/Home/images/PNG%20CM%20COLLEGE.png"
@@ -257,17 +257,17 @@ export default function Navbar() {
                         </div>
 
                         {/* Mobile Toggle */}
-                        <div className="lg:hidden flex items-center gap-2">
+                        <div className="lg:hidden flex items-center gap-2 relative z-50">
                             <button
                                 onClick={() => setIsSearchOpen(true)}
-                                className="text-zinc-600 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation"
+                                className="text-zinc-600 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
                                 aria-label="Search"
                             >
                                 <Search size={22} />
                             </button>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="text-zinc-800 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation"
+                                className="text-zinc-800 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
                                 aria-label="Toggle Menu"
                             >
                                 {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -283,7 +283,7 @@ export default function Navbar() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.2, ease: "easeOut" }}
-                                className="lg:hidden absolute top-full left-0 w-full bg-white border-t border-zinc-100 shadow-xl max-h-[80vh] overflow-y-auto"
+                                className="lg:hidden absolute top-full left-0 w-full z-40 bg-white border-t border-zinc-100 shadow-xl max-h-[80vh] overflow-y-auto"
                             >
                                 <div className="py-2 space-y-1">
                                     {navigation.map((link) => (
