@@ -51,6 +51,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
     },
     "seminar-hall": {
         title: "Seminar Hall",
+        heading: "Dr. BR Ambedkar Hall",
         description: "A state-of-the-art venue for guest lectures, workshops, and academic presentations. The seminar hall is equipped with advanced audio-visual technology to ensure a seamless sharing of knowledge.",
         features: [
             "Seating capacity of 200+",
@@ -82,11 +83,12 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
         heading: "Maulana Abul Kalam Memorial Digital Library",
         description: "The heart of academic resources, our library houses a vast collection of books, journals, and digital archives to support research and learning.",
         features: [
-            "Over 10,000 books and reference materials",
-            "Subscription to national and international journals",
-            "Digital library with e-books and online databases",
-            "Quiet and spacious reading rooms",
-            "Computer terminals for research"
+            "E-Resource Centre",
+            "Book Bank Section",
+            "Dissertation Repository",
+            "Wi-Fi Enabled Study Zone",
+            "Competitive Exam Section",
+            "Local History and Culture Section"
         ],
         image: "https://ik.imagekit.io/5c6j602yp/Home/images/library.jpeg",
         icon: Book,
@@ -100,6 +102,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
     },
     "computer-lab": {
         title: "Computer Lab",
+        heading: "Dr. Homi Jehangir Bhabha Computer Lab",
         description: "State-of-the-art computer laboratories equipped with the latest hardware and software to keep students abreast of technological advancements.",
         features: [
             "High-configuration workshops",
