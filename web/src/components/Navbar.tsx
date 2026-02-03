@@ -38,8 +38,20 @@ export default function Navbar() {
             setIsOpen(false);
             setActiveDropdown(null);
         } else {
+            // If clicking the current page link, scroll to top
+            if (pathname === href) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
             setIsOpen(false);
             setActiveDropdown(null);
+        }
+    };
+
+    const handleLogoClick = (e: React.MouseEvent) => {
+        if (pathname === "/") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
 
@@ -126,6 +138,7 @@ export default function Navbar() {
                 >
                     <Link
                         href={link.href}
+                        onClick={(e) => handleLinkClick(e, link.href)}
                         className={`h-full px-2 text-[11px] xl:text-[12px] font-extrabold uppercase tracking-wider transition-colors relative z-10 flex items-center justify-center gap-0.5 whitespace-nowrap
                                                 ${pathname === link.href || (link.dropdown && pathname.startsWith(link.href)) ? "text-[#7a0b3a]" : "text-zinc-600 hover:text-[#7a0b3a]"}`}
                     >
@@ -209,7 +222,11 @@ export default function Navbar() {
                     {/* Main Row: Logo + Actions */}
                     <div className="flex justify-between items-center h-20 lg:h-24">
                         {/* Logo (Left) */}
-                        <Link href="/" className="flex items-center ml-0 lg:ml-[50px] relative z-20">
+                        <Link
+                            href="/"
+                            onClick={handleLogoClick}
+                            className="flex items-center ml-0 lg:ml-[50px] relative z-20"
+                        >
                             <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24">
                                 <Image
                                     src="https://ik.imagekit.io/5c6j602yp/Home/images/PNG%20CM%20COLLEGE.png"
@@ -349,7 +366,7 @@ export default function Navbar() {
                                                 ) : (
                                                     <Link
                                                         href={link.href}
-                                                        onClick={() => setIsOpen(false)}
+                                                        onClick={(e) => handleLinkClick(e, link.href)}
                                                         className={`block px-6 py-4 text-sm font-bold uppercase tracking-wider transition-colors border-b border-zinc-50
                                                             ${pathname === link.href ? "text-[#7a0b3a] bg-[#7a0b3a]/5 border-l-[3px] border-l-[#7a0b3a]" : "text-zinc-600 hover:bg-zinc-50"}`}
                                                     >
