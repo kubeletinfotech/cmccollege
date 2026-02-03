@@ -115,11 +115,98 @@ export default function Navbar() {
         { name: "Contact", href: "/contact" },
     ];
 
+    const renderNavLinks = (isMobile = false) => (
+        <>
+            {navigation.map((link) => (
+                <div
+                    key={link.name}
+                    className="relative group h-full flex items-center" // h-full ensures full height hover areas
+                    onMouseEnter={() => !isMobile && link.dropdown && setActiveDropdown(link.name)}
+                    onMouseLeave={() => !isMobile && link.dropdown && setActiveDropdown(null)}
+                >
+                    <Link
+                        href={link.href}
+                        className={`px-3 py-2 text-[13px] xl:text-[14px] font-bold uppercase tracking-wide transition-colors relative z-10 flex items-center gap-1
+                                                ${pathname === link.href || (link.dropdown && pathname.startsWith(link.href)) ? "text-[#7a0b3a]" : "text-zinc-700 hover:text-[#7a0b3a]"}`}
+                    >
+                        {link.name}
+                        {link.dropdown && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === link.name ? "rotate-180" : ""}`} />}
+                    </Link>
+
+                    {/* Hover Underline */}
+                    <span className={`absolute bottom-0 lg:bottom-6 2xl:bottom-6 left-3 right-3 h-0.5 bg-[#7a0b3a] transition-all duration-300 origin-left scale-x-0 
+                                            ${(pathname === link.href || activeDropdown === link.name) ? "scale-x-100" : "group-hover:scale-x-100"}`}
+                    />
+
+                    {/* Dropdown Menu */}
+                    {link.dropdown && (
+                        <AnimatePresence>
+                            {activeDropdown === link.name && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    transition={{ duration: 0.2, ease: "easeOut" }}
+                                    onMouseLeave={() => setActiveSubDropdown(null)}
+                                    // Adjusted top position for different layouts
+                                    className="absolute top-full left-0 min-w-[260px] bg-[#7a0b3a] rounded-xl shadow-2xl py-3 z-50 overflow-visible transform-gpu mt-1"
+                                >
+                                    {link.dropdown.map((subItem) => (
+                                        <div
+                                            key={subItem.name}
+                                            className="relative"
+                                            onMouseEnter={() => subItem.dropdown && setActiveSubDropdown(subItem.name)}
+                                        >
+                                            <Link
+                                                href={subItem.href}
+                                                onClick={(e) => handleLinkClick(e, subItem.href)}
+                                                className="flex items-center justify-between px-6 py-3 text-sm text-white/95 hover:text-white hover:bg-white/10 transition-colors font-medium border-l-2 border-transparent hover:border-white"
+                                            >
+                                                <span>{subItem.name}</span>
+                                                {subItem.dropdown && <ChevronDown size={14} className="-rotate-90" />}
+                                            </Link>
+
+                                            {/* Flyout Sub-menu */}
+                                            {subItem.dropdown && (
+                                                <AnimatePresence>
+                                                    {activeSubDropdown === subItem.name && (
+                                                        <motion.div
+                                                            initial={{ opacity: 0, x: 10 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            exit={{ opacity: 0, x: 10 }}
+                                                            className="absolute left-full top-0 ml-1 min-w-[320px] bg-[#7a0b3a] rounded-xl shadow-2xl py-3 border-l border-white/10 transform-gpu"
+                                                        >
+                                                            {subItem.dropdown.map(nestedItem => (
+                                                                <Link
+                                                                    key={nestedItem.name}
+                                                                    href={nestedItem.href}
+                                                                    onClick={(e) => handleLinkClick(e, nestedItem.href)}
+                                                                    className="block px-6 py-2.5 text-[11px] text-white/90 hover:text-white hover:bg-white/10 transition-all uppercase tracking-[0.08em] font-bold"
+                                                                >
+                                                                    {nestedItem.name}
+                                                                </Link>
+                                                            ))}
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                            )}
+                                        </div>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    )}
+                </div>
+            ))}
+        </>
+    );
+
     return (
         <header className="fixed w-full z-50 top-(--ticker-height,0px) flex flex-col shadow-sm">
             <TopBar />
-            <nav className="w-full bg-white/95 backdrop-blur-md border-b border-zinc-100 relative">
+            <nav className="w-full bg-white/95 backdrop-blur-md border-b border-zinc-100 relative transition-all duration-300">
                 <div className="w-full px-4 lg:px-8">
+                    {/* Main Row: Logo + Actions */}
                     <div className="flex justify-between items-center h-20 lg:h-24">
                         {/* Logo (Left) */}
                         <Link href="/" className="flex items-center ml-0 lg:ml-[50px] relative z-20">
@@ -129,105 +216,28 @@ export default function Navbar() {
                                     alt="College Logo"
                                     fill
                                     priority
+                                    sizes="(max-width: 1024px) 176px, (max-width: 1536px) 208px, 256px"
                                     className="object-contain scale-[3] lg:scale-[2.5]"
                                 />
                             </div>
                         </Link>
 
-                        {/* Right Section: Navigation & Socials */}
-                        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-                            {/* Desktop Navigation */}
-                            <div className="flex items-center gap-0.5 xl:gap-1">
-                                {navigation.map((link) => (
-                                    <div
-                                        key={link.name}
-                                        className="relative group h-24 flex items-center"
-                                        onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
-                                        onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
-                                    >
-                                        <Link
-                                            href={link.href}
-                                            className={`px-2 py-2 text-[13px] xl:text-[13px] font-bold uppercase tracking-wide transition-colors relative z-10 flex items-center gap-1
-                                                ${pathname === link.href || (link.dropdown && pathname.startsWith(link.href)) ? "text-[#7a0b3a]" : "text-zinc-700 hover:text-[#7a0b3a]"}`}
-                                        >
-                                            {link.name}
-                                            {link.dropdown && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === link.name ? "rotate-180" : ""}`} />}
-                                        </Link>
+                        {/* Desktop Navigation (Inline - Only for 2xl+) */}
+                        <div className="hidden 2xl:flex items-center gap-0.5 xl:gap-1 h-24">
+                            {renderNavLinks()}
+                            <div className="ml-1">
+                                <AdmissionButton />
+                            </div>
+                        </div>
 
-                                        {/* Hover Underline */}
-                                        <span className={`absolute bottom-6 left-3 right-3 h-0.5 bg-[#7a0b3a] transition-all duration-300 origin-left scale-x-0 
-                                            ${(pathname === link.href || activeDropdown === link.name) ? "scale-x-100" : "group-hover:scale-x-100"}`}
-                                        />
-
-                                        {/* Dropdown Menu */}
-                                        {link.dropdown && (
-                                            <AnimatePresence>
-                                                {activeDropdown === link.name && (
-                                                    <motion.div
-                                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                                        transition={{ duration: 0.2, ease: "easeOut" }}
-                                                        onMouseLeave={() => setActiveSubDropdown(null)}
-                                                        className="absolute top-full left-0 min-w-[260px] bg-[#7a0b3a] rounded-xl shadow-2xl py-3 z-50 overflow-visible transform-gpu"
-                                                    >
-                                                        {link.dropdown.map((subItem) => (
-                                                            <div
-                                                                key={subItem.name}
-                                                                className="relative"
-                                                                onMouseEnter={() => subItem.dropdown && setActiveSubDropdown(subItem.name)}
-                                                            >
-                                                                <Link
-                                                                    href={subItem.href}
-                                                                    onClick={(e) => handleLinkClick(e, subItem.href)}
-                                                                    className="flex items-center justify-between px-6 py-3 text-sm text-white/95 hover:text-white hover:bg-white/10 transition-colors font-medium border-l-2 border-transparent hover:border-white"
-                                                                >
-                                                                    <span>{subItem.name}</span>
-                                                                    {subItem.dropdown && <ChevronDown size={14} className="-rotate-90" />}
-                                                                </Link>
-
-                                                                {/* Flyout Sub-menu */}
-                                                                {subItem.dropdown && (
-                                                                    <AnimatePresence>
-                                                                        {activeSubDropdown === subItem.name && (
-                                                                            <motion.div
-                                                                                initial={{ opacity: 0, x: 10 }}
-                                                                                animate={{ opacity: 1, x: 0 }}
-                                                                                exit={{ opacity: 0, x: 10 }}
-                                                                                className="absolute left-full top-0 ml-1 min-w-[320px] bg-[#7a0b3a] rounded-xl shadow-2xl py-3 border-l border-white/10 transform-gpu"
-                                                                            >
-                                                                                {subItem.dropdown.map(nestedItem => (
-                                                                                    <Link
-                                                                                        key={nestedItem.name}
-                                                                                        href={nestedItem.href}
-                                                                                        onClick={(e) => handleLinkClick(e, nestedItem.href)}
-                                                                                        className="block px-6 py-2.5 text-[11px] text-white/90 hover:text-white hover:bg-white/10 transition-all uppercase tracking-[0.08em] font-bold"
-                                                                                    >
-                                                                                        {nestedItem.name}
-                                                                                    </Link>
-                                                                                ))}
-                                                                            </motion.div>
-                                                                        )}
-                                                                    </AnimatePresence>
-                                                                )}
-                                                            </div>
-                                                        ))}
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
-                                        )}
-                                    </div>
-                                ))}
-                                <div className="ml-1">
+                        {/* Right Section Actions (Socials & Mobile Toggle) */}
+                        <div className="flex items-center gap-4">
+                            <div className="hidden lg:flex items-center gap-1">
+                                {/* Admission Button for intermediate screens (lg to 2xl) moved here since nav is below */}
+                                <div className="hidden lg:block 2xl:hidden mr-4">
                                     <AdmissionButton />
                                 </div>
-                            </div>
 
-                            {/* Divider */}
-                            <div className="h-8 w-px bg-zinc-200"></div>
-
-                            {/* Search & Socials */}
-                            <div className="flex items-center gap-1">
                                 <Link
                                     href="https://facebook.com"
                                     target="_blank"
@@ -254,25 +264,30 @@ export default function Navbar() {
                                     <Search size={18} className="relative z-10 transition-colors duration-300 group-hover:text-white" />
                                 </button>
                             </div>
-                        </div>
 
-                        {/* Mobile Toggle */}
-                        <div className="lg:hidden flex items-center gap-2 relative z-50">
-                            <button
-                                onClick={() => setIsSearchOpen(true)}
-                                className="text-zinc-600 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
-                                aria-label="Search"
-                            >
-                                <Search size={22} />
-                            </button>
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="text-zinc-800 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
-                                aria-label="Toggle Menu"
-                            >
-                                {isOpen ? <X size={28} /> : <Menu size={28} />}
-                            </button>
+                            {/* Mobile Toggle */}
+                            <div className="lg:hidden flex items-center gap-2 relative z-50">
+                                <button
+                                    onClick={() => setIsSearchOpen(true)}
+                                    className="text-zinc-600 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
+                                    aria-label="Search"
+                                >
+                                    <Search size={22} />
+                                </button>
+                                <button
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="text-zinc-800 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
+                                    aria-label="Toggle Menu"
+                                >
+                                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                                </button>
+                            </div>
                         </div>
+                    </div>
+
+                    {/* Secondary Navigation Bar (For Intermediate Screens: lg to 2xl) */}
+                    <div className="hidden lg:flex 2xl:hidden border-t border-zinc-100 justify-center h-14 items-center gap-6">
+                        {renderNavLinks()}
                     </div>
 
                     {/* Mobile Navigation Drawer - Overlay to prevent layout shift lag */}

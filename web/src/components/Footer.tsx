@@ -22,6 +22,7 @@ export default function Footer() {
                             src="https://ik.imagekit.io/5c6j602yp/Home/images/Logo-footer"
                             alt="College Logo"
                             fill
+                            sizes="(max-width: 768px) 280px, 320px"
                             className="object-cover scale-[1.3] md:scale-[1.6] object-left md:object-center lg:object-left"
                             priority
                         />
