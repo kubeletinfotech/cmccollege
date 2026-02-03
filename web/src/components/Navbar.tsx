@@ -120,13 +120,13 @@ export default function Navbar() {
             {navigation.map((link) => (
                 <div
                     key={link.name}
-                    className="relative group h-full flex items-center" // h-full ensures full height hover areas
+                    className="relative group h-full flex items-center cursor-pointer" // h-full ensures full height hover areas
                     onMouseEnter={() => !isMobile && link.dropdown && setActiveDropdown(link.name)}
                     onMouseLeave={() => !isMobile && link.dropdown && setActiveDropdown(null)}
                 >
                     <Link
                         href={link.href}
-                        className={`px-2 py-2 text-[11px] xl:text-[12px] font-extrabold uppercase tracking-wider transition-colors relative z-10 flex items-center gap-0.5 whitespace-nowrap
+                        className={`h-full px-2 text-[11px] xl:text-[12px] font-extrabold uppercase tracking-wider transition-colors relative z-10 flex items-center justify-center gap-0.5 whitespace-nowrap
                                                 ${pathname === link.href || (link.dropdown && pathname.startsWith(link.href)) ? "text-[#7a0b3a]" : "text-zinc-600 hover:text-[#7a0b3a]"}`}
                     >
                         {link.name}
@@ -134,7 +134,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* Hover Underline */}
-                    <span className={`absolute bottom-0 lg:bottom-4 2xl:bottom-6 left-2 right-2 h-0.5 bg-[#7a0b3a] transition-all duration-300 origin-left scale-x-0 
+                    <span className={`absolute bottom-0 lg:bottom-0 2xl:bottom-6 left-2 right-2 h-0.5 bg-[#7a0b3a] transition-all duration-300 origin-left scale-x-0 
                                             ${(pathname === link.href || activeDropdown === link.name) ? "scale-x-100" : "group-hover:scale-x-100"}`}
                     />
 
@@ -149,7 +149,7 @@ export default function Navbar() {
                                     transition={{ duration: 0.2, ease: "easeOut" }}
                                     onMouseLeave={() => setActiveSubDropdown(null)}
                                     // Adjusted top position for different layouts
-                                    className="absolute top-full left-0 min-w-[260px] bg-[#7a0b3a] rounded-xl shadow-2xl py-3 z-50 overflow-visible transform-gpu mt-0.5"
+                                    className="absolute top-full left-0 min-w-[260px] bg-[#7a0b3a] rounded-xl shadow-2xl py-3 z-50 overflow-visible transform-gpu mt-0"
                                 >
                                     {link.dropdown.map((subItem) => (
                                         <div
@@ -286,7 +286,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Secondary Navigation Bar (For Intermediate Screens: lg to 2xl) */}
-                    <div className="hidden lg:flex 2xl:hidden border-t border-zinc-100 justify-center h-12 items-center gap-2">
+                    <div className="hidden lg:flex 2xl:hidden border-t border-zinc-100 justify-center h-12 items-center gap-2 relative z-20">
                         {renderNavLinks()}
                     </div>
 
