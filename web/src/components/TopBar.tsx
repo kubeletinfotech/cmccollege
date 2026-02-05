@@ -18,7 +18,7 @@ export default function TopBar() {
                     <Link href="/research" className="hover:text-white hover:scale-105 transition-all duration-300">Research</Link>
                     <Link href="/iqac" className="hover:text-white hover:scale-105 transition-all duration-300">IQAC</Link>
                     <Link href="/alumni" className="hover:text-white hover:scale-105 transition-all duration-300">Alumni</Link>
-                    <Link href="/careers/apply" className="hover:text-white hover:scale-105 transition-all duration-300">Careers</Link>
+                    <Link href="/careers" className="hover:text-white hover:scale-105 transition-all duration-300">Careers</Link>
                 </div>
             </div>
         </div>
