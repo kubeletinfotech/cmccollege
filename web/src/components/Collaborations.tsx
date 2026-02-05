@@ -57,6 +57,7 @@ const MarqueeRow = ({ title, items, reverse = false, fit = "contain" }: { title:
                                     alt={`${item.name} logo`}
                                     fill
                                     className={`object-${fit} filter grayscale-0 opacity-90 hover:opacity-100 transition-opacity`}
+                                    sizes="(max-width: 768px) 112px, 160px"
                                 />
                             </div>
                         </div>

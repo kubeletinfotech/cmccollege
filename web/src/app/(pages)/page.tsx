@@ -287,7 +287,7 @@ export default function Home() {
                   alt={`Hero Slide ${currentSlide + 1} Desktop`}
                   fill
                   className="object-cover"
-                  sizes="100vw"
+                  sizes="calc(100vw - 32px)"
                   priority
                 />
               </div>
@@ -299,7 +299,7 @@ export default function Home() {
                   alt={`Hero Slide ${currentSlide + 1} Tablet`}
                   fill
                   className="object-contain object-center"
-                  sizes="100vw"
+                  sizes="calc(100vw - 32px)"
                   priority
                 />
               </div>
@@ -311,7 +311,7 @@ export default function Home() {
                   alt={`Hero Slide ${currentSlide + 1} Mobile`}
                   fill
                   className="object-cover object-center"
-                  sizes="100vw"
+                  sizes="calc(100vw - 32px)"
                   priority
                 />
               </div>
