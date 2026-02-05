@@ -83,6 +83,8 @@ export const metadata: Metadata = {
 import SiteLayout from "@/components/SiteLayout";
 import UserSync from "@/components/UserSync";
 
+import NextTopLoader from 'nextjs-toploader';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -122,6 +124,17 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${oswald.variable} antialiased pt-[var(--ticker-height,0px)]`}
         >
+          <NextTopLoader
+            color="#0BB9F3"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={false}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px #0BB9F3,0 0 5px #0BB9F3"
+          />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
