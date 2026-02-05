@@ -233,7 +233,8 @@ export default function Navbar() {
                                     alt="College Logo"
                                     fill
                                     priority
-                                    sizes="(max-width: 1024px) 176px, (max-width: 1536px) 208px, 256px"
+                                    sizes="(max-width: 1024px) 600px, (max-width: 1536px) 600px, 800px"
+                                    quality={100}
                                     className="object-contain scale-[3] lg:scale-[2.5]"
                                 />
                             </div>
