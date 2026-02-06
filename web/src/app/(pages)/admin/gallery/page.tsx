@@ -103,6 +103,7 @@ export default function GalleryAdminPage() {
             const res = await ikClient.upload({
                 file,
                 fileName: file.name,
+                folder: "Gallery",
                 tags: ["gallery"],
                 ...authParams
             });
@@ -253,6 +254,7 @@ export default function GalleryAdminPage() {
                                         <div className="hidden">
                                             <IKUpload
                                                 ref={ikUploadRef}
+                                                folder="Gallery"
                                                 onSuccess={onFileUploadSuccess}
                                                 onError={onFileUploadError}
                                                 onUploadStart={onUploadStart}
