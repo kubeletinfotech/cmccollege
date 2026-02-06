@@ -232,7 +232,7 @@ export default function IQACPage() {
 
                     {/* LEFT SIDEBAR NAVIGATION */}
                     <div className="lg:col-span-3 sticky top-28 lg:top-32 h-fit z-30 self-start">
-                        {/* Mobile Toggle */} // Use same style as DepartmentSidebar for consistency
+                        {/* Mobile Toggle */}
                         <div className="lg:hidden mb-6">
                             <button
                                 onClick={() => setIsMobileOpen(!isMobileOpen)}
