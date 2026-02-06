@@ -38,14 +38,14 @@ const IQAC_TABS: IacTab[] = [
                         <div className="w-10 h-10 rounded-2xl bg-[#7B0046]/10 flex items-center justify-center text-[#7B0046] mb-4">
                             <Target className="w-5 h-5" />
                         </div>
-                        <h4 className="font-bold text-zinc-900 mb-2 font-serif">Primary Objective</h4>
+                        <h3 className="font-bold text-zinc-900 mb-2 font-serif text-lg">Primary Objective</h3>
                         <p className="text-sm">To channelize all efforts and measures of the institution towards promoting holistic academic excellence.</p>
                     </div>
                     <div className="p-6 rounded-3xl bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
                         <div className="w-10 h-10 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-800 mb-4">
                             <Users className="w-5 h-5" />
                         </div>
-                        <h4 className="font-bold text-zinc-900 mb-2 font-serif">Participative Nature</h4>
+                        <h3 className="font-bold text-zinc-900 mb-2 font-serif text-lg">Participative Nature</h3>
                         <p className="text-sm">Functions as a participative organ of the institution, ensuring stakeholder engagement in all quality initiatives.</p>
                     </div>
                 </div>
@@ -67,10 +67,10 @@ const IQAC_TABS: IacTab[] = [
                 </p>
 
                 <div className="bg-linear-to-br from-emerald-50/80 to-white p-8 rounded-4xl border border-emerald-100 shadow-sm">
-                    <h4 className="font-bold text-emerald-900 mb-6 font-serif text-xl flex items-center gap-3">
+                    <h3 className="font-bold text-emerald-900 mb-6 font-serif text-xl flex items-center gap-3">
                         <span className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-sm">🏛️</span>
                         General Composition
-                    </h4>
+                    </h3>
 
                     <div className="grid md:grid-cols-2 gap-4">
                         {[
@@ -236,6 +236,7 @@ export default function IQACPage() {
                         <div className="lg:hidden mb-6">
                             <button
                                 onClick={() => setIsMobileOpen(!isMobileOpen)}
+                                aria-label="Toggle IQAC Menu"
                                 className="w-full flex items-center justify-between bg-[#5D1035] text-white p-4 rounded-xl shadow-lg shadow-[#5D1035]/20 font-bold uppercase tracking-wider transition-all active:scale-[0.98]"
                             >
                                 <span className="flex items-center gap-2">
@@ -248,7 +249,7 @@ export default function IQACPage() {
 
                         {/* Sidebar Content - Collapsible on Mobile */}
                         <div className={`bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-xl shadow-zinc-200/50 border border-white p-6 overflow-hidden transition-all duration-300 ${isMobileOpen ? "block" : "hidden lg:block"}`}>
-                            <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] px-2 mb-6 block">
+                            <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] px-2 mb-6 block">
                                 Navigation
                             </span>
                             <div className="space-y-2">
@@ -303,7 +304,7 @@ export default function IQACPage() {
                                     <motion.span
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
-                                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-500 text-[10px] font-bold tracking-widest uppercase mb-4"
+                                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 text-[10px] font-bold tracking-widest uppercase mb-4"
                                     >
                                         <activeTab.icon className="w-3 h-3" />
                                         {activeTab.subtitle}
