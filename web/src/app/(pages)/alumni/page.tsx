@@ -18,7 +18,7 @@ export default function AlumniPage() {
                         </span>
                         Our Community
                     </h3>
-                    <div className="space-y-6 text-zinc-600 leading-relaxed text-lg text-justify">
+                    <div className="space-y-6 text-zinc-600 leading-relaxed text-lg text-left md:text-justify">
                         <p>
                             The alumni association of CM College of Arts and Science is a community of former students who have graduated from our college. This community is dedicated to supporting the growth and development of our college, as well as promoting networking and fellowship among our alumni.
                         </p>

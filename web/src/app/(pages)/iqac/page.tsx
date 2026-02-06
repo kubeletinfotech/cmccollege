@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, FileText, ShieldCheck, Target, Award, BookOpen, Users, CheckCircle } from "lucide-react";
+import { ChevronRight, FileText, ShieldCheck, Target, Award, BookOpen, Users, CheckCircle, Menu, X } from "lucide-react";
 
 // --- 1. CONFIGURATION & CONTENT ---
 
@@ -23,7 +23,7 @@ const IQAC_TABS: IacTab[] = [
         title: "Internal Quality Assurance Cell",
         subtitle: "Commitment to Excellence",
         content: (
-            <div className="space-y-8 text-zinc-600 leading-relaxed text-lg text-justify">
+            <div className="space-y-8 text-zinc-600 leading-relaxed text-lg text-left md:text-justify">
                 <div className="p-6 bg-emerald-50/50 rounded-3xl border border-emerald-100/50 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-full blur-3xl -mr-16 -mt-16 opacity-50"></div>
                     <p className="relative z-10">
@@ -66,7 +66,7 @@ const IQAC_TABS: IacTab[] = [
                     of the College Management and other stakeholders.
                 </p>
 
-                <div className="bg-gradient-to-br from-emerald-50/80 to-white p-8 rounded-[2rem] border border-emerald-100 shadow-sm">
+                <div className="bg-linear-to-br from-emerald-50/80 to-white p-8 rounded-4xl border border-emerald-100 shadow-sm">
                     <h4 className="font-bold text-emerald-900 mb-6 font-serif text-xl flex items-center gap-3">
                         <span className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-sm">🏛️</span>
                         General Composition
@@ -183,7 +183,7 @@ const IQAC_TABS: IacTab[] = [
                         "Act as a dynamic system for quality changes in HEIs.",
                         "Build an organised methodology of documentation and internal communication."
                     ].map((benefit, i) => (
-                        <div key={i} className="p-6 rounded-3xl bg-gradient-to-b from-white to-zinc-50 hover:to-emerald-50/30 border border-zinc-100 hover:border-emerald-200 transition-all group hover:-translate-y-1 duration-300 shadow-sm">
+                        <div key={i} className="p-6 rounded-3xl bg-linear-to-b from-white to-zinc-50 hover:to-emerald-50/30 border border-zinc-100 hover:border-emerald-200 transition-all group hover:-translate-y-1 duration-300 shadow-sm">
                             <div className="mb-4 w-12 h-12 rounded-2xl bg-[#7B0046]/5 flex items-center justify-center text-[#7B0046] group-hover:bg-[#7B0046] group-hover:text-white transition-colors">
                                 <Award className="w-6 h-6" />
                             </div>
@@ -198,6 +198,7 @@ const IQAC_TABS: IacTab[] = [
 
 export default function IQACPage() {
     const [activeTabId, setActiveTabId] = useState(IQAC_TABS[0].id);
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     const activeTab = IQAC_TABS.find(t => t.id === activeTabId) || IQAC_TABS[0];
 
@@ -208,7 +209,7 @@ export default function IQACPage() {
             {/* Page Header */}
             <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
+                    <div className="h-full w-full bg-size-[30px_30px] bg-[radial-gradient(#fff_1px,transparent_1px)]" />
                 </div>
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <motion.div
@@ -230,8 +231,23 @@ export default function IQACPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                     {/* LEFT SIDEBAR NAVIGATION */}
-                    <div className="lg:col-span-3">
-                        <div className="sticky top-32 bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-xl shadow-zinc-200/50 border border-white p-6 overflow-hidden">
+                    <div className="lg:col-span-3 sticky top-28 lg:top-32 h-fit z-30 self-start">
+                        {/* Mobile Toggle */} // Use same style as DepartmentSidebar for consistency
+                        <div className="lg:hidden mb-6">
+                            <button
+                                onClick={() => setIsMobileOpen(!isMobileOpen)}
+                                className="w-full flex items-center justify-between bg-[#5D1035] text-white p-4 rounded-xl shadow-lg shadow-[#5D1035]/20 font-bold uppercase tracking-wider transition-all active:scale-[0.98]"
+                            >
+                                <span className="flex items-center gap-2">
+                                    <ShieldCheck size={18} />
+                                    IQAC Menu
+                                </span>
+                                {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
+                            </button>
+                        </div>
+
+                        {/* Sidebar Content - Collapsible on Mobile */}
+                        <div className={`bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-xl shadow-zinc-200/50 border border-white p-6 overflow-hidden transition-all duration-300 ${isMobileOpen ? "block" : "hidden lg:block"}`}>
                             <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] px-2 mb-6 block">
                                 Navigation
                             </span>
@@ -241,8 +257,11 @@ export default function IQACPage() {
                                     return (
                                         <button
                                             key={tab.id}
-                                            onClick={() => setActiveTabId(tab.id)}
-                                            className={`w-full text-left px-5 py-4 rounded-xl transition-all duration-300 flex items-center gap-3 group relative overflow-hidden ${isActive
+                                            onClick={() => {
+                                                setActiveTabId(tab.id);
+                                                setIsMobileOpen(false); // Close on selection
+                                            }}
+                                            className={`w-full text-left px-5 py-4 rounded-4xl transition-all duration-300 flex items-center gap-3 group relative overflow-hidden ${isActive
                                                 ? "bg-zinc-900 text-white shadow-lg shadow-zinc-900/20 scale-[1.02]"
                                                 : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900 font-medium"
                                                 }`}
@@ -276,8 +295,8 @@ export default function IQACPage() {
                                 className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-zinc-200/40 border border-white relative overflow-hidden"
                             >
                                 {/* Decorative Background Mesh */}
-                                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-emerald-50/50 to-transparent rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none opacity-60"></div>
-                                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gradient-to-t from-[#7B0046]/5 to-transparent rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none opacity-60"></div>
+                                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-linear-to-b from-emerald-50/50 to-transparent rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none opacity-60"></div>
+                                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-linear-to-t from-[#7B0046]/5 to-transparent rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none opacity-60"></div>
 
                                 {/* Content Header */}
                                 <div className="mb-12 relative z-10 border-b border-zinc-50 pb-8">
