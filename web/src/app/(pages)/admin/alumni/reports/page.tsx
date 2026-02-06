@@ -1,53 +1,30 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { ImageKitProvider, IKUpload } from 'imagekitio-next';
-import ImageKit from 'imagekit-javascript';
-import { Loader2, Trash2, Upload, Plus, FileText, Download } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Loader2, Trash2, Plus, FileText, ExternalLink, Calendar } from 'lucide-react';
 import Link from 'next/link';
-
-const publicKey = process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY;
-const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
-
-const authenticator = async () => {
-    try {
-        const response = await fetch("/api/imagekit/auth");
-        if (!response.ok) throw new Error('Authentication failed');
-        return await response.json();
-    } catch (error) {
-        throw new Error(`Authentication request failed: ${error}`);
-    }
-};
 
 interface Report {
     _id: string;
     title: string;
-    fileUrl: string;
+    details: string;
+    link: string;
     date: string;
+    fileUrl?: string;
 }
 
 export default function AdminReportsPage() {
     const [reports, setReports] = useState<Report[]>([]);
     const [loading, setLoading] = useState(true);
     const [showForm, setShowForm] = useState(false);
-    const [isUploading, setIsUploading] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const ikUploadRef = useRef<HTMLInputElement>(null);
 
     const [formData, setFormData] = useState({
         title: "",
-        fileUrl: "",
-        fileId: "",
+        details: "",
+        link: "",
         date: new Date().toISOString().split('T')[0]
     });
-
-    const ikClient = useMemo(() => {
-        if (!publicKey || !urlEndpoint) return null;
-        return new ImageKit({
-            publicKey,
-            urlEndpoint
-        });
-    }, []);
 
     const fetchReports = async () => {
         try {
@@ -67,26 +44,13 @@ export default function AdminReportsPage() {
         fetchReports();
     }, []);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const onFileUploadSuccess = (res: any) => {
-        setIsUploading(false);
-        setFormData(prev => ({ ...prev, fileUrl: res.url, fileId: res.fileId }));
-    };
-
-    const onFileUploadError = (err: any) => {
-        setIsUploading(false);
-        console.error("Upload error", err);
-        alert("Upload failed");
-    };
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!formData.fileUrl) return alert("Please upload a file");
-
         setIsSubmitting(true);
         try {
             const response = await fetch("/api/alumni/reports", {
@@ -98,7 +62,7 @@ export default function AdminReportsPage() {
             if (data.success) {
                 setReports(prev => [data.data, ...prev]);
                 setShowForm(false);
-                setFormData({ title: "", fileUrl: "", fileId: "", date: new Date().toISOString().split('T')[0] });
+                setFormData({ title: "", details: "", link: "", date: new Date().toISOString().split('T')[0] });
             }
         } catch (error) {
             alert("Failed to save");
@@ -119,59 +83,38 @@ export default function AdminReportsPage() {
         }
     };
 
-    if (!publicKey || !urlEndpoint) return <div className="p-10">Missing ImageKit Configuration</div>;
-
     return (
-        <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
-            <div className="space-y-8">
-                <div className="flex justify-between items-center">
-                    <h1 className="text-3xl font-bold text-zinc-900">Alumni Reports</h1>
-                    <button
-                        onClick={() => setShowForm(true)}
-                        className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-colors flex items-center gap-2"
-                    >
-                        <Plus className="w-5 h-5" />
-                        Add Report
-                    </button>
+        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="flex justify-between items-center bg-zinc-50 p-6 rounded-3xl border border-zinc-200">
+                <div>
+                    <h1 className="text-3xl font-bold text-zinc-900 tracking-tight">Alumni Reports</h1>
+                    <p className="text-zinc-500 font-medium mt-1">Manage event reports and documentation links.</p>
                 </div>
+                <button
+                    onClick={() => setShowForm(true)}
+                    className="bg-zinc-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-zinc-800 transition-all shadow-lg shadow-zinc-900/20 active:scale-95 flex items-center gap-2"
+                >
+                    <Plus className="w-5 h-5" />
+                    Add Report
+                </button>
+            </div>
 
-                {showForm && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                        <div className="bg-white rounded-3xl p-8 max-w-lg w-full">
-                            <h2 className="text-2xl font-bold mb-6">Add New Report</h2>
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div
-                                    onClick={() => ikUploadRef.current?.click()}
-                                    className={`w-full h-32 rounded-xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer bg-zinc-50 ${formData.fileUrl ? 'border-emerald-500 bg-emerald-50' : 'border-zinc-300 hover:border-emerald-500'}`}
-                                >
-                                    <IKUpload
-                                        ref={ikUploadRef}
-                                        onSuccess={onFileUploadSuccess}
-                                        onError={onFileUploadError}
-                                        onUploadStart={() => setIsUploading(true)}
-                                        className="hidden"
-                                    />
-                                    {isUploading ? (
-                                        <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
-                                    ) : formData.fileUrl ? (
-                                        <div className="text-center">
-                                            <FileText className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                                            <span className="text-sm font-bold text-emerald-700">File Selected</span>
-                                        </div>
-                                    ) : (
-                                        <div className="text-center">
-                                            <Upload className="w-8 h-8 mx-auto mb-2 text-zinc-400" />
-                                            <span className="text-sm text-zinc-500 font-medium">Click to Upload PDF/File</span>
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="space-y-4">
+            {showForm && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-900/40 backdrop-blur-md animate-in fade-in duration-300">
+                    <div className="bg-white rounded-[40px] p-10 max-w-xl w-full shadow-2xl animate-in zoom-in-95 duration-300 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+
+                        <h2 className="text-2xl font-black mb-8 text-zinc-900 tracking-tight relative z-10">New Event Report</h2>
+                        <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                            <div>
+                                <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1 mb-2 block">Event & Date</label>
+                                <div className="grid grid-cols-3 gap-4">
                                     <input
                                         name="title"
-                                        placeholder="Report Title"
+                                        placeholder="Event Name"
                                         value={formData.title}
                                         onChange={handleInputChange}
-                                        className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                        className="col-span-2 w-full p-4 rounded-2xl bg-zinc-50 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all font-bold text-zinc-900"
                                         required
                                     />
                                     <input
@@ -179,64 +122,109 @@ export default function AdminReportsPage() {
                                         name="date"
                                         value={formData.date}
                                         onChange={handleInputChange}
-                                        className="w-full p-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                        className="w-full p-4 rounded-xl bg-zinc-50 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-zinc-600 font-medium"
                                         required
                                     />
                                 </div>
-                                <div className="flex gap-4 pt-4">
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowForm(false)}
-                                        className="flex-1 py-3 font-bold text-zinc-600 bg-zinc-100 rounded-xl hover:bg-zinc-200"
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting || isUploading || !formData.fileUrl}
-                                        className="flex-1 py-3 font-bold text-white bg-emerald-600 rounded-xl hover:bg-emerald-700 disabled:opacity-50"
-                                    >
-                                        {isSubmitting ? 'Saving...' : 'Save Report'}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                )}
+                            </div>
 
-                <div className="flex flex-col gap-4">
-                    {loading ? (
-                        <div className="py-20 text-center text-zinc-400">Loading reports...</div>
-                    ) : reports.map((item) => (
-                        <div key={item._id} className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 flex items-center justify-between group">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600">
-                                    <FileText className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-zinc-900">{item.title}</h3>
-                                    <p className="text-sm text-zinc-500">{item.date}</p>
+                            <div>
+                                <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1 mb-2 block">Asset Link</label>
+                                <div className="relative">
+                                    <input
+                                        name="link"
+                                        placeholder="Paste Google Drive or PDF Link here..."
+                                        value={formData.link}
+                                        onChange={handleInputChange}
+                                        className="w-full p-4 pl-12 rounded-2xl bg-zinc-50 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all font-medium text-emerald-700"
+                                        required
+                                    />
+                                    <ExternalLink className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 w-5 h-5" />
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <Link
-                                    href={item.fileUrl}
-                                    target="_blank"
-                                    className="p-2 text-zinc-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
-                                >
-                                    <Download className="w-5 h-5" />
-                                </Link>
+
+                            <div>
+                                <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1 mb-2 block">Key Details</label>
+                                <textarea
+                                    name="details"
+                                    placeholder="Brief description of the event or report..."
+                                    value={formData.details}
+                                    onChange={handleInputChange}
+                                    className="w-full p-4 rounded-2xl bg-zinc-50 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all min-h-[100px] font-medium text-zinc-700"
+                                    required
+                                />
+                            </div>
+
+                            <div className="flex gap-4 pt-4">
                                 <button
-                                    onClick={() => handleDelete(item._id)}
-                                    className="p-2 text-zinc-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                    type="button"
+                                    onClick={() => setShowForm(false)}
+                                    className="flex-1 py-4 font-bold text-zinc-500 bg-zinc-100 rounded-2xl hover:bg-zinc-200 transition-colors"
                                 >
-                                    <Trash2 className="w-5 h-5" />
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="flex-1 py-4 font-bold text-white bg-zinc-900 rounded-2xl hover:bg-zinc-800 transition-all shadow-xl shadow-zinc-900/20 disabled:opacity-50"
+                                >
+                                    {isSubmitting ? 'Saving...' : 'Publish Report'}
                                 </button>
                             </div>
-                        </div>
-                    ))}
+                        </form>
+                    </div>
                 </div>
+            )}
+
+            <div className="grid gap-4">
+                {loading ? (
+                    <div className="py-20 text-center">
+                        <Loader2 className="w-8 h-8 animate-spin mx-auto text-zinc-300 mb-3" />
+                        <p className="text-zinc-400 font-bold text-sm tracking-widest uppercase">Loading Archive</p>
+                    </div>
+                ) : reports.length === 0 ? (
+                    <div className="py-20 text-center border-2 border-dashed border-zinc-200 rounded-3xl bg-zinc-50/50">
+                        <p className="text-zinc-400 font-bold">No reports found.</p>
+                    </div>
+                ) : reports.map((item) => (
+                    <div key={item._id} className="bg-white p-6 rounded-3xl shadow-sm border border-zinc-100/50 hover:shadow-md transition-all group flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+                        <div className="flex gap-5 items-start">
+                            <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex flex-col items-center justify-center text-emerald-700 border border-emerald-100 shrink-0">
+                                <FileText className="w-6 h-6 mb-1" />
+                                <span className="text-[10px] font-black uppercase tracking-wider">DOC</span>
+                            </div>
+                            <div>
+                                <div className="flex items-center gap-3 mb-1">
+                                    <h3 className="font-bold text-lg text-zinc-900 leading-tight">{item.title}</h3>
+                                    <span className="text-[10px] font-bold bg-zinc-100 text-zinc-500 px-2 py-1 rounded-md flex items-center gap-1">
+                                        <Calendar className="w-3 h-3" />
+                                        {item.date}
+                                    </span>
+                                </div>
+                                <p className="text-sm text-zinc-500 font-medium leading-relaxed max-w-xl">{item.details}</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-3 w-full sm:w-auto pl-21 sm:pl-0">
+                            <Link
+                                href={item.link || item.fileUrl || "#"}
+                                target="_blank"
+                                className="px-5 py-2.5 bg-zinc-50 text-zinc-600 hover:text-emerald-700 hover:bg-emerald-50 border border-zinc-200 rounded-xl font-bold text-sm transition-all flex items-center gap-2 group/link"
+                            >
+                                Open File
+                                <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" />
+                            </Link>
+                            <button
+                                onClick={() => handleDelete(item._id)}
+                                className="p-2.5 text-zinc-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
+                                title="Delete Report"
+                            >
+                                <Trash2 className="w-5 h-5" />
+                            </button>
+                        </div>
+                    </div>
+                ))}
             </div>
-        </ImageKitProvider>
+        </div>
     );
 }

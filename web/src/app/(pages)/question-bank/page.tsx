@@ -184,7 +184,7 @@ export default function QuestionBankPage() {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: "100%" }}
                                     transition={{ type: "spring", damping: 30, stiffness: 300, mass: 0.8 }}
-                                    className="lg:hidden fixed inset-0 z-[100] bg-white p-6 pt-28 overflow-y-auto overscroll-contain pb-20"
+                                    className="lg:hidden fixed inset-0 z-100 bg-white p-6 pt-28 overflow-y-auto overscroll-contain pb-20"
                                 >
                                     {/* Mobile Header in Overlay */}
                                     <div className="flex items-center justify-between mb-8 border-b border-zinc-100 pb-4">

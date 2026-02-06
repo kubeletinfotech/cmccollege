@@ -248,7 +248,7 @@ export default function IQACPage() {
                         </div>
 
                         {/* Sidebar Content - Collapsible on Mobile */}
-                        <div className={`bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-xl shadow-zinc-200/50 border border-white p-6 overflow-hidden transition-all duration-300 ${isMobileOpen ? "block" : "hidden lg:block"}`}>
+                        <div className={`bg-white/80 backdrop-blur-xl rounded-4xl shadow-xl shadow-zinc-200/50 border border-white p-6 overflow-hidden transition-all duration-300 ${isMobileOpen ? "block" : "hidden lg:block"}`}>
                             <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] px-2 mb-6 block">
                                 Navigation
                             </span>
