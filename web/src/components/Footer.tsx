@@ -19,7 +19,7 @@ export default function Footer() {
                 <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left md:col-span-2 lg:col-span-1">
                     <div className="relative w-full max-w-[280px] h-24 mb-6 md:mx-auto lg:mx-0">
                         <Image
-                            src="https://ik.imagekit.io/1yxtj9qun/Home/images/Logo-footer"
+                            src="https://ik.imagekit.io/1yxtj9qun/Home/images/Logo-footer.png"
                             alt="College Logo"
                             fill
                             sizes="(max-width: 768px) 400px, 600px"

@@ -134,21 +134,21 @@ export default function Home() {
   // Hero Slider Configuration
   const desktopImages = [
     "https://cmcollege.edu.in/wp-content/uploads/2023/08/banner4.jpg",
-    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1?updatedAt=1768811009859",
-    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2",
-    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner"
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png"
   ];
 
   const tabletImages = [
     "https://cmcollege.edu.in/wp-content/uploads/2023/08/banner4.jpg",
-    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1?updatedAt=1768811009859",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png",
     "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2"
   ];
 
   const mobileImages = [
     "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1",
     // "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile1",
-    // "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile2",
+    // "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile2",`
     "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile",
   ];
 

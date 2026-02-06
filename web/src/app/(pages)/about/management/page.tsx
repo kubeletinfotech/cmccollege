@@ -231,7 +231,7 @@ export default function ManagementPage() {
                 <InstitutionsCarousel
                     items={[
                         "https://ik.imagekit.io/1yxtj9qun/About/ifer.png?updatedAt=1769710741851",
-                        "https://ik.imagekit.io/1yxtj9qun/About/osams.png?updatedAt=1769710741865",
+                        "https://ik.imagekit.io/1yxtj9qun/About/osams.png?updatedAt=1770370502238?updatedAt=1769710741865",
                         "https://ik.imagekit.io/1yxtj9qun/About/keep.png?updatedAt=1769710741844",
                         "https://ik.imagekit.io/1yxtj9qun/About/ceas.png?updatedAt=1769710741807",
                         "https://ik.imagekit.io/1yxtj9qun/About/imsar.png?updatedAt=1769710741733",
