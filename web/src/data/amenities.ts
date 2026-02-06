@@ -90,13 +90,13 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Competitive Exam Section",
             "Local History and Culture Section"
         ],
-        image: "https://ik.imagekit.io/5c6j602yp/Home/images/library.jpeg",
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg",
         icon: Book,
         librarian: {
             name: "Anjana B",
             designation: "Librarian",
             qualification: "BSc Physics, B.Lib.I.Sc",
-            image: "https://ik.imagekit.io/5c6j602yp/Home/images/librarian",
+            image: "https://ik.imagekit.io/1yxtj9qun/Home/images/librarian",
             message: "Our library is not just a collection of books, but a gateway to knowledge and innovation. We strive to provide the best resources to nurture curious minds."
         }
     },
@@ -111,7 +111,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Expert lab assistants",
             "Project work support"
         ],
-        image: "https://ik.imagekit.io/5c6j602yp/Home/images/computer-lab.jpeg",
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg",
         icon: Monitor,
         labDetails: {
             specs: [
@@ -146,7 +146,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Open During College Hours",
             "Spiritual Literature Available"
         ],
-        image: "https://ik.imagekit.io/5c6j602yp/Home/images/masjid.jpeg", // Placeholder
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/masjid.jpeg", // Placeholder
         icon: Flower,
         gallery: []
     },
@@ -161,10 +161,10 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Study halls and recreation rooms",
             "Wi-Fi connectivity"
         ],
-        image: "https://ik.imagekit.io/5c6j602yp/Home/images/hostel.jpeg",
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/hostel.jpeg",
         icon: Home,
         gallery: [
-            "https://ik.imagekit.io/5c6j602yp/Home/images/hostel.jpeg"
+            "https://ik.imagekit.io/1yxtj9qun/Home/images/hostel.jpeg"
         ],
         hostelDetails: {
             boys: { capacity: 150, vacancies: 12, warden: "Mr. Thomas K." },
@@ -188,7 +188,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Variety of cuisines",
             "Spacious seating arrangement"
         ],
-        image: "https://ik.imagekit.io/5c6j602yp/Home/images/canteen.jpeg",
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/canteen.jpeg",
         icon: Utensils
     },
     "bus-facility": {
@@ -202,11 +202,11 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Separate seating for staff and students",
             "Affordable pass rates"
         ],
-        image: "https://ik.imagekit.io/5c6j602yp/Home/images/buss.jpeg",
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg",
         icon: Bus,
         gallery: [
-            "https://ik.imagekit.io/5c6j602yp/Home/images/buss.jpeg",
-            "https://ik.imagekit.io/5c6j602yp/Home/images/buss.jpeg"
+            "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg",
+            "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg"
         ],
         busSchedules: [
             {
@@ -258,21 +258,21 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
                 title: "University Champions",
                 event: "Inter-Zone Football 2024",
                 rank: "Winner",
-                image: "https://ik.imagekit.io/5c6j602yp/Home/images/football-team.jpeg", // Placeholder
+                image: "https://ik.imagekit.io/1yxtj9qun/Home/images/football-team.jpeg", // Placeholder
                 date: "March 2024"
             },
             {
                 title: "Best Athlete Award",
                 event: "State Athletics Meet",
                 rank: "Gold",
-                image: "https://ik.imagekit.io/5c6j602yp/Home/images/athlete.jpeg", // Placeholder
+                image: "https://ik.imagekit.io/1yxtj9qun/Home/images/athlete.jpeg", // Placeholder
                 date: "Jan 2024"
             },
             {
                 title: "Cricket Runners Up",
                 event: "District Cricket League",
                 rank: "Runner Up",
-                image: "https://ik.imagekit.io/5c6j602yp/Home/images/cricket.jpeg", // Placeholder
+                image: "https://ik.imagekit.io/1yxtj9qun/Home/images/cricket.jpeg", // Placeholder
                 date: "Dec 2023"
             }
         ]

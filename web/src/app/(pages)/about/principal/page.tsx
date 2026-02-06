@@ -140,7 +140,7 @@ export default function PrincipalProfile() {
                                 {/* Placeholder for Image */}
                                 <div className="absolute inset-0 bg-stone-200 flex items-center justify-center text-stone-400">
                                     <Image
-                                        src="https://ik.imagekit.io/5c6j602yp/About/principal.jpeg?updatedAt=1768826571745"
+                                        src="https://ik.imagekit.io/1yxtj9qun/About/principal.jpeg?updatedAt=1768826571745"
                                         alt="Principal"
                                         fill
                                         className="object-cover"

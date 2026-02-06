@@ -3,17 +3,17 @@
 import Image from "next/image";
 
 const partners = [
-    { name: "MMU", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/mmu-logo.png?updatedAt=1768844964283" },
-    { name: "Oman", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/oman-logo.png" },
-    { name: "Tally", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/tally-logo.png" },
-    { name: "Keltron", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/keltron-logo.png" },
+    { name: "MMU", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/mmu-logo.png?updatedAt=1768844964283" },
+    { name: "Oman", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/oman-logo.png" },
+    { name: "Tally", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/tally-logo.png" },
+    { name: "Keltron", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/keltron-logo.png" },
 ];
 
 const programs = [
-    { name: "Queens Drive", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/queens-drive.png" },
-    { name: "Plant Up", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/plant-up.png" },
-    { name: "Meet the Professional", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/meet-professional.png" },
-    { name: "Chirakukal", logo: "https://ik.imagekit.io/5c6j602yp/Home/images/chirakukal.png" },
+    { name: "Queens Drive", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/queens-drive.png" },
+    { name: "Plant Up", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/plant-up.png" },
+    { name: "Meet the Professional", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/meet-professional.png" },
+    { name: "Chirakukal", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/chirakukal.png" },
 ];
 
 const MarqueeRow = ({ title, items, reverse = false, fit = "contain" }: { title: string, items: typeof partners, reverse?: boolean, fit?: "contain" | "cover" }) => {

@@ -89,20 +89,20 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Rajitha P R",
             qualification: "Master of Computer Applications",
             quote: "Our goal is to transcend traditional learning and build a bridge between academia and the ever-evolving tech industry.",
-            img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/rajitha"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rajitha"
         },
         faculty: [
-            { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/sumayya-u.jpg" },
-            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/rijila-nath.jpg" },
-            { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/vivek-mv-200x250.jpg" },
+            { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/sumayya-u.jpg" },
+            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rijila-nath.jpg" },
+            { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg" },
             { name: "Asliya A", role: "Assistant Professor", spec: "Software Architecture", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/Gallery/image1?updatedAt=1768829462746", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/Gallery/image3?updatedAt=1768830080087", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/Gallery/image2?updatedAt=1768830059492", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/Gallery/image5", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/Gallery/image4", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image1?updatedAt=1768829462746", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image3?updatedAt=1768830080087", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image2?updatedAt=1768830059492", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image5", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image4", category: "" },
 
         ]
     },
@@ -143,9 +143,9 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Sini John", role: "Assistant Professor", spec: "Operations", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image1", category: "CONFERENCE ROOM" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image2", category: "SEMINAR HALL" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image3", category: "LIBRARY" }
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/New%20Folder/image1", category: "CONFERENCE ROOM" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/New%20Folder/image2", category: "SEMINAR HALL" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/New%20Folder/image3", category: "LIBRARY" }
         ]
     },
     "mass-communication": {
@@ -195,7 +195,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Vidhya Viswanath",
             qualification: "M.A. Journalism",
             quote: "Truth is the only currency in journalism. We prepare our students to find it and tell it effectively.",
-            img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Masscom/hod-masscom.jpg"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/hod-masscom.jpg"
         },
         faculty: [
             { name: "Athira P R", role: "Assistant Professor", spec: "Broadcast Journalism", img: "/images/default-user-placeholder.png" },
@@ -241,10 +241,10 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Anna Biju", role: "Assistant Professor", spec: "Development Economics", img: "/images/default-user-placeholder.png" }
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Ecnomics/image1.jpg", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Ecnomics/image2", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Ecnomics/image3", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Ecnomics/image4", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/image1.jpg", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/image2", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/image3", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/image4", category: "" },
         ]
     },
     "english": {
@@ -341,10 +341,10 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Jamsheena", role: "Assistant Professor", spec: "Commerce", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Commerce/Gallery/image1", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Commerce/Gallery/image2", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Commerce/Gallery/image3", category: "" },
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Commerce/Gallery/image4", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Gallery/image1", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Gallery/image2", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Gallery/image3", category: "" },
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Gallery/image4", category: "" },
         ]
     },
     "human-resource-management": {
@@ -372,7 +372,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Faculty 1", role: "Assistant Professor", spec: "HR", img: "/images/default-user-placeholder.png" }
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image1?updatedAt=1768829462746", category: "HR LAB" }
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/New%20Folder/image1?updatedAt=1768829462746", category: "HR LAB" }
         ]
     },
     "sociology": {
@@ -400,7 +400,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Faculty 1", role: "Assistant Professor", spec: "Sociology", img: "/images/default-user-placeholder.png" }
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image2", category: "SOCIAL LAB" }
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/New%20Folder/image2", category: "SOCIAL LAB" }
         ]
     },
     "Multimedia": {
@@ -428,7 +428,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Faculty 1", role: "Assistant Professor", spec: "Sociology", img: "/images/default-user-placeholder.png" }
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/New%20Folder/image2", category: "SOCIAL LAB" }
+            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/New%20Folder/image2", category: "SOCIAL LAB" }
         ]
     }
 };

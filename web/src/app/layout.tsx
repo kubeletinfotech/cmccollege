@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "CM College of Art and Science",
     images: [
       {
-        url: "https://ik.imagekit.io/5c6j602yp/About/Untitled%20design.png?updatedAt=1768755140239",
+        url: "https://ik.imagekit.io/1yxtj9qun/About/Untitled%20design.png?updatedAt=1768755140239",
         width: 1200,
         height: 630,
         alt: "CM College of Arts and Science Campus",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "CM College of Art and Science",
     description: "Empowering students through quality education in Wayanad.",
-    images: ["https://ik.imagekit.io/5c6j602yp/About/Untitled%20design.png?updatedAt=1768755140239"],
+    images: ["https://ik.imagekit.io/1yxtj9qun/About/Untitled%20design.png?updatedAt=1768755140239"],
   },
   verification: {
     google: "google-site-verification-code-here", // User needs to replace this

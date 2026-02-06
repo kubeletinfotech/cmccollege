@@ -11,22 +11,22 @@ const managementMembers = [
     {
         name: "CM Ibrahim",
         role: "President, CM Centre Madavoor",
-        image: "https://ik.imagekit.io/5c6j602yp/About/president.jpg"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/president.jpg"
     },
     {
         name: "TK Abdu Rahman Baqavi",
         role: "General Secretary, CM Centre Madavoor",
-        image: "https://ik.imagekit.io/5c6j602yp/About/chairman"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/chairman"
     },
     {
         name: "NA Backer Haji",
         role: "Finance Secretary, CM Centre Madavoor",
-        image: "https://ik.imagekit.io/5c6j602yp/About/finance.jpg"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/finance.jpg"
     },
     {
         name: "Musthafa Saquafi",
         role: "General Manager, CM Centre Madavoor",
-        image: "https://ik.imagekit.io/5c6j602yp/About/General-manager.jpg"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/General-manager.jpg"
     }
 ];
 
@@ -119,7 +119,7 @@ export default function ManagementPage() {
 
                             <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-white rounded-full p-8 md:p-12 shadow-[0_0_50px_rgba(255,255,255,0.1)] flex items-center justify-center group flex-col overflow-hidden will-change-transform">
                                 <Image
-                                    src="https://ik.imagekit.io/5c6j602yp/Home/images/cm-center-logo?updatedAt=1769708637046"
+                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/cm-center-logo?updatedAt=1769708637046"
                                     alt="CM Center Logo"
                                     width={300}
                                     height={300}
@@ -139,7 +139,7 @@ export default function ManagementPage() {
                         <div className="absolute top-4 -right-4 w-full h-full border-2 border-[#7a0b3a]/10 rounded-2xl md:rounded-[32px] -z-10 group-hover:top-2 group-hover:-right-2 transition-all duration-500"></div>
                         <div className="relative aspect-3/4 w-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-xl shadow-zinc-200/50">
                             <Image
-                                src="https://ik.imagekit.io/5c6j602yp/About/chairman"
+                                src="https://ik.imagekit.io/1yxtj9qun/About/chairman"
                                 alt="TK Abdurahiman Baquavi - Chairman"
                                 fill
                                 className="object-cover transition-transform duration-700 hover:scale-105"
@@ -230,13 +230,13 @@ export default function ManagementPage() {
 
                 <InstitutionsCarousel
                     items={[
-                        "https://ik.imagekit.io/5c6j602yp/About/ifer.png?updatedAt=1769710741851",
-                        "https://ik.imagekit.io/5c6j602yp/About/osams.png?updatedAt=1769710741865",
-                        "https://ik.imagekit.io/5c6j602yp/About/keep.png?updatedAt=1769710741844",
-                        "https://ik.imagekit.io/5c6j602yp/About/ceas.png?updatedAt=1769710741807",
-                        "https://ik.imagekit.io/5c6j602yp/About/imsar.png?updatedAt=1769710741733",
-                        "https://ik.imagekit.io/5c6j602yp/About/afaq.png?updatedAt=1769710741445",
-                        "https://ik.imagekit.io/5c6j602yp/Home/images/PNG%20CM%20COLLEGE.png?updatedAt=1768917745508"
+                        "https://ik.imagekit.io/1yxtj9qun/About/ifer.png?updatedAt=1769710741851",
+                        "https://ik.imagekit.io/1yxtj9qun/About/osams.png?updatedAt=1769710741865",
+                        "https://ik.imagekit.io/1yxtj9qun/About/keep.png?updatedAt=1769710741844",
+                        "https://ik.imagekit.io/1yxtj9qun/About/ceas.png?updatedAt=1769710741807",
+                        "https://ik.imagekit.io/1yxtj9qun/About/imsar.png?updatedAt=1769710741733",
+                        "https://ik.imagekit.io/1yxtj9qun/About/afaq.png?updatedAt=1769710741445",
+                        "https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png?updatedAt=1768917745508"
                     ]}
                 />
             </div>

@@ -29,7 +29,7 @@ export default function AboutPage() {
                         className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="https://ik.imagekit.io/5c6j602yp/About/Untitled%20design.png?updatedAt=1768755140239"
+                            src="https://ik.imagekit.io/1yxtj9qun/About/Untitled%20design.png?updatedAt=1768755140239"
                             alt="CM College Campus"
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-700"
@@ -107,7 +107,7 @@ export default function AboutPage() {
                             className="order-1 lg:order-2 relative h-[130px] md:h-[200px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
-                                src="https://ik.imagekit.io/5c6j602yp/About/college-image-1" // Valid placeholder for now
+                                src="https://ik.imagekit.io/1yxtj9qun/About/college-image-1" // Valid placeholder for now
                                 alt="Institutional Overview"
                                 fill
                                 className="object-contain hover:scale-105 transition-transform duration-700"

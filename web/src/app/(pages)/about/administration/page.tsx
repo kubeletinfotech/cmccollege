@@ -10,17 +10,17 @@ const councilMembers = [
     {
         name: "T K Abdu Rahman Baqavi",
         role: "Chairman - CM College",
-        image: "https://ik.imagekit.io/5c6j602yp/About/chairman"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/chairman"
     },
     {
         name: "Zainudheen T K",
         role: "Director - CM College",
-        image: "https://ik.imagekit.io/5c6j602yp/About/director.jpg"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/director.jpg"
     },
     {
         name: "Shafi Pulpara",
         role: "Principal - CM College",
-        image: "https://ik.imagekit.io/5c6j602yp/About/principal.jpeg"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/principal.jpeg"
     },
     {
         name: "Jabir Ali P P",

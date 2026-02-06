@@ -229,7 +229,7 @@ export default function Navbar() {
                         >
                             <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24">
                                 <Image
-                                    src="https://ik.imagekit.io/5c6j602yp/Home/images/PNG%20CM%20COLLEGE.png"
+                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
                                     alt="College Logo"
                                     fill
                                     priority

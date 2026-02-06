@@ -160,7 +160,7 @@ export default function AcademicsPage() {
                         <ScrollReveal>
                             <div className="relative aspect-video rounded-[40px] overflow-hidden shadow-2xl border-l-[6px] border-[#7B0046] shadow-[#7B0046]/10 bg-white group">
                                 <Image
-                                    src="https://ik.imagekit.io/5c6j602yp/Home/images/library.jpeg"
+                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg"
                                     alt="Campus Library"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"

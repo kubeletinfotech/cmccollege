@@ -32,7 +32,7 @@ const placeholderImages = [
   { title: "Sports Day Excellence", src: "/images/school_sports_day_1768117809679.png", tag: "Sports" },
   { title: "Cultural Performance", src: "/images/cultural_fest_performance_1768117835053.png", tag: "Events" },
   { title: "Science Innovation", src: "/images/science_exhibition_project_1768117868795.png", tag: "Academic" },
-  { title: "College Library", src: "https://ik.imagekit.io/5c6j602yp/Home/images/library.jpeg", tag: "Campus" },
+  { title: "College Library", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg", tag: "Campus" },
   { title: "Annual Awards", src: "/images/school_annual_award_ceremony_stage_1768117893644.png", tag: "Events" }
 ];
 
@@ -134,22 +134,22 @@ export default function Home() {
   // Hero Slider Configuration
   const desktopImages = [
     "https://cmcollege.edu.in/wp-content/uploads/2023/08/banner4.jpg",
-    "https://ik.imagekit.io/5c6j602yp/Banner/Banner1?updatedAt=1768811009859",
-    "https://ik.imagekit.io/5c6j602yp/Banner/Banner2",
-    "https://ik.imagekit.io/5c6j602yp/Banner/Banner"
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1?updatedAt=1768811009859",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner"
   ];
 
   const tabletImages = [
     "https://cmcollege.edu.in/wp-content/uploads/2023/08/banner4.jpg",
-    "https://ik.imagekit.io/5c6j602yp/Banner/Banner1?updatedAt=1768811009859",
-    "https://ik.imagekit.io/5c6j602yp/Banner/Banner2"
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1?updatedAt=1768811009859",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2"
   ];
 
   const mobileImages = [
-    "https://ik.imagekit.io/5c6j602yp/Banner/mobile_banner_college1",
-    // "https://ik.imagekit.io/5c6j602yp/Banner/bannerMobile1",
-    // "https://ik.imagekit.io/5c6j602yp/Banner/bannerMobile2",
-    "https://ik.imagekit.io/5c6j602yp/Banner/bannerMobile",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1",
+    // "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile1",
+    // "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile2",
+    "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile",
   ];
 
   // Track visible slide count based on viewport
@@ -445,7 +445,7 @@ export default function Home() {
               {/* Image Section - Top on mobile, Left on desktop */}
               <div className="w-full md:w-5/12 relative h-[450px] md:h-auto">
                 <Image
-                  src="https://ik.imagekit.io/5c6j602yp/About/principal.jpeg?updatedAt=1768826571745"
+                  src="https://ik.imagekit.io/1yxtj9qun/About/principal.jpeg?updatedAt=1768826571745"
                   alt="Principal"
                   fill
                   className="object-cover"
@@ -516,12 +516,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Department Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Computer%20Science/Cs-bg.png" },
-              { name: "Department Of Management", slug: "management", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Management/Management-bg.png" },
-              { name: "Department Of Mass Communication And Journalism", slug: "mass-communication", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Masscom/masscom-bg.png" },
-              { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
-              { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/English/english-bg.jpg" },
-              { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/5c6j602yp/Departments%20/Commerce/commerce-bg.jpg" },
+              { name: "Department Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Cs-bg.png" },
+              { name: "Department Of Management", slug: "management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Management-bg.png" },
+              { name: "Department Of Mass Communication And Journalism", slug: "mass-communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/masscom-bg.png" },
+              { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
+              { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
+              { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
               { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "/images/modern_science_lab_1768116682208.png" },
               { name: "Department Of Sociology", slug: "sociology", img: "/images/science_exhibition_project_1768117868795.png" }
             ].map((dept, i) => (
@@ -572,11 +572,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
             {[
-              { name: "Hostel", slug: "hostels", img: "https://ik.imagekit.io/5c6j602yp/Home/images/hostel.jpeg" },
-              { name: "Masjid", slug: "prayer-hall", img: "https://ik.imagekit.io/5c6j602yp/Home/images/masjid.jpeg" },
-              { name: "Labs", slug: "computer-lab", img: "https://ik.imagekit.io/5c6j602yp/Home/images/computer-lab.jpeg" },
-              { name: "Library", slug: "library", img: "https://ik.imagekit.io/5c6j602yp/Home/images/library.jpeg" },
-              { name: "Bus", slug: "bus-facility", img: "https://ik.imagekit.io/5c6j602yp/Home/images/buss.jpeg" }
+              { name: "Hostel", slug: "hostels", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/hostel.jpeg" },
+              { name: "Masjid", slug: "prayer-hall", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/masjid.jpeg" },
+              { name: "Labs", slug: "computer-lab", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
+              { name: "Library", slug: "library", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
+              { name: "Bus", slug: "bus-facility", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg" }
 
             ].map((facility, i) => (
               <ScrollReveal key={i} delay={isMobile ? i * 50 : i * 100} className="group cursor-pointer">
