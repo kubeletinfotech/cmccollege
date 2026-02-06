@@ -139,7 +139,7 @@ export default function ManagementPage() {
                         <div className="absolute top-4 -right-4 w-full h-full border-2 border-[#7a0b3a]/10 rounded-2xl md:rounded-[32px] -z-10 group-hover:top-2 group-hover:-right-2 transition-all duration-500"></div>
                         <div className="relative aspect-3/4 w-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-xl shadow-zinc-200/50">
                             <Image
-                                src="https://ik.imagekit.io/5c6j602yp/About/chairman.jpg"
+                                src="https://ik.imagekit.io/5c6j602yp/About/chairman"
                                 alt="TK Abdurahiman Baquavi - Chairman"
                                 fill
                                 className="object-cover transition-transform duration-700 hover:scale-105"

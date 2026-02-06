@@ -104,6 +104,7 @@ export default function NewsSection() {
                                         alt={item.title}
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 85vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-[10px] font-bold text-emerald-800 uppercase tracking-wider shadow-sm">
                                         {item.tag}

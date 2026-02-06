@@ -81,11 +81,11 @@ export default function Testimonials() {
                     alt="Alumni Background"
                     fill
                     className="object-cover"
-                    priority
+                    sizes="100vw"
                 />
                 {/* Premium Dark Overlay */}
                 <div className="absolute inset-0 bg-zinc-900/80 md:bg-zinc-900/75 mix-blend-multiply"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-zinc-900/50"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-zinc-900 via-transparent to-zinc-900/50"></div>
             </div>
 
             <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center text-white">
@@ -97,7 +97,7 @@ export default function Testimonials() {
                     transition={{ duration: 0.8 }}
                     className="mb-12 md:mb-16"
                 >
-                    <span className="block text-[#fff] text-xs md:text-sm font-bold tracking-[0.2em] uppercase opacity-80 mb-3">
+                    <span className="block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase opacity-80 mb-3">
                         What Our Alumni Say
                     </span>
                     <h2 className="text-3xl md:text-5xl font-agency font-bold tracking-normal uppercase">

@@ -80,6 +80,7 @@ export default function Professionals() {
                                         alt={alum.name}
                                         fill
                                         className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 96px, 128px"
                                     />
                                 </div>
                             </div>
