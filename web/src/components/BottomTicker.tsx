@@ -61,7 +61,7 @@ export default function BottomTicker() {
         <Link href="/announcements">
             <div className="fixed bottom-0 left-0 right-0 z-50 bg-neutral-900 border-t border-neutral-800 h-10 md:h-12 flex shadow-2xl">
                 {/* Label - Fixed Left */}
-                <div className="flex-shrink-0 bg-[#7B0046] px-4 md:px-6 flex items-center justify-center relative z-20">
+                <div className="shrink-0 bg-[#7B0046] px-4 md:px-6 flex items-center justify-center relative z-20">
                     <span className="text-[10px] md:text-xs font-bold text-white tracking-widest uppercase flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                         Announcements
@@ -78,9 +78,9 @@ export default function BottomTicker() {
                 {/* Optimized for seamless infinite loop */}
                 <div className="flex-1 relative overflow-hidden flex items-center">
                     {/* Gradient Mask Left */}
-                    <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-8 bg-linear-to-r from-neutral-900 to-transparent z-10 pointer-events-none"></div>
                     {/* Gradient Mask Right */}
-                    <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-8 bg-linear-to-l from-neutral-900 to-transparent z-10 pointer-events-none"></div>
 
                     {/* Dynamic duration based on content length (approx 8s per item for consistent speed) */}
                     {/* Dynamic duration based on content length */}
@@ -92,8 +92,8 @@ export default function BottomTicker() {
                         // Desktop: Base duration
                         className="flex items-center gap-4 shrink-0 animate-[marquee_calc(var(--duration)*4)_linear_infinite] md:animate-[marquee_var(--duration)_linear_infinite] hover:[animation-play-state:paused]"
                         style={{
-                            // Base duration (Fast)
-                            '--duration': `${Math.max(12, displayList.join('').length * 0.1)}s`,
+                            // Base duration (Slower)
+                            '--duration': `${Math.max(15, displayList.join('').length * 0.25)}s`,
                             willChange: 'transform'
                         } as React.CSSProperties}
                     >
