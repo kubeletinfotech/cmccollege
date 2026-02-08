@@ -123,11 +123,12 @@ export default function GalleryPage() {
                         <p className="text-zinc-400 text-xl font-medium">No visuals found for this category.</p>
                     </ScrollReveal>
                 ) : (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-6">
+                    // ... existing filtering logic ...
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         {filteredImages.map((image, i) => (
                             <ScrollReveal key={image._id} delay={i * 30}>
                                 <div
-                                    className="group relative aspect-square md:aspect-4/3 rounded-xl md:rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 bg-white border border-zinc-100 cursor-pointer"
+                                    className="group relative aspect-video rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-zinc-100 cursor-pointer"
                                     onClick={() => openLightbox(i)}
                                 >
                                     <Image
@@ -135,17 +136,12 @@ export default function GalleryPage() {
                                         alt="Gallery entry"
                                         fill
                                         unoptimized
-                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                        className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                                     />
-                                    {/* Subtle Overlay */}
-                                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center text-white">
-                                            <span className="text-[10px] font-bold uppercase tracking-widest bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-                                                {image.category}
-                                            </span>
-                                            <div className="w-10 h-10 rounded-full bg-white text-[#7B0046] flex items-center justify-center shadow-lg">
-                                                <Maximize2 size={18} />
-                                            </div>
+                                    {/* Subtle Overlay - Matching Homepage Style */}
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                                            <Maximize2 size={20} />
                                         </div>
                                     </div>
                                 </div>
@@ -162,12 +158,12 @@ export default function GalleryPage() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+                        className="fixed inset-0 z-100 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
                         onClick={closeLightbox}
                     >
                         {/* Close button */}
                         <button
-                            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110] bg-white/10 p-3 rounded-full border border-white/10"
+                            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-110 bg-white/10 p-3 rounded-full border border-white/10"
                             onClick={closeLightbox}
                         >
                             <X className="w-8 h-8" />

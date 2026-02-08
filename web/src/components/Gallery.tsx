@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Maximize2, ArrowRight } from "lucide-react";
 import Skeleton from './Skeleton';
 
@@ -24,25 +24,8 @@ export default function Gallery({ initialItems }: GalleryProps) {
     const [items, setItems] = useState<GalleryItem[]>(initialItems || []);
     const [loading, setLoading] = useState(!initialItems);
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [visibleCount, setVisibleCount] = useState(4);
-
-    useEffect(() => {
-        // Responsive visible count
-        const updateVisibleCount = () => {
-            if (window.innerWidth < 640) {
-                setVisibleCount(1);
-            } else if (window.innerWidth < 1024) {
-                setVisibleCount(2);
-            } else {
-                setVisibleCount(4);
-            }
-        };
-
-        updateVisibleCount();
-        window.addEventListener('resize', updateVisibleCount);
-        return () => window.removeEventListener('resize', updateVisibleCount);
-    }, []);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const controls = useAnimationControls();
 
     useEffect(() => {
         if (initialItems) return;
@@ -53,7 +36,7 @@ export default function Gallery({ initialItems }: GalleryProps) {
                 const data = await response.json();
 
                 if (data.success && data.data.length > 0) {
-                    setItems(data.data.slice(0, 12));
+                    setItems(data.data.slice(0, 10)); // Fetch enough for marquee
                 } else {
                     setItems(fallbackItems);
                 }
@@ -68,33 +51,29 @@ export default function Gallery({ initialItems }: GalleryProps) {
         fetchGallery();
     }, []);
 
+    // Start Marquee Animation when items are ready
     useEffect(() => {
-        if (items.length <= visibleCount || selectedImageIndex !== null) return;
+        if (!loading && items.length > 4) {
+            controls.start({
+                x: "-50%",
+                transition: {
+                    duration: 30, // Adjust speed here (seconds for full loop)
+                    ease: "linear",
+                    repeat: Infinity,
+                }
+            });
+        }
+    }, [loading, items.length, controls]);
 
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % items.length);
-        }, 3000);
 
-        return () => clearInterval(interval);
-    }, [items.length, selectedImageIndex, visibleCount]);
-
-    const openLightbox = (idx: number) => {
-        setSelectedImageIndex(idx);
+    const openLightbox = (index: number) => {
+        setSelectedImageIndex(index);
         document.body.style.overflow = 'hidden';
     };
 
     const closeLightbox = () => {
         setSelectedImageIndex(null);
         document.body.style.overflow = 'unset';
-    };
-
-    const getVisibleItems = () => {
-        if (items.length === 0) return [];
-        const visibleItems = [];
-        for (let i = 0; i < visibleCount; i++) {
-            visibleItems.push(items[(currentIndex + i) % items.length]);
-        }
-        return visibleItems;
     };
 
     const nextLightBoxImage = (e?: React.MouseEvent) => {
@@ -110,6 +89,9 @@ export default function Gallery({ initialItems }: GalleryProps) {
             setSelectedImageIndex((selectedImageIndex - 1 + items.length) % items.length);
         }
     };
+
+    // Marquee Content - Duplicated for seamless loop
+    const marqueeItems = [...items, ...items];
 
     return (
         <section className="py-16 md:py-24 bg-zinc-50 overflow-hidden">
@@ -133,8 +115,8 @@ export default function Gallery({ initialItems }: GalleryProps) {
                     />
                 </div>
 
-                {/* Content: Loading / Grid / Carousel */}
-                <div className="min-h-[300px] overflow-hidden">
+                {/* Content: Loading / Grid / Marquee */}
+                <div className="min-h-[300px] overflow-hidden relative">
                     {loading ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             {Array.from({ length: 4 }).map((_, i) => (
@@ -143,9 +125,9 @@ export default function Gallery({ initialItems }: GalleryProps) {
                                 </div>
                             ))}
                         </div>
-                    ) : items.length <= visibleCount ? (
-                        // Static Grid for <= visibleCount items
-                        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4`}>
+                    ) : items.length <= 4 ? (
+                        // Static Grid for <= 4 items
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             {items.map((item, index) => (
                                 <motion.div
                                     key={item._id}
@@ -170,19 +152,23 @@ export default function Gallery({ initialItems }: GalleryProps) {
                             ))}
                         </div>
                     ) : (
-                        // Animated Carousel for > visibleCount items
-                        <div className={`grid gap-4 ${visibleCount === 1 ? 'grid-cols-1' : visibleCount === 2 ? 'grid-cols-2' : 'grid-cols-4'}`}>
-                            <AnimatePresence mode='popLayout'>
-                                {getVisibleItems().map((item) => (
-                                    <motion.div
-                                        key={item._id}
-                                        layout
-                                        initial={{ opacity: 0, x: 50 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -50 }}
-                                        transition={{ duration: 0.6, ease: "easeInOut" }}
-                                        className="group relative aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm hover:shadow-xl transition-shadow duration-300"
-                                        onClick={() => openLightbox(items.findIndex(i => i._id === item._id))}
+                        // Infinite Marquee for > 4 items
+                        <div
+                            className="flex w-full"
+                            onMouseEnter={() => controls.stop()}
+                            onMouseLeave={() => controls.start({ x: "-50%", transition: { duration: 30, ease: "linear", repeat: Infinity, type: "tween" } })}
+                            ref={containerRef}
+                        >
+                            <motion.div
+                                className="flex gap-4 min-w-max"
+                                animate={controls}
+                                initial={{ x: 0 }}
+                            >
+                                {marqueeItems.map((item, index) => (
+                                    <div
+                                        key={`${item._id}-${index}`}
+                                        className="relative w-[85vw] sm:w-[45vw] lg:w-[22vw] aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group shrink-0"
+                                        onClick={() => openLightbox(index % items.length)}
                                     >
                                         <Image
                                             src={item.imageUrl}
@@ -196,9 +182,9 @@ export default function Gallery({ initialItems }: GalleryProps) {
                                                 <Maximize2 size={20} />
                                             </div>
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 ))}
-                            </AnimatePresence>
+                            </motion.div>
                         </div>
                     )}
                 </div>
