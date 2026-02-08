@@ -371,7 +371,7 @@ export default function GalleryAdminPage() {
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {loading ? (
                     <div className="col-span-full py-40 text-center">
                         <div className="w-16 h-16 border-[6px] border-emerald-50 border-t-emerald-600 rounded-full animate-spin mx-auto mb-6"></div>
@@ -393,7 +393,7 @@ export default function GalleryAdminPage() {
                         <div
                             key={item._id}
                             style={{ animationDelay: `${idx * 100}ms` }}
-                            className="group relative aspect-4/5 bg-zinc-200 rounded-[3rem] overflow-hidden border-8 border-white shadow-lg hover:shadow-[0_40px_80px_rgba(6,95,70,0.3)] transition-all duration-700 animate-in fade-in slide-in-from-bottom-6"
+                            className="group relative aspect-video bg-zinc-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-6"
                         >
                             <Image
                                 src={item.imageUrl}
@@ -403,17 +403,18 @@ export default function GalleryAdminPage() {
                                 className="object-cover group-hover:scale-110 transition-transform duration-1000"
                             />
 
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                                <div className="flex justify-between items-center">
-                                    <span className="px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-black uppercase text-white tracking-widest border border-white/20">{item.category}</span>
-                                    <button
-                                        onClick={() => handleDelete(item._id)}
-                                        className="w-14 h-14 bg-red-500 hover:bg-red-600 text-white rounded-2xl flex items-center justify-center transition-all shadow-xl active:scale-90 cursor-pointer"
-                                    >
-                                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                        </svg>
-                                    </button>
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button
+                                    onClick={() => handleDelete(item._id)}
+                                    className="w-12 h-12 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-all shadow-lg active:scale-95 cursor-pointer"
+                                    title="Delete Image"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                                <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                                    <span className="text-white text-[10px] uppercase font-bold tracking-widest">{item.category}</span>
                                 </div>
                             </div>
                         </div>
