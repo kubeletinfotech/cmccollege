@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Maximize2, ArrowRight } from "lucide-react";
 import Skeleton from './Skeleton';
 
@@ -24,8 +24,43 @@ export default function Gallery({ initialItems }: GalleryProps) {
     const [items, setItems] = useState<GalleryItem[]>(initialItems || []);
     const [loading, setLoading] = useState(!initialItems);
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const controls = useAnimationControls();
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [itemsPerScreen, setItemsPerScreen] = useState(4);
+
+    // Handle Resize
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) setItemsPerScreen(1);
+            else if (window.innerWidth < 1024) setItemsPerScreen(2);
+            else setItemsPerScreen(4);
+        };
+
+        if (typeof window !== 'undefined') {
+            handleResize();
+            window.addEventListener('resize', handleResize);
+        }
+
+        return () => {
+            if (typeof window !== 'undefined') window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    // Auto-slide Loop
+    useEffect(() => {
+        if (loading || items.length <= 4) return;
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % items.length);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, [loading, items.length]);
+
+    // Compute visible items
+    const visibleItems: GalleryItem[] = [];
+    if (items.length > 0) {
+        for (let i = 0; i < itemsPerScreen; i++) {
+            visibleItems.push(items[(currentIndex + i) % items.length]);
+        }
+    }
 
     useEffect(() => {
         if (initialItems) return;
@@ -51,19 +86,7 @@ export default function Gallery({ initialItems }: GalleryProps) {
         fetchGallery();
     }, []);
 
-    // Start Marquee Animation when items are ready
-    useEffect(() => {
-        if (!loading && items.length > 4) {
-            controls.start({
-                x: "-50%",
-                transition: {
-                    duration: 30, // Adjust speed here (seconds for full loop)
-                    ease: "linear",
-                    repeat: Infinity,
-                }
-            });
-        }
-    }, [loading, items.length, controls]);
+
 
 
     const openLightbox = (index: number) => {
@@ -90,8 +113,7 @@ export default function Gallery({ initialItems }: GalleryProps) {
         }
     };
 
-    // Marquee Content - Duplicated for seamless loop
-    const marqueeItems = [...items, ...items];
+
 
     return (
         <section className="py-16 md:py-24 bg-zinc-50 overflow-hidden">
@@ -125,66 +147,47 @@ export default function Gallery({ initialItems }: GalleryProps) {
                                 </div>
                             ))}
                         </div>
-                    ) : items.length <= 4 ? (
-                        // Static Grid for <= 4 items
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {items.map((item, index) => (
-                                <motion.div
-                                    key={item._id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="group relative aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm hover:shadow-xl transition-all duration-300"
-                                    onClick={() => openLightbox(index)}
-                                >
-                                    <Image
-                                        src={item.imageUrl}
-                                        alt={item.title || "Gallery Image"}
-                                        fill
-                                        className="object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                    />
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 transform scale-50 group-hover:scale-100 transition-transform duration-300">
-                                            <Maximize2 size={20} />
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
                     ) : (
-                        // Infinite Marquee for > 4 items
-                        <div
-                            className="flex w-full"
-                            onMouseEnter={() => controls.stop()}
-                            onMouseLeave={() => controls.start({ x: "-50%", transition: { duration: 30, ease: "linear", repeat: Infinity, type: "tween" } })}
-                            ref={containerRef}
-                        >
-                            <motion.div
-                                className="flex gap-4 min-w-max"
-                                animate={controls}
-                                initial={{ x: 0 }}
-                            >
-                                {marqueeItems.map((item, index) => (
-                                    <div
-                                        key={`${item._id}-${index}`}
-                                        className="relative w-[85vw] sm:w-[45vw] lg:w-[22vw] aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group shrink-0"
-                                        onClick={() => openLightbox(index % items.length)}
-                                    >
-                                        <Image
-                                            src={item.imageUrl}
-                                            alt={item.title || "Gallery Image"}
-                                            fill
-                                            className="object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                        />
-                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                            <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 transform scale-50 group-hover:scale-100 transition-transform duration-300">
-                                                <Maximize2 size={20} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </motion.div>
+                        // Auto Slide Carousel (One disappear, then show next one)
+                        <div className="relative">
+                            <div className="overflow-hidden">
+                                <motion.div className="flex gap-4">
+                                    <AnimatePresence mode="popLayout" initial={false}>
+                                        {visibleItems.map((item) => (
+                                            <motion.div
+                                                key={item._id}
+                                                layout
+                                                initial={{ opacity: 0, scale: 0.8, x: 100 }}
+                                                animate={{ opacity: 1, scale: 1, x: 0 }}
+                                                exit={{ opacity: 0, scale: 0.8, x: -100 }}
+                                                transition={{
+                                                    opacity: { duration: 0.4 },
+                                                    layout: { duration: 0.4, ease: "easeInOut" }
+                                                }}
+                                                className="relative w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm hover:shadow-xl shrink-0"
+                                                onClick={() => {
+                                                    // Find original index
+                                                    const originalIndex = items.findIndex(i => i._id === item._id);
+                                                    openLightbox(originalIndex);
+                                                }}
+                                            >
+                                                <Image
+                                                    src={item.imageUrl}
+                                                    alt={item.title || "Gallery Image"}
+                                                    fill
+                                                    className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                                />
+                                                <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center group">
+                                                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                                                        <Maximize2 size={20} />
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        ))}
+                                    </AnimatePresence>
+                                </motion.div>
+                            </div>
                         </div>
                     )}
                 </div>
