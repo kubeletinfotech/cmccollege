@@ -89,7 +89,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Rajitha P R",
             qualification: "Master of Computer Applications",
             quote: "Our goal is to transcend traditional learning and build a bridge between academia and the ever-evolving tech industry.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rajitha"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rajitha.jpeg?updatedAt=1770370362231"
         },
         faculty: [
             { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/sumayya-u.jpg" },
@@ -139,7 +139,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         },
         faculty: [
             { name: "Jaseela C M", role: "Assistant Professor", spec: "Finance", img: "/images/default-user-placeholder.png" },
-            { name: "Aysha K P", role: "Assistant Professor", spec: "HR Management", img: "/images/default-user-placeholder.png" },
+            { name: "Aysha K P", role: "Assistant Professor", spec: "HR Management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Ayisha?updatedAt=1770620889342" },
             { name: "Sini John", role: "Assistant Professor", spec: "Operations", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [
@@ -337,7 +337,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         },
         faculty: [
             { name: "Bindu S.G", role: "Assistant Professor", spec: "Commerce", img: "/images/default-user-placeholder.png" },
-            { name: "Shefeena K.T", role: "Assistant Professor", spec: "Commerce", img: "/images/default-user-placeholder.png" },
+            { name: "Shefeena K.T", role: "Assistant Professor", spec: "Commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/shefeena?updatedAt=1770620563560" },
             { name: "Jamsheena", role: "Assistant Professor", spec: "Commerce", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [

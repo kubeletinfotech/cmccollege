@@ -529,13 +529,13 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
 
             {/* Academic Programs Section */}
             <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-50">
-                <div className="max-w-7xl mx-auto">
+                <div className="w-full mx-auto">
                     <ScrollReveal className="text-center mb-8 md:mb-16">
                         <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-4 uppercase">Departments of Academic Studies</h2>
                         <p className="text-zinc-600 text-lg max-w-2xl mx-auto">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
                     </ScrollReveal>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                         {[
                             { name: "Department Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Cs-bg.png" },
                             { name: "Department Of Management", slug: "management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Management-bg.png" },
@@ -544,7 +544,9 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
                             { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
                             { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "/images/modern_science_lab_1768116682208.png" },
-                            { name: "Department Of Sociology", slug: "sociology", img: "/images/science_exhibition_project_1768117868795.png" }
+                            { name: "Department Of Sociology", slug: "sociology", img: "/images/science_exhibition_project_1768117868795.png" },
+                            { name: "Department Of Malayalam", slug: "malayalam", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/malayalam" },
+                            { name: "Department Of Arabic", slug: "arabic", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg" }
                         ].map((dept, i) => (
                             <ScrollReveal key={i} delay={isMobile ? i * 50 : i * 100}>
                                 <Link
