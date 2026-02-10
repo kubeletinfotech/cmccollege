@@ -107,7 +107,7 @@ export default function AboutPage() {
                             className="order-1 lg:order-2 relative h-[130px] md:h-[200px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
-                                src="https://ik.imagekit.io/1yxtj9qun/About/college-image-1" // Valid placeholder for now
+                                src="https://ik.imagekit.io/1yxtj9qun/About/college-image-1.jpeg?updatedAt=1770370502054" // Valid placeholder for now
                                 alt="Institutional Overview"
                                 fill
                                 className="object-contain hover:scale-105 transition-transform duration-700"
