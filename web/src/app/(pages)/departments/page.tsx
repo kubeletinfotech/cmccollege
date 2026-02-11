@@ -7,15 +7,15 @@ import ScrollReveal from "@/components/ScrollReveal";
 import toast from "react-hot-toast";
 
 const DEPARTMENTS = [
-    { name: "Department of Computer Science", href: "/departments/computer-science" },
-    { name: "Department of Management", href: "/departments/management" },
-    { name: "Department of Mass Communication and Journalism", href: "/departments/mass-communication" },
-    { name: "Department of Economics", href: "/departments/economics" },
-    { name: "Department of English", href: "/departments/english" },
-    { name: "Department of Commerce", href: "/departments/commerce" },
-    { name: "Department of Statistics", href: "/departments/statistics" },
-    { name: "Department of Psychology", href: "/departments/psychology" },
-    { name: "Department of Multimedia", href: "/departments/multimedia" },
+    { name: "Dpt. of Computer Science", href: "/departments/computer-science" },
+    { name: "Dpt. of Management", href: "/departments/management" },
+    { name: "Dpt. of Mass Communication and Journalism", href: "/departments/mass-communication" },
+    { name: "Dpt. of Economics", href: "/departments/economics" },
+    { name: "Dpt. of English", href: "/departments/english" },
+    { name: "Dpt. of Commerce", href: "/departments/commerce" },
+    { name: "Dpt. of Statistics", href: "/departments/statistics" },
+    { name: "Dpt. of Psychology", href: "/departments/psychology" },
+    { name: "Dpt. of Multimedia", href: "/departments/multimedia" },
 ];
 
 export default function DepartmentsPage() {
@@ -61,8 +61,8 @@ export default function DepartmentsPage() {
             </section>
 
             {/* --- DEPARTMENTS LIST SECTION --- */}
-            <section className="pb-24 px-6 lg:px-24">
-                <div className="max-w-7xl mx-auto">
+            <section className="pb-24 px-6 lg:px-12">
+                <div className="max-w-[1440px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {DEPARTMENTS.map((dept, index) => (
                             <ScrollReveal
@@ -76,7 +76,8 @@ export default function DepartmentsPage() {
                                 >
                                     <div className="flex flex-col gap-1 transition-transform duration-300 group-hover:translate-x-2">
                                         <h2 className="text-xl md:text-2xl font-bold text-zinc-900 group-hover:text-[#5D1035] transition-colors leading-tight">
-                                            {dept.name}
+                                            <span className="text-xs md:text-sm font-medium text-zinc-400 block mb-1">Dpt. of</span>
+                                            {dept.name.replace("Dpt. of ", "")}
                                         </h2>
                                     </div>
 
