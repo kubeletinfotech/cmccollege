@@ -138,7 +138,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Athira"
         },
         faculty: [
-            { name: "Jaseela C M", role: "Assistant Professor", spec: "Finance", img: "/images/default-user-placeholder.png" },
+            { name: "Jaseela C M", role: "Assistant Professor", spec: "Finance", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Jaseela" },
             { name: "Aysha K P", role: "Assistant Professor", spec: "HR Management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Ayisha?updatedAt=1770620889342" },
             { name: "Sini John", role: "Assistant Professor", spec: "Operations", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Sini-Jhon" },
         ],
@@ -327,10 +327,10 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Shibu Krishnan",
             qualification: "M.Com, M.Phil",
             quote: "In commerce, ethics is the foundation of trust, and skill is the engine of growth.",
-            img: "/images/default-user-placeholder.png"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Shibu"
         },
         faculty: [
-            { name: "Bindu S.G", role: "Assistant Professor", spec: "Commerce", img: "/images/default-user-placeholder.png" },
+            { name: "Bindu S.G", role: "Assistant Professor", spec: "Commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Bindhu" },
             { name: "Shefeena K.T", role: "Assistant Professor", spec: "Commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/shefeena?updatedAt=1770620563560" },
             { name: "Jamsheena", role: "Assistant Professor", spec: "Commerce", img: "/images/default-user-placeholder.png" },
         ],

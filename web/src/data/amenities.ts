@@ -205,8 +205,6 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
         image: "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg",
         icon: Bus,
         gallery: [
-            "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg",
-            "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg"
         ],
         busSchedules: [
             {
