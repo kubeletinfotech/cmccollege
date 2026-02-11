@@ -9,6 +9,7 @@ export interface AmenityData {
     icon?: any;
     gallery?: string[];
     busSchedules?: { busName: string; stops: { route: string; time: string; driver?: string }[] }[];
+    eveningSchedules?: { busName: string; stops: { route: string; time: string; driver?: string }[] }[];
     hostelDetails?: {
         boys: { capacity: number; vacancies: number; warden: string };
         girls: { capacity: number; vacancies: number; warden: string };
@@ -253,6 +254,56 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
                     { route: "5th Mile", time: "9:22 AM" },
                     { route: "Panamaram", time: "9:25 AM" },
                     { route: "Nadavayal", time: "9:35 AM" }
+                ]
+            }
+        ],
+        eveningSchedules: [
+            {
+                busName: "Bus 1",
+                stops: [
+                    { route: "Nadavayal", time: "4:30 PM", driver: "Mr. Rajan" },
+                    { route: "Nelliyambam", time: "4:35 PM" },
+                    { route: "Panamaram", time: "4:40 PM" },
+                    { route: "Kaithakkal", time: "4:45 PM" },
+                    { route: "Kappumchal", time: "4:50 PM" },
+                    { route: "Koolivayal", time: "4:55 PM" },
+                    { route: "Anjukunnu", time: "5:00 PM" },
+                    { route: "Peechamgode", time: "5:05 PM" },
+                    { route: "4th Mile", time: "5:15 PM" },
+                    { route: "Thonichal", time: "5:20 PM" },
+                    { route: "Palamukku", time: "5:25 PM" },
+                    { route: "2/4", time: "5:30 PM" },
+                    { route: "Mananthavady", time: "5:35 PM" },
+                    { route: "Kalliyod", time: "5:45 PM" },
+                    { route: "Pilakkavu", time: "5:50 PM" },
+                    { route: "Paniyarakolli", time: "5:55 PM" },
+                    { route: "Kaniyaram", time: "6:05 PM" },
+                    { route: "Kuzhinilam", time: "6:10 PM" },
+                    { route: "Thalappuzha", time: "6:15 PM" },
+                    { route: "Thalappuzha 44", time: "6:20 PM" }
+                ]
+            },
+            {
+                busName: "Bus 2",
+                stops: [
+                    { route: "Nadavayal", time: "4:30 PM", driver: "Mr. Babu" },
+                    { route: "Panamaram", time: "4:40 PM" },
+                    { route: "5th Mile", time: "4:43 PM" },
+                    { route: "Karakkamala", time: "4:45 PM" },
+                    { route: "Cheriyamkolly", time: "4:47 PM" },
+                    { route: "Mundakutti", time: "4:50 PM" },
+                    { route: "Kuppadithara", time: "4:52 PM" },
+                    { route: "Cheruveri", time: "4:55 PM" },
+                    { route: "Padinjarathara", time: "5:05 PM" },
+                    { route: "Puthusserikkadavu", time: "5:15 PM" },
+                    { route: "Aruvayal", time: "5:20 PM" },
+                    { route: "Tharuvana", time: "5:25 PM" },
+                    { route: "Vellamunda 8/4", time: "5:30 PM" },
+                    { route: "10th Mile", time: "5:35 PM" },
+                    { route: "Kandathuvayal", time: "5:40 PM" },
+                    { route: "12th Mile", time: "5:45 PM" },
+                    { route: "Makkiyad", time: "5:50 PM" },
+                    { route: "Korom", time: "6:05 PM" }
                 ]
             }
         ]

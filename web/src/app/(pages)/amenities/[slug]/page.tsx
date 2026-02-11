@@ -13,6 +13,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
     const { slug } = use(params);
     const data = AMENITIES_DATA[slug];
     const [activeHostelTab, setActiveHostelTab] = useState<'boys' | 'girls'>('boys');
+    const [activeBusTab, setActiveBusTab] = useState<'morning' | 'evening'>('morning');
     const [expandedRoutes, setExpandedRoutes] = useState<number[]>([]);
 
     const toggleRoute = (index: number) => {
@@ -188,7 +189,24 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 text-center md:text-left">
                                             <div>
                                                 <h2 className="text-3xl md:text-4xl font-bold font-serif mb-2">Transportation Schedule</h2>
-                                                <p className="text-white/80 font-light text-lg">Daily shuttle services for students and staff.</p>
+                                                <div className="flex bg-white/10 p-1 rounded-full relative w-fit mb-4">
+                                                    <div
+                                                        className={`absolute inset-y-1 w-1/2 bg-white rounded-full shadow-sm transition-all duration-300 ${activeBusTab === 'evening' ? 'translate-x-[98%]' : 'translate-x-0'}`}
+                                                    ></div>
+                                                    <button
+                                                        onClick={() => setActiveBusTab('morning')}
+                                                        className={`relative z-10 px-6 py-1.5 rounded-full text-xs font-bold transition-colors text-center whitespace-nowrap ${activeBusTab === 'morning' ? 'text-[#5D1035]' : 'text-white hover:text-white/80'}`}
+                                                    >
+                                                        Morning
+                                                    </button>
+                                                    <button
+                                                        onClick={() => setActiveBusTab('evening')}
+                                                        className={`relative z-10 px-6 py-1.5 rounded-full text-xs font-bold transition-colors text-center whitespace-nowrap ${activeBusTab === 'evening' ? 'text-[#5D1035]' : 'text-white hover:text-white/80'}`}
+                                                    >
+                                                        Evening
+                                                    </button>
+                                                </div>
+                                                <p className="text-white/80 font-light text-lg">Daily shuttle services for {activeBusTab} commute.</p>
                                             </div>
                                             <button className="bg-white text-[#5D1035] px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
                                                 Download PDF <ArrowRight className="w-4 h-4" />
@@ -196,7 +214,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         </div>
 
                                         <div className="space-y-6">
-                                            {data.busSchedules.map((schedule, idx) => {
+                                            {(activeBusTab === 'morning' ? data.busSchedules : data.eveningSchedules)?.map((schedule, idx) => {
                                                 const isExpanded = expandedRoutes.includes(idx);
                                                 const startStop = schedule.stops[0];
                                                 const endStop = schedule.stops[schedule.stops.length - 1];
