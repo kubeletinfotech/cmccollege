@@ -29,9 +29,9 @@ export default async function DepartmentLayout({
 
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
                         <div className="max-w-3xl">
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-serif text-zinc-900 mb-6 leading-tight">
-                                Department of <br />
-                                <span className="text-[#5D1035] italic relative inline-block">
+                            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold font-serif text-zinc-900 mb-6 leading-tight">
+                                <span className="text-lg md:text-xl font-medium text-zinc-500 block mb-2 font-sans italic tracking-wider uppercase">Department of</span>
+                                <span className="text-[#5D1035] relative inline-block">
                                     {deptName}
                                     <div className="absolute -bottom-2 left-0 w-full h-1.5 bg-[#5D1035]/20 rounded-full" />
                                 </span>
@@ -44,7 +44,7 @@ export default async function DepartmentLayout({
                 </div>
 
                 {/* Background decorative elements */}
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-zinc-50 to-transparent pointer-events-none" />
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-zinc-50 to-transparent pointer-events-none" />
             </section>
 
             {/* --- CONTENT WITH SIDEBAR --- */}
