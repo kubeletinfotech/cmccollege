@@ -39,6 +39,15 @@ export default function ContactPage() {
             if (response.ok) {
                 setStatus("success");
                 setStatusMessage("Your enquiry has been submitted successfully!");
+
+                // Construct WhatsApp message
+                const whatsappMessage = `*New Enquiry Notification*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'N/A'}\n*Message:* ${formData.message}`;
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappUrl = `https://wa.me/916282592895?text=${encodedMessage}`;
+
+                // Open WhatsApp in a new tab
+                window.open(whatsappUrl, '_blank');
+
                 setFormData({ name: "", phone: "", email: "", message: "" });
             } else {
                 setStatus("error");
