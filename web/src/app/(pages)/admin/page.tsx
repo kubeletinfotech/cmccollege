@@ -7,7 +7,6 @@ import {
     Users,
     Megaphone,
     Image as ImageIcon,
-    TrendingUp,
     Clock,
     AlertCircle,
     ArrowRight,
@@ -37,6 +36,7 @@ interface Stats {
         gallery: number;
         news: number;
         users: number;
+        careers: number;
     };
     enquiriesThisMonth: number;
     pendingEnquiries: Enquiry[];
@@ -101,14 +101,14 @@ export default function AdminDashboardPage() {
             href: '/admin/gallery'
         },
         {
-            label: 'Engagement',
-            val: '98%',
-            trend: 'Avg. Response Rate',
-            icon: TrendingUp,
+            label: 'Career Details',
+            val: statsData?.counts.careers || 0,
+            trend: 'Active Postings',
+            icon: Briefcase,
             color: 'from-orange-600 to-orange-400',
             bg: 'bg-orange-50',
             text: 'text-orange-600',
-            href: '#'
+            href: '/admin/careers'
         }
     ];
 

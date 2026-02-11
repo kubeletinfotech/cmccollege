@@ -6,6 +6,7 @@ import Announcements from '@/models/Announcements';
 import Gallery from '@/models/Gallery';
 import News from '@/models/News';
 import User from '@/models/User';
+import CareerApplication from '@/models/CareerApplication';
 
 const MONGODB_URI = process.env.MONGODB_URI!;
 
@@ -34,12 +35,13 @@ export async function GET() {
         }
 
         // Fetch counts in parallel
-        const [enquiryCount, announcementCount, galleryCount, newsCount, userCount] = await Promise.all([
+        const [enquiryCount, announcementCount, galleryCount, newsCount, userCount, careerCount] = await Promise.all([
             Enquiry.countDocuments(),
             Announcements.countDocuments(),
             Gallery.countDocuments(),
             News.countDocuments(),
-            User.countDocuments()
+            User.countDocuments(),
+            CareerApplication.countDocuments()
         ]);
 
         // Get latest items for activity
@@ -68,6 +70,7 @@ export async function GET() {
                     gallery: galleryCount,
                     news: newsCount,
                     users: userCount,
+                    careers: careerCount,
                 },
                 enquiriesThisMonth,
                 pendingEnquiries,
