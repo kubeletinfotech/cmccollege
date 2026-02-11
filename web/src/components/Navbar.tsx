@@ -82,7 +82,7 @@ export default function Navbar() {
             name: "Academics", href: "/academics",
             dropdown: [
                 { name: "Syllabus", href: "http://docs.uoc.ac.in/website/Syll/" },
-                { name: "Time Table", href: "/academics/time-table" },
+                { name: "Time Table", href: "https://pareekshabhavan.uoc.ac.in/index.php/examination/timetable" },
                 { name: "Academic Calendar", href: "/academic-calender" },
                 { name: "Question Bank", href: "/question-bank" },
             ]
