@@ -126,7 +126,7 @@ export default function QuestionBankPage() {
             <section className="py-16 px-6 max-w-7xl mx-auto w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-12 items-start">
                     {/* Sidebar Filters */}
-                    <aside className="w-full lg:w-72 shrink-0 sticky top-32 lg:top-32 z-40 self-start h-fit">
+                    <aside className="w-full lg:w-72 shrink-0 sticky top-35 lg:top-32 z-40 self-start h-fit">
                         {/* Mobile Toggle */}
                         <div className="lg:hidden mb-6">
                             <button

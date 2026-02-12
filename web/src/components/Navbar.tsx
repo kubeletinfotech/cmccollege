@@ -229,7 +229,7 @@ export default function Navbar() {
                             onClick={handleLogoClick}
                             className="flex items-center ml-0 lg:ml-[50px] relative z-20"
                         >
-                            <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24">
+                            <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24 overflow-hidden">
                                 <Image
                                     src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
                                     alt="College Logo"

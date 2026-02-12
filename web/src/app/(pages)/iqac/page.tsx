@@ -231,7 +231,7 @@ export default function IQACPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                     {/* LEFT SIDEBAR NAVIGATION */}
-                    <div className="lg:col-span-3 sticky top-28 lg:top-32 h-fit z-30 self-start">
+                    <div className="lg:col-span-3 sticky top-28 lg:top-35 h-fit z-30 self-start">
                         {/* Mobile Toggle */}
                         <div className="lg:hidden mb-6">
                             <button

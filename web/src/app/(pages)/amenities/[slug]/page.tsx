@@ -81,7 +81,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-24">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
                     {/* Sidebar - Sticky Wrapper */}
-                    <div className="hidden lg:block w-80 shrink-0 sticky top-32 self-start">
+                    <div className="hidden lg:block w-80 shrink-0 sticky top-35 self-start">
                         <AmenitiesSidebar />
                     </div>
 

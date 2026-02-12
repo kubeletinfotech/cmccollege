@@ -58,7 +58,7 @@ export default function DepartmentAboutPage({ params }: { params: Promise<{ slug
 
                 {/* Right Column - HOD Card (Elevated) */}
 
-                <div className="lg:col-span-1 sticky top-32 max-w-sm md:max-w-none mx-auto md:mx-0 w-full lg:w-auto">
+                <div className="lg:col-span-1 sticky top-35 max-w-sm md:max-w-none mx-auto md:mx-0 w-full lg:w-auto">
                     <ScrollReveal delay={200}>
                         <div className="group relative">
                             {/* HOD Card content... simplified matching previous closing structure for safety if user edited around */}
