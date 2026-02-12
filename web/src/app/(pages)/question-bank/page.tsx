@@ -431,17 +431,19 @@ export default function QuestionBankPage() {
                 <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#7a0b3a] to-transparent" />
                 <ScrollReveal>
                     <div className="max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight">Help Your Peers</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight">Need a Paper?</h2>
                         <p className="text-xl text-zinc-400 mb-10 leading-relaxed font-medium">
-                            Have a question paper that isn&apos;t here? Contribute it to our digital library and help future batches excel.
+                            If you are looking for a specific question paper that isn&apos;t available in our digital library, feel free to contact the coordinator.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <button className="w-full sm:w-auto px-10 py-5 bg-[#7a0b3a] hover:bg-[#60082d] text-white font-bold rounded-2xl shadow-xl shadow-maroon-900/20 transition-all hover:-translate-y-1 cursor-pointer">
-                                Upload Paper
-                            </button>
-                            <button className="w-full sm:w-auto px-10 py-5 bg-white/10 hover:bg-white/20 border border-white/10 text-white font-bold rounded-2xl transition-all cursor-pointer">
+                            <a
+                                href="https://wa.me/916282592895?text=Hi, I am looking for a question paper that is not in the bank."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full sm:w-auto px-10 py-5 bg-[#7a0b3a] hover:bg-[#60082d] text-white font-bold rounded-2xl shadow-xl shadow-maroon-900/20 transition-all hover:-translate-y-1 cursor-pointer"
+                            >
                                 Contact Coordinator
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </ScrollReveal>
