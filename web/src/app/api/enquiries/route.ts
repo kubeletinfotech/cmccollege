@@ -28,14 +28,31 @@ export async function GET() {
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
+        const { name, phone, email, message } = body;
+
+        // Basic validation
+        if (!name || !phone || !message) {
+            return NextResponse.json(
+                { success: false, error: 'Missing required fields' },
+                { status: 400 }
+            );
+        }
+
         await connectDB();
-        const enquiry = await Enquiry.create(body);
+        const enquiry = await Enquiry.create({
+            name,
+            phone,
+            email,
+            message,
+            status: 'Pending' // Explicitly set status to default
+        });
 
         return NextResponse.json({
             success: true,
             data: enquiry,
         });
     } catch (error: any) {
+
         console.error('Error creating enquiry:', error);
         return NextResponse.json(
             { success: false, error: 'Failed to create enquiry' },

@@ -25,8 +25,24 @@ export async function POST(req: NextRequest) {
         await ensureAdmin();
 
         const body = await req.json();
+        const { title, description, date, image, tag } = body;
+
+        // Basic validation
+        if (!title || !description || !image) {
+            return NextResponse.json(
+                { success: false, error: 'Missing required fields' },
+                { status: 400 }
+            );
+        }
+
         await connectDB();
-        const newsItem = await News.create(body);
+        const newsItem = await News.create({
+            title,
+            description,
+            date: date || new Date(),
+            image,
+            tag: tag || 'General'
+        });
 
         return NextResponse.json({
             success: true,

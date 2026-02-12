@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
-import mongoose from 'mongoose';
+import connectDB from '@/lib/mongodb';
+import { ensureAdmin } from '@/lib/ensureAdmin';
 import Enquiry from '@/models/Enquiry';
 import Announcements from '@/models/Announcements';
 import Gallery from '@/models/Gallery';
@@ -8,31 +8,11 @@ import News from '@/models/News';
 import User from '@/models/User';
 import CareerApplication from '@/models/CareerApplication';
 
-const MONGODB_URI = process.env.MONGODB_URI!;
-
-if (!MONGODB_URI) {
-    throw new Error('Please define the MONGODB_URI environment variable');
-}
-
-async function connectDB() {
-    if (mongoose.connection.readyState >= 1) return;
-    return mongoose.connect(MONGODB_URI);
-}
-
 export async function GET() {
     try {
-        const { userId } = await auth();
-        if (!userId) {
-            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-        }
-
+        await ensureAdmin();
         await connectDB();
 
-        // Verify admin role
-        const currentUser = await User.findOne({ clerkId: userId });
-        if (!currentUser || currentUser.role !== 'admin') {
-            return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
-        }
 
         // Fetch counts in parallel
         const [enquiryCount, announcementCount, galleryCount, newsCount, userCount, careerCount] = await Promise.all([
@@ -79,7 +59,11 @@ export async function GET() {
         });
 
     } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ message: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         console.error('Stats API Error:', error);
         return NextResponse.json({ success: false, error: error.message }, { status: 500 });
     }
+
 }
