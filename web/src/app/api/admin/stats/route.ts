@@ -7,6 +7,7 @@ import Gallery from '@/models/Gallery';
 import News from '@/models/News';
 import User from '@/models/User';
 import CareerApplication from '@/models/CareerApplication';
+import QuestionPaper from '@/models/QuestionPaper';
 
 export async function GET() {
     try {
@@ -15,13 +16,14 @@ export async function GET() {
 
 
         // Fetch counts in parallel
-        const [enquiryCount, announcementCount, galleryCount, newsCount, userCount, careerCount] = await Promise.all([
+        const [enquiryCount, announcementCount, galleryCount, newsCount, userCount, careerCount, questionCount] = await Promise.all([
             Enquiry.countDocuments(),
             Announcements.countDocuments(),
             Gallery.countDocuments(),
             News.countDocuments(),
             User.countDocuments(),
-            CareerApplication.countDocuments()
+            CareerApplication.countDocuments(),
+            QuestionPaper.countDocuments()
         ]);
 
         // Get latest items for activity
@@ -51,6 +53,7 @@ export async function GET() {
                     news: newsCount,
                     users: userCount,
                     careers: careerCount,
+                    questions: questionCount,
                 },
                 enquiriesThisMonth,
                 pendingEnquiries,

@@ -11,7 +11,8 @@ import {
     AlertCircle,
     ArrowRight,
     Calendar,
-    Briefcase
+    Briefcase,
+    FileText
 } from 'lucide-react';
 
 interface Enquiry {
@@ -37,6 +38,7 @@ interface Stats {
         news: number;
         users: number;
         careers: number;
+        questions: number;
     };
     enquiriesThisMonth: number;
     pendingEnquiries: Enquiry[];
@@ -101,6 +103,16 @@ export default function AdminDashboardPage() {
             href: '/admin/gallery'
         },
         {
+            label: 'Question Bank',
+            val: statsData?.counts.questions || 0,
+            trend: 'Papers',
+            icon: FileText,
+            color: 'from-pink-600 to-pink-400',
+            bg: 'bg-pink-50',
+            text: 'text-pink-600',
+            href: '/admin/questions'
+        },
+        {
             label: 'Career Details',
             val: statsData?.counts.careers || 0,
             trend: 'Active Postings',
@@ -161,7 +173,7 @@ export default function AdminDashboardPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className={`absolute bottom-0 left-0 h-1 w-0 group-hover:w-full bg-gradient-to-r ${stat.color} transition-all duration-500`} />
+                            <div className={`absolute bottom-0 left-0 h-1 w-0 group-hover:w-full bg-linear-to-r ${stat.color} transition-all duration-500`} />
                         </Link>
                     </motion.div>
                 ))}
@@ -242,7 +254,7 @@ export default function AdminDashboardPage() {
 
                     {/* Pro Tip Card */}
                     {/* Daily Quote Card */}
-                    <div className="bg-gradient-to-br from-emerald-900 to-teal-900 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                    <div className="bg-linear-to-br from-emerald-900 to-teal-900 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden group hover:shadow-xl transition-all duration-300">
                         <div className="relative z-10">
                             <div className="flex items-center gap-2 text-emerald-300 font-bold text-xs uppercase tracking-wider mb-3">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>

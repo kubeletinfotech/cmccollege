@@ -76,6 +76,11 @@ export default function AdminLayoutClient({
             )
         },
         {
+            name: 'Question Bank', href: '/admin/questions', icon: (
+                <FileText className="w-5 h-5" />
+            )
+        },
+        {
             name: 'News', href: '/admin/news', icon: (
                 <Newspaper className="w-5 h-5" />
             )

@@ -5,28 +5,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, BookOpen, Download, Filter, ChevronRight, Book, GraduationCap, Clock, Loader2, X, Menu, CheckCircle } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import toast from "react-hot-toast";
-
-const departments = [
-    "Computer Science",
-    "Management",
-    "Mass Communication",
-    "Economics",
-    "English",
-    "Commerce",
-];
-
-const semesters = ["Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6"];
-
-import { mockQuestions } from "@/data/question-papers";
+import { semesters, departments } from "@/data/question-papers";
 
 export default function QuestionBankPage() {
+    const [mockQuestions, setMockQuestions] = useState<any[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedDept, setSelectedDept] = useState("All");
     const [selectedSem, setSelectedSem] = useState("All");
     const [isFiltersOpen, setIsFiltersOpen] = useState(false);
     const [visibleCount, setVisibleCount] = useState(6);
     const [isMoreLoading, setIsMoreLoading] = useState(false);
-    const [downloadingId, setDownloadingId] = useState<number | null>(null);
+    const [downloadingId, setDownloadingId] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchPapers = async () => {
+            try {
+                const res = await fetch("/api/question-papers");
+                const data = await res.json();
+                if (data.success) {
+                    setMockQuestions(data.data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch papers:", error);
+                toast.error("Failed to load question papers");
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchPapers();
+    }, []);
 
     // Prevent body scroll when mobile filter is open
     useEffect(() => {
@@ -57,7 +65,7 @@ export default function QuestionBankPage() {
         }, 800);
     };
 
-    const handleDownload = (id: number, pdfUrl: string, title: string) => {
+    const handleDownload = (id: string, pdfUrl: string, title: string) => {
         // If it's an external link (like Google Drive), open in new tab
         if (pdfUrl.startsWith("http") || pdfUrl.startsWith("https")) {
             window.open(pdfUrl, "_blank");
@@ -340,78 +348,85 @@ export default function QuestionBankPage() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <AnimatePresence mode="popLayout">
-                                {displayedQuestions.length > 0 ? (
-                                    displayedQuestions.map((q, idx) => (
+                            {isLoading ? (
+                                <div className="col-span-full py-20 flex flex-col items-center justify-center">
+                                    <Loader2 className="h-10 w-10 animate-spin text-[#7a0b3a] mb-4" />
+                                    <p className="text-zinc-500 font-medium">Fetching question papers...</p>
+                                </div>
+                            ) : (
+                                <AnimatePresence mode="popLayout">
+                                    {displayedQuestions.length > 0 ? (
+                                        displayedQuestions.map((q, idx) => (
+                                            <motion.div
+                                                key={q.id}
+                                                layout
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, scale: 0.95 }}
+                                                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                                                className="group bg-white rounded-3xl p-6 border border-zinc-100 shadow-sm hover:shadow-xl hover:border-pink-100 transition-all duration-500"
+                                            >
+                                                <div className="flex flex-col h-full">
+                                                    <div className="flex justify-between items-start mb-4">
+                                                        <div className="text-xs font-bold text-[#7a0b3a] bg-pink-50 px-3 py-1.5 rounded-full uppercase tracking-widest">
+                                                            {q.code}
+                                                        </div>
+                                                        <div className="text-xs font-bold text-zinc-400 uppercase tracking-widest flex items-center gap-1">
+                                                            <Clock size={12} />
+                                                            {q.year}
+                                                        </div>
+                                                    </div>
+
+                                                    <h4 className="text-xl font-bold text-zinc-800 mb-2 group-hover:text-[#7a0b3a] transition-colors leading-tight">
+                                                        {q.title}
+                                                    </h4>
+
+                                                    <div className="flex items-center gap-3 mb-6">
+                                                        <span className="text-xs text-zinc-500 font-medium">{q.department}</span>
+                                                        <span className="w-1 h-1 rounded-full bg-zinc-300"></span>
+                                                        <span className="text-xs text-zinc-500 font-medium">{q.semester}</span>
+                                                    </div>
+
+                                                    <div className="mt-auto flex items-center justify-between">
+                                                        <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+                                                            {q.type}
+                                                        </span>
+                                                        <button
+                                                            onClick={() => handleDownload(q.id, q.pdfUrl, q.title)}
+                                                            disabled={downloadingId === q.id}
+                                                            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 shadow-md shadow-zinc-900/10 cursor-pointer ${downloadingId === q.id ? "bg-zinc-200 text-zinc-500 cursor-not-allowed" : "bg-zinc-900 group-hover:bg-[#7a0b3a] text-white"}`}
+                                                        >
+                                                            {downloadingId === q.id ? (
+                                                                <>
+                                                                    <Loader2 size={16} className="animate-spin" />
+                                                                    Getting PDF...
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <Download size={16} />
+                                                                    View / Download
+                                                                </>
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        ))
+                                    ) : (
                                         <motion.div
-                                            key={q.id}
-                                            layout
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, scale: 0.95 }}
-                                            transition={{ duration: 0.3, delay: idx * 0.05 }}
-                                            className="group bg-white rounded-3xl p-6 border border-zinc-100 shadow-sm hover:shadow-xl hover:border-pink-100 transition-all duration-500"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            className="col-span-full py-20 text-center"
                                         >
-                                            <div className="flex flex-col h-full">
-                                                <div className="flex justify-between items-start mb-4">
-                                                    <div className="text-xs font-bold text-[#7a0b3a] bg-pink-50 px-3 py-1.5 rounded-full uppercase tracking-widest">
-                                                        {q.code}
-                                                    </div>
-                                                    <div className="text-xs font-bold text-zinc-400 uppercase tracking-widest flex items-center gap-1">
-                                                        <Clock size={12} />
-                                                        {q.year}
-                                                    </div>
-                                                </div>
-
-                                                <h4 className="text-xl font-bold text-zinc-800 mb-2 group-hover:text-[#7a0b3a] transition-colors leading-tight">
-                                                    {q.title}
-                                                </h4>
-
-                                                <div className="flex items-center gap-3 mb-6">
-                                                    <span className="text-xs text-zinc-500 font-medium">{q.department}</span>
-                                                    <span className="w-1 h-1 rounded-full bg-zinc-300"></span>
-                                                    <span className="text-xs text-zinc-500 font-medium">{q.semester}</span>
-                                                </div>
-
-                                                <div className="mt-auto flex items-center justify-between">
-                                                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                                                        {q.type}
-                                                    </span>
-                                                    <button
-                                                        onClick={() => handleDownload(q.id, q.pdfUrl, q.title)}
-                                                        disabled={downloadingId === q.id}
-                                                        className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 shadow-md shadow-zinc-900/10 cursor-pointer ${downloadingId === q.id ? "bg-zinc-200 text-zinc-500 cursor-not-allowed" : "bg-zinc-900 group-hover:bg-[#7a0b3a] text-white"}`}
-                                                    >
-                                                        {downloadingId === q.id ? (
-                                                            <>
-                                                                <Loader2 size={16} className="animate-spin" />
-                                                                Getting PDF...
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <Download size={16} />
-                                                                View / Download
-                                                            </>
-                                                        )}
-                                                    </button>
-                                                </div>
+                                            <div className="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                                <Search size={32} className="text-zinc-400" />
                                             </div>
+                                            <h4 className="text-xl font-bold text-zinc-800 uppercase mb-2">No Papers Found</h4>
+                                            <p className="text-zinc-500">Try adjusting your filters or search terms.</p>
                                         </motion.div>
-                                    ))
-                                ) : (
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="col-span-full py-20 text-center"
-                                    >
-                                        <div className="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                            <Search size={32} className="text-zinc-400" />
-                                        </div>
-                                        <h4 className="text-xl font-bold text-zinc-800 uppercase mb-2">No Papers Found</h4>
-                                        <p className="text-zinc-500">Try adjusting your filters or search terms.</p>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                                    )}
+                                </AnimatePresence>
+                            )}
                         </div>
 
                         {/* Pagination / Load More */}

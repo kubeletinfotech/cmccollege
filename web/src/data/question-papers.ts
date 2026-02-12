@@ -1,6 +1,17 @@
 // Replace the 'pdfUrl' with your actual Google Drive Public Link
 // Example: "https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing"
 
+export const departments = [
+    "Computer Science",
+    "Management",
+    "Mass Communication",
+    "Economics",
+    "English",
+    "Commerce",
+];
+
+export const semesters = ["Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6"];
+
 export const mockQuestions = [
     { id: 1, title: "Data Structures", code: "BCS3B04", department: "Computer Science", semester: "Semester 3", year: "2023", type: "Main Exam", pdfUrl: "https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" },
     { id: 2, title: "Micro Economics", code: "ECO1B01", department: "Economics", semester: "Semester 1", year: "2023", type: "Main Exam", pdfUrl: "#" },
