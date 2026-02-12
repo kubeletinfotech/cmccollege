@@ -69,7 +69,10 @@ export default function AdminQuestionBankPage() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+                    ...data,
+                    pdfUrl: data.pdfUrl.trim()
+                })
             });
 
             if (res.ok) {
@@ -188,7 +191,7 @@ export default function AdminQuestionBankPage() {
                             </div>
 
                             <a
-                                href={item.pdfUrl.startsWith('http') ? item.pdfUrl : `https://${item.pdfUrl}`}
+                                href={/^[a-z][a-z0-9+.-]*:/i.test(item.pdfUrl.trim()) ? item.pdfUrl.trim() : `https://${item.pdfUrl.trim()}`}
                                 target="_blank"
                                 className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-zinc-50 border border-zinc-100 text-zinc-600 font-bold text-sm hover:bg-zinc-100 transition-colors"
                             >

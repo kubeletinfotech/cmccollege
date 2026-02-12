@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, BookOpen, Download, Filter, ChevronRight, Book, GraduationCap, Clock, Loader2, X, Menu, CheckCircle } from "lucide-react";
+import { Search, BookOpen, Download, Filter, ChevronRight, Book, GraduationCap, Clock, Loader2, X, Menu, CheckCircle, ExternalLink } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import toast from "react-hot-toast";
 import { semesters, departments } from "@/data/question-papers";
@@ -65,51 +65,14 @@ export default function QuestionBankPage() {
         }, 800);
     };
 
-    const handleDownload = (id: string, pdfUrl: string, title: string) => {
-        // Handle potentially protocol-less URLs
-        let finalUrl = pdfUrl;
-        if (!pdfUrl.startsWith("http://") && !pdfUrl.startsWith("https://") && pdfUrl !== "#") {
-            // Check if it looks like a domain/path
-            if (pdfUrl.includes(".") || pdfUrl.includes("/")) {
-                finalUrl = `https://${pdfUrl}`;
-            }
-        }
+    const getFinalUrl = (url: string) => {
+        if (!url) return "#";
+        const trimmed = url.trim();
+        if (trimmed === "#") return "#";
 
-        // If it's an external link, open in new tab
-        if (finalUrl.startsWith("http") || finalUrl.startsWith("https")) {
-            window.open(finalUrl, "_blank");
-            return;
-        }
-
-        setDownloadingId(id);
-
-        // Simulate download delay for local files
-        setTimeout(() => {
-            // Create a fake anchor to trigger download
-            const link = document.createElement('a');
-            link.href = pdfUrl;
-            link.download = `${title.replace(/\s+/g, '_')}_Paper.pdf`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            setDownloadingId(null);
-            toast.custom((t) => (
-                <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black/5`}>
-                    <div className="flex-1 w-0 p-4">
-                        <div className="flex items-start">
-                            <div className="shrink-0 pt-0.5">
-                                <CheckCircle className="h-10 w-10 text-emerald-500" />
-                            </div>
-                            <div className="ml-3 flex-1">
-                                <p className="text-sm font-medium text-gray-900">Download Started</p>
-                                <p className="mt-1 text-sm text-gray-500">{title} question paper is downloading.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ));
-        }, 1500);
+        // Only prepend https:// if it doesn't already have a protocol
+        const hasProtocol = /^[a-z][a-z0-9+.-]*:/i.test(trimmed);
+        return hasProtocol ? trimmed : `https://${trimmed}`;
     };
 
     return (
@@ -386,9 +349,14 @@ export default function QuestionBankPage() {
                                                         </div>
                                                     </div>
 
-                                                    <h4 className="text-xl font-bold text-zinc-800 mb-2 group-hover:text-[#7a0b3a] transition-colors leading-tight">
+                                                    <a
+                                                        href={getFinalUrl(q.pdfUrl)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-xl font-bold text-zinc-800 mb-2 group-hover:text-[#7a0b3a] transition-colors leading-tight cursor-pointer block"
+                                                    >
                                                         {q.title}
-                                                    </h4>
+                                                    </a>
 
                                                     <div className="flex items-center gap-3 mb-6">
                                                         <span className="text-xs text-zinc-500 font-medium">{q.department}</span>
@@ -400,23 +368,15 @@ export default function QuestionBankPage() {
                                                         <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                                                             {q.type}
                                                         </span>
-                                                        <button
-                                                            onClick={() => handleDownload(q.id, q.pdfUrl, q.title)}
-                                                            disabled={downloadingId === q.id}
-                                                            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 shadow-md shadow-zinc-900/10 cursor-pointer ${downloadingId === q.id ? "bg-zinc-200 text-zinc-500 cursor-not-allowed" : "bg-zinc-900 group-hover:bg-[#7a0b3a] text-white"}`}
+                                                        <a
+                                                            href={getFinalUrl(q.pdfUrl)}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 shadow-md shadow-zinc-900/10 cursor-pointer bg-zinc-900 group-hover:bg-[#7a0b3a] text-white"
                                                         >
-                                                            {downloadingId === q.id ? (
-                                                                <>
-                                                                    <Loader2 size={16} className="animate-spin" />
-                                                                    Getting PDF...
-                                                                </>
-                                                            ) : (
-                                                                <>
-                                                                    <Download size={16} />
-                                                                    View / Download
-                                                                </>
-                                                            )}
-                                                        </button>
+                                                            <ExternalLink size={16} />
+                                                            View Paper
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </motion.div>
