@@ -3,6 +3,7 @@ name: Deploy Code
 on:
   push:
     branches:
+      - master
       - main
   workflow_dispatch:
 
