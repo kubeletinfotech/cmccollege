@@ -43,7 +43,7 @@ export default function ContactPage() {
                 // Construct WhatsApp message
                 const whatsappMessage = `*New Enquiry Notification*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'N/A'}\n*Message:* ${formData.message}`;
                 const encodedMessage = encodeURIComponent(whatsappMessage);
-                const whatsappUrl = `https://wa.me/917594888203?text=${encodedMessage}`;
+                const whatsappUrl = `https://wa.me/917594888201?text=${encodedMessage}`;
 
                 // Open WhatsApp in a new tab
                 window.open(whatsappUrl, '_blank');
@@ -233,7 +233,7 @@ export default function ContactPage() {
                         <button className="px-10 py-5 bg-white text-emerald-900 font-bold rounded-xl shadow-xl hover:scale-105 transition-transform text-lg">
                             View FAQ
                         </button>
-                        <a href="tel:+917594888203" className="px-10 py-5 bg-emerald-800 text-white font-bold rounded-xl border border-emerald-700 hover:bg-emerald-700 transition-colors text-lg">
+                        <a href="tel:+917594888201" className="px-10 py-5 bg-emerald-800 text-white font-bold rounded-xl border border-emerald-700 hover:bg-emerald-700 transition-colors text-lg">
                             Call Now
                         </a>
                     </div>

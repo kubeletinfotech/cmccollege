@@ -7,7 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 // Replace with actual college number
-const WHATSAPP_NUMBER = "917594888203";
+const WHATSAPP_NUMBER = "917594888201";
 const DEFAULT_MESSAGE = "Hi, I would like to know more about admissions.";
 
 export default function WhatsAppWidget() {
