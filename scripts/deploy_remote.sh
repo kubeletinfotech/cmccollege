@@ -50,7 +50,8 @@ docker pull "$IMAGE_REF"
 
 # --- Start container ---
 log "Starting container"
-IMAGE_REF="$IMAGE_REF" docker compose -f "$COMPOSE_FILE" up -d --no-build
+#IMAGE_REF="$IMAGE_REF" docker compose -f "$COMPOSE_FILE" up -d --no-build
+IMAGE_REF="$IMAGE_REF" docker-compose -f "$COMPOSE_FILE" up -d --no-build
 
 # --- Cleanup old images ---
 docker image prune -f >/dev/null 2>&1 || true
