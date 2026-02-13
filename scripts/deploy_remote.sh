@@ -5,7 +5,7 @@ set -Eeuo pipefail
 # Intended to be executed on the target host via SSH from GitHub Actions.
 
 REPO_URL="${REPO_URL:-git@github.com:kubeletinfotech/cmccollege.git}"
-BRANCH="${BRANCH:-main}"
+BRANCH="${BRANCH:-master}"
 DEPLOY_PATH="${DEPLOY_PATH:-/apps/web/beta-comcollege/app}"
 APP_SUBDIR="${APP_SUBDIR:-web}"
 APP_NAME="${APP_NAME:-beta-comcollege}"

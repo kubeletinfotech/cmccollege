@@ -9,7 +9,7 @@ on:
 
 env:
   REPO_URL: git@github.com:kubeletinfotech/cmccollege.git
-  BRANCH: main
+  BRANCH: master
   DEPLOY_PATH: /apps/web/beta-comcollege/app
   APP_NAME: beta-comcollege
   PORT: "3000"
