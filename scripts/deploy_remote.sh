@@ -4,7 +4,7 @@ set -Eeuo pipefail
 # Remote deployment script for the cmccollege Next.js app.
 # Intended to be executed on the target host via SSH from GitHub Actions.
 
-REPO_URL="${REPO_URL:-https://github.com/kubeletinfotech/comcollege.git}"
+REPO_URL="${REPO_URL:-git@github.com:kubeletinfotech/cmccollege.git}"
 BRANCH="${BRANCH:-main}"
 DEPLOY_PATH="${DEPLOY_PATH:-/apps/web/beta-comcollege/app}"
 APP_SUBDIR="${APP_SUBDIR:-web}"
