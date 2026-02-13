@@ -71,7 +71,7 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
     return (
         <ScrollReveal
             delay={index * 100}
-            className={`group relative overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-700 h-full border border-emerald-50/10
+            className={`group relative overflow-hidden shadow-sm md:hover:shadow-2xl transition-shadow duration-700 h-full border border-emerald-50/10
         ${featured ? "md:col-span-2 md:row-span-2 min-h-[450px]" : "min-h-[300px] md:min-h-0"}
         ${getRoundedClass(index, featured)}
       `}
@@ -82,8 +82,8 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <motion.div
-                    className="relative w-full h-full"
-                    whileHover={{ scale: 1.08 }}
+                    className="relative w-full h-full transform-gpu will-change-transform"
+                    whileHover={window.innerWidth >= 768 ? { scale: 1.08 } : {}}
                     transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 >
                     {item.src && (
@@ -118,7 +118,7 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
                 </motion.div>
 
                 {/* Premium glint layer */}
-                <div className={`absolute inset-0 border border-white/0 group-hover:border-white/20 transition-colors duration-1000 pointer-events-none ${getRoundedClass(index, featured)}`} />
+                <div className={`absolute inset-0 border border-white/0 md:group-hover:border-white/20 transition-colors duration-1000 pointer-events-none ${getRoundedClass(index, featured)}`} />
             </div>
         </ScrollReveal>
     );
@@ -286,8 +286,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 1.1, opacity: 0 }}
                             transition={{
-                                duration: 1.5,
-                                ease: [0.25, 1, 0.5, 1] // Luxurious smooth ease
+                                duration: 1.0, // Snappier for mobile
+                                ease: [0.25, 1, 0.5, 1]
                             }}
                             className="absolute inset-0"
                         >
@@ -355,14 +355,14 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 <div className="absolute inset-x-4 md:inset-x-8 top-1/2 -translate-y-1/2 z-20 flex justify-between pointer-events-none">
                     <button
                         onClick={prevSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/40 hover:bg-white/20 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white transition-all duration-300 pointer-events-auto hover:scale-110 active:scale-90 hover:cursor-pointer"
+                        className="group p-2 md:p-3 rounded-full bg-black/40 md:hover:bg-white/20 md:backdrop-blur-sm border border-white/10 text-white/70 md:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto md:hover:scale-110 active:scale-90 hover:cursor-pointer"
                         aria-label="Previous slide"
                     >
                         <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/40 hover:bg-white/20 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white transition-all duration-300 pointer-events-auto hover:scale-110 active:scale-90 hover:cursor-pointer"
+                        className="group p-2 md:p-3 rounded-full bg-black/40 md:hover:bg-white/20 md:backdrop-blur-sm border border-white/10 text-white/70 md:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto md:hover:scale-110 active:scale-90 hover:cursor-pointer"
                         aria-label="Next slide"
                     >
                         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
@@ -399,8 +399,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
             <section className="pt-8 pb-8 px-4 md:pt-14 md:pb-10 md:px-6 bg-emerald-50">
                 <ScrollReveal>
                     <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-6 md:p-14 rounded-r-2xl relative overflow-hidden">
-                        {/* Background decoration */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+                        {/* Background decoration - Reduced blur for mobile */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-2xl md:blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
                         <div className="relative z-10 flex flex-col items-start text-left">
                             <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-6 uppercase">
@@ -514,7 +514,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     </div>
 
                                     <Link href="/about/principal">
-                                        <button className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 text-[#7B0046] hover:bg-[#7B0046]/5 hover:border-[#7B0046]/20 transition-all active:scale-95 cursor-pointer">
+                                        <button className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 text-[#7B0046] md:hover:bg-[#7B0046]/5 md:hover:border-[#7B0046]/20 transition-[background-color,border-color,transform] active:scale-95 cursor-pointer">
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                                         </button>
                                     </Link>
@@ -554,14 +554,14 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     className="block h-full"
                                     onClick={(e) => handleDeptClick(e, dept.slug)}
                                 >
-                                    <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
-                                        {/* Hover Background Image with subtle zoom */}
+                                    <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] md:hover:shadow-2xl transition-[transform,box-shadow,background-color] duration-500 ease-out md:hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
+                                        {/* Hover Background Image with subtle zoom - Disabled scale on mobile */}
                                         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
                                             <Image
                                                 src={dept.img}
                                                 alt={dept.name}
                                                 fill
-                                                className="object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
+                                                className="object-cover transform scale-100 md:group-hover:scale-110 transition-transform duration-700 ease-out"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                             />
                                             {/* Dark Gradient Overlay for readability */}
@@ -609,11 +609,11 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                             src={facility.img}
                                             alt={facility.name}
                                             fill
-                                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                            className="object-cover md:group-hover:scale-110 transition-transform duration-500"
                                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                                             quality={90}
                                         />
-                                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                                        <div className="absolute inset-0 bg-black/20 md:group-hover:bg-black/30 transition-colors duration-300" />
                                         <div className="absolute bottom-0 left-0 right-0 p-6 text-center z-10">
                                             <span className="text-xl font-bold text-white tracking-widest uppercase">{facility.name}</span>
                                         </div>

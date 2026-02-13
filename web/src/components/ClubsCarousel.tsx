@@ -72,10 +72,10 @@ export default function ClubsCarousel() {
             {/* Carousel */}
             <div className="w-full overflow-hidden mask-gradient-x">
                 <motion.div
-                    className="flex gap-4 md:gap-6 w-max"
+                    className="flex gap-4 md:gap-6 w-max will-change-transform"
                     animate={{ x: "-33.333%" }}
                     transition={{
-                        duration: 15,
+                        duration: 30, // Slowed down for better readability and performance
                         ease: "linear",
                         repeat: Infinity,
                         repeatType: "loop"
@@ -84,7 +84,7 @@ export default function ClubsCarousel() {
                     {displayClubs.map((club, index) => (
                         <div // Changed from motion.div for better performance
                             key={`${club.id}-${index}`}
-                            className="bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 w-24 h-24 md:w-40 md:h-40 flex flex-col items-center justify-center border border-zinc-100 group relative overflow-hidden flex-shrink-0"
+                            className="bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 w-24 h-24 md:w-40 md:h-40 flex flex-col items-center justify-center border border-zinc-100 group relative overflow-hidden shrink-0"
                         >
                             <div className="relative w-10 h-10 md:w-20 md:h-20 mb-1 md:mb-3 transition-transform duration-500 group-hover:scale-105">
                                 <Image

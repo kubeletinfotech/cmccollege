@@ -48,18 +48,18 @@ export default function AcademicsPage() {
             <section className="relative min-h-[50vh] lg:min-h-[60vh] flex flex-col items-center justify-center pt-32 pb-20 px-6 overflow-hidden text-white text-center md:text-left">
                 {/* Background Pattern Cluster */}
                 <div className="absolute inset-0 z-0 bg-emerald-800">
-                    {/* Animated Particles for "Premium" feel */}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {/* Animated Particles - Disabled on mobile for performance */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
                         {[...Array(6)].map((_, i) => (
                             <motion.div
                                 key={i}
-                                className="absolute w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-40"
+                                className="absolute w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-40 will-change-transform"
                                 animate={{
                                     x: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
                                     y: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
                                 }}
                                 transition={{
-                                    duration: 10 + Math.random() * 10,
+                                    duration: 15 + Math.random() * 10,
                                     repeat: Infinity,
                                     ease: "linear"
                                 }}
@@ -89,7 +89,7 @@ export default function AcademicsPage() {
                 <div className="container mx-auto relative z-30">
                     <ScrollReveal>
                         <div className="max-w-4xl mx-auto md:mx-0">
-                            <div className="inline-flex mt-6 items-center gap-3 mb-8 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                            <div className="inline-flex mt-6 items-center gap-3 mb-8 bg-white/10 md:backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                                 <GraduationCap size={18} className="text-pink-400" />
                                 <span className="text-[10px] md:text-xs font-black tracking-[0.3em] uppercase text-pink-100">Academic Hub</span>
                             </div>
@@ -115,10 +115,10 @@ export default function AcademicsPage() {
                             <ScrollReveal key={idx} delay={idx * 50}>
                                 <Link
                                     href={feature.link}
-                                    className="group block relative h-full bg-white p-5 md:p-8 rounded-[32px] border border-zinc-100 shadow-sm hover:shadow-2xl hover:bg-emerald-800 transition-all duration-500 hover:-translate-y-2 overflow-hidden transform-gpu will-change-transform"
+                                    className="group block relative h-full bg-white p-5 md:p-8 rounded-[32px] border border-zinc-100 shadow-sm hover:shadow-2xl hover:bg-emerald-800 transition-[transform,background-color,box-shadow,border-color] duration-500 hover:-translate-y-2 overflow-hidden transform-gpu will-change-transform"
                                 >
                                     {/* Icon Box */}
-                                    <div className={`w-10 h-10 md:w-14 md:h-14 ${feature.bgLight} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500 border border-transparent group-hover:border-white/20 transform-gpu will-change-transform`}>
+                                    <div className={`w-10 h-10 md:w-14 md:h-14 ${feature.bgLight} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 group-hover:bg-white/10 transition-[transform,background-color,border-color] duration-500 border border-transparent group-hover:border-white/20 transform-gpu will-change-transform`}>
                                         <feature.icon size={22} className={`${feature.title === "Question Bank" ? "text-emerald-800" : feature.color.replace('bg-', 'text-').replace('-500', '-600')} group-hover:text-white transition-colors duration-500 opacity-100 shadow-sm`} />
                                     </div>
 
@@ -137,12 +137,12 @@ export default function AcademicsPage() {
                                     </div>
 
                                     {/* Mobile Indicator */}
-                                    <div className="md:hidden absolute bottom-5 right-5 text-[#7a0b3a]/40 group-hover:text-white/50 transition-colors duration-500">
+                                    <div className="md:hidden absolute bottom-5 right-5 text-[#7a0b3a]/40 group-hover:text-white/50 transition-colors duration-300">
                                         <ChevronRight size={18} />
                                     </div>
 
-                                    {/* Hover Decorative Element */}
-                                    <div className={`absolute -bottom-10 -right-10 w-20 h-20 ${feature.bgLight} rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 blur-2xl`} />
+                                    {/* Hover Decorative Element - Hidden on mobile to save performance */}
+                                    <div className={`absolute -bottom-10 -right-10 w-20 h-20 ${feature.bgLight} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl hidden md:block`} />
                                 </Link>
                             </ScrollReveal>
                         ))}

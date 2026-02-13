@@ -90,7 +90,7 @@ export default function StatsSection() {
 
                 {/* Glass Container */}
                 <div
-                    className="rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm"
+                    className="rounded-3xl border border-white/10 shadow-2xl overflow-hidden md:backdrop-blur-sm"
                     style={{
                         background: 'rgba(255, 255, 255, 0.05)',
                         boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'
@@ -111,12 +111,12 @@ export default function StatsSection() {
                                     ${index !== stats.length - 1 ? 'lg:border-r lg:border-b-0' : ''}
                                 `}
                             >
-                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                <div className="absolute inset-0 bg-white/5 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                                 {/* Icon with soft glow */}
                                 <div className="relative mb-4">
-                                    <div className="absolute inset-0 bg-emerald-500/30 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                                    <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-emerald-300/90 group-hover:text-emerald-300 group-hover:border-emerald-500/30 transition-all duration-500 shadow-lg">
+                                    <div className="absolute inset-0 bg-emerald-500/30 blur-xl rounded-full opacity-0 md:group-hover:opacity-100 transition-opacity duration-700" />
+                                    <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-emerald-300/90 md:group-hover:text-emerald-300 md:group-hover:border-emerald-500/30 transition-[transform,background-color,border-color,color] duration-500 shadow-lg">
                                         {stat.icon}
                                     </div>
                                 </div>

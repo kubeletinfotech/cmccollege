@@ -199,10 +199,10 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
 
                         {data.busSchedules && (
                             <ScrollReveal delay={300}>
-                                <div className="bg-[#5D1035] rounded-3xl md:rounded-[2.5rem] p-6 md:p-12 text-white relative overflow-hidden shadow-2xl shadow-[#5D1035]/20">
-                                    {/* Background decorative elements */}
-                                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-                                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+                                <div className="bg-[#5D1035] rounded-3xl md:rounded-[2.5rem] p-6 md:p-12 text-white relative overflow-hidden shadow-xl md:shadow-2xl shadow-[#5D1035]/20">
+                                    {/* Background decorative elements - Simplified for mobile performance */}
+                                    <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-white/5 rounded-full blur-2xl md:blur-3xl -mr-20 -mt-20 pointer-events-none transition-opacity"></div>
+                                    <div className="absolute bottom-0 left-0 w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-black/10 rounded-full blur-2xl md:blur-3xl -ml-16 -mb-16 pointer-events-none transition-opacity"></div>
 
                                     <div className="relative z-10">
                                         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 text-center md:text-left">
@@ -210,17 +210,17 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                 <h2 className="text-3xl md:text-4xl font-bold font-serif mb-2">Transportation Schedule</h2>
                                                 <div className="flex bg-white/10 p-1 rounded-full relative w-fit mb-4">
                                                     <div
-                                                        className={`absolute inset-y-1 w-1/2 bg-white rounded-full shadow-sm transition-all duration-300 ${activeBusTab === 'evening' ? 'translate-x-[98%]' : 'translate-x-0'}`}
+                                                        className={`absolute inset-y-1 w-1/2 bg-white rounded-full shadow-sm transition-transform duration-300 ease-out ${activeBusTab === 'evening' ? 'translate-x-[98%]' : 'translate-x-0'} will-change-transform`}
                                                     ></div>
                                                     <button
                                                         onClick={() => setActiveBusTab('morning')}
-                                                        className={`relative z-10 px-6 py-1.5 rounded-full text-xs font-bold transition-colors text-center whitespace-nowrap ${activeBusTab === 'morning' ? 'text-[#5D1035]' : 'text-white hover:text-white/80'}`}
+                                                        className={`relative z-10 px-6 py-1.5 rounded-full text-xs font-bold transition-colors duration-200 text-center whitespace-nowrap ${activeBusTab === 'morning' ? 'text-[#5D1035]' : 'text-white hover:text-white/80'}`}
                                                     >
                                                         Morning
                                                     </button>
                                                     <button
                                                         onClick={() => setActiveBusTab('evening')}
-                                                        className={`relative z-10 px-6 py-1.5 rounded-full text-xs font-bold transition-colors text-center whitespace-nowrap ${activeBusTab === 'evening' ? 'text-[#5D1035]' : 'text-white hover:text-white/80'}`}
+                                                        className={`relative z-10 px-6 py-1.5 rounded-full text-xs font-bold transition-colors duration-200 text-center whitespace-nowrap ${activeBusTab === 'evening' ? 'text-[#5D1035]' : 'text-white hover:text-white/80'}`}
                                                     >
                                                         Evening
                                                     </button>
@@ -238,7 +238,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                 return (
                                                     <div
                                                         key={idx}
-                                                        className={`bg-white/10 backdrop-blur-md rounded-3xl border transition-all duration-300 overflow-hidden ${isExpanded ? "border-white/20 bg-white/15" : "border-white/10 hover:bg-white/15"}`}
+                                                        className={`bg-white/10 md:backdrop-blur-md rounded-3xl border transition-[border-color,background-color] duration-300 overflow-hidden ${isExpanded ? "border-white/20 bg-white/15" : "border-white/10 md:hover:bg-white/15"}`}
                                                     >
                                                         {/* Card Header / Summary View */}
                                                         <div
@@ -275,7 +275,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                                     </div>
 
                                                                     {/* Mobile Expand Action */}
-                                                                    <div className={`md:hidden w-9 h-9 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300 ${isExpanded ? "bg-white text-[#5D1035] rotate-180" : "bg-transparent text-white"}`}>
+                                                                    <div className={`md:hidden w-9 h-9 rounded-full border border-white/20 flex items-center justify-center transition-[transform,background-color,color] duration-300 ${isExpanded ? "bg-white text-[#5D1035] rotate-180" : "bg-transparent text-white"}`}>
                                                                         <ChevronDown className="w-5 h-5" />
                                                                     </div>
                                                                 </div>
@@ -302,7 +302,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                                 </div>
 
                                                                 {/* Desktop Expand Action */}
-                                                                <div className={`hidden md:flex w-10 h-10 rounded-full border border-white/20 items-center justify-center transition-all duration-300 ${isExpanded ? "bg-white text-[#5D1035] rotate-180" : "bg-transparent text-white hover:bg-white/10"}`}>
+                                                                <div className={`hidden md:flex w-10 h-10 rounded-full border border-white/20 items-center justify-center transition-[transform,background-color,color] duration-300 ${isExpanded ? "bg-white text-[#5D1035] rotate-180" : "bg-transparent text-white hover:bg-white/10"}`}>
                                                                     <ChevronDown className="w-5 h-5" />
                                                                 </div>
                                                             </div>
@@ -326,7 +326,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                                             return (
                                                                                 <div key={sIdx} className="grid grid-cols-[72px_40px_1fr] md:grid-cols-[100px_60px_1fr] items-stretch group relative">
                                                                                     {/* Time Column */}
-                                                                                    <div className={`text-right py-4 pr-3 md:pr-4 border-r border-white/10 font-mono text-[11px] md:text-sm transition-colors duration-500 ${isCurrent ? "text-emerald-400 font-black scale-105 md:scale-110" : (isStart || isEnd) ? "text-white font-bold" : isPassed ? "text-white/30" : "text-white/60"}`}>
+                                                                                    <div className={`text-right py-4 pr-3 md:pr-4 border-r border-white/10 font-mono text-[11px] md:text-sm transition-[color,transform] duration-500 ${isCurrent ? "text-emerald-400 font-black scale-105 md:scale-110" : (isStart || isEnd) ? "text-white font-bold" : isPassed ? "text-white/30" : "text-white/60"}`}>
                                                                                         {stop.time}
                                                                                     </div>
                                                                                     {/* Timeline Node Column */}
@@ -340,7 +340,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                                                         )}
 
                                                                                         {/* GPS Indicator Node */}
-                                                                                        <div className={`relative z-10 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${isCurrent
+                                                                                        <div className={`relative z-10 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center border-2 transition-[transform,background-color,border-color,box-shadow] duration-500 ${isCurrent
                                                                                             ? "bg-emerald-400 border-emerald-300 scale-110 md:scale-125 shadow-[0_0_15px_rgba(52,211,153,0.6)] text-[#5D1035]"
                                                                                             : (isStart || isEnd)
                                                                                                 ? "bg-white border-white text-[#5D1035] scale-105 md:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.3)]"
@@ -367,7 +367,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
 
                                                                                     {/* Details Column */}
                                                                                     <div className="py-3 md:py-4 pl-2 md:pl-4 flex items-center">
-                                                                                        <div className={`px-2.5 md:px-4 py-1.5 md:py-2 rounded-xl transition-all w-full md:w-auto ${isCurrent ? "bg-emerald-400/20 border border-emerald-400/40 shadow-[0_0_15px_rgba(52,211,153,0.1)]" : (isStart || isEnd) ? "bg-white/10 border border-white/20" : isPassed ? "opacity-40 grayscale-[0.5]" : "group-hover:bg-white/5 border border-transparent"}`}>
+                                                                                        <div className={`px-2.5 md:px-4 py-1.5 md:py-2 rounded-xl transition-[background-color,border-color,opacity,filter] duration-500 w-full md:w-auto ${isCurrent ? "bg-emerald-400/20 border border-emerald-400/40 shadow-[0_0_15px_rgba(52,211,153,0.1)]" : (isStart || isEnd) ? "bg-white/10 border border-white/20" : isPassed ? "opacity-40 grayscale-[0.5]" : "group-hover:bg-white/5 border border-transparent"}`}>
                                                                                             <span className={`text-[13px] md:text-base block transition-colors duration-500 leading-tight ${isCurrent ? "font-black text-emerald-400" : (isStart || isEnd) ? "font-bold text-white uppercase tracking-tight" : isPassed ? "text-white/60 line-through decoration-white/20" : "font-medium text-white/90"}`}>
                                                                                                 {stop.route}
                                                                                                 {isCurrent && <span className="ml-2 text-[9px] bg-emerald-400 text-[#5D1035] px-1.5 py-0.5 rounded-full font-black animate-bounce inline-block">LIVE</span>}

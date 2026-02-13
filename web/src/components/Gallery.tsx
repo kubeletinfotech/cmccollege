@@ -156,15 +156,15 @@ export default function Gallery({ initialItems }: GalleryProps) {
                                         {visibleItems.map((item) => (
                                             <motion.div
                                                 key={item._id}
-                                                layout
-                                                initial={{ opacity: 0, scale: 0.8, x: 100 }}
-                                                animate={{ opacity: 1, scale: 1, x: 0 }}
-                                                exit={{ opacity: 0, scale: 0.8, x: -100 }}
+                                                layout={itemsPerScreen > 1} // Disable expensive layout animations when scrolling one-by-one on mobile
+                                                initial={{ opacity: 0, x: 50 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -50 }}
                                                 transition={{
-                                                    opacity: { duration: 0.4 },
-                                                    layout: { duration: 0.4, ease: "easeInOut" }
+                                                    duration: 0.4,
+                                                    ease: "easeOut"
                                                 }}
-                                                className="relative w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm hover:shadow-xl shrink-0"
+                                                className="relative w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm md:hover:shadow-xl shrink-0 transform-gpu will-change-transform"
                                                 onClick={() => {
                                                     // Find original index
                                                     const originalIndex = items.findIndex(i => i._id === item._id);
@@ -208,7 +208,7 @@ export default function Gallery({ initialItems }: GalleryProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-100 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+                        className="fixed inset-0 z-100 bg-black/90 md:backdrop-blur-md flex items-center justify-center p-4 md:p-8"
                         onClick={closeLightbox}
                     >
                         <div className="absolute top-0 right-0 p-6 z-110">
