@@ -123,7 +123,7 @@ export default function CareerApplication() {
                 // Construct WhatsApp message
                 const whatsappMessage = `*New Career ApplicationNotification*\n\n*Name:* ${formData.fullName}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email}\n*Position:* ${formData.applyingPosition}\n*Qualification:* ${formData.qualification || 'N/A'}\n*Experience:* ${formData.experience || 'N/A'} years`;
                 const encodedMessage = encodeURIComponent(whatsappMessage);
-                const whatsappUrl = `https://wa.me/916282592895?text=${encodedMessage}`;
+                const whatsappUrl = `https://wa.me/7594888203?text=${encodedMessage}`;
 
                 // Open WhatsApp in a new tab
                 window.open(whatsappUrl, '_blank');
