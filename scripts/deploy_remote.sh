@@ -24,15 +24,19 @@ require_cmd() {
 
 require_cmd git
 
-if [ ! -d "$DEPLOY_PATH/.git" ]; then
-  log "Cloning repository into $DEPLOY_PATH"
-  mkdir -p "$(dirname "$DEPLOY_PATH")"
-  git clone --branch "$BRANCH" --depth 1 "$REPO_URL" "$DEPLOY_PATH"
-else
+if [ -d "$DEPLOY_PATH/.git" ]; then
   log "Updating existing repository at $DEPLOY_PATH"
   git -C "$DEPLOY_PATH" remote set-url origin "$REPO_URL"
   git -C "$DEPLOY_PATH" fetch --prune origin "$BRANCH"
   git -C "$DEPLOY_PATH" checkout -B "$BRANCH" "origin/$BRANCH"
+elif [ -d "$DEPLOY_PATH" ]; then
+  echo "Deployment path exists but is not a git repository: $DEPLOY_PATH" >&2
+  echo "Refusing to delete existing directory." >&2
+  exit 1
+else
+  log "Cloning repository into $DEPLOY_PATH"
+  mkdir -p "$(dirname "$DEPLOY_PATH")"
+  git clone --branch "$BRANCH" --depth 1 "$REPO_URL" "$DEPLOY_PATH"
 fi
 
 APP_PATH="$DEPLOY_PATH/$APP_SUBDIR"
