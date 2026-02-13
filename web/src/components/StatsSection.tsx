@@ -76,23 +76,23 @@ function Counter({ value }: { value: number }) {
         return unsubscribe;
     }, [springValue]);
 
-    return <span ref={ref} className="tabular-nums will-change-transform">0</span>;
+    return <span ref={ref} className="tabular-nums">0</span>;
 }
 
 export default function StatsSection() {
     return (
         <section className="relative py-12 md:py-16 bg-[#111111] overflow-hidden">
             {/* Background Ambience */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-transparent to-transparent opacity-40 pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-zinc-800/20 via-transparent to-transparent opacity-40 pointer-events-none" />
 
             <div className="relative max-w-7xl mx-auto px-6">
 
                 {/* Glass Container */}
                 <div
-                    className="rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-md"
+                    className="rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm"
                     style={{
-                        background: 'rgba(255, 255, 255, 0.03)',
+                        background: 'rgba(255, 255, 255, 0.05)',
                         boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'
                     }}
                 >

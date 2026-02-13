@@ -104,7 +104,7 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                                className="absolute inset-0 bg-emerald-950/60 backdrop-blur-[2px] flex flex-col items-center justify-center text-center p-8 md:p-12"
+                                className="absolute inset-0 bg-emerald-950/80 flex flex-col items-center justify-center text-center p-8 md:p-12"
                             >
                                 <span className="text-emerald-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4">
                                     {displayTag}
@@ -355,14 +355,14 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 <div className="absolute inset-x-4 md:inset-x-8 top-1/2 -translate-y-1/2 z-20 flex justify-between pointer-events-none">
                     <button
                         onClick={prevSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/20 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white/70 hover:text-white transition-all duration-300 pointer-events-auto hover:scale-110 active:scale-90 hover:cursor-pointer"
+                        className="group p-2 md:p-3 rounded-full bg-black/40 hover:bg-white/20 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white transition-all duration-300 pointer-events-auto hover:scale-110 active:scale-90 hover:cursor-pointer"
                         aria-label="Previous slide"
                     >
                         <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/20 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white/70 hover:text-white transition-all duration-300 pointer-events-auto hover:scale-110 active:scale-90 hover:cursor-pointer"
+                        className="group p-2 md:p-3 rounded-full bg-black/40 hover:bg-white/20 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white transition-all duration-300 pointer-events-auto hover:scale-110 active:scale-90 hover:cursor-pointer"
                         aria-label="Next slide"
                     >
                         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
