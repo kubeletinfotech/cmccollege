@@ -43,31 +43,45 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    unoptimized: true,
     qualities: [20, 75, 90, 100],
+    // Workaround for runtime optimizer rejecting remotePatterns in some builds.
+    // Keep domains aligned with remotePatterns.
+    domains: [
+      'ik.imagekit.io',
+      'img.clerk.com',
+      'api.qrserver.com',
+      'i.pinimg.com',
+      'upload.wikimedia.org',
+    ],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'ik.imagekit.io',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'img.clerk.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'api.qrserver.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'i.pinimg.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'upload.wikimedia.org',
+        pathname: '/**',
       },
     ],
   },
 };
 
 export default nextConfig;
-

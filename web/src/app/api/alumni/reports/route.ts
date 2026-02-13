@@ -3,15 +3,14 @@ import mongoose from 'mongoose';
 import AlumniReport from '@/models/AlumniReport';
 import ImageKit from 'imagekit';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-    throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
-}
-
 async function dbConnect() {
+    const mongodbUri = process.env.MONGODB_URI;
+    if (!mongodbUri) {
+        throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+    }
+
     if (mongoose.connection.readyState >= 1) return;
-    return mongoose.connect(MONGODB_URI as string);
+    return mongoose.connect(mongodbUri);
 }
 
 // Initialize ImageKit

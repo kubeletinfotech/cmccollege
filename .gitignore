@@ -4,6 +4,7 @@
 *.swp
 *.swo
 .DS_Store
+web/.env
 
 # Logs
 logs
