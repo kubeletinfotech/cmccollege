@@ -1,9 +1,9 @@
 services:
   web:
-    image: ${IMAGE_REF:?IMAGE_REF is required}
+    image: ${IMAGE_REF}
     container_name: beta-comcollege-web
     restart: unless-stopped
     env_file:
       - ./web/.env
     ports:
-      - "${HOST_PORT:-3000}:${CONTAINER_PORT:-3000}"
+      - "${HOST_PORT:-3001}:${CONTAINER_PORT:-3000}"
