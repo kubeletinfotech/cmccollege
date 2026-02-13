@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-# Remote deployment script for the cmccollege Next.js app.
+# Remote deployment script for the cmccollege Docker app.
 # Intended to be executed on the target host via SSH from GitHub Actions.
 
 REPO_URL="${REPO_URL:-git@github.com:kubeletinfotech/cmccollege.git}"
 BRANCH="${BRANCH:-master}"
 DEPLOY_PATH="${DEPLOY_PATH:-/apps/web/beta-comcollege/app}"
-APP_SUBDIR="${APP_SUBDIR:-web}"
-APP_NAME="${APP_NAME:-beta-comcollege}"
-PORT="${PORT:-3000}"
+COMPOSE_FILE="${COMPOSE_FILE:-docker-compose.yml}"
+ENV_FILE_REL_PATH="${ENV_FILE_REL_PATH:-web/.env}"
+IMAGE_REF="${IMAGE_REF:-}"
+HOST_PORT="${HOST_PORT:-3000}"
+CONTAINER_PORT="${CONTAINER_PORT:-3000}"
+ENV_FILE_B64="${ENV_FILE_B64:-}"
 
 log() {
   printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
@@ -23,6 +26,8 @@ require_cmd() {
 }
 
 require_cmd git
+require_cmd docker
+require_cmd base64
 
 if [ -d "$DEPLOY_PATH/.git" ]; then
   log "Updating existing repository at $DEPLOY_PATH"
@@ -39,59 +44,41 @@ else
   git clone --branch "$BRANCH" --depth 1 "$REPO_URL" "$DEPLOY_PATH"
 fi
 
-APP_PATH="$DEPLOY_PATH/$APP_SUBDIR"
-if [ ! -f "$APP_PATH/package.json" ]; then
-  echo "Could not find package.json in $APP_PATH" >&2
+cd "$DEPLOY_PATH"
+
+if [ ! -f "$COMPOSE_FILE" ]; then
+  echo "Could not find compose file at $DEPLOY_PATH/$COMPOSE_FILE" >&2
   exit 1
 fi
 
-cd "$APP_PATH"
-
-if command -v corepack >/dev/null 2>&1; then
-  corepack enable >/dev/null 2>&1 || true
+if [ -n "$ENV_FILE_B64" ]; then
+  mkdir -p "$(dirname "$ENV_FILE_REL_PATH")"
+  printf '%s' "$ENV_FILE_B64" | base64 -d > "$ENV_FILE_REL_PATH"
+  chmod 600 "$ENV_FILE_REL_PATH" || true
+  log "Updated env file at $DEPLOY_PATH/$ENV_FILE_REL_PATH"
 fi
 
-if command -v pnpm >/dev/null 2>&1; then
-  log "Installing dependencies with pnpm"
-  pnpm install --frozen-lockfile
-
-  log "Building application"
-  pnpm run build
-
-  if command -v pm2 >/dev/null 2>&1; then
-    log "Restarting app with pm2 (name: $APP_NAME, port: $PORT)"
-    if pm2 describe "$APP_NAME" >/dev/null 2>&1; then
-      PORT="$PORT" NODE_ENV=production pm2 restart "$APP_NAME" --update-env
-    else
-      PORT="$PORT" NODE_ENV=production pm2 start "pnpm -- start -p $PORT" --name "$APP_NAME"
-    fi
-    pm2 save
-  elif [ -n "${SYSTEMD_SERVICE:-}" ]; then
-    log "Restarting systemd service: $SYSTEMD_SERVICE"
-    sudo systemctl restart "$SYSTEMD_SERVICE"
-  else
-    log "Build completed. No process manager found (pm2/systemd). Restart the app manually."
-  fi
-else
-  require_cmd npm
-  log "pnpm not found, using npm"
-  npm ci
-  npm run build
-
-  if command -v pm2 >/dev/null 2>&1; then
-    log "Restarting app with pm2 (name: $APP_NAME, port: $PORT)"
-    if pm2 describe "$APP_NAME" >/dev/null 2>&1; then
-      PORT="$PORT" NODE_ENV=production pm2 restart "$APP_NAME" --update-env
-    else
-      PORT="$PORT" NODE_ENV=production pm2 start "npm -- start -- -p $PORT" --name "$APP_NAME"
-    fi
-    pm2 save
-  elif [ -n "${SYSTEMD_SERVICE:-}" ]; then
-    log "Restarting systemd service: $SYSTEMD_SERVICE"
-    sudo systemctl restart "$SYSTEMD_SERVICE"
-  else
-    log "Build completed. No process manager found (pm2/systemd). Restart the app manually."
-  fi
+if [ -z "$IMAGE_REF" ]; then
+  echo "IMAGE_REF is required" >&2
+  exit 1
 fi
+
+docker_compose() {
+  if [ "$(id -u)" -eq 0 ]; then
+    IMAGE_REF="$IMAGE_REF" HOST_PORT="$HOST_PORT" CONTAINER_PORT="$CONTAINER_PORT" docker compose -f "$COMPOSE_FILE" "$@"
+  else
+    sudo env IMAGE_REF="$IMAGE_REF" HOST_PORT="$HOST_PORT" CONTAINER_PORT="$CONTAINER_PORT" \
+      docker compose -f "$COMPOSE_FILE" "$@"
+  fi
+}
+
+log "Pulling image: $IMAGE_REF"
+docker_compose pull web
+
+log "Recreating container"
+docker_compose up -d --no-build web
+
+log "Current container status"
+docker_compose ps
 
 log "Deployment complete"

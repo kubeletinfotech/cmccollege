@@ -1,0 +1,9 @@
+services:
+  web:
+    image: ${IMAGE_REF:?IMAGE_REF is required}
+    container_name: beta-comcollege-web
+    restart: unless-stopped
+    env_file:
+      - ./web/.env
+    ports:
+      - "${HOST_PORT:-3000}:${CONTAINER_PORT:-3000}"
