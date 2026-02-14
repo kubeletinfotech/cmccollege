@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   openGraph: {
     title: "CM College of Art and Science – Excellence in Education",
@@ -96,7 +96,7 @@ export default function RootLayout({
     "name": "CM College of Art and Science",
     "alternateName": "CM College",
     "url": "https://cmcollege.edu.in",
-    "logo": "https://cmcollege.edu.in/favicon.png",
+    "logo": "https://cmcollege.edu.in/favicon.svg",
     "sameAs": [
       "https://www.facebook.com/cmcollegenadavayal",
       "https://www.instagram.com/cmcollege_nadavayal"

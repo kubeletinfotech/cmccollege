@@ -90,7 +90,7 @@ export default function WhatsAppWidget() {
                                         <div className="relative">
                                             <div className="w-10 h-10 rounded-full overflow-hidden bg-white border border-white/20">
                                                 <Image
-                                                    src="/favicon.png" // Using logo as avatar
+                                                    src="/favicon.svg" // Using logo as avatar
                                                     alt="Support"
                                                     fill
                                                     className="object-contain p-1"
