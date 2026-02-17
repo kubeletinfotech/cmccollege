@@ -149,10 +149,11 @@ export default function NewsSection({ initialNews }: NewsSectionProps) {
 
                 {/* View All Button */}
                 <div className="mt-10 text-center">
-                    <Link href="/news">
-                        <button className="px-6 py-2.5 rounded-full border border-zinc-200 text-zinc-600 text-sm font-semibold hover:bg-zinc-50 hover:text-emerald-800 hover:border-emerald-200 transition-all">
-                            View All Events
-                        </button>
+                    <Link
+                        href="/news"
+                        className="inline-block px-6 py-2.5 rounded-full border border-zinc-200 text-zinc-600 text-sm font-semibold hover:bg-zinc-50 hover:text-emerald-800 hover:border-emerald-200 transition-all"
+                    >
+                        View All Events
                     </Link>
                 </div>
 

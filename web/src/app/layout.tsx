@@ -22,6 +22,7 @@ const playfair = Playfair_Display({
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -122,7 +123,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${oswald.variable} antialiased pt-[var(--ticker-height,0px)]`}
+          className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${oswald.variable} antialiased pt-(--ticker-height,0px)`}
         >
           <NextTopLoader
             color="#0BB9F3"
@@ -139,6 +140,9 @@ export default function RootLayout({
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
+          {/* Performance: Preconnect to Image CDN */}
+          <link rel="preconnect" href="https://ik.imagekit.io" />
+          <link rel="dns-prefetch" href="https://ik.imagekit.io" />
           <SiteLayout>
             <UserSync />
             {children}

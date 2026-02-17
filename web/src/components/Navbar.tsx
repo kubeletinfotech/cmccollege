@@ -10,7 +10,8 @@ import {
 } from "lucide-react";
 
 import TopBar from "./TopBar";
-import SearchOverlay from "./SearchOverlay";
+import dynamic from "next/dynamic";
+const SearchOverlay = dynamic(() => import("./SearchOverlay"), { ssr: false });
 import toast from "react-hot-toast";
 
 export default function Navbar() {
@@ -137,6 +138,8 @@ export default function Navbar() {
                     className="relative group h-full flex items-center cursor-pointer" // h-full ensures full height hover areas
                     onMouseEnter={() => !isMobile && link.dropdown && setActiveDropdown(link.name)}
                     onMouseLeave={() => !isMobile && link.dropdown && setActiveDropdown(null)}
+                    aria-haspopup={link.dropdown ? "true" : undefined}
+                    aria-expanded={activeDropdown === link.name}
                 >
                     <Link
                         href={link.href}
@@ -402,18 +405,18 @@ function AdmissionButton({ fullWidth = false }: { fullWidth?: boolean }) {
     // const { isAdmissionOpen } = useAdmissionStatus(); // No longer needed as text is fixed
 
     return (
-        <Link href="/admissions" className={fullWidth ? "block w-full" : "block"}>
-            <button
-                aria-label="Make an admission enquiry"
-                className={`
-                relative bg-[#7a0b3a] text-white font-bold uppercase tracking-widest rounded-md overflow-hidden group transition-all duration-300
+        <Link
+            href="/admissions"
+            aria-label="Make an admission enquiry"
+            className={`
+                relative flex items-center justify-center bg-[#7a0b3a] text-white font-bold uppercase tracking-widest rounded-md overflow-hidden group transition-all duration-300
                 hover:bg-[#60082d] hover:shadow-[0_0_20px_rgba(122,11,58,0.5)] hover:-translate-y-0.5 cursor-pointer
                 ${fullWidth ? "w-full py-4 text-sm" : "px-6 py-2.5 text-xs"}
-            `}>
-                <span className="relative z-10">Admission</span>
-                {/* Shine Effect */}
-                <div className="absolute top-0 -left-full h-full w-full z-5 block transform -skew-x-12 bg-linear-to-r from-transparent via-white/30 to-transparent group-hover:animate-shine" />
-            </button>
+            `}
+        >
+            <span className="relative z-10">Admission</span>
+            {/* Shine Effect */}
+            <div className="absolute top-0 -left-full h-full w-full z-5 block transform -skew-x-12 bg-linear-to-r from-transparent via-white/30 to-transparent group-hover:animate-shine" />
         </Link>
     );
 }

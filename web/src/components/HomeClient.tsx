@@ -6,18 +6,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import Gallery from "@/components/Gallery";
-import Professionals from "@/components/Professionals";
-import NewsSection from "@/components/NewsSection";
-import ClubsCarousel from "@/components/ClubsCarousel";
-import StatsSection from "@/components/StatsSection";
-import Collaborations from "@/components/Collaborations";
-import Testimonials from "@/components/Testimonials";
-import { useAdmissionStatus } from "@/hooks/useAdmissionStatus";
-import DynamicCTA from "@/components/DynamicCTA";
-import HomeMap from "@/components/HomeMap";
-import toast from "react-hot-toast";
+import dynamic from "next/dynamic";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import toast from "react-hot-toast";
+
+// Lazy load non-critical sections to improve initial TBT
+const Gallery = dynamic(() => import("@/components/Gallery"), { ssr: true });
+const NewsSection = dynamic(() => import("@/components/NewsSection"), { ssr: true });
+const ClubsCarousel = dynamic(() => import("@/components/ClubsCarousel"), { ssr: true });
+const StatsSection = dynamic(() => import("@/components/StatsSection"), { ssr: true });
+const Collaborations = dynamic(() => import("@/components/Collaborations"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
+const DynamicCTA = dynamic(() => import("@/components/DynamicCTA"), { ssr: true });
+const HomeMap = dynamic(() => import("@/components/HomeMap"), { ssr: true });
+const Professionals = dynamic(() => import("@/components/Professionals"), { ssr: true });
+import { useAdmissionStatus } from "@/hooks/useAdmissionStatus";
 
 
 interface GalleryImage {
@@ -357,15 +360,19 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 Committed to Excellence in Higher Education
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <Link href="/admissions">
-                                    <button className="px-6 py-3 bg-white text-emerald-900 font-semibold rounded-lg shadow-lg hover:bg-emerald-50 transition-transform text-base hover:scale-105 active:scale-95 cursor-pointer">
-                                        Admission Open
-                                    </button>
+                                <Link
+                                    href="/admissions"
+                                    aria-label="View admission details"
+                                    className="px-6 py-3 bg-white text-emerald-900 font-semibold rounded-lg shadow-lg hover:bg-emerald-50 transition-transform text-base hover:scale-105 active:scale-95 cursor-pointer"
+                                >
+                                    Admission Open
                                 </Link>
-                                <Link href="/about">
-                                    <button className="w-full sm:w-auto px-6 py-3 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-base hover:scale-105 active:scale-95 cursor-pointer">
-                                        Learn More
-                                    </button>
+                                <Link
+                                    href="/about"
+                                    aria-label="Learn more about the college"
+                                    className="w-full sm:w-auto px-6 py-3 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-base hover:scale-105 active:scale-95 cursor-pointer text-center"
+                                >
+                                    Learn More
                                 </Link>
                             </div>
                         </ScrollReveal>
