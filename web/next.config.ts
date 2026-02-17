@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     unoptimized: true,
-    qualities: [20, 75, 90, 100],
+    qualities: [20, 75, 80, 85, 90, 100],
     // Workaround for runtime optimizer rejecting remotePatterns in some builds.
     // Keep domains aligned with remotePatterns.
     domains: [
