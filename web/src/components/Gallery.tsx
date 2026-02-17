@@ -24,12 +24,15 @@ export default function Gallery({ initialItems }: GalleryProps) {
     const [items, setItems] = useState<GalleryItem[]>(initialItems || []);
     const [loading, setLoading] = useState(!initialItems);
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsPerScreen, setItemsPerScreen] = useState(4);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
     // Handle Resize
     useEffect(() => {
         const handleResize = () => {
+            const mobile = window.innerWidth < 768; // Using 768 for broader mobile/tablet view
+            setIsMobile(mobile);
             if (window.innerWidth < 640) setItemsPerScreen(1);
             else if (window.innerWidth < 1024) setItemsPerScreen(2);
             else setItemsPerScreen(4);
@@ -47,12 +50,21 @@ export default function Gallery({ initialItems }: GalleryProps) {
 
     // Auto-slide Loop
     useEffect(() => {
-        if (loading || items.length <= 4) return;
+        if (loading || items.length <= 1) return;
+
+        // Sliding logic: 
+        // Mobile (<768px): always slide if more than 1 image
+        // Desktop (>=1024px): slide only if more than 4 images
+        // Tablet (640px - 1024px): slide if more than 2 images
+        const shouldSlide = isMobile ? items.length > 1 : items.length > itemsPerScreen;
+
+        if (!shouldSlide) return;
+
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % items.length);
-        }, 3000);
+        }, 4000); // 4 seconds for better visibility
         return () => clearInterval(timer);
-    }, [loading, items.length]);
+    }, [loading, items.length, isMobile, itemsPerScreen]);
 
     // Compute visible items
     const visibleItems: GalleryItem[] = [];
