@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CheckCircle2, ArrowLeft, ArrowRight, Bus, MapPin, Play, Flag, Timer, Users, Bed, Cpu, Layers, AlertCircle, ChevronDown, ChevronUp, Clock } from "lucide-react";
-import ScrollReveal from "@/components/ScrollReveal";
+
 import { AMENITIES_DATA } from "@/data/amenities";
 import AmenitiesSidebar from "@/components/AmenitiesSidebar";
 
@@ -66,14 +66,14 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                             <span className="text-white">{data.title}</span>
                         </div>
 
-                        <ScrollReveal>
+                        <div>
                             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight font-serif text-white mb-2 leading-tight">
                                 {data.heading || data.title}
                             </h1>
                             <p className="text-lg md:text-xl text-white/80 max-w-2xl font-light leading-relaxed">
                                 {data.description.split('.')[0]}.
                             </p>
-                        </ScrollReveal>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -90,7 +90,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
 
                         {/* Featured Image & Gallery */}
                         <div className="space-y-6">
-                            <ScrollReveal className="relative h-[300px] md:h-[500px] w-full rounded-4xl overflow-hidden shadow-2xl shadow-[#5D1035]/10 group">
+                            <div className="relative h-[300px] md:h-[500px] w-full rounded-4xl overflow-hidden shadow-2xl shadow-[#5D1035]/10 group">
                                 <Image
                                     src={data.image}
                                     alt={data.title}
@@ -99,12 +99,12 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                     priority
                                 />
                                 <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
-                            </ScrollReveal>
+                            </div>
 
                             {data.gallery && data.gallery.length > 0 && (
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                     {data.gallery.map((img, i) => (
-                                        <ScrollReveal key={i} delay={100 + (i * 100)} className="group relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all">
+                                        <div key={i} className="group relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all">
                                             <Image
                                                 src={img}
                                                 alt={`${data.title} gallery ${i}`}
@@ -112,7 +112,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                 className="object-cover group-hover:scale-110 transition-transform duration-700"
                                             />
                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                                        </ScrollReveal>
+                                        </div>
                                     ))}
                                 </div>
                             )}
@@ -120,7 +120,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
 
                         {/* Overview & Features */}
                         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
-                            <ScrollReveal>
+                            <div>
                                 <h2 className="text-3xl font-bold text-[#5D1035] mb-6 font-serif flex items-center gap-3">
                                     <span className="w-8 h-1 bg-[#5D1035] rounded-full"></span>
                                     Overview
@@ -128,9 +128,9 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                 <p className="text-lg text-zinc-600 leading-relaxed text-left">
                                     {data.description}
                                 </p>
-                            </ScrollReveal>
+                            </div>
 
-                            <ScrollReveal delay={200} className="bg-white p-8 rounded-3xl shadow-xl shadow-zinc-100 border border-zinc-100/50">
+                            <div className="bg-white p-8 rounded-3xl shadow-xl shadow-zinc-100 border border-zinc-100/50">
                                 <h3 className="text-xl font-bold text-zinc-900 mb-6 font-serif">Key Highlights</h3>
                                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {data.features.map((feature, idx) => (
@@ -144,12 +144,12 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         </li>
                                     ))}
                                 </ul>
-                            </ScrollReveal>
+                            </div>
                         </div>
 
                         {/* Librarian Section */}
                         {data.librarian && (
-                            <ScrollReveal delay={300} className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-zinc-100 border border-zinc-100 overflow-hidden relative group hover:border-[#5D1035]/20 transition-all">
+                            <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-zinc-100 border border-zinc-100 overflow-hidden relative group hover:border-[#5D1035]/20 transition-all">
                                 <div className="absolute top-0 right-0 w-96 h-96 bg-[#5D1035]/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
                                 <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
@@ -194,11 +194,11 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         )}
                                     </div>
                                 </div>
-                            </ScrollReveal>
+                            </div>
                         )}
 
                         {data.busSchedules && (
-                            <ScrollReveal delay={300}>
+                            <div>
                                 <div className="bg-[#5D1035] rounded-3xl md:rounded-[2.5rem] p-6 md:p-12 text-white relative overflow-hidden shadow-xl md:shadow-2xl shadow-[#5D1035]/20">
                                     {/* Background decorative elements - Simplified for mobile performance */}
                                     <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-white/5 rounded-full blur-2xl md:blur-3xl -mr-20 -mt-20 pointer-events-none transition-opacity"></div>
@@ -387,12 +387,12 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         </div>
                                     </div>
                                 </div>
-                            </ScrollReveal>
+                            </div>
                         )}
 
                         {/* Hostel Specific UI */}
                         {data.hostelDetails && (
-                            <ScrollReveal delay={300} className="space-y-8">
+                            <div className="space-y-8">
                                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 rounded-3xl shadow-lg border border-zinc-100">
                                     <div>
                                         <h2 className="text-2xl font-bold font-serif text-[#5D1035]">Hostel Facilities</h2>
@@ -463,12 +463,12 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         ))}
                                     </div>
                                 </div>
-                            </ScrollReveal>
+                            </div>
                         )}
 
                         {/* Computer Lab Specific UI */}
                         {data.labDetails && (
-                            <ScrollReveal delay={300} className="space-y-12">
+                            <div className="space-y-12">
                                 <div>
                                     <h2 className="text-3xl font-bold font-serif text-zinc-900 mb-8 flex items-center gap-3">
                                         <Cpu className="w-8 h-8 text-[#5D1035]" />
@@ -530,12 +530,12 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         </div>
                                     </div>
                                 </div>
-                            </ScrollReveal>
+                            </div>
                         )}
 
                         {/* Achievements Section (Sports etc.) */}
                         {data.achievements && (
-                            <ScrollReveal delay={300} className="space-y-8">
+                            <div className="space-y-8">
                                 <h2 className="text-3xl font-bold font-serif text-[#5D1035] flex items-center gap-3">
                                     <span className="w-8 h-1 bg-[#5D1035] rounded-full"></span>
                                     Achievements & Glory
@@ -582,7 +582,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                         </div>
                                     ))}
                                 </div>
-                            </ScrollReveal>
+                            </div>
                         )}
                     </div>
                 </div>
