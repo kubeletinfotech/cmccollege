@@ -100,7 +100,7 @@ export default function Testimonials() {
                     <span className="block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase opacity-80 mb-3">
                         What Our Alumni Say
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-agency font-bold tracking-normal uppercase">
+                    <h2 className="text-2xl md:text-4xl font-agency font-bold tracking-normal uppercase">
                         Testimonials
                     </h2>
                     <div className="w-16 h-1 bg-emerald-500 mx-auto mt-6 rounded-full opacity-80"></div>
@@ -122,7 +122,7 @@ export default function Testimonials() {
                             className="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-12 touch-pan-y"
                         >
                             <div className="max-w-4xl">
-                                <p className="text-sm sm:text-base md:text-xl font-medium leading-loose italic opacity-90 mb-6 md:mb-8 font-serif">
+                                <p className="text-xs sm:text-sm md:text-lg font-medium leading-loose italic opacity-90 mb-6 md:mb-8 font-serif">
                                     &quot;{testimonials[currentIndex].quote}&quot;
                                 </p>
                                 <div className="flex flex-col items-center gap-2">

@@ -46,7 +46,7 @@ export default function Professionals() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-3 uppercase"
+                        className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-3 uppercase"
                     >
                         Meet The Professionals
                     </motion.h2>
@@ -55,7 +55,7 @@ export default function Professionals() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-zinc-500 text-lg max-w-2xl mx-auto text-center font-medium"
+                        className="text-zinc-500 text-base max-w-2xl mx-auto text-center font-medium"
                     >
                         Our alumni building successful careers across industries
                     </motion.p>
@@ -70,10 +70,10 @@ export default function Professionals() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: index * 0.1 }}
-                            className="group bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 shrink-0 w-[75vw] md:w-auto snap-center border border-zinc-100"
+                            className="group bg-white rounded-xl p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 shrink-0 w-[70vw] md:w-auto snap-center border border-zinc-100"
                         >
                             {/* Profile Image (Color) */}
-                            <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6">
+                            <div className="relative w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 md:mb-5">
                                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-zinc-50 shadow-inner">
                                     <Image
                                         src={alum.image}
@@ -87,7 +87,7 @@ export default function Professionals() {
 
                             {/* Text Content */}
                             <div className="text-center">
-                                <h3 className="text-lg md:text-xl font-semibold text-zinc-900 mb-1 group-hover:text-emerald-800 transition-colors">
+                                <h3 className="text-base md:text-lg font-semibold text-zinc-900 mb-1 group-hover:text-emerald-800 transition-colors">
                                     {alum.name}
                                 </h3>
                                 <p className="text-sm font-medium text-zinc-600 mb-1">

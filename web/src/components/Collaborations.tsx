@@ -29,7 +29,7 @@ const MarqueeRow = ({ title, items, reverse = false, fit = "contain" }: { title:
                     <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-linear-to-b from-white/40 to-transparent transform rotate-45 pointer-events-none transition-transform duration-700 group-hover/card:translate-x-full"></div>
 
                     <div className="p-4 md:p-8 flex items-center justify-center min-h-[80px] md:min-h-[120px] relative z-10">
-                        <h3 className="text-[12px] md:text-sm font-agency font-bold text-[#5D1035] uppercase text-center leading-relaxed">
+                        <h3 className="text-[10px] md:text-xs font-agency font-bold text-[#5D1035] uppercase text-center leading-relaxed">
                             {title}
                         </h3>
                     </div>

@@ -59,7 +59,7 @@ export default function NewsSection({ initialNews }: NewsSectionProps) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-2xl md:text-4xl font-agency font-bold text-emerald-800 mb-2 md:mb-3 uppercase"
+                        className="text-xl md:text-3xl font-agency font-bold text-emerald-800 mb-2 md:mb-3 uppercase"
                     >
                         Latest News & Events
                     </motion.h2>
@@ -118,7 +118,7 @@ export default function NewsSection({ initialNews }: NewsSectionProps) {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-5 flex flex-col grow">
+                                <div className="p-4 flex flex-col grow">
                                     <div className="flex items-center gap-2 mb-2">
                                         <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -126,7 +126,7 @@ export default function NewsSection({ initialNews }: NewsSectionProps) {
                                         <span className="text-xs font-medium text-zinc-500">{formatDate(item.date)}</span>
                                     </div>
 
-                                    <h3 className="text-lg font-bold text-zinc-900 mb-2 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-tight">
+                                    <h3 className="text-base font-bold text-zinc-900 mb-2 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-tight">
                                         {item.title}
                                     </h3>
 

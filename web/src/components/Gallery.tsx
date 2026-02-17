@@ -125,7 +125,7 @@ export default function Gallery({ initialItems }: GalleryProps) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-agency font-bold text-[#7B0046] uppercase tracking-wide mb-3"
+                        className="text-2xl md:text-3xl font-agency font-bold text-[#7B0046] uppercase tracking-wide mb-3"
                     >
                         Explore CM College
                     </motion.h2>

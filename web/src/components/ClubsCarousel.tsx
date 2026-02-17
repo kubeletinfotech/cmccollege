@@ -53,7 +53,7 @@ export default function ClubsCarousel() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-2xl md:text-4xl font-agency font-bold text-emerald-800 mb-2 md:mb-3 uppercase"
+                        className="text-xl md:text-3xl font-agency font-bold text-emerald-800 mb-2 md:mb-3 uppercase"
                     >
                         Student Clubs & Activities
                     </motion.h2>
@@ -62,7 +62,7 @@ export default function ClubsCarousel() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-zinc-500 text-sm md:text-lg max-w-2xl mx-auto font-medium"
+                        className="text-xs md:text-base max-w-2xl mx-auto font-medium"
                     >
                         Platforms that encourage leadership, innovation, and social responsibility
                     </motion.p>

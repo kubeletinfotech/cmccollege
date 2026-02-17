@@ -13,11 +13,11 @@ export default function Footer() {
     }
 
     return (
-        <footer className="bg-[#7B0046] text-white py-16 px-6 md:px-12">
+        <footer className="bg-[#7B0046] text-white py-12 px-6 md:px-12">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
                 {/* College Info */}
                 <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left md:col-span-2 lg:col-span-1">
-                    <div className="relative w-full max-w-[280px] h-24 mb-6 md:mx-auto lg:mx-0">
+                    <div className="relative w-full max-w-[240px] h-20 mb-6 md:mx-auto lg:mx-0">
                         <Image
                             src="https://ik.imagekit.io/1yxtj9qun/Home/images/Logo-footer.png"
                             alt="College Logo"
@@ -48,7 +48,7 @@ export default function Footer() {
 
                 {/* Quick Links */}
                 <div className="flex flex-col items-start text-left">
-                    <h4 className="text-white font-bold mb-6 text-lg tracking-tight">Navigation</h4>
+                    <h4 className="text-white font-bold mb-5 text-base tracking-tight">Navigation</h4>
                     <ul className="space-y-3 text-white/90">
                         <li>
                             <Link href="/about" className="hover:text-emerald-300 transition-colors inline-block py-0.5">
@@ -85,7 +85,7 @@ export default function Footer() {
 
                 {/* Resources */}
                 <div className="flex flex-col items-start text-left">
-                    <h4 className="text-white font-bold mb-6 text-lg tracking-tight">Portal</h4>
+                    <h4 className="text-white font-bold mb-5 text-base tracking-tight">Portal</h4>
                     <ul className="space-y-3 text-white/90">
                         <li>
                             <Link href="/gallery" className="hover:text-emerald-300 transition-colors inline-block py-0.5">
@@ -112,7 +112,7 @@ export default function Footer() {
 
                 {/* Contact Info */}
                 <div className="flex flex-col items-start text-left uppercase md:col-span-2 lg:col-span-1">
-                    <h4 className="text-white font-bold mb-6 text-lg tracking-tight uppercase">Get in Touch</h4>
+                    <h4 className="text-white font-bold mb-5 text-base tracking-tight uppercase">Get in Touch</h4>
                     <ul className="space-y-5 text-white/90">
                         <li className="flex gap-4 items-start">
                             <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0 border border-white/20 group-hover:bg-white/20 transition-colors">

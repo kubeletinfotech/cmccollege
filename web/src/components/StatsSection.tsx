@@ -104,7 +104,7 @@ export default function StatsSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.15, duration: 0.6 }}
-                                className={`flex flex-col items-center justify-center p-6 md:p-8 group relative border-white/10
+                                className={`flex flex-col items-center justify-center p-5 md:p-6 group relative border-white/10
                                     ${index !== stats.length - 1 ? 'border-b md:border-b-0' : ''} 
                                     ${index % 2 === 0 ? 'md:border-r lg:border-r-0' : ''}
                                     ${index < 2 ? 'md:border-b' : ''}
@@ -122,9 +122,9 @@ export default function StatsSection() {
                                 </div>
 
                                 {/* Number */}
-                                <div className="text-3xl md:text-4xl font-agency font-bold text-white mb-1 flex items-baseline gap-1 drop-shadow-sm">
+                                <div className="text-2xl md:text-3xl font-agency font-bold text-white mb-1 flex items-baseline gap-1 drop-shadow-sm">
                                     <Counter value={stat.value} />
-                                    <span className="text-emerald-400/80 text-2xl font-light">{stat.suffix}</span>
+                                    <span className="text-emerald-400/80 text-xl font-light">{stat.suffix}</span>
                                 </div>
 
                                 {/* Label */}

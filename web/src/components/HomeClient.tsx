@@ -72,7 +72,7 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
         <ScrollReveal
             delay={index * 100}
             className={`group relative overflow-hidden shadow-sm md:hover:shadow-2xl transition-shadow duration-700 h-full border border-emerald-50/10
-        ${featured ? "md:col-span-2 md:row-span-2 min-h-[450px]" : "min-h-[300px] md:min-h-0"}
+        ${featured ? "md:col-span-2 md:row-span-2 min-h-[350px]" : "min-h-[180px] md:min-h-0"}
         ${getRoundedClass(index, featured)}
       `}
         >
@@ -109,7 +109,7 @@ const GalleryCard = ({ item, index, featured }: { item: any, index: number, feat
                                 <span className="text-emerald-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4">
                                     {displayTag}
                                 </span>
-                                <h3 className="text-white text-2xl md:text-3xl font-bold leading-tight max-w-[300px]">
+                                <h3 className="text-white text-xl md:text-2xl font-bold leading-tight max-w-[280px]">
                                     {item.title}
                                 </h3>
                             </motion.div>
@@ -372,20 +372,20 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 {isAdmissionOpen && (
                     <div className="relative z-10 max-w-5xl mx-auto text-center">
                         <ScrollReveal>
-                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-agency font-bold mb-4 md:mb-6 uppercase leading-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-5xl font-agency font-bold mb-3 md:mb-5 uppercase leading-tight">
                                 CM College of Arts and Science
                             </h1>
-                            <p className="text-lg sm:text-xl md:text-2xl text-emerald-100 mb-8 md:mb-10 max-w-2xl mx-auto px-2">
+                            <p className="text-base sm:text-lg md:text-xl text-emerald-100 mb-6 md:mb-8 max-w-xl mx-auto px-2">
                                 Committed to Excellence in Higher Education
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <Link href="/admissions">
-                                    <button className="px-8 py-4 bg-white text-emerald-900 font-semibold rounded-lg shadow-lg hover:bg-emerald-50 transition-transform text-lg hover:scale-105 active:scale-95 cursor-pointer">
+                                    <button className="px-6 py-3 bg-white text-emerald-900 font-semibold rounded-lg shadow-lg hover:bg-emerald-50 transition-transform text-base hover:scale-105 active:scale-95 cursor-pointer">
                                         Admission Open
                                     </button>
                                 </Link>
                                 <Link href="/about">
-                                    <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-lg hover:scale-105 active:scale-95 cursor-pointer">
+                                    <button className="w-full sm:w-auto px-6 py-3 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-base hover:scale-105 active:scale-95 cursor-pointer">
                                         Learn More
                                     </button>
                                 </Link>
@@ -403,11 +403,11 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                         <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-2xl md:blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
                         <div className="relative z-10 flex flex-col items-start text-left">
-                            <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-6 uppercase">
+                            <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-4 uppercase">
                                 CM College
                             </h2>
 
-                            <div className="text-lg text-zinc-600 leading-relaxed font-normal space-y-5 lg:columns-2 lg:gap-12 text-left md:text-justify">
+                            <div className="text-base text-zinc-600 leading-relaxed font-normal space-y-4 lg:columns-2 lg:gap-12 text-left md:text-justify">
                                 <p className="block md:hidden">
                                     CM College of Arts and Science, Nadavayal, Wayanad, is a self-financing institution affiliated with the University of Calicut. Established in 2010 under the guidance of CM Center Madavoor, the college is set across 15 acres of serene campus, committed to providing quality higher education and empowering students.
                                 </p>
@@ -419,9 +419,9 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 </p>
                             </div>
 
-                            <div className="mt-8">
+                            <div className="mt-6">
                                 <Link href="/about">
-                                    <button className="px-8 py-3 bg-[#7B0046] text-white font-medium text-lg rounded-lg hover:bg-[#600036] transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer">
+                                    <button className="px-6 py-2.5 bg-[#7B0046] text-white font-medium text-base rounded-lg hover:bg-[#600036] transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer">
                                         Know More
                                     </button>
                                 </Link>
@@ -450,10 +450,10 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
             <section className="pb-16 md:pb-24 pt-8 px-4 md:px-6 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <ScrollReveal>
-                        <div className="flex flex-col md:flex-row bg-white rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100">
+                        <div className="flex flex-col md:flex-row bg-white rounded-[24px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-gray-100">
 
                             {/* Image Section - Top on mobile, Left on desktop */}
-                            <div className="w-full md:w-5/12 relative h-[450px] md:h-auto">
+                            <div className="w-full md:w-5/12 relative h-[300px] md:h-auto">
                                 <Image
                                     src="https://ik.imagekit.io/1yxtj9qun/About/principal.jpeg?updatedAt=1768826571745"
                                     alt="Principal"
@@ -466,19 +466,19 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             </div>
 
                             {/* Content Section - Bottom on mobile, Right on desktop */}
-                            <div className="w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center border-l-0 md:border-l-4 border-l-[#7B0046]">
+                            <div className="w-full md:w-7/12 p-6 md:p-10 flex flex-col justify-center border-l-0 md:border-l-4 border-l-[#7B0046]">
                                 {/* Label */}
-                                <div className="flex items-center gap-3 mb-8">
+                                <div className="flex items-center gap-2 mb-6">
                                     <span className="w-2 h-2 rounded-full bg-[#7B0046] animate-pulse"></span>
-                                    <span className="text-white text-sm md:text-base font-bold tracking-widest bg-[#7B0046] px-5 py-2.5 rounded-full uppercase">
+                                    <span className="text-white text-xs md:text-sm font-bold tracking-widest bg-[#7B0046] px-4 py-2 rounded-full uppercase">
                                         Principal&apos;s Message
                                     </span>
                                 </div>
 
                                 {/* Text Content */}
-                                <div className="relative mb-10">
-                                    <span className="absolute -top-8 -left-2 text-7xl text-emerald-100/40 font-serif leading-none select-none">&quot;</span>
-                                    <div className="relative z-10 space-y-4 text-zinc-600 leading-relaxed text-base md:text-lg text-left">
+                                <div className="relative mb-8">
+                                    <span className="absolute -top-6 -left-1 text-5xl text-emerald-100/40 font-serif leading-none select-none">&quot;</span>
+                                    <div className="relative z-10 space-y-3 text-zinc-600 leading-relaxed text-sm md:text-base text-left">
                                         <div className="block md:hidden">
                                             <p className="font-medium">
                                                 {isMsgExpanded
@@ -500,9 +500,9 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 </div>
 
                                 {/* Signature Block */}
-                                <div className="mt-4 pt-8 border-t border-zinc-100 flex items-center gap-5 relative z-10">
-                                    <div className="w-14 h-14 rounded-2xl bg-[#7B0046] flex items-center justify-center text-white shadow-lg shadow-[#7B0046]/20 shrink-0">
-                                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                <div className="mt-4 pt-6 border-t border-zinc-100 flex items-center gap-4 relative z-10">
+                                    <div className="w-12 h-12 rounded-xl bg-[#7B0046] flex items-center justify-center text-white shadow-lg shadow-[#7B0046]/20 shrink-0">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                                     </div>
                                     <div className="flex-1">
                                         <h4 className="text-lg font-bold text-zinc-900 leading-tight">Shafi Pulpara</h4>
@@ -528,11 +528,11 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
 
 
             {/* Academic Programs Section */}
-            <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-50">
+            <section className="py-10 md:py-16 px-4 md:px-6 bg-emerald-50">
                 <div className="w-full mx-auto">
-                    <ScrollReveal className="text-center mb-8 md:mb-16">
-                        <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-800 mb-4 uppercase">Departments of Academic Studies</h2>
-                        <p className="text-zinc-600 text-lg max-w-2xl mx-auto">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
+                    <ScrollReveal className="text-center mb-6 md:mb-12">
+                        <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-3 uppercase">Departments of Academic Studies</h2>
+                        <p className="text-zinc-600 text-base max-w-2xl mx-auto">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
                     </ScrollReveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -554,7 +554,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     className="block h-full"
                                     onClick={(e) => handleDeptClick(e, dept.slug)}
                                 >
-                                    <div className="group relative h-full min-h-[160px] p-6 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] md:hover:shadow-2xl transition-[transform,box-shadow,background-color] duration-500 ease-out md:hover:-translate-y-2 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
+                                    <div className="group relative h-full min-h-[120px] p-4 bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] md:hover:shadow-xl transition-[transform,box-shadow,background-color] duration-500 ease-out md:hover:-translate-y-1.5 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
                                         {/* Hover Background Image with subtle zoom - Disabled scale on mobile */}
                                         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
                                             <Image
@@ -570,7 +570,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
 
                                         {/* Content */}
                                         <div className="relative z-10 w-full">
-                                            <h3 className="text-sm md:text-base font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
+                                            <h3 className="text-xs md:text-sm font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
                                                 {dept.name}
                                             </h3>
 
@@ -586,11 +586,11 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
             </section>
 
             {/* Facilities Preview Section */}
-            <section className="py-12 md:py-24 px-4 md:px-6 bg-emerald-50">
+            <section className="py-10 md:py-16 px-4 md:px-6 bg-emerald-50">
                 <div className="max-w-7xl mx-auto">
-                    <ScrollReveal className="text-center mb-10 md:mb-16">
-                        <h2 className="text-2xl md:text-4xl font-agency font-bold text-emerald-800 mb-3 md:mb-4 uppercase">Campus Facilities</h2>
-                        <p className="text-zinc-600 text-sm md:text-lg">Premium infrastructure providing a comfortable learning experience.</p>
+                    <ScrollReveal className="text-center mb-8 md:mb-12">
+                        <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-3 uppercase">Campus Facilities</h2>
+                        <p className="text-zinc-600 text-sm md:text-base">Premium infrastructure providing a comfortable learning experience.</p>
                     </ScrollReveal>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
@@ -604,7 +604,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                         ].map((facility, i) => (
                             <ScrollReveal key={i} delay={isMobile ? i * 50 : i * 100} className="group cursor-pointer">
                                 <Link href={`/amenities/${facility.slug}`}>
-                                    <div className="relative h-64 rounded-xl overflow-hidden shadow-lg border border-white">
+                                    <div className="relative h-48 rounded-xl overflow-hidden shadow-lg border border-white">
                                         <Image
                                             src={facility.img}
                                             alt={facility.name}
@@ -615,16 +615,16 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                         />
                                         <div className="absolute inset-0 bg-black/20 md:group-hover:bg-black/30 transition-colors duration-300" />
                                         <div className="absolute bottom-0 left-0 right-0 p-6 text-center z-10">
-                                            <span className="text-xl font-bold text-white tracking-widest uppercase">{facility.name}</span>
+                                            <span className="text-lg font-bold text-white tracking-widest uppercase">{facility.name}</span>
                                         </div>
                                     </div>
                                 </Link>
                             </ScrollReveal>
                         ))}
                     </div>
-                    <div className="mt-16 text-center">
+                    <div className="mt-12 text-center">
                         <Link href="/amenities">
-                            <button className="px-8 py-4 bg-emerald-800 text-white font-semibold rounded-lg hover:bg-emerald-900 transition-transform hover:scale-105 active:scale-95 cursor-pointer">
+                            <button className="px-6 py-3 bg-emerald-800 text-white font-semibold rounded-lg hover:bg-emerald-900 transition-transform hover:scale-105 active:scale-95 cursor-pointer">
                                 Explore All Facilities
                             </button>
                         </Link>
