@@ -20,12 +20,11 @@ export default function Footer() {
                     <div className="relative w-full max-w-[240px] h-20 mb-6 md:mx-auto lg:mx-0">
                         <Image
                             src="https://ik.imagekit.io/1yxtj9qun/Home/images/Logo-footer.png"
-                            alt="College Logo"
+                            alt="CM College Footer Logo"
                             fill
-                            sizes="(max-width: 768px) 400px, 600px"
-                            className="object-cover scale-[1.3] md:scale-[1.6] object-left md:object-center lg:object-left"
-                            priority
-                            quality={100}
+                            sizes="(max-width: 768px) 240px, 300px"
+                            className="object-contain object-left md:object-center lg:object-left"
+                            quality={85}
                         />
                     </div>
                     <p className="text-white/90 leading-relaxed mb-8 text-sm font-medium max-w-sm md:mx-auto lg:mx-0">

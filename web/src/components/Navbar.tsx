@@ -232,11 +232,11 @@ export default function Navbar() {
                             <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24 overflow-hidden">
                                 <Image
                                     src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
-                                    alt="College Logo"
+                                    alt="CM College Logo"
                                     fill
                                     priority
-                                    sizes="(max-width: 1024px) 600px, (max-width: 1536px) 600px, 800px"
-                                    quality={100}
+                                    sizes="(max-width: 768px) 180px, (max-width: 1024px) 220px, 260px"
+                                    quality={90}
                                     className="object-contain scale-[3] lg:scale-[2.5]"
                                 />
                             </div>
@@ -321,8 +321,8 @@ export default function Navbar() {
                                 animate={{ opacity: 1, height: "auto" }}
                                 exit={{ opacity: 0, height: 0 }}
                                 transition={{
-                                    duration: 0.5,
-                                    ease: [0.19, 1, 0.22, 1] // "Expo.out" feel - fast start, very smooth end
+                                    duration: 0.4,
+                                    ease: [0.16, 1, 0.3, 1]
                                 }}
                                 className="lg:hidden absolute top-full left-0 w-full z-40 bg-white border-t border-zinc-100 shadow-xl max-h-[85vh] overflow-y-auto overflow-x-hidden"
                             >

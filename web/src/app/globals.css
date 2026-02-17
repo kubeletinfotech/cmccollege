@@ -37,6 +37,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize off-screen categories */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Optimization for the first few sections to avoid LCP issues */
+header,
+section:first-of-type {
+  content-visibility: visible;
 }
 
 /* Marquee Animation */
@@ -92,21 +107,33 @@ body {
 
 /* Performant Spin Animations */
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spin-reverse-slow {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+  will-change: transform;
 }
 
 .animate-spin-reverse-slow {
   animation: spin-reverse-slow 30s linear infinite;
+  will-change: transform;
 }
 
 html.lenis,
@@ -143,6 +170,7 @@ html.lenis body {
   body {
     background: white;
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   nav,

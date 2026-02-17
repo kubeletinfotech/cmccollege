@@ -173,8 +173,8 @@ export default function Gallery({ initialItems }: GalleryProps) {
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -50 }}
                                                 transition={{
-                                                    duration: 0.4,
-                                                    ease: "easeOut"
+                                                    duration: 0.6,
+                                                    ease: [0.32, 1, 0.68, 1]
                                                 }}
                                                 className="relative w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] aspect-video overflow-hidden rounded-xl cursor-pointer bg-zinc-100 shadow-sm md:hover:shadow-xl shrink-0 transform-gpu will-change-transform"
                                                 onClick={() => {
@@ -185,10 +185,11 @@ export default function Gallery({ initialItems }: GalleryProps) {
                                             >
                                                 <Image
                                                     src={item.imageUrl}
-                                                    alt={item.title || "Gallery Image"}
+                                                    alt={item.title || "Campus Gallery Image"}
                                                     fill
-                                                    className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                                    quality={80}
                                                 />
                                                 <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center group">
                                                     <div className="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center text-white border border-white/40 transform scale-50 group-hover:scale-100 transition-transform duration-300">
