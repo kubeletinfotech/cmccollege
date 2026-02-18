@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -245,20 +245,23 @@ export default function Navbar() {
                             </div>
                         </Link>
 
-                        {/* Desktop Navigation (Inline - Only for 2xl+) */}
-                        <div className="hidden 2xl:flex items-center gap-0.5 xl:gap-1 h-24">
-                            {renderNavLinks()}
-                            <div className="ml-1">
-                                <AdmissionButton />
+                        <div className="hidden 2xl:flex items-center gap-4 h-24">
+                            <div className="flex items-center gap-0.5 xl:gap-1 h-full">
+                                {renderNavLinks()}
+                                <div className="ml-1">
+                                    <AdmissionButton />
+                                </div>
                             </div>
+                            <StandAloneRotatingLogos />
                         </div>
 
                         {/* Right Section Actions (Socials & Mobile Toggle) */}
                         <div className="flex items-center gap-4">
                             <div className="hidden lg:flex items-center gap-1">
                                 {/* Admission Button for intermediate screens (lg to 2xl) moved here since nav is below */}
-                                <div className="hidden lg:block 2xl:hidden mr-4">
+                                <div className="hidden lg:flex 2xl:hidden items-center gap-3 mr-4">
                                     <AdmissionButton />
+                                    <StandAloneRotatingLogos />
                                 </div>
 
                                 <Link
@@ -387,8 +390,9 @@ export default function Navbar() {
                                     ))}
 
                                     {/* Mobile Admission Button */}
-                                    <div className="p-6">
+                                    <div className="p-6 flex flex-col items-center gap-4">
                                         <AdmissionButton fullWidth />
+                                        <StandAloneRotatingLogos />
                                     </div>
                                 </div>
                             </motion.div>
@@ -401,9 +405,46 @@ export default function Navbar() {
     );
 }
 
-function AdmissionButton({ fullWidth = false }: { fullWidth?: boolean }) {
-    // const { isAdmissionOpen } = useAdmissionStatus(); // No longer needed as text is fixed
+function StandAloneRotatingLogos() {
+    const [logoIndex, setLogoIndex] = useState(0);
+    const logos = [
+        { src: "/images/clt.png", alt: "Calicut University" },
+        { src: "/images/aicte.jpg", alt: "AICTE" },
+        { src: "/images/kerala final emblem_0.jpg", alt: "Kerala Government" },
+    ];
 
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setLogoIndex((prev) => (prev + 1) % logos.length);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, [logos.length]);
+
+    return (
+        <div className="relative w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-full flex items-center justify-center overflow-hidden border border-zinc-100 shadow-sm transition-all duration-300 hover:shadow-md">
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={logoIndex}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative w-full h-full p-2"
+                >
+                    <Image
+                        src={logos[logoIndex].src}
+                        alt={logos[logoIndex].alt}
+                        fill
+                        className="object-contain p-1"
+                        sizes="56px"
+                    />
+                </motion.div>
+            </AnimatePresence>
+        </div>
+    );
+}
+
+function AdmissionButton({ fullWidth = false }: { fullWidth?: boolean }) {
     return (
         <Link
             href="/admissions"
