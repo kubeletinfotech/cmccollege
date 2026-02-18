@@ -124,7 +124,6 @@ export default function Navbar() {
                 { name: "File Your Grievance", href: "/students-zone/grievance" },
             ]
         },
-        { name: "Campus Life", href: "/campus-life" },
         { name: "Amenities", href: "/amenities" },
         { name: "Gallery", href: "/gallery" },
         { name: "Contact", href: "/contact" },
