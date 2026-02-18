@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
-    Search, Menu, X, ChevronDown, Facebook, Instagram, Youtube
+    Search, Menu, X, ChevronDown
 } from "lucide-react";
 
 import TopBar from "./TopBar";
@@ -143,7 +143,7 @@ export default function Navbar() {
                     <Link
                         href={link.href}
                         onClick={(e) => handleLinkClick(e, link.href)}
-                        className={`h-full px-3 text-[13px] xl:text-sm font-extrabold uppercase tracking-wider transition-colors relative z-10 flex items-center justify-center gap-0.5 whitespace-nowrap
+                        className={`h-full px-1.5 xl:px-3 text-[11px] xl:text-[13px] 2xl:text-sm font-extrabold uppercase tracking-wider transition-colors relative z-10 flex items-center justify-center gap-0.5 whitespace-nowrap
                                                 ${pathname === link.href || (link.dropdown && pathname.startsWith(link.href)) ? "text-[#7a0b3a]" : "text-zinc-600 hover:text-[#7a0b3a]"}`}
                     >
                         {link.name}
@@ -302,32 +302,21 @@ export default function Navbar() {
                     </div>
 
                     {/* Bottom Navigation Row (Sticky/Desktop) */}
-                    <div className="hidden lg:flex w-full bg-white border-b border-zinc-100 h-14 items-center">
-                        <div className="max-w-[1440px] mx-auto w-full flex items-center px-4 lg:px-8">
+                    <div className="hidden lg:flex w-full bg-white border-b border-zinc-100 h-14 items-center overflow-hidden">
+                        <div className="max-w-[1440px] mx-auto w-full flex items-center px-2 lg:px-6">
                             {/* Navigation Links (Centered) */}
-                            <div className="flex-1 flex justify-center gap-4">
+                            <div className="flex-1 flex justify-center gap-1.5 xl:gap-4">
                                 {renderNavLinks()}
                             </div>
 
                             {/* Right Side Actions */}
-                            <div className="flex items-center gap-4 ml-6 uppercase shrink-0">
+                            <div className="flex items-center gap-2 xl:gap-4 ml-2 xl:ml-6 uppercase shrink-0">
                                 <AdmissionButton />
-                                <div className="flex items-center gap-3 px-2">
-                                    <Link href="https://www.facebook.com/cmcollegenadavayal" target="_blank" className="text-zinc-400 hover:text-[#7a0b3a] transition-colors">
-                                        <Facebook size={18} />
-                                    </Link>
-                                    <Link href="https://www.instagram.com/cm_college_official" target="_blank" className="text-zinc-400 hover:text-[#7a0b3a] transition-colors">
-                                        <Instagram size={18} />
-                                    </Link>
-                                    <Link href="https://www.youtube.com/@CMCollegeofArtsandScience" target="_blank" className="text-zinc-400 hover:text-[#7a0b3a] transition-colors">
-                                        <Youtube size={18} />
-                                    </Link>
-                                </div>
                                 <button
                                     onClick={() => setIsSearchOpen(true)}
-                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:bg-[#7a0b3a] transition-all duration-300 ml-1"
+                                    className="group relative flex items-center justify-center w-8 h-8 xl:w-9 xl:h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:bg-[#7a0b3a] transition-all duration-300"
                                 >
-                                    <Search size={18} className="group-hover:text-white transition-colors" />
+                                    <Search size={16} className="xl:w-[18px] xl:h-[18px] group-hover:text-white transition-colors" />
                                 </button>
                             </div>
                         </div>
@@ -406,17 +395,6 @@ export default function Navbar() {
                                     {/* Mobile Admission Button */}
                                     <div className="p-6 flex flex-col items-center gap-6">
                                         <AdmissionButton fullWidth />
-                                        <div className="flex items-center gap-8">
-                                            <Link href="https://www.facebook.com/cmcollegenadavayal" target="_blank" className="text-zinc-500 hover:text-[#7a0b3a] transition-colors">
-                                                <Facebook size={24} />
-                                            </Link>
-                                            <Link href="https://www.instagram.com/cm_college_official" target="_blank" className="text-zinc-500 hover:text-[#7a0b3a] transition-colors">
-                                                <Instagram size={24} />
-                                            </Link>
-                                            <Link href="https://www.youtube.com/@CMCollegeofArtsandScience" target="_blank" className="text-zinc-500 hover:text-[#7a0b3a] transition-colors">
-                                                <Youtube size={24} />
-                                            </Link>
-                                        </div>
                                         <StandAloneRotatingLogos />
                                     </div>
                                 </div>
@@ -477,7 +455,7 @@ function AdmissionButton({ fullWidth = false }: { fullWidth?: boolean }) {
             className={`
                 relative flex items-center justify-center bg-[#7a0b3a] text-white font-bold uppercase tracking-widest rounded-md overflow-hidden group transition-all duration-300
                 hover:bg-[#60082d] hover:shadow-[0_0_20px_rgba(122,11,58,0.5)] hover:-translate-y-0.5 cursor-pointer
-                ${fullWidth ? "w-full py-4 text-base" : "px-6 py-2.5 text-[13px]"}
+                ${fullWidth ? "w-full py-4 text-base" : "px-4 xl:px-6 py-2 xl:py-2.5 text-[11px] xl:text-[13px]"}
             `}
         >
             <span className="relative z-10">Admission</span>
