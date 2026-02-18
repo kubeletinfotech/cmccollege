@@ -233,15 +233,15 @@ export default function Navbar() {
                                 onClick={handleLogoClick}
                                 className="flex items-center relative z-20 shrink-0"
                             >
-                                <div className="relative w-52 lg:w-64 h-20 lg:h-24">
+                                <div className="relative w-64 lg:w-80 h-24 lg:h-27">
                                     <Image
                                         src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
                                         alt="CM College Logo"
                                         fill
                                         priority
-                                        sizes="(max-width: 1024px) 220px, 300px"
+                                        sizes="(max-width: 1024px) 300px, 400px"
                                         quality={95}
-                                        className="object-contain scale-[2.2] lg:scale-[2.5]"
+                                        className="object-cover scale-[1.2] lg:scale-[1.2] origin-left"
                                     />
                                 </div>
                             </Link>
@@ -302,7 +302,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Bottom Navigation Row (Sticky/Desktop) */}
-                    <div className="hidden lg:flex w-full bg-white border-b border-zinc-100 h-14 items-center overflow-hidden">
+                    <div className="hidden lg:flex w-full bg-white border-b border-zinc-100 h-14 items-center">
                         <div className="max-w-[1440px] mx-auto w-full flex items-center px-2 lg:px-6">
                             {/* Navigation Links (Centered) */}
                             <div className="flex-1 flex justify-center gap-1.5 xl:gap-4">
