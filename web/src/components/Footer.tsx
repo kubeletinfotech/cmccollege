@@ -16,18 +16,18 @@ export default function Footer() {
         <footer className="bg-[#7B0046] text-white py-12 px-6 md:px-12">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
                 {/* College Info */}
-                <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left md:col-span-2 lg:col-span-1">
-                    <div className="relative w-full max-w-[240px] h-20 mb-6 md:mx-auto lg:mx-0">
+                <div className="flex flex-col items-center text-center md:col-span-2 lg:col-span-1">
+                    <div className="relative w-full max-w-[160px] h-14 mb-6 mx-auto">
                         <Image
                             src="https://ik.imagekit.io/1yxtj9qun/Home/images/Logo-footer.png"
                             alt="CM College Footer Logo"
                             fill
-                            sizes="(max-width: 768px) 240px, 300px"
-                            className="object-contain object-left md:object-center lg:object-left"
+                            sizes="(max-width: 768px) 160px, 200px"
+                            className="object-contain object-center scale-[1.8] sm:scale-[2.2] md:scale-[2.8] lg:scale-[3.5] origin-center -translate-y-2 md:-translate-y-4"
                             quality={85}
                         />
                     </div>
-                    <p className="text-white/90 leading-relaxed mb-8 text-sm font-medium max-w-sm md:mx-auto lg:mx-0">
+                    <p className="text-white/90 leading-relaxed mb-8 text-sm font-medium max-w-sm mx-auto">
                         Affiliated to The University Of Calicut <br />
                         Recognized by UGC under Section 2(f) of the Act 1957
                         <span className="block font-bold mt-2 text-white">Unit of CM Centre Madavoor</span>
