@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
-    Search, Menu, X, ChevronDown, Facebook, Instagram
+    Search, Menu, X, ChevronDown, Facebook, Instagram, Youtube
 } from "lucide-react";
 
 import TopBar from "./TopBar";
@@ -313,9 +313,20 @@ export default function Navbar() {
                             {/* Right Side Actions */}
                             <div className="flex items-center gap-4 ml-6 uppercase shrink-0">
                                 <AdmissionButton />
+                                <div className="flex items-center gap-3 px-2">
+                                    <Link href="https://www.facebook.com/cmcollegenadavayal" target="_blank" className="text-zinc-400 hover:text-[#7a0b3a] transition-colors">
+                                        <Facebook size={18} />
+                                    </Link>
+                                    <Link href="https://www.instagram.com/cm_college_official" target="_blank" className="text-zinc-400 hover:text-[#7a0b3a] transition-colors">
+                                        <Instagram size={18} />
+                                    </Link>
+                                    <Link href="https://www.youtube.com/@CMCollegeofArtsandScience" target="_blank" className="text-zinc-400 hover:text-[#7a0b3a] transition-colors">
+                                        <Youtube size={18} />
+                                    </Link>
+                                </div>
                                 <button
                                     onClick={() => setIsSearchOpen(true)}
-                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:bg-[#7a0b3a] transition-all duration-300 ml-2"
+                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:bg-[#7a0b3a] transition-all duration-300 ml-1"
                                 >
                                     <Search size={18} className="group-hover:text-white transition-colors" />
                                 </button>
@@ -394,8 +405,19 @@ export default function Navbar() {
                                     ))}
 
                                     {/* Mobile Admission Button */}
-                                    <div className="p-6 flex flex-col items-center gap-4">
+                                    <div className="p-6 flex flex-col items-center gap-6">
                                         <AdmissionButton fullWidth />
+                                        <div className="flex items-center gap-8">
+                                            <Link href="https://www.facebook.com/cmcollegenadavayal" target="_blank" className="text-zinc-500 hover:text-[#7a0b3a] transition-colors">
+                                                <Facebook size={24} />
+                                            </Link>
+                                            <Link href="https://www.instagram.com/cm_college_official" target="_blank" className="text-zinc-500 hover:text-[#7a0b3a] transition-colors">
+                                                <Instagram size={24} />
+                                            </Link>
+                                            <Link href="https://www.youtube.com/@CMCollegeofArtsandScience" target="_blank" className="text-zinc-500 hover:text-[#7a0b3a] transition-colors">
+                                                <Youtube size={24} />
+                                            </Link>
+                                        </div>
                                         <StandAloneRotatingLogos />
                                     </div>
                                 </div>

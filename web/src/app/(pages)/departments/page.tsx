@@ -39,7 +39,7 @@ export default function DepartmentsPage() {
             {/* --- PAGE HEADER - Research Style --- */}
             <section className="relative py-24 px-6 bg-[#7B0046] text-white overflow-hidden mb-12">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]" />
+                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-[30px_30px]" />
                 </div>
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <motion.div
@@ -99,7 +99,7 @@ export default function DepartmentsPage() {
             <section className="py-24 px-6 lg:px-24 bg-zinc-50/50">
                 <div className="max-w-5xl mx-auto">
                     <ScrollReveal>
-                        <div className="bg-white rounded-[2rem] p-10 md:p-16 shadow-2xl shadow-zinc-200/50 border border-zinc-100 text-center relative overflow-hidden group">
+                        <div className="bg-white rounded-4xl p-10 md:p-16 shadow-2xl shadow-zinc-200/50 border border-zinc-100 text-center relative overflow-hidden group">
                             {/* Decorative background circle */}
                             <div className="absolute -top-24 -right-24 w-64 h-64 bg-emerald-50 rounded-full blur-3xl group-hover:bg-emerald-100 transition-colors duration-700" />
 
