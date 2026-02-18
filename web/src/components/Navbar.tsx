@@ -225,98 +225,99 @@ export default function Navbar() {
             <nav className="w-full bg-white/98 backdrop-blur-sm border-b border-zinc-100 relative transition-all duration-300">
                 <div className="w-full px-4 lg:px-8">
                     {/* Main Row: Logo + Actions */}
-                    <div className="flex justify-between items-center h-20 lg:h-24">
-                        {/* Logo (Left) */}
-                        <Link
-                            href="/"
-                            onClick={handleLogoClick}
-                            className="flex items-center ml-0 lg:ml-[50px] relative z-20"
-                        >
-                            <div className="relative w-44 lg:w-52 2xl:w-64 h-16 lg:h-20 2xl:h-24 overflow-hidden">
-                                <Image
-                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
-                                    alt="CM College Logo"
-                                    fill
-                                    priority
-                                    sizes="(max-width: 768px) 180px, (max-width: 1024px) 220px, 260px"
-                                    quality={90}
-                                    className="object-contain scale-[3] lg:scale-[2.5]"
-                                />
-                            </div>
-                        </Link>
-
-                        <div className="hidden 2xl:flex items-center gap-4 h-24">
-                            <div className="flex items-center gap-0.5 xl:gap-1 h-full">
-                                {renderNavLinks()}
-                                <div className="ml-1">
-                                    <AdmissionButton />
+                    {/* Middle Identity Row (Hidden on mobile) */}
+                    <div className="hidden lg:flex w-full bg-white border-b border-zinc-100">
+                        <div className="max-w-[1440px] mx-auto w-full flex justify-between items-center h-28 lg:h-32 px-4 lg:px-8">
+                            {/* Logo (Left) */}
+                            <Link
+                                href="/"
+                                onClick={handleLogoClick}
+                                className="flex items-center relative z-20 shrink-0"
+                            >
+                                <div className="relative w-52 lg:w-64 h-20 lg:h-24">
+                                    <Image
+                                        src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
+                                        alt="CM College Logo"
+                                        fill
+                                        priority
+                                        sizes="(max-width: 1024px) 220px, 300px"
+                                        quality={95}
+                                        className="object-contain scale-[2.2] lg:scale-[2.5]"
+                                    />
                                 </div>
-                            </div>
-                            <StandAloneRotatingLogos />
-                        </div>
+                            </Link>
 
-                        {/* Right Section Actions (Socials & Mobile Toggle) */}
-                        <div className="flex items-center gap-4">
-                            <div className="hidden lg:flex items-center gap-1">
-                                {/* Admission Button for intermediate screens (lg to 2xl) moved here since nav is below */}
-                                <div className="hidden lg:flex 2xl:hidden items-center gap-3 mr-4">
-                                    <AdmissionButton />
-                                    <StandAloneRotatingLogos />
+                            {/* Affiliation Text (Center) */}
+                            <div className="hidden xl:flex flex-col items-center text-center px-8 flex-1">
+                                <p className="text-[#7a0b3a] text-xs lg:text-[13px] font-bold leading-tight uppercase tracking-wider mb-1">
+                                    Affiliated to The University Of Calicut
+                                </p>
+                                <p className="text-zinc-600 text-[10px] lg:text-[11px] font-semibold leading-tight uppercase tracking-wide opacity-80 mb-1">
+                                    Recognized by UGC under Section 2(f) of the Act 1957
+                                </p>
+                                <p className="text-[#a11c5a] text-[11px] lg:text-[12px] font-black leading-tight uppercase tracking-widest">
+                                    Unit of CM Centre Madavoor
+                                </p>
+                            </div>
+
+                            {/* Accreditation / Affiliation Logos (Right) */}
+                            <div className="flex items-center gap-6 shrink-0">
+                                <div className="hidden lg:flex flex-col items-end text-right mr-2">
+                                    <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Accreditations</span>
+                                    <span className="text-[11px] text-[#7a0b3a] font-black uppercase tracking-wider whitespace-nowrap">UGC / Calicut Univ / AICTE</span>
                                 </div>
-
-                                <Link
-                                    href="https://www.facebook.com/cmcollegenadavayal"
-                                    target="_blank"
-                                    aria-label="Visit our Facebook page"
-                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:shadow-md hover:shadow-[#7a0b3a]/10 transition-all duration-300 overflow-hidden"
-                                >
-                                    <div className="absolute inset-0 bg-[#7a0b3a] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                                    <Facebook size={18} className="relative z-10 transition-colors duration-300 group-hover:text-white" />
-                                </Link>
-
-                                <Link
-                                    href="https://www.instagram.com/cm_college_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                                    target="_blank"
-                                    aria-label="Visit our Instagram page"
-                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:shadow-md hover:shadow-[#7a0b3a]/10 transition-all duration-300 overflow-hidden"
-                                >
-                                    <div className="absolute inset-0 bg-[#7a0b3a] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                                    <Instagram size={18} className="relative z-10 transition-colors duration-300 group-hover:text-white" />
-                                </Link>
-
-                                <button
-                                    onClick={() => setIsSearchOpen(true)}
-                                    aria-label="Open search"
-                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:shadow-md hover:shadow-[#7a0b3a]/10 transition-all duration-300 overflow-hidden ml-1 cursor-pointer"
-                                >
-                                    <div className="absolute inset-0 bg-[#7a0b3a] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                                    <Search size={18} className="relative z-10 transition-colors duration-300 group-hover:text-white" />
-                                </button>
-                            </div>
-
-                            {/* Mobile Toggle */}
-                            <div className="lg:hidden flex items-center gap-2 relative z-50">
-                                <button
-                                    onClick={() => setIsSearchOpen(true)}
-                                    className="text-zinc-600 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
-                                    aria-label="Search"
-                                >
-                                    <Search size={22} />
-                                </button>
-                                <button
-                                    onClick={() => setIsOpen(!isOpen)}
-                                    className="text-zinc-800 hover:text-[#7a0b3a] transition-colors active:scale-95 touch-manipulation p-2"
-                                    aria-label="Toggle Menu"
-                                >
-                                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                                </button>
+                                <StandAloneRotatingLogos />
                             </div>
                         </div>
                     </div>
 
-                    {/* Secondary Navigation Bar (For Intermediate Screens: lg to 2xl) */}
-                    <div className="hidden lg:flex 2xl:hidden border-t border-zinc-100 justify-center h-12 items-center gap-2 relative z-20">
-                        {renderNavLinks()}
+                    {/* Mobile Logo Row */}
+                    <div className="lg:hidden flex justify-between items-center h-20 px-4 border-b border-zinc-50">
+                        <Link href="/" onClick={handleLogoClick} className="relative z-20">
+                            <div className="relative w-40 h-16 overflow-hidden">
+                                <Image
+                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
+                                    alt="CM College Logo"
+                                    fill
+                                    sizes="160px"
+                                    className="object-contain scale-[2.5]"
+                                />
+                            </div>
+                        </Link>
+                        <div className="flex items-center gap-2 relative z-50">
+                            <button
+                                onClick={() => setIsSearchOpen(true)}
+                                className="text-zinc-600 hover:text-[#7a0b3a] p-2"
+                                aria-label="Search"
+                            >
+                                <Search size={22} />
+                            </button>
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className="text-zinc-800 hover:text-[#7a0b3a] p-2"
+                                aria-label="Toggle Menu"
+                            >
+                                {isOpen ? <X size={28} /> : <Menu size={28} />}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Bottom Navigation Row (Sticky/Desktop) */}
+                    <div className="hidden lg:flex w-full bg-white border-b border-zinc-100 h-14 items-center">
+                        <div className="max-w-[1440px] mx-auto w-full flex items-center justify-between px-4 lg:px-8">
+                            <div className="flex items-center gap-1">
+                                {renderNavLinks()}
+                            </div>
+                            <div className="flex items-center gap-4 ml-6 uppercase">
+                                <AdmissionButton />
+                                <button
+                                    onClick={() => setIsSearchOpen(true)}
+                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:bg-[#7a0b3a] transition-all duration-300"
+                                >
+                                    <Search size={18} className="group-hover:text-white transition-colors" />
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Mobile Navigation Drawer - Overlay to prevent layout shift lag */}
