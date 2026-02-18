@@ -304,15 +304,18 @@ export default function Navbar() {
 
                     {/* Bottom Navigation Row (Sticky/Desktop) */}
                     <div className="hidden lg:flex w-full bg-white border-b border-zinc-100 h-14 items-center">
-                        <div className="max-w-[1440px] mx-auto w-full flex items-center justify-between px-4 lg:px-8">
-                            <div className="flex items-center gap-1">
+                        <div className="max-w-[1440px] mx-auto w-full flex items-center px-4 lg:px-8">
+                            {/* Navigation Links (Centered) */}
+                            <div className="flex-1 flex justify-center gap-1">
                                 {renderNavLinks()}
                             </div>
-                            <div className="flex items-center gap-4 ml-6 uppercase">
+
+                            {/* Right Side Actions */}
+                            <div className="flex items-center gap-4 ml-6 uppercase shrink-0">
                                 <AdmissionButton />
                                 <button
                                     onClick={() => setIsSearchOpen(true)}
-                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:bg-[#7a0b3a] transition-all duration-300"
+                                    className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-50 text-[#7a0b3a] hover:bg-[#7a0b3a] transition-all duration-300 ml-2"
                                 >
                                     <Search size={18} className="group-hover:text-white transition-colors" />
                                 </button>
