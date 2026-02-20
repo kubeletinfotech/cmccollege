@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { GraduationCap, Award, Building } from "lucide-react";
+import { motion } from "framer-motion";
+import { GraduationCap, Award, CheckCircle2 } from "lucide-react";
 
-// Mock Data
 const CM_COLLEGE_SCHOLARSHIPS = [
     { title: "POST MATRIC SCHOLARSHIP-MINORITY" },
     { title: "THE CHAIRMAN'S SCHOLARSHIP" },
@@ -23,30 +21,57 @@ const CM_COLLEGE_SCHOLARSHIPS = [
 
 export default function ScholarshipsPage() {
     return (
-        <div className="bg-white rounded-3xl p-6 md:p-12 shadow-sm border border-zinc-100 min-h-[80vh]">
-            <div className="mb-8">
-                <h1 className="text-3xl font-bold text-emerald-900 mb-2 font-serif">Scholarships & Financial Aid</h1>
-                <p className="text-zinc-600">
-                    We believe financial constraints should not be a barrier to education. Explore our range of government and management scholarships.
+        <div className="space-y-12">
+            {/* Header / Intro */}
+            <div className="max-w-2xl">
+                <h2 className="text-3xl font-bold text-emerald-900 mb-4 font-serif">Scholarships & Financial Aid</h2>
+                <p className="text-zinc-600 leading-relaxed font-light">
+                    CM College is committed to making education accessible. Explore our comprehensive list of
+                    available scholarships and financial aid programs.
                 </p>
             </div>
 
-            {/* Content Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Simplified Name-Only Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {CM_COLLEGE_SCHOLARSHIPS.map((sch, idx) => (
-                    <div
+                    <motion.div
                         key={idx}
-                        className="p-5 rounded-2xl border border-zinc-100 hover:border-emerald-200 hover:shadow-md transition-all bg-white group flex items-center gap-4"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.03 }}
+                        className="group flex items-center gap-4 bg-white p-5 rounded-xl border border-zinc-100 hover:border-emerald-200 hover:shadow-lg hover:shadow-emerald-900/5 transition-all duration-300"
                     >
-                        <div className="p-3 bg-emerald-50 rounded-xl shrink-0">
-                            <GraduationCap className="w-6 h-6 text-emerald-900" />
+                        <div className="p-2.5 bg-emerald-50 rounded-lg text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                            <GraduationCap size={20} />
                         </div>
 
-                        <h3 className="font-bold text-lg text-zinc-900 group-hover:text-emerald-900 transition-colors">
-                            {sch.title}
-                        </h3>
-                    </div>
+                        <div className="flex-1">
+                            <h3 className="text-sm font-bold text-zinc-800 group-hover:text-emerald-800 transition-colors uppercase tracking-tight">
+                                {sch.title}
+                            </h3>
+                        </div>
+
+                        <CheckCircle2 size={16} className="text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </motion.div>
                 ))}
+            </div>
+
+            {/* Support Box */}
+            <div className="bg-[#fcfcfd] border border-zinc-100 rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+                <div className="p-5 bg-white rounded-2xl border border-zinc-100 shadow-sm">
+                    <Award size={32} className="text-emerald-600" />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-xl font-bold text-zinc-900 mb-2 font-serif">Financial Aid Assistance</h3>
+                    <p className="text-zinc-500 mb-0 leading-relaxed font-light text-sm">
+                        Need detailed information about a specific scholarship or help with the application?
+                        Our student welfare office is here to guide you.
+                    </p>
+                </div>
+                <button className="whitespace-nowrap px-8 py-3 bg-emerald-900 text-white rounded-xl font-bold text-sm hover:bg-emerald-800 transition-colors shadow-lg shadow-emerald-900/10">
+                    Contact Office
+                </button>
             </div>
         </div>
     );
