@@ -233,15 +233,15 @@ export default function Navbar() {
                                 onClick={handleLogoClick}
                                 className="flex items-center relative z-20 shrink-0"
                             >
-                                <div className="relative w-64 lg:w-80 h-24 lg:h-27">
+                                <div className="relative w-64 lg:w-80 h-24 lg:h-10">
                                     <Image
-                                        src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
+                                        src="https://ik.imagekit.io/1yxtj9qun/Home/images/logo"
                                         alt="CM College Logo"
                                         fill
                                         priority
                                         sizes="(max-width: 1024px) 300px, 400px"
                                         quality={95}
-                                        className="object-cover scale-[1.2] lg:scale-[1.2] origin-left"
+                                        className="object-contain scale-[1.2] lg:scale-[1.6] origin-left"
                                     />
                                 </div>
                             </Link>
