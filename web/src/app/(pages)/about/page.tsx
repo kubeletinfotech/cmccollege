@@ -7,7 +7,7 @@ import { Building2, GraduationCap, Award, Users } from "lucide-react";
 const stats = [
     { id: 1, label: "Established", value: "2010", icon: Building2 },
     { id: 2, label: "Departments", value: "8+", icon: GraduationCap },
-    { id: 3, label: "Accreditation", value: "A+", icon: Award },
+    { id: 3, label: "Accreditation", value: "2(F)", icon: Award },
     { id: 4, label: "Students", value: "2000+", icon: Users },
 ];
 
