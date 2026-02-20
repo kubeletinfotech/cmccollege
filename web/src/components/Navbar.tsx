@@ -411,9 +411,9 @@ export default function Navbar() {
 function StandAloneRotatingLogos() {
     const [logoIndex, setLogoIndex] = useState(0);
     const logos = [
-        { src: "/images/clt.png", alt: "Calicut University" },
-        { src: "/images/aicte.jpg", alt: "AICTE" },
-        { src: "/images/kerala final emblem_0.jpg", alt: "Kerala Government" },
+        { src: "https://ik.imagekit.io/1yxtj9qun/Home/images/clt-university?updatedAt=1771430023775", alt: "Calicut University" },
+        { src: "https://ik.imagekit.io/1yxtj9qun/Home/images/aicte?updatedAt=1771430023715", alt: "AICTE" },
+        { src: "https://ik.imagekit.io/1yxtj9qun/Home/images/kerala-emblem?updatedAt=1771430023865", alt: "Kerala Government" },
     ];
 
     useEffect(() => {
