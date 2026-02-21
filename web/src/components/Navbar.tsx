@@ -275,11 +275,11 @@ export default function Navbar() {
                         <Link href="/" onClick={handleLogoClick} className="relative z-20">
                             <div className="relative w-40 h-16 overflow-hidden">
                                 <Image
-                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png"
+                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/logo"
                                     alt="CM College Logo"
                                     fill
                                     sizes="160px"
-                                    className="object-contain scale-[2.5]"
+                                    className="object-contain scale-[1.2]"
                                 />
                             </div>
                         </Link>

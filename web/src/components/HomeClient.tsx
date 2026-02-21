@@ -36,11 +36,11 @@ interface HomeClientProps {
 }
 
 const placeholderImages = [
-    { title: "Sports Day Excellence", src: "/images/school_sports_day_1768117809679.png", tag: "Sports" },
-    { title: "Cultural Performance", src: "/images/cultural_fest_performance_1768117835053.png", tag: "Events" },
-    { title: "Science Innovation", src: "/images/science_exhibition_project_1768117868795.png", tag: "Academic" },
+    { title: "Sports Day Excellence", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/sports.jpeg", tag: "Sports" },
+    { title: "Cultural Performance", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/fest.jpeg", tag: "Events" },
+    { title: "Science Innovation", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/lab.jpeg", tag: "Academic" },
     { title: "College Library", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg", tag: "Campus" },
-    { title: "Annual Awards", src: "/images/school_annual_award_ceremony_stage_1768117893644.png", tag: "Events" }
+    { title: "Annual Awards", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/awards.jpeg", tag: "Events" }
 ];
 
 
