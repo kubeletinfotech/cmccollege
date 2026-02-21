@@ -20,6 +20,8 @@ docker volume prune -f
 echo "[INFO] Docker cleanup complete"
 
 
+export HOST_PORT=3000
+export CONTAINER_PORT=3000
 REPO_URL="${REPO_URL:-git@github.com:kubeletinfotech/cmccollege.git}"
 BRANCH="${BRANCH:-master}"
 DEPLOY_PATH="${DEPLOY_PATH:-/apps/web/beta-comcollege/app}"
