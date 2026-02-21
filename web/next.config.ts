@@ -43,8 +43,9 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    unoptimized: true,
-    qualities: [20, 75, 80, 85, 90, 100],
+    minimumCacheTTL: 60,
+    formats: ['image/avif', 'image/webp'],
+    qualities: [20, 75, 80, 85, 90, 95, 100],
     // Workaround for runtime optimizer rejecting remotePatterns in some builds.
     // Keep domains aligned with remotePatterns.
     domains: [

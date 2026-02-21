@@ -285,9 +285,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Aiswarya Manoj", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Aiswarya?tr=w-600,ar-4-5,fo-top" },
         ],
         gallery: [
-            // { img: "/images/academic_excellence_1768115933614.png", category: "LIBRARY" },
-            // { img: "/images/classroom_learning_1768115518451.png", category: "WRITING HUB" },
-            // { img: "/images/Principal.jpeg", category: "READING ROOM" }
+
         ]
     },
     "commerce": {
