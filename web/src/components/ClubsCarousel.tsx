@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const clubs = [
@@ -49,23 +50,29 @@ export default function ClubsCarousel() {
         <section className="py-12 md:py-24 bg-zinc-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8 md:mb-16">
                 <div className="text-center">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-xl md:text-3xl font-agency font-bold text-emerald-800 mb-2 md:mb-3 uppercase"
-                    >
-                        Student Clubs & Activities
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-xs md:text-base max-w-2xl mx-auto font-medium"
-                    >
-                        Platforms that encourage leadership, innovation, and social responsibility
-                    </motion.p>
+                    <Link href="/students-zone/clubs" className="group/header inline-block">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 text-[10px] font-bold uppercase tracking-widest mb-4">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Discover Now
+                        </div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-xl md:text-3xl font-agency font-bold text-emerald-800 mb-2 md:mb-3 uppercase group-hover/header:text-emerald-600 transition-colors"
+                        >
+                            Student Clubs & Activities
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-xs md:text-base max-w-2xl mx-auto font-medium"
+                        >
+                            Platforms that encourage leadership, innovation, and social responsibility
+                        </motion.p>
+                    </Link>
                 </div>
             </div>
 
@@ -82,9 +89,10 @@ export default function ClubsCarousel() {
                     }}
                 >
                     {displayClubs.map((club, index) => (
-                        <div // Changed from motion.div for better performance
+                        <Link // Changed from div for interactivity
                             key={`${club.id}-${index}`}
-                            className="bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 w-24 h-24 md:w-40 md:h-40 flex flex-col items-center justify-center border border-zinc-100 group relative overflow-hidden shrink-0"
+                            href="/students-zone/clubs"
+                            className="bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 w-24 h-24 md:w-40 md:h-40 flex flex-col items-center justify-center border border-zinc-100 group relative overflow-hidden shrink-0 hover:-translate-y-1 cursor-pointer"
                         >
                             <div className="relative w-10 h-10 md:w-20 md:h-20 mb-1 md:mb-3 transition-transform duration-500 group-hover:scale-105">
                                 <Image
@@ -98,11 +106,18 @@ export default function ClubsCarousel() {
                             <h3 className="text-[9px] md:text-xs font-bold text-zinc-800 text-center px-1 md:px-2 group-hover:text-emerald-700 transition-colors leading-tight line-clamp-2">
                                 {club.name}
                             </h3>
-                        </div>
+                        </Link>
                     ))}
                 </motion.div>
             </div>
-
+            <div className="mt-12 text-center">
+                <Link
+                    href="/students-zone/clubs"
+                    className="inline-block px-8 py-3 bg-white border-2 border-emerald-800 text-emerald-800 font-bold rounded-xl hover:bg-emerald-800 hover:text-white transition-all shadow-sm active:scale-95"
+                >
+                    View All Clubs
+                </Link>
+            </div>
         </section>
     );
 }

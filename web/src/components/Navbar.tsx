@@ -280,7 +280,7 @@ export default function Navbar() {
                                     alt="CM College Logo"
                                     fill
                                     sizes="160px"
-                                    className="object-contain scale-[1.2]"
+                                    className="object-contain scale-[1]"
                                 />
                             </div>
                         </Link>
