@@ -480,7 +480,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
                             { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
                             { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
-                            { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/lab.jpeg" },
+                            { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
                             { name: "Department Of Sociology", slug: "sociology", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
                             { name: "Department Of Malayalam", slug: "malayalam", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/malayalam" },
                             { name: "Department Of Arabic", slug: "arabic", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg" }
