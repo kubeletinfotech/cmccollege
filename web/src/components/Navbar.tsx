@@ -451,7 +451,7 @@ function AdmissionButton({ fullWidth = false }: { fullWidth?: boolean }) {
             href="/admissions"
             aria-label="Make an admission enquiry"
             className={`
-                relative hidden lg:flex items-center justify-center bg-[#7a0b3a] text-white font-bold uppercase tracking-widest rounded-md overflow-hidden group transition-all duration-300
+                relative flex items-center justify-center bg-[#7a0b3a] text-white font-bold uppercase tracking-widest rounded-md overflow-hidden group transition-all duration-300
                 hover:bg-[#60082d] hover:shadow-[0_0_20px_rgba(122,11,58,0.5)] hover:-translate-y-0.5 cursor-pointer
                 ${fullWidth ? "w-full py-4 text-base" : "px-4 xl:px-6 py-2 xl:py-2.5 text-[11px] xl:text-[13px]"}
             `}
