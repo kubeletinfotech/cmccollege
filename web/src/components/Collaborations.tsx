@@ -1,6 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
+import NextImage from "next/image";
+import { programs } from "@/data/programs";
 
 const partners = [
     { name: "MMU", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/mmu-logo.png?updatedAt=1768844964283" },
@@ -9,18 +11,26 @@ const partners = [
     { name: "Keltron", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/keltron-logo.png" },
 ];
 
-const programs = [
-    { name: "Queens Drive", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/queens-drive.png" },
-    { name: "Plant Up", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/plant-up.png" },
-    { name: "Meet the Professional", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/meet-professional.png" },
-    { name: "Chirakukal", logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/chirakukal.png" },
-];
+const MarqueeRow = ({ title, items, reverse = false, fit = "contain", isProgram = false }: { title: string, items: any[], reverse?: boolean, fit?: "contain" | "cover", isProgram?: boolean }) => {
+    const ContentWrapper = ({ children, isProgram }: { children: React.ReactNode, isProgram?: boolean }) => {
+        if (isProgram) {
+            return (
+                <Link href="/programs" className="w-full md:w-64 md:shrink-0 p-4 md:p-6 flex items-center justify-center cursor-pointer">
+                    {children}
+                </Link>
+            );
+        }
+        return (
+            <div className="w-full md:w-64 md:shrink-0 p-4 md:p-6 flex items-center justify-center">
+                {children}
+            </div>
+        );
+    };
 
-const MarqueeRow = ({ title, items, reverse = false, fit = "contain" }: { title: string, items: typeof partners, reverse?: boolean, fit?: "contain" | "cover" }) => {
     return (
         <div className="flex flex-col md:flex-row items-stretch border-b border-zinc-100 last:border-b-0 py-8">
             {/* Side Label */}
-            <div className="w-full md:w-64 md:shrink-0 p-4 md:p-6 flex items-center justify-center">
+            <ContentWrapper isProgram={isProgram}>
                 <div className="relative w-full overflow-hidden rounded-2xl bg-emerald-900/10 to-blue-50/20 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(93,16,53,0.1)] transition-all duration-500 group/card">
                     {/* Maroon Accent Strip */}
                     <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-linear-to-b from-[#5D1035] via-[#851E4E] to-[#5D1035]"></div>
@@ -29,12 +39,19 @@ const MarqueeRow = ({ title, items, reverse = false, fit = "contain" }: { title:
                     <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-linear-to-b from-white/40 to-transparent transform rotate-45 pointer-events-none transition-transform duration-700 group-hover/card:translate-x-full"></div>
 
                     <div className="p-4 md:p-8 flex items-center justify-center min-h-[80px] md:min-h-[120px] relative z-10">
-                        <h3 className="text-[10px] md:text-xs font-agency font-bold text-[#5D1035] uppercase text-center leading-relaxed">
-                            {title}
-                        </h3>
+                        <div className="flex flex-col items-center gap-1">
+                            <h3 className="text-[10px] md:text-xs font-agency font-bold text-[#5D1035] uppercase text-center leading-relaxed">
+                                {title}
+                            </h3>
+                            {isProgram && (
+                                <span className="text-[8px] font-bold text-[#5D1035]/60 uppercase tracking-tighter animate-pulse">
+                                    Click to view
+                                </span>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </ContentWrapper>
 
             {/* Marquee Area */}
             <div className="flex-1 overflow-hidden relative py-8 md:py-10 bg-white group">
@@ -47,20 +64,21 @@ const MarqueeRow = ({ title, items, reverse = false, fit = "contain" }: { title:
                     style={{ width: "fit-content", animationDirection: reverse ? "reverse" : "normal" }}
                 >
                     {[...items, ...items, ...items, ...items].map((item, index) => (
-                        <div
+                        <Link
                             key={index}
-                            className="relative w-28 h-16 md:w-40 md:h-24 shrink-0 flex items-center justify-center p-1.5 md:p-2 bg-white rounded-lg border border-zinc-100 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                            href={isProgram ? "/programs" : "#"}
+                            className="relative w-28 h-16 md:w-40 md:h-24 shrink-0 flex items-center justify-center p-1.5 md:p-2 bg-white rounded-lg border border-zinc-100 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden group/item"
                         >
                             <div className="relative w-full h-full">
-                                <Image
+                                <NextImage
                                     src={item.logo}
                                     alt={`${item.name} logo`}
                                     fill
-                                    className={`object-${fit} filter grayscale-0 opacity-90 hover:opacity-100 transition-opacity`}
+                                    className={`object-${fit} filter grayscale-0 opacity-90 group-hover/item:opacity-100 transition-opacity`}
                                     sizes="(max-width: 768px) 112px, 160px"
                                 />
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -73,7 +91,7 @@ export default function Collaborations() {
         <section className="bg-white border-t border-zinc-100">
             <div className="max-w-7xl mx-auto">
                 <MarqueeRow title="Industry & Academic Partners" items={partners} />
-                <MarqueeRow title="College Programs" items={programs} reverse fit="cover" />
+                <MarqueeRow title="College Programs" items={programs} reverse fit="cover" isProgram />
             </div>
         </section>
     );

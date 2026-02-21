@@ -86,6 +86,7 @@ export default function Navbar() {
                 { name: "Time Table", href: "https://pareekshabhavan.uoc.ac.in/index.php/examination/timetable" },
                 { name: "Academic Calendar", href: "/academic-calender" },
                 { name: "Question Bank", href: "/question-bank" },
+                { name: "College Programs", href: "/programs" },
             ]
         },
         {
