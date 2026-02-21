@@ -80,25 +80,50 @@ jobs:
         id: meta
         run: echo "image=${IMAGE_NAME}:${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
 
-############################
-# 🚀 CD STAGE
-############################
+
+
   deploy:
     needs: build_and_push
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4   # only if deploy_remote.sh is needed
 
-      - uses: webfactory/ssh-agent@v0.9.0
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SSH_SERVER }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ env.DEPLOY_PATH }} || exit 1
 
-      - name: Deploy to server
-        run: |
-          ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}@${{ secrets.SSH_SERVER }}" \
-            "IMAGE_REF='${{ needs.build_and_push.outputs.image_ref }}' \
-            DEPLOY_PATH='${DEPLOY_PATH}' \
-            COMPOSE_FILE='${COMPOSE_FILE}' \
-            bash -s" \
-            < ./scripts/deploy_remote.sh
+            echo "[INFO] Cleaning old resources..."
+            docker system prune -f
+
+            # Write secrets to .env
+            cat > ${{ env.ENV_FILE_REL_PATH }} << 'EOL'
+              MONGODB_URI=${{ secrets.MONGODB_URI }}
+              CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}
+              IMAGEKIT_PUBLIC_KEY=${{ secrets.IMAGEKIT_PUBLIC_KEY }}
+              IMAGEKIT_PRIVATE_KEY=${{ secrets.IMAGEKIT_PRIVATE_KEY }}
+              IMAGEKIT_URL_ENDPOINT=${{ secrets.IMAGEKIT_URL_ENDPOINT }}
+              NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+              NEXT_PUBLIC_CLERK_SIGN_IN_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_IN_URL }}
+              NEXT_PUBLIC_CLERK_SIGN_UP_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_UP_URL }}
+              NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL }}
+              NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL }}
+              NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
+              NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY }}
+              NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=${{ secrets.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT }}
+            EOL
+
+            chmod 600 ${{ env.ENV_FILE_REL_PATH }}
+
+            echo "[INFO] Pulling new image..."
+            docker pull ${{ needs.build_and_push.outputs.image_ref }}
+
+            echo "[INFO] Starting services..."
+            IMAGE=${{ needs.build_and_push.outputs.image_ref }} \
+              docker compose -f ${{ env.COMPOSE_FILE }} up -d --remove-orphans --force-recreate
+
+            echo "[INFO] Deployment complete."
