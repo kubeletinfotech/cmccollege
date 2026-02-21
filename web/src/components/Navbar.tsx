@@ -173,7 +173,7 @@ export default function Navbar() {
                                         <div
                                             key={subItem.name}
                                             className="relative"
-                                            onMouseEnter={() => subItem.dropdown && setActiveSubDropdown(subItem.name)}
+                                            onMouseEnter={() => setActiveSubDropdown(subItem.dropdown ? subItem.name : null)}
                                         >
                                             <Link
                                                 href={subItem.href}
