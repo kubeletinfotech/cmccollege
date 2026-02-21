@@ -1,6 +1,27 @@
 #!/usr/bin/env bash
+#deploy_remote.sh
 set -Eeuo pipefail
 
+
+echo "[INFO] Cleaning old Docker resources..."
+
+# Remove unused containers
+docker container prune -f
+
+# Remove unused images
+docker image prune -af
+
+# Remove build cache
+docker builder prune -af
+
+# Remove unused volumes
+docker volume prune -f
+
+echo "[INFO] Docker cleanup complete"
+
+
+export HOST_PORT=3000
+export CONTAINER_PORT=3000
 REPO_URL="${REPO_URL:-git@github.com:kubeletinfotech/cmccollege.git}"
 BRANCH="${BRANCH:-master}"
 DEPLOY_PATH="${DEPLOY_PATH:-/apps/web/beta-comcollege/app}"
