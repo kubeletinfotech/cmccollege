@@ -202,7 +202,14 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         {item.src && (
-                            <Image src={item.src} alt={item.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" quality={85} />
+                            <Image
+                                src={item.src}
+                                alt={item.title}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                quality={85}
+                            />
                         )}
                         <AnimatePresence mode="wait">
                             {(isCaptionVisible || isHovered) && (
@@ -279,7 +286,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
                                     className="object-cover"
-                                    sizes="100vw"
+                                    sizes="(min-width: 1024px) 100vw, 1px"
                                     priority={currentSlide === 0}
                                 />
                             </div>
@@ -291,7 +298,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
                                     className="object-cover object-center"
-                                    sizes="100vw"
+                                    sizes="(min-width: 768px) and (max-width: 1023px) 100vw, 1px"
                                     priority={currentSlide === 0}
                                 />
                             </div>
@@ -303,7 +310,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
                                     className="object-cover object-center"
-                                    sizes="100vw"
+                                    sizes="(max-width: 767px) 100vw, 1px"
                                     priority={currentSlide === 0}
                                 />
                             </div>
@@ -528,8 +535,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
                             { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
                             { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
-                            { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "/images/modern_science_lab_1768116682208.png" },
-                            { name: "Department Of Sociology", slug: "sociology", img: "/images/science_exhibition_project_1768117868795.png" },
+                            { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/lab.jpeg" },
+                            { name: "Department Of Sociology", slug: "sociology", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
                             { name: "Department Of Malayalam", slug: "malayalam", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/malayalam" },
                             { name: "Department Of Arabic", slug: "arabic", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg" }
                         ].map((dept, i) => (
@@ -547,7 +554,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                                 alt={dept.name}
                                                 fill
                                                 className="object-cover transform scale-100 md:group-hover:scale-110 transition-transform duration-700 ease-out"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                             />
                                             {/* Dark Gradient Overlay for readability */}
                                             <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/30"></div>
@@ -595,7 +602,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                             alt={facility.name}
                                             fill
                                             className="object-cover md:group-hover:scale-110 transition-transform duration-500"
-                                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 20vw"
                                             quality={90}
                                         />
                                         <div className="absolute inset-0 bg-black/20 md:group-hover:bg-black/30 transition-colors duration-300" />

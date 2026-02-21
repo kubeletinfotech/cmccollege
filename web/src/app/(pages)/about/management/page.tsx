@@ -257,7 +257,7 @@ export default function ManagementPage() {
                             "https://ik.imagekit.io/1yxtj9qun/About/ceas.png?updatedAt=1769710741807",
                             "https://ik.imagekit.io/1yxtj9qun/About/imsar.png?updatedAt=1769710741733",
                             "https://ik.imagekit.io/1yxtj9qun/About/afaq.png?updatedAt=1769710741445",
-                            "https://ik.imagekit.io/1yxtj9qun/Home/images/PNG%20CM%20COLLEGE.png?updatedAt=1768917745508"
+                            "https://ik.imagekit.io/1yxtj9qun/Home/images/logo"
                         ]}
                     />
                 </div>
