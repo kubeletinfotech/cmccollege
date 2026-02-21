@@ -391,11 +391,9 @@ export default function Navbar() {
                                             </div>
                                         </div>
                                     ))}
-
                                     {/* Mobile Admission Button */}
                                     <div className="p-6 flex flex-col items-center gap-6">
                                         <AdmissionButton fullWidth />
-                                        <StandAloneRotatingLogos />
                                     </div>
                                 </div>
                             </motion.div>
@@ -424,7 +422,7 @@ function StandAloneRotatingLogos() {
     }, [logos.length]);
 
     return (
-        <div className="relative w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-full flex items-center justify-center overflow-hidden border border-zinc-100 shadow-sm transition-all duration-300 hover:shadow-md">
+        <div className="relative w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-full hidden lg:flex items-center justify-center overflow-hidden border border-zinc-100 shadow-sm transition-all duration-300 hover:shadow-md">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={logoIndex}
@@ -453,7 +451,7 @@ function AdmissionButton({ fullWidth = false }: { fullWidth?: boolean }) {
             href="/admissions"
             aria-label="Make an admission enquiry"
             className={`
-                relative flex items-center justify-center bg-[#7a0b3a] text-white font-bold uppercase tracking-widest rounded-md overflow-hidden group transition-all duration-300
+                relative hidden lg:flex items-center justify-center bg-[#7a0b3a] text-white font-bold uppercase tracking-widest rounded-md overflow-hidden group transition-all duration-300
                 hover:bg-[#60082d] hover:shadow-[0_0_20px_rgba(122,11,58,0.5)] hover:-translate-y-0.5 cursor-pointer
                 ${fullWidth ? "w-full py-4 text-base" : "px-4 xl:px-6 py-2 xl:py-2.5 text-[11px] xl:text-[13px]"}
             `}
