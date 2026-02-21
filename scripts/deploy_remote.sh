@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+log() {
+  printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
+}
 # ────────────────────────────────────────────────
 # Cleanup old/unused Docker resources
 # ────────────────────────────────────────────────
@@ -21,9 +24,6 @@ ENV_FILE_REL_PATH="${ENV_FILE_REL_PATH:-web/.env}"
 IMAGE_REF="${IMAGE_REF:-}"
 ENV_FILE_B64="${ENV_FILE_B64:-}"
 
-log() {
-  printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
-}
 
 # --- Required Commands ---
 command -v git >/dev/null || { echo "git not found"; exit 1; }
