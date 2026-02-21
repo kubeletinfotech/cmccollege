@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Trash2, Edit2, X, Image as ImageIcon, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import ImageUpload from '@/components/ImageUpload';
+import { toast } from 'react-hot-toast';
 
 interface NewsItem {
     _id: string;
@@ -24,7 +25,12 @@ export default function AdminNewsPage() {
     const [showModal, setShowModal] = useState(false);
     const [editingItem, setEditingItem] = useState<NewsItem | null>(null);
     const { getToken } = useAuth();
-    const { register, handleSubmit, reset, setValue, control, formState: { errors } } = useForm<NewsItem>();
+    const { register, handleSubmit, reset, setValue, control, formState: { errors, isSubmitting } } = useForm<NewsItem>({
+        defaultValues: {
+            showOnHome: false,
+            tag: 'General'
+        }
+    });
 
     const fetchNews = async () => {
         try {
@@ -50,23 +56,32 @@ export default function AdminNewsPage() {
                 ? `/api/news/${editingItem._id}`
                 : `/api/news`;
 
+            // Exclude _id from data for safety
+            const { _id, ...submitData } = data;
+
             const res = await fetch(url, {
                 method,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(submitData)
             });
 
+            const result = await res.json();
+
             if (res.ok) {
+                toast.success(editingItem ? 'News updated successfully' : 'News published successfully');
                 setShowModal(false);
                 reset();
                 setEditingItem(null);
                 fetchNews();
+            } else {
+                toast.error(result.error || 'Operation failed');
             }
         } catch (error) {
             console.error('Operation failed:', error);
+            toast.error('Something went wrong. Please try again.');
         }
     };
 
@@ -91,7 +106,7 @@ export default function AdminNewsPage() {
         setValue('date', item.date.split('T')[0]); // Format date for input
         setValue('tag', item.tag);
         setValue('image', item.image);
-        setValue('showOnHome', item.showOnHome);
+        setValue('showOnHome', !!item.showOnHome);
         setShowModal(true);
     };
 
@@ -297,10 +312,17 @@ export default function AdminNewsPage() {
                                     </button>
                                     <button
                                         type="submit"
-                                        className="flex-[2] px-6 py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20 active:scale-95 flex items-center justify-center gap-2"
+                                        disabled={isSubmitting}
+                                        className="flex-2 px-6 py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        {editingItem ? 'Save Updates' : 'Publish Event'}
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                                        {isSubmitting ? (
+                                            <Loader2 size={20} className="animate-spin" />
+                                        ) : (
+                                            <>
+                                                {editingItem ? 'Save Updates' : 'Publish Event'}
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </form>

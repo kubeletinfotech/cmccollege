@@ -12,6 +12,12 @@ export async function PUT(
 
         const { id } = await params;
         const body = await req.json();
+
+        // Ensure showOnHome is treated as boolean if present
+        if (Object.prototype.hasOwnProperty.call(body, 'showOnHome')) {
+            body.showOnHome = Boolean(body.showOnHome);
+        }
+
         await connectDB();
         const updated = await News.findByIdAndUpdate(id, body, { new: true });
 
