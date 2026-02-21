@@ -35,13 +35,7 @@ interface HomeClientProps {
     initialGallery?: GalleryImage[];
 }
 
-const placeholderImages = [
-    { title: "Sports Day Excellence", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/sports.jpeg", tag: "Sports" },
-    { title: "Cultural Performance", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/fest.jpeg", tag: "Events" },
-    { title: "Science Innovation", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/lab.jpeg", tag: "Academic" },
-    { title: "College Library", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg", tag: "Campus" },
-    { title: "Annual Awards", src: "https://ik.imagekit.io/1yxtj9qun/Home/images/awards.jpeg", tag: "Events" }
-];
+
 
 
 
@@ -166,72 +160,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         }, 10000);
     };
 
-    const GalleryCard = ({ item, index, featured }: { item: any, index: number, featured?: boolean }) => {
-        const [isCaptionVisible, setIsCaptionVisible] = useState(false);
-        const [isHovered, setIsHovered] = useState(false);
 
-        useEffect(() => {
-            if (featured || isHovered) {
-                if (featured) setIsCaptionVisible(false);
-                return;
-            }
-            const interval = setInterval(() => setIsCaptionVisible((prev) => !prev), 4000);
-            return () => clearInterval(interval);
-        }, [featured, isHovered]);
-
-        const displayTag = item.tag === 'Classroom' ? 'Practical Session' : item.tag;
-        const getRoundedClass = (i: number, isFeatured?: boolean) => {
-            if (isFeatured) return "rounded-[60px] md:rounded-[80px]";
-            if (i === 1) return "rounded-tr-[140px] rounded-bl-[140px] rounded-tl-[40px] rounded-br-[40px]";
-            if (i === 3) return "rounded-tl-[140px] rounded-br-[140px] rounded-tr-[40px] rounded-bl-[40px]";
-            return "rounded-[100px] md:rounded-full";
-        };
-
-        return (
-            <ScrollReveal
-                delay={index * 100}
-                className={`group relative overflow-hidden shadow-sm md:hover:shadow-2xl transition-shadow duration-700 h-full border border-emerald-50/10
-                    ${featured ? "md:col-span-2 md:row-span-2 min-h-[350px]" : "min-h-[180px] md:min-h-0"}
-                    ${getRoundedClass(index, featured)}
-                `}
-            >
-                <div className="relative w-full h-full cursor-pointer" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-                    <motion.div
-                        className="relative w-full h-full transform-gpu will-change-transform"
-                        whileHover={!isMobile ? { scale: 1.05 } : {}}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        {item.src && (
-                            <Image
-                                src={item.src}
-                                alt={item.title}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                quality={85}
-                            />
-                        )}
-                        <AnimatePresence mode="wait">
-                            {(isCaptionVisible || isHovered) && (
-                                <motion.div
-                                    key="overlay"
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.6, ease: "easeOut" }}
-                                    className="absolute inset-0 bg-emerald-950/80 flex flex-col items-center justify-center text-center p-8 md:p-12"
-                                >
-                                    <span className="text-emerald-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4">{displayTag}</span>
-                                    <h3 className="text-white text-xl md:text-2xl font-bold leading-tight max-w-[280px]">{item.title}</h3>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </motion.div>
-                    <div className={`absolute inset-0 border border-white/0 md:group-hover:border-white/20 transition-colors duration-1000 pointer-events-none ${getRoundedClass(index, featured)}`} />
-                </div>
-            </ScrollReveal>
-        );
-    };
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % deviceSlideCount);
@@ -243,19 +172,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         handleInteraction();
     };
 
-    const imagesToRender = galleryImages.length > 0
-        ? galleryImages.slice(0, 5).map((img, i) => ({
-            title: img.title,
-            src: img.imageUrl,
-            tag: img.category,
-            featured: i === 0,
-            variant: i === 3
-        }))
-        : placeholderImages.map((img, i) => ({
-            ...img,
-            featured: i === 0,
-            variant: i === 3
-        }));
+
 
     // Admission visibility state removed (handled in DynamicCTA)
 
