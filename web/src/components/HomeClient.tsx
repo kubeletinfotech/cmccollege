@@ -9,17 +9,45 @@ import ScrollReveal from "@/components/ScrollReveal";
 import dynamic from "next/dynamic";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import toast from "react-hot-toast";
+import Skeleton from "@/components/Skeleton";
 
 // Lazy load non-critical sections to improve initial TBT
-const Gallery = dynamic(() => import("@/components/Gallery"), { ssr: true });
-const NewsSection = dynamic(() => import("@/components/NewsSection"), { ssr: true });
-const ClubsCarousel = dynamic(() => import("@/components/ClubsCarousel"), { ssr: true });
-const StatsSection = dynamic(() => import("@/components/StatsSection"), { ssr: true });
-const Collaborations = dynamic(() => import("@/components/Collaborations"), { ssr: true });
-const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
-const DynamicCTA = dynamic(() => import("@/components/DynamicCTA"), { ssr: true });
-const HomeMap = dynamic(() => import("@/components/HomeMap"), { ssr: true });
-const Professionals = dynamic(() => import("@/components/Professionals"), { ssr: true });
+const Gallery = dynamic(() => import("@/components/Gallery"), {
+    ssr: true,
+    loading: () => <div className="py-16 bg-zinc-50 h-[400px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-3xl" /></div>
+});
+const NewsSection = dynamic(() => import("@/components/NewsSection"), {
+    ssr: true,
+    loading: () => <div className="py-20 bg-white h-[450px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
+const ClubsCarousel = dynamic(() => import("@/components/ClubsCarousel"), {
+    ssr: true,
+    loading: () => <div className="py-12 bg-zinc-50 h-[300px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
+const StatsSection = dynamic(() => import("@/components/StatsSection"), {
+    ssr: true,
+    loading: () => <div className="py-16 bg-[#111111] h-[150px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
+const Collaborations = dynamic(() => import("@/components/Collaborations"), {
+    ssr: true,
+    loading: () => <div className="py-12 bg-white h-[200px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+    ssr: true,
+    loading: () => <div className="py-16 bg-white h-[400px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
+const DynamicCTA = dynamic(() => import("@/components/DynamicCTA"), {
+    ssr: true,
+    loading: () => <div className="py-12 bg-white h-[200px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
+const HomeMap = dynamic(() => import("@/components/HomeMap"), {
+    ssr: true,
+    loading: () => <div className="py-12 bg-white h-[400px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
+const Professionals = dynamic(() => import("@/components/Professionals"), {
+    ssr: true,
+    loading: () => <div className="py-24 bg-zinc-50 h-[450px] flex items-center justify-center"><Skeleton className="w-[90%] h-full rounded-2xl" /></div>
+});
 import { useAdmissionStatus } from "@/hooks/useAdmissionStatus";
 
 
