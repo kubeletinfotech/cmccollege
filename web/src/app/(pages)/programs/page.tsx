@@ -10,16 +10,7 @@ export default function ProgramsPage() {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="relative py-20 overflow-hidden bg-emerald-900 border-b border-white/10">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="https://ik.imagekit.io/1yxtj9qun/Home/images/fest.jpeg"
-                        alt="Background"
-                        fill
-                        className="object-cover opacity-20"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-b from-emerald-950/80 to-emerald-900"></div>
-                </div>
+            <section className="relative pt-40 pb-20 lg:pt-60 lg:pb-32 overflow-hidden bg-emerald-900 border-b border-white/10">
 
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <motion.div
