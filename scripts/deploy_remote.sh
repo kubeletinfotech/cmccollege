@@ -54,6 +54,7 @@ cd "$DEPLOY_PATH"
 
 # --- Update .env file ---
 if [ -n "$ENV_FILE_B64" ]; then
+  log "Creating env  $ENV_FILE_B64 on path $ENV_FILE_REL_PATH "
   mkdir -p "$(dirname "$ENV_FILE_REL_PATH")"
   printf '%s' "$ENV_FILE_B64" | base64 -d > "$ENV_FILE_REL_PATH"
   chmod 600 "$ENV_FILE_REL_PATH" || true
