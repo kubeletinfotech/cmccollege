@@ -6,7 +6,7 @@ import { ensureAdmin } from '@/lib/ensureAdmin';
 export async function GET() {
     try {
         await connectDB();
-        const news = await News.find({}).sort({ date: -1 });
+        const news = await News.find({}).sort({ showOnHome: -1, date: -1 });
         return NextResponse.json({
             success: true,
             data: news,
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
         await ensureAdmin();
 
         const body = await req.json();
-        const { title, description, date, image, tag } = body;
+        const { title, description, date, image, tag, showOnHome } = body;
 
         // Basic validation
         if (!title || !description || !image) {
@@ -41,7 +41,8 @@ export async function POST(req: NextRequest) {
             description,
             date: date || new Date(),
             image,
-            tag: tag || 'General'
+            tag: tag || 'General',
+            showOnHome: showOnHome || false
         });
 
         return NextResponse.json({

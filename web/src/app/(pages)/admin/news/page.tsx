@@ -15,6 +15,7 @@ interface NewsItem {
     date: string;
     image: string;
     tag: string;
+    showOnHome: boolean;
 }
 
 export default function AdminNewsPage() {
@@ -90,6 +91,7 @@ export default function AdminNewsPage() {
         setValue('date', item.date.split('T')[0]); // Format date for input
         setValue('tag', item.tag);
         setValue('image', item.image);
+        setValue('showOnHome', item.showOnHome);
         setShowModal(true);
     };
 
@@ -131,8 +133,15 @@ export default function AdminNewsPage() {
                                     fill
                                     className="object-cover"
                                 />
-                                <div className="absolute top-2 left-2 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-bold text-emerald-800 uppercase">
-                                    {item.tag}
+                                <div className="absolute top-2 left-2 flex gap-2">
+                                    <div className="bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-bold text-emerald-800 uppercase">
+                                        {item.tag}
+                                    </div>
+                                    {item.showOnHome && (
+                                        <div className="bg-amber-100/90 backdrop-blur px-2 py-1 rounded text-[10px] font-black text-amber-800 uppercase border border-amber-200 shadow-sm">
+                                            Home
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                             <div className="p-4">
@@ -262,6 +271,19 @@ export default function AdminNewsPage() {
                                             />
                                         </div>
                                         {errors.image && <p className="text-red-500 text-xs mt-1 ml-1">{errors.image.message}</p>}
+                                    </div>
+
+                                    <div className="flex items-center gap-3 p-4 bg-emerald-50 rounded-2xl border border-emerald-100 cursor-pointer group hover:bg-emerald-100/50 transition-colors">
+                                        <input
+                                            type="checkbox"
+                                            id="showOnHome"
+                                            {...register('showOnHome')}
+                                            className="w-5 h-5 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                                        />
+                                        <label htmlFor="showOnHome" className="text-sm font-bold text-emerald-800 cursor-pointer select-none">
+                                            Feature on Home Page
+                                            <span className="block text-[10px] text-emerald-600/70 font-medium">Pin this news to the home page carousel</span>
+                                        </label>
                                     </div>
                                 </div>
 

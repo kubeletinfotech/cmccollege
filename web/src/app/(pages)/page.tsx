@@ -10,7 +10,7 @@ async function getData() {
     await connectDB();
 
     const [newsData, galleryData] = await Promise.all([
-      News.find({}).sort({ date: -1 }).limit(3).lean(),
+      News.find({}).sort({ showOnHome: -1, date: -1 }).limit(3).lean(),
       Gallery.find({}).sort({ createdAt: -1 }).limit(6).lean()
     ]);
 

@@ -6,6 +6,7 @@ export interface INews extends Document {
     date: Date;
     image: string;
     tag: 'Seminar' | 'Sports' | 'Cultural' | 'Academic' | 'General' | 'Workshop' | 'Events';
+    showOnHome: boolean;
     createdAt: Date;
 }
 
@@ -28,6 +29,7 @@ const NewsSchema: Schema = new Schema({
         ],
         default: 'General',
     },
+    showOnHome: { type: Boolean, default: false },
     createdAt: { type: Date, default: Date.now },
 });
 

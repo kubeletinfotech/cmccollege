@@ -97,7 +97,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             name: "Anjana B",
             designation: "Librarian",
             qualification: "BSc Physics, B.Lib.I.Sc",
-            image: "https://ik.imagekit.io/1yxtj9qun/Home/images/librarian",
+            image: "https://ik.imagekit.io/1yxtj9qun/Home/images/librarian.jpeg",
             message: "Our library is not just a collection of books, but a gateway to knowledge and innovation. We strive to provide the best resources to nurture curious minds."
         }
     },
