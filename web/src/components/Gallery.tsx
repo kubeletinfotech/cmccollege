@@ -221,7 +221,7 @@ export default function Gallery({ initialItems }: GalleryProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-100 bg-black/90 md:backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+                        className="fixed inset-0 z-100 bg-black/90 lg:backdrop-blur-md flex items-center justify-center p-4 md:p-8"
                         onClick={closeLightbox}
                     >
                         <div className="absolute top-0 right-0 p-6 z-110">

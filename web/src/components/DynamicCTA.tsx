@@ -22,12 +22,12 @@ export default function DynamicCTA({
 
     // Button Styles
     const primaryBtnStyles = variant === "glass"
-        ? "px-8 py-3 bg-emerald-900/10 backdrop-blur-md border border-emerald-900/10 text-emerald-900 font-bold rounded-lg shadow-sm hover:bg-emerald-900/20 hover:scale-105 active:scale-95 transition-all text-base cursor-pointer"
+        ? "px-8 py-3 bg-emerald-900/10 lg:backdrop-blur-md border border-emerald-900/10 text-emerald-900 font-bold rounded-lg shadow-sm hover:bg-emerald-900/20 hover:scale-105 active:scale-95 transition-all text-base cursor-pointer"
         : "px-8 py-3 bg-white text-[#7B0046] font-bold rounded-lg shadow-lg hover:scale-105 active:scale-95 transition-transform text-base cursor-pointer";
 
     const secondaryBtnStyles = variant === "glass"
-        ? "px-8 py-3 bg-white/40 backdrop-blur-md border border-emerald-900/20 text-emerald-900 font-bold rounded-lg hover:bg-white/60 hover:scale-105 active:scale-95 transition-all text-base cursor-pointer"
-        : "px-8 py-3 bg-transparent border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 hover:scale-105 active:scale-95 transition-all text-base cursor-pointer backdrop-blur-sm";
+        ? "px-8 py-3 bg-white/40 lg:backdrop-blur-md border border-emerald-900/20 text-emerald-900 font-bold rounded-lg hover:bg-white/60 hover:scale-105 active:scale-95 transition-all text-base cursor-pointer"
+        : "px-8 py-3 bg-transparent border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 hover:scale-105 active:scale-95 transition-all text-base cursor-pointer lg:backdrop-blur-sm";
 
     return (
         <section className={variant === "glass" ? "py-24 px-6 bg-emerald-50 text-center relative overflow-hidden" : baseStyles}>

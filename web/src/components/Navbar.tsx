@@ -222,7 +222,7 @@ export default function Navbar() {
     return (
         <header className="fixed w-full z-50 top-(--ticker-height,0px) flex flex-col shadow-sm">
             <TopBar />
-            <nav className="w-full bg-white/98 backdrop-blur-sm border-b border-zinc-100 relative transition-all duration-300">
+            <nav className="w-full bg-white/98 lg:backdrop-blur-sm border-b border-zinc-100 relative transition-all duration-300">
                 <div className="w-full px-4 lg:px-8">
                     {/* Main Row: Logo + Actions */}
                     {/* Middle Identity Row (Hidden on mobile) */}

@@ -31,7 +31,7 @@ const MarqueeRow = ({ title, items, reverse = false, fit = "contain", isProgram 
         <div className="flex flex-col md:flex-row items-stretch border-b border-zinc-100 last:border-b-0 py-8">
             {/* Side Label */}
             <ContentWrapper isProgram={isProgram}>
-                <div className="relative w-full overflow-hidden rounded-2xl bg-emerald-900/10 to-blue-50/20 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(93,16,53,0.1)] transition-all duration-500 group/card">
+                <div className="relative w-full overflow-hidden rounded-2xl bg-emerald-900/10 to-blue-50/20 lg:backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(93,16,53,0.1)] transition-all duration-500 group/card">
                     {/* Maroon Accent Strip */}
                     <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-linear-to-b from-[#5D1035] via-[#851E4E] to-[#5D1035]"></div>
 

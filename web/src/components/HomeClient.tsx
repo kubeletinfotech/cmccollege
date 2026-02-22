@@ -63,13 +63,6 @@ interface HomeClientProps {
     initialGallery?: GalleryImage[];
 }
 
-
-
-
-
-
-
-
 export default function HomeClient({ initialNews, initialGallery }: HomeClientProps) {
     const [galleryImages, setGalleryImages] = useState<GalleryImage[]>(initialGallery || []);
     const [isLoading, setIsLoading] = useState(!initialGallery);
@@ -97,8 +90,6 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
 
     const mobileImages = [
         "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197",
-        // "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile1",
-        // "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile2",`
         "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316",
     ];
 
@@ -131,14 +122,12 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         return () => clearInterval(interval);
     }, [isPaused, deviceSlideCount]);
 
-    // Ensure currentSlide is within bounds when deviceSlideCount changes
     useEffect(() => {
         if (currentSlide >= deviceSlideCount) {
             setCurrentSlide(0);
         }
     }, [deviceSlideCount, currentSlide]);
 
-    // Fetch dynamic page content
     const { isAdmissionOpen } = useAdmissionStatus();
 
     const handleDeptClick = (e: React.MouseEvent, slug: string) => {
@@ -156,7 +145,6 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     };
 
     useEffect(() => {
-        // Only fetch if NOT initialGallery provided
         if (initialGallery) return;
 
         const fetchGallery = async () => {
@@ -188,8 +176,6 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         }, 10000);
     };
 
-
-
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % deviceSlideCount);
         handleInteraction();
@@ -199,10 +185,6 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         setCurrentSlide((prev) => (prev - 1 + deviceSlideCount) % deviceSlideCount);
         handleInteraction();
     };
-
-
-
-    // Admission visibility state removed (handled in DynamicCTA)
 
     return (
         <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[104px] lg:pt-[112px] bg-[#7B0046]/3">
@@ -215,14 +197,14 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                     <AnimatePresence mode="popLayout" initial={false}>
                         <motion.div
                             key={currentSlide}
-                            initial={{ scale: 1.1, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 1.1, opacity: 0 }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
                             transition={{
-                                duration: 0.8,
-                                ease: "easeInOut"
+                                duration: 0.6,
+                                ease: "linear"
                             }}
-                            className="absolute inset-0"
+                            className="absolute inset-0 transform-gpu"
                         >
                             {/* Desktop Image (LG+) */}
                             <div className="hidden lg:block w-full h-full relative">
@@ -288,14 +270,14 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 <div className="absolute inset-x-4 md:inset-x-8 top-1/2 -translate-y-1/2 z-20 flex justify-between pointer-events-none">
                     <button
                         onClick={prevSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/40 md:hover:bg-white/20 md:backdrop-blur-sm border border-white/10 text-white/70 md:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto md:hover:scale-110 active:scale-90 hover:cursor-pointer"
+                        className="group p-2 md:p-3 rounded-full bg-black/40 lg:hover:bg-white/20 lg:backdrop-blur-sm border border-white/10 text-white/70 lg:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto lg:hover:scale-110 active:scale-90 hover:cursor-pointer"
                         aria-label="Previous slide"
                     >
                         <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/40 md:hover:bg-white/20 md:backdrop-blur-sm border border-white/10 text-white/70 md:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto md:hover:scale-110 active:scale-90 hover:cursor-pointer"
+                        className="group p-2 md:p-3 rounded-full bg-black/40 lg:hover:bg-white/20 lg:backdrop-blur-sm border border-white/10 text-white/70 lg:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto lg:hover:scale-110 active:scale-90 hover:cursor-pointer"
                         aria-label="Next slide"
                     >
                         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
@@ -337,7 +319,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 <ScrollReveal>
                     <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-6 md:p-14 rounded-r-2xl relative overflow-hidden">
                         {/* Background decoration - Reduced blur for mobile */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-2xl md:blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-xl lg:blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
 
                         <div className="relative z-10 flex flex-col items-start text-left">
                             <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-4 uppercase">
@@ -348,12 +330,14 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 <p className="block md:hidden">
                                     CM College of Arts and Science, Nadavayal, Wayanad, is a self-financing institution affiliated with the University of Calicut. Established in 2010 under the guidance of CM Center Madavoor, the college is set across 15 acres of serene campus, committed to providing quality higher education and empowering students.
                                 </p>
-                                <p className="hidden md:block break-inside-avoid">
-                                    CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut, run by CM center Madavoor, Calicut, Kerala. Established in the year April 2010, the college is situated in Panamaram, shares its 15 acres of beautiful land. Recognized by Government of kerala, the college is affiliated to the University of Calicut.
-                                </p>
-                                <p className="hidden md:block break-inside-avoid">
-                                    In a short span of time, our college has achieved greater heights since its inception a decade ago by educating thousands of students from various parts of our states. Even though, Wayanad district has been little backward compared to many other districts of Kerala due to its geographical structure, we undertake the challenge to serve and provide better education for all the community.
-                                </p>
+                                <div className="hidden md:block space-y-4">
+                                    <p className="break-inside-avoid">
+                                        CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut, run by CM center Madavoor, Calicut, Kerala. Established in the year April 2010, the college is situated in Panamaram, shares its 15 acres of beautiful land. Recognized by Government of kerala, the college is affiliated to the University of Calicut.
+                                    </p>
+                                    <p className="break-inside-avoid">
+                                        In a short span of time, our college has achieved greater heights since its inception a decade ago by educating thousands of students from various parts of our states. Even though, Wayanad district has been little backward compared to many other districts of Kerala due to its geographical structure, we undertake the challenge to serve and provide better education for all the community.
+                                    </p>
+                                </div>
                             </div>
 
                             <div className="mt-6">
@@ -368,10 +352,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 </ScrollReveal>
             </section>
 
-
-
-            {/* Collaborations Section */}
             <Collaborations />
+
             {/* Premium Divider */}
             <div className="relative py-4 md:py-6 bg-white">
                 <div className="absolute inset-0 flex items-center" aria-hidden="true">
@@ -457,12 +439,10 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     </Link>
                                 </div>
                             </div>
-
                         </div>
                     </ScrollReveal>
                 </div>
             </section>
-
 
             {/* Academic Programs Section */}
             <section className="py-10 md:py-16 px-4 md:px-6 bg-emerald-50">
@@ -492,26 +472,22 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     onClick={(e) => handleDeptClick(e, dept.slug)}
                                 >
                                     <div className="group relative h-full min-h-[120px] p-4 bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] md:hover:shadow-xl transition-[transform,box-shadow,background-color] duration-500 ease-out md:hover:-translate-y-1.5 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
-                                        {/* Hover Background Image with subtle zoom - Disabled scale on mobile */}
+                                        {/* Hover Background Image - Disabled scale on mobile for performance */}
                                         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
                                             <Image
                                                 src={dept.img}
                                                 alt={dept.name}
                                                 fill
-                                                className="object-cover transform scale-100 md:group-hover:scale-110 transition-transform duration-700 ease-out"
+                                                className="object-cover transform scale-100 lg:group-hover:scale-110 transition-transform duration-700 ease-out"
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                             />
-                                            {/* Dark Gradient Overlay for readability */}
                                             <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/30"></div>
                                         </div>
 
-                                        {/* Content */}
                                         <div className="relative z-10 w-full">
                                             <h3 className="text-xs md:text-sm font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
                                                 {dept.name}
                                             </h3>
-
-                                            {/* Optional decorative line that appears on hover */}
                                             <div className="h-0.5 w-0 bg-emerald-400 mx-auto mt-0 group-hover:mt-3 group-hover:w-12 transition-all duration-500 opacity-0 group-hover:opacity-100 delay-100"></div>
                                         </div>
                                     </div>
@@ -537,7 +513,6 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             { name: "Labs", slug: "computer-lab", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
                             { name: "Library", slug: "library", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
                             { name: "Bus", slug: "bus-facility", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg" }
-
                         ].map((facility, i) => (
                             <ScrollReveal key={i} delay={isMobile ? i * 50 : i * 100} className="group cursor-pointer">
                                 <Link href={`/amenities/${facility.slug}`}>
@@ -546,11 +521,11 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                             src={facility.img}
                                             alt={facility.name}
                                             fill
-                                            className="object-cover md:group-hover:scale-110 transition-transform duration-500"
+                                            className="object-cover lg:group-hover:scale-110 transition-transform duration-500"
                                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 20vw"
                                             quality={90}
                                         />
-                                        <div className="absolute inset-0 bg-black/20 md:group-hover:bg-black/30 transition-colors duration-300" />
+                                        <div className="absolute inset-0 bg-black/20 lg:group-hover:bg-black/30 transition-colors duration-300" />
                                         <div className="absolute bottom-0 left-0 right-0 p-6 text-center z-10">
                                             <span className="text-lg font-bold text-white tracking-widest uppercase">{facility.name}</span>
                                         </div>
@@ -568,35 +543,15 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                     </div>
                 </div>
             </section>
+
             <StatsSection />
-
-            {/* Meet the professionals section*/}
             <Professionals />
-
-            {/* News Section */}
             <NewsSection initialNews={initialNews} />
-
-            {/* Testimonials Section */}
             <Testimonials />
-
-            {/* Clubs Section */}
             <ClubsCarousel />
-
-            {/* Stats Section */}
-
-
-            {/* Gallery Preview Section */}
-
             <Gallery initialItems={initialGallery} />
-
-            {/* Map Section */}
             <HomeMap />
-
-            {/* Call to Action Section - Dynamic & Themed */}
-            {/* Call to Action Section - Dynamic & Themed */}
             <DynamicCTA variant="glass" />
-
-
         </div>
     );
 }

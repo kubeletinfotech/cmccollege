@@ -9,12 +9,15 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const lenisRef = useRef<Lenis | null>(null);
 
     useEffect(() => {
+        // Disable smooth scroll on mobile for better performance on low-end devices
+        if (window.innerWidth < 1024) return;
+
         const lenis = new Lenis({
-            lerp: 0.1, // Optimized for smoother feel on low-end devices
+            lerp: 0.08, // Slightly reduced for better performance
             wheelMultiplier: 1,
             touchMultiplier: 2,
             smoothWheel: true,
-            // @ts-ignore - smoothTouch is heavy on low-end devices, disable to use native scroll which is hardware accelerated
+            // @ts-ignore - smoothTouch is heavy on low-end devices
             smoothTouch: false,
             infinite: false,
         });

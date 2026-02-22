@@ -135,7 +135,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.15 }}
-                    className="fixed inset-0 z-[100] bg-zinc-950/60 backdrop-blur-sm flex items-start justify-center pt-16 md:pt-24 px-4"
+                    className="fixed inset-0 z-[100] bg-zinc-950/60 lg:backdrop-blur-sm flex items-start justify-center pt-16 md:pt-24 px-4"
                     onClick={onClose}
                 >
                     <motion.div
@@ -227,7 +227,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                                 {/* Search Results */}
                                 {query && (
                                     <div className="space-y-4 pb-2">
-                                        <h3 className="text-[10px] font-black text-emerald-900/50 uppercase tracking-[0.2em] px-1 sticky top-0 bg-white/95 backdrop-blur-sm py-2 z-10">
+                                        <h3 className="text-[10px] font-black text-emerald-900/50 uppercase tracking-[0.2em] px-1 sticky top-0 bg-white/95 lg:backdrop-blur-sm py-2 z-10">
                                             Found {searchResults.length} matches
                                         </h3>
                                         {searchResults.length > 0 ? (

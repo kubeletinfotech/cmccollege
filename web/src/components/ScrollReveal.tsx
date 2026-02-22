@@ -45,7 +45,9 @@ export default function ScrollReveal({ children, className = "", delay = 0 }: Sc
                 } ${className}`}
             style={{
                 transitionDelay: `${delay}ms`,
-                willChange: isVisible ? 'auto' : 'opacity, transform'
+                willChange: isVisible ? 'auto' : 'opacity, transform',
+                transform: isVisible ? 'translate3d(0,0,0)' : 'translate3d(0,2rem,0)',
+                backfaceVisibility: 'hidden'
             }}
         >
             {children}
