@@ -48,24 +48,40 @@ export default function AdmissionsSidebar() {
                         {menuItems.map((item) => {
                             const isExternal = item.href.startsWith("http");
                             const isActive = pathname === item.href;
+                            const isApplyOnline = item.label === "Apply Online";
 
                             const Icon = item.icon;
 
                             const commonClasses = cn(
-                                "flex items-center justify-between px-4 py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 border-l-4 group w-full text-left",
-                                isActive
-                                    ? "bg-white border-emerald-900 text-emerald-900 shadow-sm"
-                                    : "border-transparent text-zinc-700 hover:bg-zinc-100 hover:text-emerald-900"
+                                "flex items-center justify-between px-4 py-3.5 text-sm font-semibold rounded-lg transition-all duration-300 border-l-4 group w-full text-left",
+                                isApplyOnline
+                                    ? "bg-[#7a0b3a] border-[#7a0b3a] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transform"
+                                    : isActive
+                                        ? "bg-white border-emerald-900 text-emerald-900 shadow-sm"
+                                        : "border-transparent text-zinc-700 hover:bg-zinc-100 hover:text-emerald-900"
                             );
 
                             const content = (
                                 <>
                                     <div className="flex items-center gap-3">
-                                        <Icon className={cn("w-5 h-5", isActive ? "text-emerald-900" : "text-zinc-400 group-hover:text-emerald-900")} />
+                                        <Icon className={cn(
+                                            "w-5 h-5 transition-colors",
+                                            isApplyOnline
+                                                ? "text-white"
+                                                : isActive
+                                                    ? "text-emerald-900"
+                                                    : "text-zinc-400 group-hover:text-emerald-900"
+                                        )} />
                                         <span>{item.label}</span>
                                     </div>
-                                    {isActive && (
+                                    {!isApplyOnline && isActive && (
                                         <ChevronRight className="w-4 h-4 text-emerald-900" />
+                                    )}
+                                    {isApplyOnline && (
+                                        <div className="flex items-center gap-1">
+                                            <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full text-white/90">New</span>
+                                            <ChevronRight className="w-4 h-4 text-white/70 group-hover:translate-x-1 transition-transform" />
+                                        </div>
                                     )}
                                 </>
                             );
