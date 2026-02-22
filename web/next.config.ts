@@ -43,6 +43,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    unoptimized: true,
     minimumCacheTTL: 60,
     formats: ['image/avif', 'image/webp'],
     qualities: [20, 75, 80, 85, 90, 95, 100],
