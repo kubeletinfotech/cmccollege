@@ -1,27 +1,21 @@
 #!/usr/bin/env bash
-#deploy_remote.sh
 set -Eeuo pipefail
 
-
-echo "[INFO] Cleaning old Docker resources..."
-
-# Remove unused containers
+log() {
+  printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
+}
+# ────────────────────────────────────────────────
+# Cleanup old/unused Docker resources
+# ────────────────────────────────────────────────
+log "Cleaning old Docker resources..."
 docker container prune -f
-
-# Remove unused images
-docker image prune -af
-
-# Remove build cache
-docker builder prune -af
-
-# Remove unused volumes
-docker volume prune -f
-
-echo "[INFO] Docker cleanup complete"
+docker image prune -f
+docker builder prune -f
+docker volume prune -f 2>/dev/null || true
+log "Docker cleanup complete"
 
 
-export HOST_PORT=3000
-export CONTAINER_PORT=3000
+
 REPO_URL="${REPO_URL:-git@github.com:kubeletinfotech/cmccollege.git}"
 BRANCH="${BRANCH:-master}"
 DEPLOY_PATH="${DEPLOY_PATH:-/apps/web/beta-comcollege/app}"
@@ -30,9 +24,6 @@ ENV_FILE_REL_PATH="${ENV_FILE_REL_PATH:-web/.env}"
 IMAGE_REF="${IMAGE_REF:-}"
 ENV_FILE_B64="${ENV_FILE_B64:-}"
 
-log() {
-  printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
-}
 
 # --- Required Commands ---
 command -v git >/dev/null || { echo "git not found"; exit 1; }

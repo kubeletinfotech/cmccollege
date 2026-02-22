@@ -8,5 +8,5 @@ services:
     env_file:
       - ./web/.env
     ports:
-      - "${HOST_PORT}:${CONTAINER_PORT}"
+      - "3000:3000"
 
