@@ -79,13 +79,15 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=ar-16-7,yc-20"
     ];
 
     const tabletImages = [
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=ar-16-7,yc-20"
     ];
 
     const mobileImages = [
