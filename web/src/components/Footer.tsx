@@ -23,7 +23,7 @@ export default function Footer() {
                             alt="CM College Footer Logo"
                             fill
                             sizes="(max-width: 768px) 160px, 200px"
-                            className="object-contain object-center scale-[1.8] sm:scale-[2.2] md:scale-[2.8] lg:scale-[3.5] origin-center -translate-y-2 md:-translate-y-4"
+                            className="object-contain object-center scale-[2.2] sm:scale-[2.2] md:scale-[2.8] lg:scale-[3.5] origin-center -translate-y-2 md:-translate-y-4"
                             quality={85}
                         />
                     </div>
@@ -32,7 +32,7 @@ export default function Footer() {
                         Recognized by UGC under Section 2(f) of the Act 1957
                         <span className="block font-bold mt-2 text-white">Unit of CM Centre Madavoor</span>
                     </p>
-                    <div className="flex gap-4 md:justify-center lg:justify-start w-full">
+                    <div className="flex gap-4 justify-center w-full">
                         <a href="https://www.facebook.com/cmcollegenadavayal" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-emerald-700/50 hover:border-emerald-500/50 transition-all hover:-translate-y-1" aria-label="Visit our Facebook page">
                             <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" /></svg>
                         </a>
