@@ -77,7 +77,7 @@ export default function Testimonials() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/classroom_learning_1768115518451_png.jpeg"
+                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/school_annual_award_ceremony_stage_1768117893644_png.jpeg?updatedAt=1770370304277"
                     alt="Alumni Background"
                     fill
                     className="object-cover"
