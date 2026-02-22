@@ -5,6 +5,7 @@ import { BookOpen, Calendar, Clock, FileText, ChevronRight, GraduationCap } from
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useEffect, useState } from "react";
 
 const academicFeatures = [
     {
@@ -42,6 +43,12 @@ const academicFeatures = [
 ];
 
 export default function AcademicsPage() {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     return (
         <div className="flex min-h-screen flex-col bg-[#7B0046]/3">
             {/* Hero Section - Matching Home Page Slider Pattern */}
@@ -50,7 +57,7 @@ export default function AcademicsPage() {
                 <div className="absolute inset-0 z-0 bg-emerald-800">
                     {/* Animated Particles - Disabled on mobile for performance */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
-                        {[...Array(6)].map((_, i) => (
+                        {isMounted && [...Array(6)].map((_, i) => (
                             <motion.div
                                 key={i}
                                 className="absolute w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-40 will-change-transform"
@@ -95,7 +102,7 @@ export default function AcademicsPage() {
                             </div>
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-agency font-bold mb-6 leading-tight tracking-tight uppercase">
                                 Empowering Minds, <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-600">
+                                <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-400 to-rose-600">
                                     Enriching Futures
                                 </span>
                             </h1>

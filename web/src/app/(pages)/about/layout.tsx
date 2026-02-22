@@ -8,7 +8,7 @@ export default function AboutLayout({
     return (
         <main className="min-h-screen bg-white">
             {/* Header / Breadcrumb Placeholder area can be handled in individual pages or here if global */}
-            <div className="bg-[#7a0b3a] text-white py-16 px-4 md:px-8 relative overflow-hidden">
+            <div className="bg-[#7a0b3a] text-white py-16 lg:pt-50 px-4 md:px-8 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
                 </div>
