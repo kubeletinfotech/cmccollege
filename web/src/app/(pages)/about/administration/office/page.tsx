@@ -17,21 +17,21 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const officeStaff = [
     {
-        name: "Uvais T K",
+        name: "Place Holder Staff 1",
         role: "Administrative Officer (AO)",
         email: "ao@cmcollege.edu.in",
-        image: "/images/staff/ao.jpg", // Placeholder or from public
+        image: "/images/default-user-placeholder.png", // Placeholder or from public
         specialization: "General Administration & Finance"
     },
     {
-        name: "Place Holder Staff 1",
+        name: "Place Holder Staff 2",
         role: "Head Clerk",
         email: "office@cmcollege.edu.in",
         image: "/images/default-user-placeholder.png",
         specialization: "Documentation & University Affairs"
     },
     {
-        name: "Place Holder Staff 2",
+        name: "Place Holder Staff 3",
         role: "Accountant",
         email: "accounts@cmcollege.edu.in",
         image: "/images/default-user-placeholder.png",
@@ -124,18 +124,19 @@ export default function OfficeAdministrationPage() {
             </section>
 
             {/* Key Personnel */}
-            <section className="bg-zinc-50 rounded-[32px] p-6 md:p-12 space-y-10 border border-zinc-100">
+            <section className="bg-zinc-50 rounded-[32px] p-4 md:p-12 space-y-10 border border-zinc-100">
                 <h3 className="text-xl md:text-2xl font-bold text-zinc-800 text-center">Administrative Personnel</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10 max-w-6xl mx-auto ">
                     {officeStaff.map((staff, idx) => (
                         <motion.div
                             key={idx}
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="bg-white rounded-[24px] overflow-hidden shadow-sm border border-zinc-100 hover:shadow-xl transition-all duration-300 group"
+                            className="bg-white p-3 md:p-0 rounded-2xl md:rounded-[32px] flex items-center md:flex-col gap-4 border border-zinc-100 shadow-sm hover:shadow-2xl transition-all duration-300 group overflow-hidden"
                         >
-                            <div className="relative aspect-4/5 w-full bg-zinc-100 overflow-hidden">
+                            {/* Mobile: Circle | Desktop: Premium Tall Card Image */}
+                            <div className="relative w-14 h-14 md:w-full md:h-[300px] shrink-0 rounded-full md:rounded-none overflow-hidden bg-zinc-100">
                                 <Image
                                     src={staff.image === "/images/staff/ao.jpg" ? "https://ik.imagekit.io/1yxtj9qun/About/director.jpg" : staff.image}
                                     alt={staff.name}
@@ -143,9 +144,15 @@ export default function OfficeAdministrationPage() {
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                             </div>
-                            <div className="p-6 text-center">
-                                <h4 className="text-lg font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors">{staff.name}</h4>
-                                <p className="text-[#7a0b3a] text-xs font-bold uppercase tracking-widest mt-1 opacity-80">{staff.role}</p>
+
+                            {/* Info Wrapper */}
+                            <div className="min-w-0 md:p-8 md:pb-20 md:text-center flex-1">
+                                <h4 className="text-base md:text-xl font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors truncate md:whitespace-normal">
+                                    {staff.name}
+                                </h4>
+                                <p className="text-[#7a0b3a] text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 md:mt-3 opacity-90">
+                                    {staff.role}
+                                </p>
                             </div>
                         </motion.div>
                     ))}
