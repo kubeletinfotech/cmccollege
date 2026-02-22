@@ -124,28 +124,28 @@ export default function OfficeAdministrationPage() {
             </section>
 
             {/* Key Personnel */}
-            <section className="bg-zinc-50 rounded-[32px] p-6 md:p-12 space-y-8 border border-zinc-100">
+            <section className="bg-zinc-50 rounded-[32px] p-6 md:p-12 space-y-10 border border-zinc-100">
                 <h3 className="text-xl md:text-2xl font-bold text-zinc-800 text-center">Administrative Personnel</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
                     {officeStaff.map((staff, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="bg-white p-3 md:p-5 rounded-2xl flex items-center gap-4 md:flex-col md:text-center border border-zinc-100 shadow-sm hover:shadow-md transition-all group"
+                            className="bg-white rounded-[24px] overflow-hidden shadow-sm border border-zinc-100 hover:shadow-xl transition-all duration-300 group"
                         >
-                            <div className="relative w-16 h-16 md:w-24 md:h-24 shrink-0 rounded-full md:rounded-2xl overflow-hidden bg-zinc-100 border-2 border-white shadow-sm transition-transform duration-500 group-hover:scale-105">
+                            <div className="relative aspect-4/5 w-full bg-zinc-100 overflow-hidden">
                                 <Image
                                     src={staff.image === "/images/staff/ao.jpg" ? "https://ik.imagekit.io/1yxtj9qun/About/director.jpg" : staff.image}
                                     alt={staff.name}
                                     fill
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                             </div>
-                            <div className="min-w-0 md:space-y-1">
-                                <h4 className="text-base md:text-lg font-bold text-zinc-900 leading-tight truncate md:whitespace-normal">{staff.name}</h4>
-                                <p className="text-[#7a0b3a] text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-80">{staff.role}</p>
+                            <div className="p-6 text-center">
+                                <h4 className="text-lg font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors">{staff.name}</h4>
+                                <p className="text-[#7a0b3a] text-xs font-bold uppercase tracking-widest mt-1 opacity-80">{staff.role}</p>
                             </div>
                         </motion.div>
                     ))}
