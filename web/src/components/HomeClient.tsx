@@ -74,12 +74,12 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
 
     // Hero Slider Configuration
     const desktopImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner4?tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=fo-center"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner4?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=w-1897,h-713,fo-center"
     ];
 
     const tabletImages = [
