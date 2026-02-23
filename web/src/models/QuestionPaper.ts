@@ -19,6 +19,11 @@ const QuestionPaperSchema = new mongoose.Schema({
             "Economics",
             "English",
             "Commerce",
+            "Human Resource Management",
+            "Sociology",
+            "Multimedia",
+            "Malayalam",
+            "Arabic",
         ],
     },
     semester: {
