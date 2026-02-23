@@ -90,7 +90,7 @@ export default function StatsSection() {
 
                 {/* Glass Container */}
                 <div
-                    className="rounded-3xl border border-white/10 shadow-2xl overflow-hidden lg:backdrop-blur-sm transform-gpu"
+                    className="rounded-3xl border border-white/10 shadow-2xl overflow-hidden transform-gpu"
                     style={{
                         background: 'rgba(255, 255, 255, 0.05)',
                         boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'

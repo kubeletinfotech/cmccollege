@@ -9,30 +9,32 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const lenisRef = useRef<Lenis | null>(null);
 
     useEffect(() => {
-        // Disable smooth scroll on mobile for better performance on low-end devices
+        // Only initialize Lenis on desktop for better performance
+        // Mobile browsers have their own high-performance momentum scrolling
         if (window.innerWidth < 1024) return;
 
         const lenis = new Lenis({
-            lerp: 0.08, // Slightly reduced for better performance
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Premium exponential easing
+            smoothWheel: true,
             wheelMultiplier: 1,
             touchMultiplier: 2,
-            smoothWheel: true,
-            // @ts-ignore - smoothTouch is heavy on low-end devices
-            smoothTouch: false,
             infinite: false,
         });
 
         lenisRef.current = lenis;
 
+        let rafId: number;
         function raf(time: number) {
             lenis.raf(time);
-            requestAnimationFrame(raf);
+            rafId = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
 
         return () => {
             lenis.destroy();
+            cancelAnimationFrame(rafId);
             lenisRef.current = null;
         };
     }, []);

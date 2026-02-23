@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 html {
-  scroll-behavior: smooth;
+  /* Removed scroll-behavior: smooth to avoid conflict with JS-based smooth scrolling (Lenis) */
 }
 
 :root {
@@ -41,21 +41,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  text-rendering: optimizeLegibility;
+  text-rendering: auto;
+  /* Changed from optimizeLegibility for better scroll performance */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Optimize off-screen categories */
+/* Standard section spacing */
 section {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 500px;
-}
-
-/* Optimization for the first few sections to avoid LCP issues */
-header,
-section:first-of-type {
-  content-visibility: visible;
+  position: relative;
 }
 
 /* Marquee Animation */
