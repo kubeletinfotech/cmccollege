@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '@clerk/nextjs';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Trash2, Edit2, X, FileText, Loader2, Download, ExternalLink } from 'lucide-react';
+import { Plus, Trash2, Edit2, X, FileText, Loader2, Download, ExternalLink, Search, Filter } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { departments, semesters } from "@/data/question-papers";
 
 interface QuestionPaper {
     _id: string;
@@ -18,16 +19,6 @@ interface QuestionPaper {
     pdfUrl: string;
 }
 
-const departments = [
-    "Computer Science",
-    "Management",
-    "Mass Communication",
-    "Economics",
-    "English",
-    "Commerce",
-];
-
-const semesters = ["Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6"];
 const types = ["Main Exam", "Supplementary", "Internal"];
 
 export default function AdminQuestionBankPage() {
@@ -35,6 +26,11 @@ export default function AdminQuestionBankPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const [editingItem, setEditingItem] = useState<QuestionPaper | null>(null);
+
+    // Filter states
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedDepartment, setSelectedDepartment] = useState('All');
+    const [selectedSemester, setSelectedSemester] = useState('All');
     const { getToken } = useAuth();
     const { register, handleSubmit, reset, setValue, formState: { errors, isSubmitting } } = useForm<QuestionPaper>();
 
@@ -111,6 +107,14 @@ export default function AdminQuestionBankPage() {
         }
     };
 
+    const filteredPapers = papers.filter(paper => {
+        const matchesSearch = paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            paper.code.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesDept = selectedDepartment === 'All' || paper.department === selectedDepartment;
+        const matchesSem = selectedSemester === 'All' || paper.semester === selectedSemester;
+        return matchesSearch && matchesDept && matchesSem;
+    });
+
     const openEdit = (item: QuestionPaper) => {
         setEditingItem(item);
         setValue('title', item.title);
@@ -143,11 +147,49 @@ export default function AdminQuestionBankPage() {
                 </button>
             </div>
 
+            {/* Filter Section */}
+            <div className="bg-white p-6 rounded-3xl border border-zinc-200 mb-10 shadow-sm">
+                <div className="flex flex-col lg:flex-row gap-6">
+                    <div className="flex-1 relative">
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-900" size={20} />
+                        <input
+                            type="text"
+                            placeholder="Search by title or course code..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-zinc-50 border text-zinc-900 border-zinc-200 focus:border-[#7a0b3a] focus:ring-0 focus:ring-maroon-500/5 transition-all outline-none font-medium"
+                        />
+                    </div>
+                    <div className="flex flex-wrap gap-4 items-center">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-zinc-50 rounded-2xl border border-zinc-200">
+                            <Filter size={16} className="text-zinc-400" />
+                            <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Filters:</span>
+                        </div>
+                        <select
+                            value={selectedDepartment}
+                            onChange={(e) => setSelectedDepartment(e.target.value)}
+                            className="px-6 py-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 focus:border-[#7a0b3a] transition-all outline-none font-bold text-zinc-900 appearance-none min-w-[200px] cursor-pointer"
+                        >
+                            <option value="All">All Departments</option>
+                            {departments.map(d => <option key={d} value={d}>{d}</option>)}
+                        </select>
+                        <select
+                            value={selectedSemester}
+                            onChange={(e) => setSelectedSemester(e.target.value)}
+                            className="px-6 py-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 focus:border-[#7a0b3a] transition-all outline-none font-bold text-zinc-900 appearance-none min-w-[200px] cursor-pointer"
+                        >
+                            <option value="All">All Semesters</option>
+                            {semesters.map(s => <option key={s} value={s}>{s}</option>)}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             {isLoading ? (
                 <div className="flex justify-center py-20"><Loader2 className="animate-spin text-maroon-600" /></div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {papers.map((item, idx) => (
+                    {filteredPapers.map((item, idx) => (
                         <motion.div
                             key={item._id || `admin-paper-${idx}`}
                             initial={{ opacity: 0, y: 10 }}
@@ -200,10 +242,12 @@ export default function AdminQuestionBankPage() {
                             </a>
                         </motion.div>
                     ))}
-                    {papers.length === 0 && (
+                    {filteredPapers.length === 0 && (
                         <div className="col-span-full py-20 bg-zinc-50 rounded-3xl border-2 border-dashed border-zinc-200 flex flex-col items-center justify-center text-zinc-400">
                             <FileText size={48} className="mb-4 opacity-20" />
-                            <p className="font-medium">No question papers added yet</p>
+                            <p className="font-medium">
+                                {papers.length === 0 ? "No question papers added yet" : "No papers match your filters"}
+                            </p>
                         </div>
                     )}
                 </div>
