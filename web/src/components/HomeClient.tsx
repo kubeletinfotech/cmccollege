@@ -83,16 +83,16 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     ];
 
     const tabletImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=ar-16-7,yc-20,fo-center"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=w-1536,h-1300,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=w-1536,h-1300,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=w-1536,h-1300,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=w-1536,h-1300,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=w-1536,h-1300,fo-center"
     ];
 
     const mobileImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197&tr=fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316&tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197&tr=w-750,h-936,fo-top",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316&tr=w-750,h-936,fo-top",
     ];
 
     // Track visible slide count based on viewport
@@ -221,7 +221,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     src={tabletImages[currentSlide % tabletImages.length]}
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
-                                    className="object-cover object-center"
+                                    className="object-cover object-top"
                                     sizes="100vw"
                                     priority={currentSlide === 0}
                                 />
@@ -233,7 +233,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     src={mobileImages[currentSlide % mobileImages.length]}
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
-                                    className="object-cover object-center"
+                                    className="object-cover object-top"
                                     sizes="100vw"
                                     priority={currentSlide === 0}
                                 />

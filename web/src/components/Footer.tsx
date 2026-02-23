@@ -24,7 +24,7 @@ export default function Footer() {
                             fill
                             sizes="(max-width: 768px) 160px, 200px"
                             className="object-contain object-center scale-[2.2] sm:scale-[2.2] md:scale-[2.8] lg:scale-[3.5] origin-center -translate-y-2 md:-translate-y-4"
-                            quality={85}
+                            quality={90}
                         />
                     </div>
                     <p className="text-white/90 leading-relaxed mb-8 text-sm font-medium max-w-sm mx-auto">
