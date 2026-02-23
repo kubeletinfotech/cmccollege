@@ -21,7 +21,8 @@ export default function ScrollReveal({ children, className = "", delay = 0 }: Sc
                 }
             },
             {
-                threshold: 0.1, // Trigger when 10% of the element is visible
+                threshold: 0.1,
+                rootMargin: '50px', // Start revealing slightly before it enters the viewport
             }
         );
 
@@ -39,15 +40,15 @@ export default function ScrollReveal({ children, className = "", delay = 0 }: Sc
     return (
         <div
             ref={ref}
-            className={`transition-[opacity,transform] duration-700 ease-out ${isVisible
+            className={`transition-[opacity,transform] duration-700 ease-out transform-gpu ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
                 } ${className}`}
             style={{
                 transitionDelay: `${delay}ms`,
-                willChange: isVisible ? 'auto' : 'opacity, transform',
-                transform: isVisible ? 'translate3d(0,0,0)' : 'translate3d(0,2rem,0)',
-                backfaceVisibility: 'hidden'
+                willChange: !isVisible ? 'opacity, transform' : 'auto',
+                backfaceVisibility: 'hidden',
+                WebkitFontSmoothing: 'antialiased'
             }}
         >
             {children}

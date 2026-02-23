@@ -70,7 +70,7 @@ export default function Professionals() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: index * 0.1 }}
-                            className="group bg-white rounded-xl p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 shrink-0 w-[70vw] md:w-auto snap-center border border-zinc-100"
+                            className="group bg-white rounded-xl p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 shrink-0 w-[70vw] md:w-auto snap-center border border-zinc-100 transform-gpu"
                         >
                             {/* Profile Image (Color) */}
                             <div className="relative w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 md:mb-5">

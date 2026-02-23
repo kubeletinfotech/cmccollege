@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import SmoothScroll from "./SmoothScroll";
 import UserSync from "./UserSync";
 import { Toaster } from "react-hot-toast";
 import PageTransition from "./PageTransition";
@@ -19,11 +18,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         <>
             <Navbar />
             <main className="min-h-screen">
-                <SmoothScroll>
-                    <PageTransition>
-                        {children}
-                    </PageTransition>
-                </SmoothScroll>
+                <PageTransition>
+                    {children}
+                </PageTransition>
             </main>
             <Footer />
             <BottomTicker />

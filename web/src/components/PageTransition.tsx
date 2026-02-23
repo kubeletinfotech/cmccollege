@@ -13,8 +13,8 @@ export default function PageTransition({ children }: { children: React.ReactNode
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
-                    duration: 0.2, // Slightly increased for a smoother fade-in
-                    ease: "easeOut",
+                    duration: 0.15,
+                    ease: "easeInOut",
                 }}
             >
                 {children}

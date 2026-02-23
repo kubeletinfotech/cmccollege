@@ -200,8 +200,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 1, ease: "easeInOut" }}
-                            className="absolute inset-0"
+                            transition={{ duration: 0.8, ease: "linear" }}
+                            className="absolute inset-0 transform-gpu"
                         >
                             {/* Desktop Image */}
                             <div className="hidden lg:block w-full h-full relative">
@@ -313,9 +313,9 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
             {/* About Section - Premium Bordered Card */}
             <section className="pt-8 pb-8 px-4 md:pt-14 md:pb-10 md:px-6 bg-emerald-50">
                 <ScrollReveal>
-                    <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-6 md:p-14 rounded-r-2xl relative overflow-hidden">
-                        {/* Background decoration - Reduced blur for mobile */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-xl lg:blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+                    <div className="max-w-7xl mx-auto bg-white border-l-4 border-l-[#7B0046] border-t border-r border-b border-gray-100 shadow-xl shadow-[#7B0046]/5 p-6 md:p-14 rounded-r-2xl relative overflow-hidden transform-gpu">
+                        {/* Background decoration - Optimized for performance */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B0046]/5 rounded-full blur-xl lg:blur-2xl -mr-32 -mt-32 pointer-events-none"></div>
 
                         <div className="relative z-10 flex flex-col items-start text-left">
                             <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-4 uppercase">
@@ -373,7 +373,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     src="https://ik.imagekit.io/1yxtj9qun/About/principal.jpeg?updatedAt=1768826571745"
                                     alt="Principal"
                                     fill
-                                    className="object-cover"
+                                    className="object-cover transform-gpu"
                                     sizes="(max-width: 768px) 100vw, 40vw"
                                     priority
                                 />

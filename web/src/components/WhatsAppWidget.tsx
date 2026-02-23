@@ -119,7 +119,7 @@ export default function WhatsAppWidget() {
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: 0.2 }}
-                                        className="self-start max-w-[85%] bg-white dark:bg-zinc-800 p-3 rounded-b-xl rounded-tr-xl shadow-sm text-sm text-zinc-800 dark:text-zinc-200"
+                                        className="self-start max-w-[85%] bg-white dark:bg-zinc-800 p-3 rounded-b-xl rounded-tr-xl shadow-sm text-sm text-zinc-800 dark:text-zinc-200 transform-gpu"
                                     >
                                         <p>Hi there! 👋 <br /> How can we help you today?</p>
                                         <span className="text-[9px] text-zinc-400 block text-right mt-1">10:00 AM</span>
@@ -159,9 +159,9 @@ export default function WhatsAppWidget() {
                         whileTap={{ scale: 0.9 }}
                         className="relative w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] flex items-center justify-center z-50 group hover:shadow-[0_8px_30px_rgba(37,211,102,0.6)] transition-all duration-300"
                     >
-                        {/* Continuous Pulse Animation */}
-                        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 animate-ping"></span>
-                        <span className="absolute inset-0 rounded-full border-2 border-[#25D366] opacity-30 animate-pulse"></span>
+                        {/* Continuous Pulse Animation - Optimized */}
+                        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-10 group-hover:animate-ping"></span>
+                        <span className="absolute inset-0 rounded-full border border-[#25D366] opacity-20"></span>
 
                         {isOpen ? (
                             <X className="w-8 h-8 text-white relative z-10" />
