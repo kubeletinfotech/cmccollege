@@ -74,25 +74,25 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
 
     // Hero Slider Configuration
     const desktopImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner4?tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=fo-auto"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner4?tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=fo-center"
     ];
 
     const tabletImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=ar-16-7,yc-20,fo-auto"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=ar-16-7,yc-20,fo-center"
     ];
 
     const mobileImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197&tr=fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316&tr=fo-auto",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197&tr=fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316&tr=fo-center",
     ];
 
     // Track visible slide count based on viewport
@@ -189,131 +189,125 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     };
 
     return (
-        <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[110px] lg:pt-[216px] bg-[#7B0046]/3">
-            {/* Hero Section */}
-            <section
-                className="relative min-h-[60vh] md:min-h-0 md:aspect-16/7 lg:aspect-auto lg:min-h-[80vh] flex flex-col items-center justify-center py-16 px-4 md:py-12 lg:py-32 text-white overflow-hidden"
-            >
+        <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[80px] lg:pt-[216px] bg-white">
+            {/* Hero Section - Professional Academic Banner */}
+            <section className="relative h-[500px] md:h-[650px] lg:h-[700px] w-full overflow-hidden bg-zinc-900">
                 {/* Hero Background Slider */}
-                <div className="absolute inset-0 z-0 bg-black">
+                <div className="absolute inset-0 z-0">
                     <AnimatePresence mode="popLayout" initial={false}>
                         <motion.div
                             key={currentSlide}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            transition={{
-                                duration: 0.6,
-                                ease: "linear"
-                            }}
-                            className="absolute inset-0 transform-gpu"
+                            transition={{ duration: 1, ease: "easeInOut" }}
+                            className="absolute inset-0"
                         >
-                            {/* Desktop Image (LG+) */}
+                            {/* Desktop Image */}
                             <div className="hidden lg:block w-full h-full relative">
                                 <Image
                                     src={desktopImages[currentSlide % desktopImages.length]}
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
                                     className="object-cover object-top"
-                                    sizes="(min-width: 1024px) 100vw, 1px"
+                                    sizes="100vw"
                                     priority={currentSlide === 0}
                                 />
                             </div>
 
-                            {/* Tablet Image (MD to LG) */}
+                            {/* Tablet Image */}
                             <div className="hidden md:block lg:hidden w-full h-full relative">
                                 <Image
                                     src={tabletImages[currentSlide % tabletImages.length]}
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
-                                    className="object-cover object-top"
-                                    sizes="(min-width: 768px) and (max-width: 1023px) 100vw, 1px"
+                                    className="object-cover object-center"
+                                    sizes="100vw"
                                     priority={currentSlide === 0}
                                 />
                             </div>
 
-                            {/* Mobile Image (<MD) */}
+                            {/* Mobile Image */}
                             <div className="block md:hidden w-full h-full relative">
                                 <Image
                                     src={mobileImages[currentSlide % mobileImages.length]}
                                     alt={`Hero Slide ${currentSlide + 1}`}
                                     fill
-                                    className="object-cover object-top"
-                                    sizes="(max-width: 767px) 100vw, 1px"
+                                    className="object-cover object-center"
+                                    sizes="100vw"
                                     priority={currentSlide === 0}
                                 />
                             </div>
                         </motion.div>
                     </AnimatePresence>
 
-                    {/* Dark Gradient Overlay */}
-                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-black/40 z-10" />
+                    {/* Professional Overlay - Side Gradient for text legibility */}
+                    <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent z-10" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
                 </div>
 
-                {/* Navigation Dots */}
-                <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-3">
-                    {Array.from({ length: deviceSlideCount }).map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => {
-                                setCurrentSlide(index);
-                                handleInteraction();
-                            }}
-                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentSlide
-                                ? "bg-white w-8"
-                                : "bg-white/50 hover:bg-white/80"
-                                }`}
-                            aria-label={`Go to slide ${index + 1}`}
-                        />
-                    ))}
-                </div>
-
-                {/* Navigation Arrows */}
-                <div className="absolute inset-x-4 md:inset-x-8 top-1/2 -translate-y-1/2 z-20 flex justify-between pointer-events-none">
-                    <button
-                        onClick={prevSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/40 lg:hover:bg-white/20 lg:backdrop-blur-sm border border-white/10 text-white/70 lg:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto lg:hover:scale-110 active:scale-90 hover:cursor-pointer"
-                        aria-label="Previous slide"
-                    >
-                        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
-                    </button>
-                    <button
-                        onClick={nextSlide}
-                        className="group p-2 md:p-3 rounded-full bg-black/40 lg:hover:bg-white/20 lg:backdrop-blur-sm border border-white/10 text-white/70 lg:hover:text-white transition-[background-color,color,transform] duration-300 pointer-events-auto lg:hover:scale-110 active:scale-90 hover:cursor-pointer"
-                        aria-label="Next slide"
-                    >
-                        <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
-                    </button>
-                </div>
-
-                {isAdmissionOpen && (
-                    <div className="relative z-10 max-w-5xl mx-auto text-center">
-                        <ScrollReveal>
-                            <h1 className="text-2xl sm:text-3xl md:text-5xl font-agency font-bold mb-3 md:mb-5 uppercase leading-tight">
-                                CM College of Arts and Science
-                            </h1>
-                            <p className="text-base sm:text-lg md:text-xl text-emerald-100 mb-6 md:mb-8 max-w-xl mx-auto px-2">
-                                Committed to Excellence in Higher Education
-                            </p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <Link
-                                    href="/admissions"
-                                    aria-label="View admission details"
-                                    className="px-6 py-3 bg-white text-emerald-900 font-semibold rounded-lg shadow-lg hover:bg-emerald-50 transition-transform text-base hover:scale-105 active:scale-95 cursor-pointer"
+                {/* Content Container */}
+                <div className="relative z-20 h-full max-w-[1440px] mx-auto px-6 lg:px-12 flex flex-col justify-center">
+                    {isAdmissionOpen && (
+                        <div className="max-w-3xl">
+                            <ScrollReveal>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -30 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.8 }}
                                 >
-                                    Admission Open
-                                </Link>
-                                <Link
-                                    href="/about"
-                                    aria-label="Learn more about the college"
-                                    className="w-full sm:w-auto px-6 py-3 bg-transparent border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-base hover:scale-105 active:scale-95 cursor-pointer text-center"
-                                >
-                                    Learn More
-                                </Link>
-                            </div>
-                        </ScrollReveal>
+                                    <span className="inline-block px-4 py-1.5 bg-[#7B0046] text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-4 rounded-sm shadow-lg">
+                                        Admission 2024-25
+                                    </span>
+                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-black text-white mb-4 leading-[1.1] uppercase drop-shadow-md">
+                                        Empowering Generations Through <span className="text-white/80 italic font-medium">Knowledge & Ethics</span>
+                                    </h1>
+                                    <p className="text-base sm:text-lg md:text-xl text-zinc-100/90 mb-8 max-w-xl font-medium leading-relaxed drop-shadow-sm">
+                                        Join CM College of Arts and Science - A legacy of excellence in higher education in the heart of Wayanad.
+                                    </p>
+                                    <div className="flex flex-wrap items-center gap-4">
+                                        <Link
+                                            href="/admissions"
+                                            className="px-8 py-4 bg-white text-[#7B0046] font-bold rounded-lg shadow-xl hover:bg-zinc-100 transition-all text-sm uppercase tracking-widest hover:scale-105 active:scale-95 inline-flex items-center gap-2"
+                                        >
+                                            Apply Online
+                                            <ChevronRight size={18} />
+                                        </Link>
+                                        <Link
+                                            href="/about"
+                                            className="px-8 py-4 bg-[#7B0046] text-white font-bold rounded-lg shadow-xl hover:bg-[#600036] transition-all text-sm uppercase tracking-widest hover:scale-105 active:scale-95 border-b-2 border-white/20"
+                                        >
+                                            Explore Programs
+                                        </Link>
+                                    </div>
+                                </motion.div>
+                            </ScrollReveal>
+                        </div>
+                    )}
+                </div>
+
+                {/* Navigation Controls - Minimalist Professional Style */}
+                <div className="absolute bottom-10 right-6 lg:right-12 z-30 flex items-center gap-4">
+                    <div className="flex gap-2">
+                        {Array.from({ length: deviceSlideCount }).map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-500 ${index === currentSlide ? "bg-white w-6 md:w-8" : "bg-white/30"}`}
+                            />
+                        ))}
                     </div>
-                )}
+                </div>
+
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#7B0046]/20 z-30">
+                    <motion.div
+                        key={currentSlide}
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 5, ease: "linear" }}
+                        className="h-full bg-[#7B0046]"
+                    />
+                </div>
             </section>
 
             {/* About Section - Premium Bordered Card */}
