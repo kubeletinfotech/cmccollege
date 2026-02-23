@@ -91,8 +91,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     ];
 
     const mobileImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197&tr=w-750,h-936,fo-top",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316&tr=w-750,h-936,fo-top",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197&tr=w-750,h-936,fo-auto",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316&tr=w-750,h-936,fo-auto",
     ];
 
     // Track visible slide count based on viewport
@@ -189,9 +189,9 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     };
 
     return (
-        <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[80px] lg:pt-[216px] bg-white">
+        <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[110px] lg:pt-[216px] bg-white">
             {/* Hero Section - Professional Academic Banner */}
-            <section className="relative h-[500px] md:h-[650px] lg:h-[700px] w-full overflow-hidden bg-zinc-900">
+            <section className="relative h-[468px] md:h-[650px] lg:h-[700px] w-full overflow-hidden bg-zinc-900">
                 {/* Hero Background Slider */}
                 <div className="absolute inset-0 z-0">
                     <AnimatePresence mode="popLayout" initial={false}>
