@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, FileText, ShieldCheck, Target, Award, BookOpen, Users, CheckCircle, Menu, X } from "lucide-react";
 
@@ -47,6 +48,43 @@ const IQAC_TABS: IacTab[] = [
                         </div>
                         <h3 className="font-bold text-zinc-900 mb-2 font-serif text-lg">Participative Nature</h3>
                         <p className="text-sm">Functions as a participative organ of the institution, ensuring stakeholder engagement in all quality initiatives.</p>
+                    </div>
+                </div>
+
+                <div className="mt-12">
+                    <h3 className="text-2xl font-bold font-serif text-zinc-900 mb-6 pb-4 border-b border-zinc-100">IQAC Leadership</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {/* Director */}
+                        <div className="flex items-center gap-5 p-6 rounded-3xl bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-zinc-200">
+                                <Image
+                                    src="/images/default-user-placeholder.png"
+                                    alt="Jabir Ali"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-bold text-zinc-900 leading-tight">Jabir Ali</h4>
+                                <p className="text-[#a11c5a] font-bold tracking-widest uppercase text-xs mt-1.5">IQAC Director</p>
+                            </div>
+                        </div>
+
+                        {/* Coordinator */}
+                        <div className="flex items-center gap-5 p-6 rounded-3xl bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-zinc-200">
+                                <Image
+                                    src="/images/default-user-placeholder.png"
+                                    alt="Unais T A"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-bold text-zinc-900 leading-tight">Unais T A</h4>
+                                <p className="text-emerald-700 font-bold tracking-widest uppercase text-xs mt-1.5">IQAC Coordinator</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

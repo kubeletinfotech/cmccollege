@@ -65,7 +65,7 @@ export default function DepartmentAboutPage({ params }: { params: Promise<{ slug
                             <div className="absolute inset-x-4 top-4 bottom-0 bg-zinc-900/5 rounded-[2.5rem] blur-xl transform translate-y-4 group-hover:translate-y-6 transition-transform duration-500" />
 
                             <div className="relative bg-white rounded-[2.5rem] overflow-hidden border border-zinc-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
-                                <div className="relative aspect-[3/4] w-full overflow-hidden bg-zinc-50">
+                                <div className="relative aspect-3/4 w-full overflow-hidden bg-zinc-50">
                                     <Image
                                         src={data.hod.img}
                                         alt={data.hod.name}
@@ -74,7 +74,7 @@ export default function DepartmentAboutPage({ params }: { params: Promise<{ slug
                                         className="object-cover object-top group-hover:scale-105 transition-transform duration-1000 ease-out"
                                         priority
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#5D1035]/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-[#5D1035]/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
                                     {/* Badge on Image */}
                                     <div className="absolute top-4 left-4">
