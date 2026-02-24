@@ -2,6 +2,7 @@ export interface Program {
     id: string;
     name: string;
     logo: string;
+    logoStyle?: string;
     description: string;
     tagline?: string;
 }
@@ -34,5 +35,13 @@ export const programs: Program[] = [
         logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/chirakukal.png",
         description: "A unique social outreach and community support program. Chirakukal (Wings) focuses on providing educational support and specialized skills to underprivileged children in the local community.",
         tagline: "Giving Wings to Dreams"
+    },
+    {
+        id: "nss",
+        name: "NSS",
+        logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/nss-logo",
+        logoStyle: "w-32 md:w-40 h-auto",
+        description: "National Service Scheme (NSS) is a student welfare organization that works to improve the quality of life of students and the community.",
+        tagline: "National Service Scheme"
     },
 ];

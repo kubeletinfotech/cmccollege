@@ -52,7 +52,7 @@ export default function ProgramsPage() {
                                                     alt={program.name}
                                                     width={400}
                                                     height={240}
-                                                    className="object-contain w-full h-full transform transition-transform duration-700 group-hover:scale-105"
+                                                    className={`object-contain transform transition-transform duration-700 group-hover:scale-105 ${program.logoStyle || 'w-full h-full'}`}
                                                 />
                                             </div>
                                         </div>

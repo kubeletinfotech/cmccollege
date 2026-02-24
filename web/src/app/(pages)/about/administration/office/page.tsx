@@ -36,6 +36,20 @@ const officeStaff = [
         email: "accounts@cmcollege.edu.in",
         image: "/images/default-user-placeholder.png",
         specialization: "Financial Management"
+    },
+    {
+        name: "Vivek",
+        role: "Lab Assistant",
+        email: "accounts@cmcollege.edu.in",
+        image: "/images/default-user-placeholder.png",
+        specialization: "Lab Management"
+    },
+    {
+        name: "Anjana B",
+        role: "Librarian",
+        email: "accounts@cmcollege.edu.in",
+        image: "/images/default-user-placeholder.png",
+        specialization: "Library Management"
     }
 ];
 
