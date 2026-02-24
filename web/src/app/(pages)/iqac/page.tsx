@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, FileText, ShieldCheck, Target, Award, BookOpen, Users, CheckCircle, Menu, X } from "lucide-react";
+import { ChevronRight, FileText, ShieldCheck, Target, Award, BookOpen, Users, CheckCircle, Menu, X, FolderOpen, Download } from "lucide-react";
 
 // --- 1. CONFIGURATION & CONTENT ---
 
@@ -241,6 +241,47 @@ const IQAC_TABS: IacTab[] = [
                                 <Award className="w-6 h-6" />
                             </div>
                             <p className="text-sm font-bold text-zinc-700 leading-relaxed">{benefit}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    },
+    {
+        id: "project-report",
+        label: "Project Report",
+        icon: FolderOpen,
+        title: "Project Reports",
+        subtitle: "Documented Milestones",
+        content: (
+            <div className="space-y-8 text-zinc-600 leading-relaxed">
+                <p className="text-lg">
+                    Access and review the comprehensive project reports documented and evaluated by the IQAC. These reports outline our strategic initiatives, academic audits, and progressive milestones.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[
+                        { title: "Annual Quality Assurance Report 2023-24", date: "August 2024", size: "2.4 MB" },
+                        { title: "Academic & Administrative Audit", date: "March 2024", size: "1.8 MB" },
+                        { title: "Strategic Plan Document 2020-2025", date: "January 2020", size: "3.1 MB" },
+                    ].map((report, i) => (
+                        <div key={i} className="group p-5 bg-white border border-zinc-200 rounded-2xl flex items-center justify-between hover:border-[#7B0046]/30 hover:shadow-lg transition-all cursor-pointer">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-zinc-50 rounded-xl flex items-center justify-center text-zinc-400 group-hover:bg-[#7B0046]/5 group-hover:text-[#7B0046] transition-colors">
+                                    <FolderOpen className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-zinc-900 text-sm group-hover:text-[#7B0046] transition-colors line-clamp-1">{report.title}</h4>
+                                    <div className="flex items-center gap-3 mt-1 text-[11px] font-medium text-zinc-400 uppercase tracking-wider">
+                                        <span>{report.date}</span>
+                                        <div className="w-1 h-1 rounded-full bg-zinc-300" />
+                                        <span>{report.size}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:bg-[#7B0046] hover:border-[#7B0046] hover:text-white transition-all transform group-hover:-translate-y-0.5 shadow-sm">
+                                <Download className="w-3 h-3" />
+                            </button>
                         </div>
                     ))}
                 </div>
