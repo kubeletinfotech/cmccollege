@@ -264,7 +264,7 @@ export default function Navbar() {
                             <div className="flex items-center gap-6 shrink-0">
                                 <div className="hidden lg:flex flex-col items-end text-right mr-2">
                                     <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Accreditations</span>
-                                    <span className="text-[11px] text-[#7a0b3a] font-black uppercase tracking-wider whitespace-nowrap">UGC / Calicut UoC / AICTE</span>
+                                    <span className="text-[11px] text-[#7a0b3a] font-black  tracking-wider whitespace-nowrap">UGC / UoC / AICTE</span>
                                 </div>
                                 <StandAloneRotatingLogos />
                             </div>

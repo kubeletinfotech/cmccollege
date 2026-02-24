@@ -24,7 +24,6 @@ const sidebarItems = [
     },
     { name: "Statutory Bodies", href: "/about/statutory-bodies" },
     { name: "College Committees", href: "/about/committees" },
-    { name: "Accreditations & Ranking", href: "/about/accreditations" },
     { name: "Recognitions", href: "/about/recognitions" },
     { name: "Policy Documents", href: "/about/policies" },
     { name: "Sister Institutions", href: "/about/sister-institutions" },

@@ -172,7 +172,7 @@ export default function OfficeAdministrationPage() {
             {/* Key Personnel */}
             <section className="bg-zinc-50 rounded-[32px] p-4 md:p-12 space-y-10 border border-zinc-100">
                 <h3 className="text-xl md:text-2xl font-bold text-zinc-800 text-center">Administrative Personnel</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10 max-w-6xl mx-auto ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
                     {officeStaff.map((staff, idx) => (
                         <motion.div
                             key={idx}
@@ -182,7 +182,7 @@ export default function OfficeAdministrationPage() {
                             className="bg-white p-3 md:p-0 rounded-2xl md:rounded-[32px] flex items-center md:flex-col gap-4 border border-zinc-100 shadow-sm hover:shadow-2xl transition-all duration-300 group overflow-hidden"
                         >
                             {/* Mobile: Circle | Desktop: Premium Tall Card Image */}
-                            <div className="relative w-14 h-14 md:w-full md:h-[300px] shrink-0 rounded-full md:rounded-none overflow-hidden bg-zinc-100">
+                            <div className="relative w-14 h-14 md:w-full md:h-[160px] shrink-0 rounded-full md:rounded-none overflow-hidden bg-zinc-100">
                                 <Image
                                     src={staff.image === "/images/staff/ao.jpg" ? "https://ik.imagekit.io/1yxtj9qun/About/director.jpg" : staff.image}
                                     alt={staff.name}
@@ -192,8 +192,8 @@ export default function OfficeAdministrationPage() {
                             </div>
 
                             {/* Info Wrapper */}
-                            <div className="min-w-0 md:p-8 md:pb-20 md:text-center flex-1">
-                                <h4 className="text-base md:text-xl font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors truncate md:whitespace-normal">
+                            <div className="min-w-0 md:p-5 md:pb-10 md:text-center flex-1">
+                                <h4 className="text-base md:text-lg font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors truncate md:whitespace-normal">
                                     {staff.name}
                                 </h4>
                                 <p className="text-[#7a0b3a] text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 md:mt-3 opacity-90">
