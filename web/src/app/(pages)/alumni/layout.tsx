@@ -9,7 +9,7 @@ export default function AlumniLayout({ children }: { children: React.ReactNode }
             {/* Page Header - Moved from page.tsx */}
             <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] bg-[length:30px_30px]" />
+                    <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-[30px_30px]" />
                 </div>
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <motion.div
@@ -31,7 +31,7 @@ export default function AlumniLayout({ children }: { children: React.ReactNode }
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                     {/* SIDEBAR */}
-                    <div className="lg:col-span-3 lg:sticky lg:top-28">
+                    <div className="lg:col-span-3">
                         <AlumniSidebar />
                     </div>
 

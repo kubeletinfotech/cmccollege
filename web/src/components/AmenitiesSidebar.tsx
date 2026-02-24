@@ -16,7 +16,7 @@ export default function AmenitiesSidebar() {
     }));
 
     return (
-        <aside className="w-full space-y-8 transition-all duration-300">
+        <aside className="w-full lg:sticky lg:top-32 z-30 self-start h-fit space-y-8 transition-all duration-300">
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-zinc-100 border border-zinc-100">
                 {/* Header */}
                 <div className="bg-[#5D1035] p-6 relative overflow-hidden">
@@ -48,7 +48,7 @@ export default function AmenitiesSidebar() {
             </div>
 
             {/* Quick Contact / Help Box */}
-            <div className="bg-gradient-to-br from-[#5D1035] to-[#3d0a23] p-8 rounded-2xl text-white text-center shadow-xl shadow-[#5D1035]/10 relative overflow-hidden group">
+            <div className="bg-linear-to-br from-[#5D1035] to-[#3d0a23] p-8 rounded-2xl text-white text-center shadow-xl shadow-[#5D1035]/10 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-white/10 transition-colors duration-500"></div>
 
                 <h4 className="font-bold text-xl mb-3 font-serif relative z-10">Need Assistance?</h4>
