@@ -4,26 +4,30 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 
+/**
+ * Premium SmoothScroll using Lenis.
+ * Provides the "anti-gravity" feel by overriding native scroll with high-perf easing.
+ */
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
     const lenisRef = useRef<Lenis | null>(null);
 
     useEffect(() => {
-        // Only initialize Lenis on desktop for better performance
-        // Mobile browsers have their own high-performance momentum scrolling
-        if (window.innerWidth < 1024) return;
-
+        // Initialize Lenis with premium settings for "antigravity" feel
         const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Premium exponential easing
+            duration: 1.5, // Slightly longer for flowy motion
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
             smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 2,
+            wheelMultiplier: 1.1,
+            touchMultiplier: 1.5,
             infinite: false,
         });
 
         lenisRef.current = lenis;
 
+        // Optimized RAF loop
         let rafId: number;
         function raf(time: number) {
             lenis.raf(time);
@@ -39,14 +43,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         };
     }, []);
 
-    // Reset scroll position on route change
+    // Scroll to top on route change
     useEffect(() => {
         if (lenisRef.current) {
             lenisRef.current.scrollTo(0, { immediate: true });
-        } else {
-            window.scrollTo(0, 0);
         }
     }, [pathname]);
 
     return <>{children}</>;
 }
+

@@ -8,31 +8,36 @@ interface ScrollRevealProps {
     delay?: number;
 }
 
+/**
+ * Performant ScrollReveal component.
+ * Uses a single IntersectionObserver per instance to trigger high-perf CSS transitions.
+ */
 export default function ScrollReveal({ children, className = "", delay = 0 }: ScrollRevealProps) {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const currentRef = ref.current;
+        if (!currentRef) return;
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.unobserve(entry.target);
+                    observer.unobserve(currentRef);
                 }
             },
             {
-                threshold: 0.1,
-                rootMargin: '50px', // Start revealing slightly before it enters the viewport
+                threshold: 0.05,
+                rootMargin: '0px 0px -50px 0px', // Trigger slightly after coming into view
             }
         );
 
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
+        observer.observe(currentRef);
 
         return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current);
+            if (currentRef) {
+                observer.unobserve(currentRef);
             }
         };
     }, []);
@@ -40,18 +45,17 @@ export default function ScrollReveal({ children, className = "", delay = 0 }: Sc
     return (
         <div
             ref={ref}
-            className={`transition-[opacity,transform] duration-700 ease-out transform-gpu ${isVisible
+            className={`transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform-gpu ${isVisible
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
+                : "opacity-0 translate-y-6"
                 } ${className}`}
             style={{
                 transitionDelay: `${delay}ms`,
-                willChange: !isVisible ? 'opacity, transform' : 'auto',
-                backfaceVisibility: 'hidden',
-                WebkitFontSmoothing: 'antialiased'
+                willChange: 'opacity, transform', // Keep persistent to avoid layout shifts on state change
             }}
         >
             {children}
         </div>
     );
 }
+

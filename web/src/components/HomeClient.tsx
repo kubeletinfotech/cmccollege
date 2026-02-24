@@ -194,13 +194,13 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
             <section className="relative h-[468px] md:h-[650px] lg:h-[700px] w-full overflow-hidden bg-zinc-900">
                 {/* Hero Background Slider */}
                 <div className="absolute inset-0 z-0">
-                    <AnimatePresence mode="popLayout" initial={false}>
+                    <AnimatePresence mode="wait" initial={false}>
                         <motion.div
                             key={currentSlide}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 0.8, ease: "linear" }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
                             className="absolute inset-0 transform-gpu"
                         >
                             {/* Desktop Image */}
@@ -440,105 +440,108 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 </div>
             </section>
 
-            {/* Academic Programs Section */}
-            <section className="py-10 md:py-16 px-4 md:px-6 bg-emerald-50">
-                <div className="w-full mx-auto">
-                    <ScrollReveal className="text-center mb-6 md:mb-12">
-                        <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-3 uppercase">Departments of Academic Studies</h2>
-                        <p className="text-zinc-600 text-base max-w-2xl mx-auto">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
+            {/* Academic Programs Section - Performance Optimized with Original Sizing */}
+            <section className="pb-16 md:pb-24 pt-8 px-4 md:px-6 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto">
+                    <ScrollReveal className="text-center mb-10 md:mb-16">
+                        <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-4 uppercase tracking-tight">Departments of Academic Studies</h2>
+                        <p className="text-zinc-600 text-base max-w-2xl mx-auto font-medium leading-relaxed">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
                     </ScrollReveal>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                        {[
-                            { name: "Department Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Cs-bg.png" },
-                            { name: "Department Of Management", slug: "management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Management-bg.png" },
-                            { name: "Department Of Mass Communication And Journalism", slug: "mass-communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/masscom-bg.png" },
-                            { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
-                            { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
-                            { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
-                            { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
-                            { name: "Department Of Sociology", slug: "sociology", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
-                            { name: "Department Of Malayalam", slug: "malayalam", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/malayalam" },
-                            { name: "Department Of Arabic", slug: "arabic", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg" }
-                        ].map((dept, i) => (
-                            <ScrollReveal key={i} delay={isMobile ? i * 50 : i * 100}>
+                    <ScrollReveal>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                            {[
+                                { name: "Department Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Cs-bg.png" },
+                                { name: "Department Of Management", slug: "management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Management-bg.png" },
+                                { name: "Department Of Mass Communication And Journalism", slug: "mass-communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/masscom-bg.png" },
+                                { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
+                                { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
+                                { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
+                                { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
+                                { name: "Department Of Sociology", slug: "sociology", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
+                                { name: "Department Of Malayalam", slug: "malayalam", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/malayalam" },
+                                { name: "Department Of Arabic", slug: "arabic", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg" }
+                            ].map((dept, i) => (
                                 <Link
+                                    key={i}
                                     href={`/departments/${dept.slug}`}
-                                    className="block h-full"
+                                    className="group relative block h-full min-h-[120px] p-4 bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-xl transition-all duration-500 ease-out border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:-translate-y-1 transform-gpu"
                                     onClick={(e) => handleDeptClick(e, dept.slug)}
                                 >
-                                    <div className="group relative h-full min-h-[120px] p-4 bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] md:hover:shadow-xl transition-[transform,box-shadow,background-color] duration-500 ease-out md:hover:-translate-y-1.5 overflow-hidden flex items-center justify-center text-center cursor-default border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:cursor-pointer">
-                                        {/* Hover Background Image - Disabled scale on mobile for performance */}
-                                        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
-                                            <Image
-                                                src={dept.img}
-                                                alt={dept.name}
-                                                fill
-                                                className="object-cover transform scale-100 lg:group-hover:scale-110 transition-transform duration-700 ease-out"
-                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                            />
-                                            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/30"></div>
-                                        </div>
+                                    {/* Optimization: Fast Hover State */}
+                                    <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                        <Image
+                                            src={dept.img}
+                                            alt={dept.name}
+                                            fill
+                                            className="object-cover transform scale-100 lg:group-hover:scale-105 transition-transform duration-700 ease-out"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                                        />
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/20"></div>
+                                    </div>
 
-                                        <div className="relative z-10 w-full">
-                                            <h3 className="text-xs md:text-sm font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
-                                                {dept.name}
-                                            </h3>
-                                            <div className="h-0.5 w-0 bg-emerald-400 mx-auto mt-0 group-hover:mt-3 group-hover:w-12 transition-all duration-500 opacity-0 group-hover:opacity-100 delay-100"></div>
-                                        </div>
+                                    <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center">
+                                        <h3 className="text-xs md:text-sm font-bold text-emerald-900 group-hover:text-white transition-colors duration-300 uppercase tracking-wider leading-relaxed">
+                                            {dept.name}
+                                        </h3>
+                                        <div className="h-0.5 w-0 bg-emerald-400 mx-auto mt-0 group-hover:mt-3 group-hover:w-10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                                     </div>
                                 </Link>
-                            </ScrollReveal>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    </ScrollReveal>
                 </div>
             </section>
 
-            {/* Facilities Preview Section */}
-            <section className="py-10 md:py-16 px-4 md:px-6 bg-emerald-50">
+
+
+            {/* Facilities Preview Section - Grouped Animation for Performance */}
+            <section className="py-12 md:py-20 px-4 md:px-6 bg-emerald-50/50">
                 <div className="max-w-7xl mx-auto">
-                    <ScrollReveal className="text-center mb-8 md:mb-12">
-                        <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-3 uppercase">Campus Facilities</h2>
-                        <p className="text-zinc-600 text-sm md:text-base">Premium infrastructure providing a comfortable learning experience.</p>
+                    <ScrollReveal className="text-center mb-10 md:mb-16">
+                        <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-900 mb-4 uppercase tracking-tight">Campus Facilities</h2>
+                        <div className="h-1 w-16 bg-[#7B0046] mx-auto mb-6 rounded-full"></div>
+                        <p className="text-zinc-600 text-sm md:text-base font-medium">Premium infrastructure providing a comfortable and modern learning environment.</p>
                     </ScrollReveal>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
-                        {[
-                            { name: "Hostel", slug: "hostels", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/hostel.jpeg" },
-                            { name: "Masjid", slug: "prayer-hall", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/masjid.jpeg" },
-                            { name: "Labs", slug: "computer-lab", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
-                            { name: "Library", slug: "library", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
-                            { name: "Bus", slug: "bus-facility", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg" }
-                        ].map((facility, i) => (
-                            <ScrollReveal key={i} delay={isMobile ? i * 50 : i * 100} className="group cursor-pointer">
-                                <Link href={`/amenities/${facility.slug}`}>
-                                    <div className="relative h-48 rounded-xl overflow-hidden shadow-lg border border-white">
+                    <ScrollReveal>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            {[
+                                { name: "Hostel", slug: "hostels", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/hostel.jpeg" },
+                                { name: "Masjid", slug: "prayer-hall", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/masjid.jpeg" },
+                                { name: "Labs", slug: "computer-lab", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
+                                { name: "Library", slug: "library", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
+                                { name: "Bus", slug: "bus-facility", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg" }
+                            ].map((facility, i) => (
+                                <Link key={i} href={`/amenities/${facility.slug}`} className="group block">
+                                    <div className="relative h-48 rounded-2xl overflow-hidden shadow-sm border border-white transform-gpu transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
                                         <Image
                                             src={facility.img}
                                             alt={facility.name}
                                             fill
-                                            className="object-cover lg:group-hover:scale-110 transition-transform duration-500"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 20vw"
-                                            quality={90}
                                         />
-                                        <div className="absolute inset-0 bg-black/20 lg:group-hover:bg-black/30 transition-colors duration-300" />
-                                        <div className="absolute bottom-0 left-0 right-0 p-6 text-center z-10">
-                                            <span className="text-lg font-bold text-white tracking-widest uppercase">{facility.name}</span>
+                                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
+                                        <div className="absolute inset-0 flex items-center justify-center p-4 text-center z-10">
+                                            <span className="text-lg font-bold text-white tracking-widest uppercase drop-shadow-md">{facility.name}</span>
                                         </div>
                                     </div>
                                 </Link>
-                            </ScrollReveal>
-                        ))}
-                    </div>
-                    <div className="mt-12 text-center">
+                            ))}
+                        </div>
+                    </ScrollReveal>
+
+                    <div className="mt-14 text-center">
                         <Link href="/amenities">
-                            <button className="px-6 py-3 bg-emerald-800 text-white font-semibold rounded-lg hover:bg-emerald-900 transition-transform hover:scale-105 active:scale-95 cursor-pointer">
-                                Explore All Facilities
+                            <button className="px-8 py-3.5 bg-emerald-800 text-white font-bold rounded-xl hover:bg-emerald-900 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg shadow-emerald-800/10 uppercase tracking-widest text-xs">
+                                Explore All Amenities
                             </button>
                         </Link>
                     </div>
                 </div>
             </section>
+
 
             <StatsSection />
             <Professionals />

@@ -1,7 +1,31 @@
 @import "tailwindcss";
 
 html {
-  /* Removed scroll-behavior: smooth to avoid conflict with JS-based smooth scrolling (Lenis) */
+  /* Prevent horizontal overflow which causes scroll lag and visual jitters */
+  overflow-x: hidden;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Lenis Recommended CSS for Smooth Scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 :root {
@@ -52,14 +76,14 @@ section {
   position: relative;
 }
 
-/* Marquee Animation */
+/* Marquee Animation - Hardware Accelerated */
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
