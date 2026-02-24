@@ -253,7 +253,7 @@ export default function Navbar() {
                                     Affiliated to The University Of Calicut
                                 </p>
                                 <p className="text-zinc-600 text-[10px] lg:text-[11px] font-semibold leading-tight uppercase tracking-wide opacity-80 mb-1">
-                                    Recognized by UGC under Section 2(f) of the Act 1957
+                                    Recognized by Government of Kerala and UGC under Section 2(f) of the Act 1957
                                 </p>
                                 <p className="text-[#a11c5a] text-[11px] lg:text-[12px] font-black leading-tight uppercase tracking-widest">
                                     Unit of CM Centre Madavoor
@@ -264,7 +264,7 @@ export default function Navbar() {
                             <div className="flex items-center gap-6 shrink-0">
                                 <div className="hidden lg:flex flex-col items-end text-right mr-2">
                                     <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Accreditations</span>
-                                    <span className="text-[11px] text-[#7a0b3a] font-black uppercase tracking-wider whitespace-nowrap">UGC / Calicut Univ / AICTE</span>
+                                    <span className="text-[11px] text-[#7a0b3a] font-black uppercase tracking-wider whitespace-nowrap">UGC / Calicut UoC / AICTE</span>
                                 </div>
                                 <StandAloneRotatingLogos />
                             </div>
@@ -413,6 +413,7 @@ function StandAloneRotatingLogos() {
         { src: "https://ik.imagekit.io/1yxtj9qun/Home/images/clt-university?updatedAt=1771430023775", alt: "Calicut University" },
         { src: "https://ik.imagekit.io/1yxtj9qun/Home/images/aicte?updatedAt=1771430023715", alt: "AICTE" },
         { src: "https://ik.imagekit.io/1yxtj9qun/Home/images/kerala-emblem?updatedAt=1771430023865", alt: "Kerala Government" },
+        { src: "https://ik.imagekit.io/1yxtj9qun/Home/images/ugc-logo", alt: "UGC" },
     ];
 
     useEffect(() => {
