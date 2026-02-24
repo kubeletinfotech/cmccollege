@@ -259,10 +259,10 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     <span className="inline-block px-4 py-1.5 bg-[#7B0046] text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-4 rounded-sm shadow-lg">
                                         Admission 2024-25
                                     </span>
-                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-black text-white mb-4 leading-[1.1] uppercase drop-shadow-md">
-                                        Empowering Generations Through <span className="text-white/80 italic font-medium">Knowledge & Ethics</span>
+                                    <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 leading-[1.2] md:leading-[1.1] uppercase drop-shadow-md">
+                                        Empowering Generations Through <span className="text-white/80 not-italic font-normal">Knowledge & Ethics</span>
                                     </h1>
-                                    <p className="text-base sm:text-lg md:text-xl text-zinc-100/90 mb-8 max-w-xl font-medium leading-relaxed drop-shadow-sm">
+                                    <p className="text-sm sm:text-base md:text-xl text-zinc-100/90 mb-8 max-w-xl font-normal leading-relaxed drop-shadow-sm">
                                         Join CM College of Arts and Science - A legacy of excellence in higher education in the heart of Wayanad.
                                     </p>
                                     <div className="flex flex-wrap items-center gap-4">
