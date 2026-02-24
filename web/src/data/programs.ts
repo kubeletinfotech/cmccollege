@@ -2,7 +2,6 @@ export interface Program {
     id: string;
     name: string;
     logo: string;
-    logoStyle?: string;
     description: string;
     tagline?: string;
 }
@@ -40,7 +39,6 @@ export const programs: Program[] = [
         id: "nss",
         name: "NSS",
         logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/nss-logo",
-        logoStyle: "w-32 md:w-40 h-auto",
         description: "National Service Scheme (NSS) is a student welfare organization that works to improve the quality of life of students and the community.",
         tagline: "National Service Scheme"
     },
