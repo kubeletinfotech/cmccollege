@@ -23,7 +23,7 @@ export default function AlumniSidebar() {
     const pathname = usePathname();
 
     return (
-        <aside className="w-full lg:sticky lg:top-32 z-30 self-start h-fit">
+        <aside className="w-full sticky top-[112px] z-30 self-start h-fit">
             <div className="bg-[#fcf9f5] rounded-xl border border-[#e5e0d8] overflow-hidden shadow-sm">
                 <div className="p-6 bg-[#7a0b3a] text-white">
                     <h3 className="font-bold font-serif text-xl tracking-wide">Alumni Association</h3>

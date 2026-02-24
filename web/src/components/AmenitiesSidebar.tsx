@@ -16,7 +16,7 @@ export default function AmenitiesSidebar() {
     }));
 
     return (
-        <aside className="w-full lg:sticky lg:top-32 z-30 self-start h-fit space-y-8 transition-all duration-300">
+        <aside className="w-full sticky top-[112px] z-30 self-start h-fit space-y-8 transition-all duration-300">
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-zinc-100 border border-zinc-100">
                 {/* Header */}
                 <div className="bg-[#5D1035] p-6 relative overflow-hidden">
