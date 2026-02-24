@@ -81,6 +81,33 @@ export default function ProgramsPage() {
                                                 Active Program
                                             </div>
                                         </div>
+
+                                        {/* Gallery Section */}
+                                        {program.gallery && program.gallery.length > 0 && (
+                                            <div className="pt-6 mt-6 border-t border-zinc-100">
+                                                <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4">Program Memories</h3>
+                                                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+                                                    {program.gallery.map((img, i) => (
+                                                        <div key={i} className="relative aspect-video rounded-xl overflow-hidden bg-zinc-100 border border-zinc-200 shadow-sm group/gallery">
+                                                            {img && img !== "" && img !== "/placeholder.jpg" ? (
+                                                                <Image
+                                                                    src={img}
+                                                                    alt={`${program.name} gallery image ${i + 1}`}
+                                                                    fill
+                                                                    className="object-cover transform transition-transform duration-700 group-hover/gallery:scale-110"
+                                                                />
+                                                            ) : (
+                                                                <div className="w-full h-full flex flex-col items-center justify-center text-zinc-400 bg-zinc-50">
+                                                                    <svg className="w-5 h-5 mb-1 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                                                    <span className="text-[9px] font-bold tracking-widest uppercase">Coming Soon</span>
+                                                                </div>
+                                                            )}
+                                                            <div className="absolute inset-0 bg-black/0 group-hover/gallery:bg-black/10 transition-colors duration-300 pointer-events-none"></div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </ScrollReveal>
