@@ -51,38 +51,53 @@ const IQAC_TABS: IacTab[] = [
                     </div>
                 </div>
 
-                <div className="mt-12">
-                    <h3 className="text-2xl font-bold font-serif text-zinc-900 mb-6 pb-4 border-b border-zinc-100">IQAC Leadership</h3>
+                <div className="mt-16">
+                    <div className="flex items-center gap-3 mb-8 pb-4 border-b border-zinc-100">
+                        <Award className="w-6 h-6 text-[#7B0046]" />
+                        <h3 className="text-2xl font-bold font-serif text-zinc-900">IQAC Leadership</h3>
+                    </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {/* Director */}
-                        <div className="flex items-center gap-5 p-6 rounded-3xl bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-zinc-200">
-                                <Image
-                                    src="/images/default-user-placeholder.png"
-                                    alt="Jabir Ali"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div>
-                                <h4 className="text-xl font-bold text-zinc-900 leading-tight">Jabir Ali</h4>
-                                <p className="text-[#a11c5a] font-bold tracking-widest uppercase text-xs mt-1.5">IQAC Director</p>
+                        <div className="group relative bg-white rounded-3xl p-6 border border-zinc-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#7B0046]/5 rounded-full blur-2xl -mr-16 -mt-16 transition-all group-hover:bg-[#7B0046]/10 pointer-events-none"></div>
+                            <div className="flex items-center gap-6 relative z-10">
+                                <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 shadow-sm border border-zinc-100/50">
+                                    <Image
+                                        src="/images/default-user-placeholder.png"
+                                        alt="Jabir Ali"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div className="flex-1">
+                                    <h4 className="text-xl md:text-2xl font-bold text-zinc-900 leading-tight group-hover:text-[#7B0046] transition-colors">Jabir Ali</h4>
+                                    <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#7B0046]/5 border border-[#7B0046]/10">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#7B0046] animate-pulse" />
+                                        <p className="text-[#7B0046] font-bold text-[11px] tracking-wide uppercase">IQAC Director</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         {/* Coordinator */}
-                        <div className="flex items-center gap-5 p-6 rounded-3xl bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-zinc-200">
-                                <Image
-                                    src="/images/default-user-placeholder.png"
-                                    alt="Unais T A"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div>
-                                <h4 className="text-xl font-bold text-zinc-900 leading-tight">Unais T A</h4>
-                                <p className="text-emerald-700 font-bold tracking-widest uppercase text-xs mt-1.5">IQAC Coordinator</p>
+                        <div className="group relative bg-white rounded-3xl p-6 border border-zinc-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-16 -mt-16 transition-all group-hover:bg-emerald-100 pointer-events-none"></div>
+                            <div className="flex items-center gap-6 relative z-10">
+                                <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 shadow-sm border border-zinc-100/50">
+                                    <Image
+                                        src="/images/default-user-placeholder.png"
+                                        alt="Unais T A"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div className="flex-1">
+                                    <h4 className="text-xl md:text-2xl font-bold text-zinc-900 leading-tight group-hover:text-emerald-700 transition-colors">Unais T A</h4>
+                                    <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-100/50">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                                        <p className="text-emerald-700 font-bold text-[11px] tracking-wide uppercase">IQAC Coordinator</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -245,7 +260,7 @@ export default function IQACPage() {
 
             {/* HERO AREA */}
             {/* Page Header */}
-            <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-12">
+            <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-16 md:mb-20 lg:mb-24">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="h-full w-full bg-size-[30px_30px] bg-[radial-gradient(#fff_1px,transparent_1px)]" />
                 </div>
@@ -255,7 +270,7 @@ export default function IQACPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 lg:pt-15">
                             Internal Quality Assurance Cell
                         </h1>
                         <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
@@ -265,7 +280,7 @@ export default function IQACPage() {
                 </div>
             </section>
 
-            <div className="w-full px-4 md:px-[30px] max-w-[1600px] mx-auto">
+            <div className="w-full px-4 md:px-[30px] max-w-[1600px] mx-auto mt-8 md:mt-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                     {/* LEFT SIDEBAR NAVIGATION */}
