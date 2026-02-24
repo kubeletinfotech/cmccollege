@@ -13,9 +13,9 @@ export default function ProgramsPage() {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="relative pt-40 pb-20 lg:pt-60 lg:pb-32 overflow-hidden bg-emerald-900 border-b border-white/10">
+            <section className="relative pt-[110px] lg:pt-[216px] pb-12 lg:pb-20 overflow-hidden bg-emerald-900 border-b border-white/10">
 
-                <div className="container mx-auto px-4 relative z-10 text-center">
+                <div className="container mx-auto px-4 relative z-10 text-center mt-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function ProgramsPage() {
                                             {/* Decorative Background */}
                                             <div className="absolute -inset-4 bg-emerald-50 rounded-4xl -rotate-2 transform transition-transform group-hover:rotate-0 duration-500"></div>
 
-                                            <div className="relative aspect-video rounded-2xl overflow-hidden bg-white shadow-xl border border-zinc-100 flex items-center justify-center p-8 md:p-12">
+                                            <div className="relative aspect-video rounded-2xl overflow-hidden bg-white shadow-xl border border-zinc-100 flex items-center justify-center p-4 md:p-6 lg:p-8">
                                                 <Image
                                                     src={program.logo}
                                                     alt={program.name}
