@@ -440,16 +440,16 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                 </div>
             </section>
 
-            {/* Academic Programs Section - Performance Optimized with Original Sizing */}
+            {/* Academic Programs Section - Premium Full Width Layout */}
             <section className="pb-16 md:pb-24 pt-8 px-4 md:px-6 bg-white overflow-hidden">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-[1600px] mx-auto">
                     <ScrollReveal className="text-center mb-10 md:mb-16">
                         <h2 className="text-2xl md:text-3xl font-agency font-bold text-emerald-800 mb-4 uppercase tracking-tight">Departments of Academic Studies</h2>
                         <p className="text-zinc-600 text-base max-w-2xl mx-auto font-medium leading-relaxed">Offering a wide range of undergraduate and postgraduate programs driven by excellence.</p>
                     </ScrollReveal>
 
-                    <ScrollReveal>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <ScrollReveal className="w-full mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                             {[
                                 { name: "Department Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Cs-bg.png" },
                                 { name: "Department Of Management", slug: "management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Management-bg.png" },
@@ -497,7 +497,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
 
             {/* Facilities Preview Section - Grouped Animation for Performance */}
             <section className="py-12 md:py-20 px-4 md:px-6 bg-emerald-50/50">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-[1600px] mx-auto">
                     <ScrollReveal className="text-center mb-10 md:mb-16">
                         <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-900 mb-4 uppercase tracking-tight">Campus Facilities</h2>
                         <div className="h-1 w-16 bg-[#7B0046] mx-auto mb-6 rounded-full"></div>
@@ -505,7 +505,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                     </ScrollReveal>
 
                     <ScrollReveal>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                             {[
                                 { name: "Hostel", slug: "hostels", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/hostel.jpeg" },
                                 { name: "Masjid", slug: "prayer-hall", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/masjid.jpeg" },
