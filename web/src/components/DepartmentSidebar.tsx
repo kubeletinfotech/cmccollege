@@ -23,8 +23,7 @@ export default function DepartmentSidebar() {
         { name: "Vision & Mission", href: `${baseUrl}/vision-mission` },
         { name: "Key Highlights", href: `${baseUrl}/key-highlights` },
         { name: "Courses Offered", href: `${baseUrl}/courses` },
-        { name: "Faculty", href: `${baseUrl}/faculty` },
-        { name: "Gallery", href: `${baseUrl}/gallery` }
+        { name: "Faculty", href: `${baseUrl}/faculty` }
     ];
 
     const isActive = (href: string, exact = false) => {

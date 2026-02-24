@@ -110,7 +110,7 @@ export default function AdministrationPage() {
 
                                         {/* Name & Role below card for ALL members */}
                                         <div className={`text-center mt-4 lg:mt-6 ${isChairman ? 'max-w-[280px] lg:max-w-[320px]' : 'max-w-[200px] lg:max-w-[230px]'}`}>
-                                            <h3 className={`font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors duration-300 leading-tight ${isChairman ? 'text-2xl lg:text-3xl tracking-tight' : 'text-lg lg:text-xl'}`}>
+                                            <h3 className={`font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors duration-300 leading-tight ${isChairman ? 'text-2xl lg:text-2xl tracking-tight' : 'text-lg lg:text-xl'}`}>
                                                 {member.name}
                                             </h3>
                                             <p className={`text-[#7a0b3a]/80 font-bold tracking-wider uppercase mt-1 leading-relaxed ${isChairman ? 'text-xs lg:text-sm mt-2' : 'text-[10px] line-clamp-2'}`}>

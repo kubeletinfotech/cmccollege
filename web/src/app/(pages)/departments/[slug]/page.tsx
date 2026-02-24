@@ -5,7 +5,6 @@ import { BookOpen, Target } from "lucide-react";
 import { use } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { DEPARTMENT_DATA } from "@/data/departments";
-import DepartmentGallery from "@/components/DepartmentGallery";
 
 export default function DepartmentAboutPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
