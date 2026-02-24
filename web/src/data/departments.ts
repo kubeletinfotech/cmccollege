@@ -272,13 +272,13 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Globe, text: "Cultural Studies", sub: "Literature across borders" }
         ],
         hod: {
-            name: "Unais T A",
+            name: "Ameera M",
             qualification: "Ph.D in English Literature",
             quote: "Language is the portal to human experience. We aim to make our students masters of this portal.",
-            img: "/images/default-user-placeholder.png"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ameera"
         },
         faculty: [
-            { name: "Ashif T A", role: "Assistant Professor", spec: "British Literature", img: "/images/default-user-placeholder.png" },
+            { name: "Unais T A", role: "Assistant Professor", spec: "British Literature", img: "/images/default-user-placeholder.png" },
             { name: "Ameera M", role: "Assistant Professor", spec: "American Lit", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ameera" },
             { name: "Sara Subula", role: "Assistant Professor", spec: "Poetry & Arts", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Sara" },
             { name: "Ajmal Musharaf", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ajmal" },
