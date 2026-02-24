@@ -209,7 +209,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             {
                 busName: "Bus 1",
                 stops: [
-                    { route: "Thalappuzha 44", time: "7:45 AM", driver: "Mr. Rajan" },
+                    { route: "Thalappuzha 44", time: "7:45 AM", driver: "Shins" },
                     { route: "Thalappuzha", time: "7:50 AM" },
                     { route: "Kuzhinilam", time: "7:55 AM" },
                     { route: "Kaniyaram", time: "8:00 AM" },
@@ -234,7 +234,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             {
                 busName: "Bus 2",
                 stops: [
-                    { route: "Korom", time: "8:00 AM", driver: "Muahmmed Ajfan" },
+                    { route: "Korom", time: "8:00 AM", driver: "Ibrahimkutti" },
                     { route: "Makkiyad", time: "8:15 AM" },
                     { route: "12th Mile", time: "8:20 AM" },
                     { route: "Kandathuvayal", time: "8:25 AM" },

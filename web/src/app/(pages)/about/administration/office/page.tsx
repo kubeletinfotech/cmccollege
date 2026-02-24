@@ -80,17 +80,49 @@ export default function OfficeAdministrationPage() {
     return (
         <div className="space-y-16 animate-fade-in-up">
             {/* Header Section */}
-            <header className="border-b border-zinc-100 pb-10">
-                <span className="text-[#7a0b3a] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 block">
-                    Operational Excellence
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#7a0b3a] mb-6 tracking-tight">
-                    Office Administration
-                </h2>
-                <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-light max-w-3xl">
-                    The Administrative Office at CM College serves as the backbone of our institutional operations,
-                    ensuring smooth day-to-day functioning and providing essential services to our students and faculty.
-                </p>
+            <header className="border-b border-zinc-100 pb-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+                {/* Person Profile (Left Side) */}
+                <div className="flex flex-col items-center md:items-start gap-5 shrink-0">
+                    <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-4xl overflow-hidden shadow-xl border border-zinc-100">
+                        <Image
+                            src="https://ik.imagekit.io/1yxtj9qun/About/director.jpg"
+                            alt="Office Administrator"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                    <div className="text-center md:text-left w-full">
+                        <h1 className="text-2xl md:text-3xl font-bold font-serif text-[#7a0b3a] tracking-tight mb-1">
+                            Uvais TK
+                        </h1>
+                        <p className="text-[#a11c5a] font-bold uppercase tracking-widest text-xs mb-3">
+                            Administrative Officer (AOC)
+                        </p>
+                        <a
+                            href="mailto:ao@cmcollege.edu.in"
+                            className="inline-flex items-center justify-center md:justify-start gap-2 text-zinc-600 hover:text-[#7a0b3a] transition-colors bg-zinc-50 px-4 py-2 rounded-full border border-zinc-200 text-xs font-medium w-full md:w-fit"
+                        >
+                            <Mail size={14} className="text-[#7a0b3a] shrink-0" />
+                            ao@cmcollege.edu.in
+                        </a>
+                    </div>
+                </div>
+
+                {/* Content (Right Side) */}
+                <div className="flex-1 md:py-4">
+                    <div className="mb-6 pb-6 border-b border-zinc-100">
+                        <span className="text-[#7a0b3a] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 block">
+                            Operational Excellence
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#7a0b3a] tracking-tight">
+                            Office Administration
+                        </h2>
+                    </div>
+                    <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-light">
+                        The Administrative Office at CM College serves as the backbone of our institutional operations,
+                        ensuring smooth day-to-day functioning and providing essential services to our students and faculty.
+                    </p>
+                </div>
             </header>
 
             {/* Core Values / Mission */}
