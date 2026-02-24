@@ -39,6 +39,7 @@ html.lenis body {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-playfair);
+  --font-prestigious: var(--font-cinzel);
 
   /* Override Emerald with Maroon Theme */
   --color-emerald-50: #fcf4f8;
@@ -156,6 +157,11 @@ section {
 .animate-spin-reverse-slow {
   animation: spin-reverse-slow 30s linear infinite;
   will-change: transform;
+}
+
+.font-prestigious {
+  font-family: var(--font-cinzel), serif;
+  letter-spacing: 0.02em;
 }
 
 .font-agency {

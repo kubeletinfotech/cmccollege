@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Geist, Geist_Mono, Playfair_Display, Oswald } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, Oswald, Cinzel } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,6 +18,12 @@ const geistMono = Geist_Mono({
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
+  subsets: ["latin"],
+  display: 'swap',
+});
+
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
   display: 'swap',
 });
@@ -126,7 +132,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${oswald.variable} antialiased pt-(--ticker-height,0px)`}
+          className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${oswald.variable} ${cinzel.variable} antialiased pt-(--ticker-height,0px)`}
         >
           <NextTopLoader
             color="#0BB9F3"
