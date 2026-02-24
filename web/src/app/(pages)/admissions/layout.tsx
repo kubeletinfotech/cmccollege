@@ -17,10 +17,7 @@ export default function AdmissionsLayout({ children }: { children: React.ReactNo
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-emerald-100 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-6 border border-emerald-500/30">
-                            Admissions Open 2024-25
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 font-serif">
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 font-serif pt-10 lg:pt-15">
                             Begin Your Journey With Us
                         </h1>
                         <p className="text-xl md:text-2xl text-emerald-100/90 max-w-2xl mx-auto leading-relaxed mb-8">
