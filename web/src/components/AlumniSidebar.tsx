@@ -37,7 +37,7 @@ export default function AlumniSidebar() {
                                     <Link
                                         href={item.href}
                                         className={cn(
-                                            "flex items-center gap-3 px-4 py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 border-l-4",
+                                            "flex items-center gap-3 px-4 py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 border-l-4 group",
                                             isActive
                                                 ? "bg-white border-[#7a0b3a] text-[#7a0b3a] shadow-sm"
                                                 : "border-transparent text-zinc-700 hover:bg-zinc-100 hover:text-[#7a0b3a]"
