@@ -449,23 +449,23 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                     </ScrollReveal>
 
                     <ScrollReveal className="w-full mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
                             {[
-                                { name: "Department Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Cs-bg.png" },
-                                { name: "Department Of Management", slug: "management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Management-bg.png" },
-                                { name: "Department Of Mass Communication And Journalism", slug: "mass-communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/masscom-bg.png" },
-                                { name: "Department Of Economics", slug: "economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
-                                { name: "Department Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
-                                { name: "Department Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
-                                { name: "Department Of Human Resource Management", slug: "human-resource-management", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
-                                { name: "Department Of Sociology", slug: "sociology", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
-                                { name: "Department Of Malayalam", slug: "malayalam", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/malayalam" },
-                                { name: "Department Of Arabic", slug: "arabic", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg" }
+                                { name: "Dpt. Of Computer Science", slug: "computer-science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Cs-bg.png" },
+                                { name: "Dpt. Of Management", slug: "management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Management-bg.png" },
+                                { name: "Dpt. Of Mass Communication And Journalism", slug: "mass-communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/masscom-bg.png" },
+                                { name: "Dpt. Of Economics", slug: "economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/ecnomics-bg.png?updatedAt=1768828596627" },
+                                { name: "Dpt. Of English", slug: "english", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/english-bg.jpg" },
+                                { name: "Dpt. Of Commerce", slug: "commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/commerce-bg.jpg" },
+                                { name: "Dpt. Of Human Resource Management", slug: "human-resource-management", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg" },
+                                { name: "Dpt. Of Sociology", slug: "sociology", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/library.jpeg" },
+                                { name: "Dpt. Of Malayalam", slug: "malayalam", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/malayalam" },
+                                { name: "Dpt. Of Arabic", slug: "arabic", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg" }
                             ].map((dept, i) => (
                                 <Link
                                     key={i}
                                     href={`/departments/${dept.slug}`}
-                                    className="group relative block h-full min-h-[120px] p-4 bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-xl transition-all duration-500 ease-out border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:-translate-y-1 transform-gpu"
+                                    className="group relative block h-full min-h-[90px] md:min-h-[110px] p-3 md:p-4 bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-xl transition-all duration-500 ease-out border-t border-r border-b border-gray-100 border-l-4 border-l-[#7B0046] hover:-translate-y-1 transform-gpu overflow-hidden"
                                     onClick={(e) => handleDeptClick(e, dept.slug)}
                                 >
                                     {/* Optimization: Fast Hover State */}
@@ -505,7 +505,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                     </ScrollReveal>
 
                     <ScrollReveal>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
                             {[
                                 { name: "Hostel", slug: "hostels", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/hostel.jpeg" },
                                 { name: "Masjid", slug: "prayer-hall", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/masjid.jpeg" },
@@ -514,7 +514,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 { name: "Bus", slug: "bus-facility", img: "https://ik.imagekit.io/1yxtj9qun/Home/images/buss.jpeg" }
                             ].map((facility, i) => (
                                 <Link key={i} href={`/amenities/${facility.slug}`} className="group block">
-                                    <div className="relative h-48 rounded-2xl overflow-hidden shadow-sm border border-white transform-gpu transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+                                    <div className="relative h-32 md:h-40 rounded-2xl overflow-hidden shadow-sm border border-white transform-gpu transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
                                         <Image
                                             src={facility.img}
                                             alt={facility.name}
