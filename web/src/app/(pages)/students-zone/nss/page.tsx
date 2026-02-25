@@ -17,12 +17,12 @@ const PROGRAM_OFFICERS = [
 ];
 
 const GALLERY_IMAGES = [
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
+    "https://ik.imagekit.io/1yxtj9qun/NSS/WhatsApp%20Image%202026-02-25%20at%2012.16.46%20PM.jpeg",
+    "https://ik.imagekit.io/1yxtj9qun/NSS/WhatsApp%20Image%202026-02-25%20at%2012.16.48%20PM.jpeg",
+    "https://ik.imagekit.io/1yxtj9qun/NSS/3.jpeg",
+    "https://ik.imagekit.io/1yxtj9qun/NSS/WhatsApp%20Image%202026-02-25%20at%2012.16.52%20PM.jpeg",
+    "https://ik.imagekit.io/1yxtj9qun/NSS/2.jpeg",
+    "https://ik.imagekit.io/1yxtj9qun/NSS/WhatsApp%20Image%202026-02-25%20at%2012.16.47%20PM.jpeg",
 ];
 
 export default function NSSPage() {
@@ -110,7 +110,7 @@ export default function NSSPage() {
                             className="order-1 lg:order-2 relative h-[250px] md:h-[350px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
-                                src="/images/default-placeholder-image.jpg"
+                                src="https://ik.imagekit.io/1yxtj9qun/NSS/WhatsApp%20Image%202026-02-25%20at%2012.16.56%20PM.jpeg"
                                 alt="NSS Officers"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
