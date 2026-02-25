@@ -15,17 +15,17 @@ interface UnionTab {
 }
 
 const UNION_COMMITTEE = [
-    { role: "Chairperson", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "Vice Chairperson", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "General Secretary", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "Joint Secretary", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "University Union Councilor", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "Magazine Editor", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "General Captain", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Chairman", name: "Anshif M", department: "BBA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Anshif.jpeg" },
+    { role: "Vice Chairperson", name: "Fathimath Rafidha", department: "Department", image: "https://ik.imagekit.io/1yxtj9qun/Union/rafidha.jpeg?updatedAt=1771997082283" },
+    { role: "General Secretary", name: "Muhammed Irfan", department: "Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Muhammed-Irfan.jpeg?updatedAt=1771997082283" },
+    { role: "Joint Secretary", name: "Ardra AS", department: "BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Ardra" },
+    { role: "Second Year Representive", name: "Shaheedha Hannath", department: "Masscom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Shaheedha.jpeg" },
+    { role: "Magazine Editor", name: "Athira", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "General Captain", name: "Suhail", department: "Department", image: "/images/default-user-placeholder.png" },
     { role: "Fine Arts Secretary", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
 ];
 
-const UNION_NAME = "Enter Union Name Here";
+const UNION_NAME = "Inthifada";
 
 const UNION_TABS: UnionTab[] = [
     {
