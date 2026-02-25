@@ -39,10 +39,10 @@ export default function NSSPage() {
                         className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="/images/default-placeholder-image.jpg"
+                            src="https://ik.imagekit.io/1yxtj9qun/Home/images/nss-logo?updatedAt=1771959007929"
                             alt="NSS Activities"
                             fill
-                            className="object-cover hover:scale-105 transition-transform duration-700"
+                            className="object-contain hover:scale-105 transition-transform duration-700"
                             priority
                         />
                     </motion.div>
