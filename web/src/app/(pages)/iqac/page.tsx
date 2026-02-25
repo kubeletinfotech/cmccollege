@@ -364,18 +364,18 @@ export default function IQACPage() {
                                                 setIsMobileOpen(false); // Close on selection
                                             }}
                                             className={`w-full text-left px-5 py-4 rounded-4xl transition-all duration-300 flex items-center gap-3 group relative overflow-hidden ${isActive
-                                                ? "bg-zinc-900 text-white shadow-lg shadow-zinc-900/20 scale-[1.02]"
+                                                ? "text-white shadow-lg shadow-zinc-900/20 scale-[1.02]"
                                                 : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900 font-medium"
                                                 }`}
                                         >
-                                            <tab.icon className={`w-4 h-4 transition-colors ${isActive ? "text-[#7B0046]" : "text-zinc-400 group-hover:text-zinc-600"}`} />
+                                            <tab.icon className={`relative z-10 w-4 h-4 transition-colors ${isActive ? "text-white" : "text-zinc-400 group-hover:text-zinc-600"}`} />
                                             <span className="relative z-10 text-sm">
                                                 {tab.label}
                                             </span>
                                             {isActive && (
                                                 <motion.div
                                                     layoutId="activeTabIndicator"
-                                                    className="absolute inset-0 bg-zinc-900 rounded-xl -z-10"
+                                                    className="absolute inset-0 bg-zinc-900 rounded-4xl -z-10"
                                                 />
                                             )}
                                         </button>
