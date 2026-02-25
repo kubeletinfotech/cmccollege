@@ -15,14 +15,17 @@ interface UnionTab {
 }
 
 const UNION_COMMITTEE = [
-    { role: "Chairman", name: "Anshif M", department: "BBA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Anshif.jpeg" },
-    { role: "Vice Chairperson", name: "Fathimath Rafidha", department: "Department", image: "https://ik.imagekit.io/1yxtj9qun/Union/rafidha.jpeg?updatedAt=1771997082283" },
-    { role: "General Secretary", name: "Muhammed Irfan", department: "Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Muhammed-Irfan.jpeg?updatedAt=1771997082283" },
-    { role: "Joint Secretary", name: "Ardra AS", department: "BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Ardra" },
-    { role: "Second Year Representive", name: "Shaheedha Hannath", department: "Masscom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Shaheedha.jpeg" },
-    { role: "Magazine Editor", name: "Athira", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "General Captain", name: "Suhail", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "Fine Arts Secretary", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Chairman", name: "Anshif M", department: "3rd year BBA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Anshif.jpeg" },
+    { role: "Vice Chairperson", name: "Fathimath Rafidha", department: "2nd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/rafidha.jpeg?updatedAt=1771997082283" },
+    { role: "UUC", name: "Muhammed Ganiyy", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/ganiyy.jpeg" },
+    { role: "General Secretary", name: "Muhammed Irfan", department: "3rd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Muhammed-Irfan.jpeg?updatedAt=1771997082283" },
+    { role: "Joint Secretary", name: "Ardra AS", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Ardra" },
+    { role: "Magazine Editor", name: "Athira VM", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/athira.jpeg" },
+    { role: "General Captain", name: "Suhail", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/suhail.jpeg" },
+    { role: "Fine Arts Secretary", name: "Fathima Rasbana", department: "3rd year Economics", image: "https://ik.imagekit.io/1yxtj9qun/Union/Rabsana.jpeg?updatedAt=1771997081935" },
+    { role: "First Year Representative", name: "Shanif", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/shanif.jpeg?updatedAt=1771997079211" },
+    { role: "Second Year Representative", name: "Shaheedha Hannath", department: "2nd year Masscom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Shaheedha.jpeg" },
+    { role: "Third Year Representative", name: "Nithya Sivan", department: "3rd year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Nithya.jpeg" },
 ];
 
 const UNION_NAME = "Inthifada";
@@ -233,45 +236,40 @@ export default function StudentsUnionPage() {
                         </div>
                     </div>
 
-                    {/* RIGHT CONTENT AREA */}
                     <div className="lg:col-span-9">
                         <AnimatePresence mode="wait">
-                            {UNION_TABS.map((tab) => (
-                                activeTabId === tab.id && (
-                                    <motion.div
-                                        key={tab.id}
-                                        initial={{ opacity: 0, y: 15 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -15 }}
-                                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                        className="bg-white/90 backdrop-blur-3xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-[#5D1035]/5 border border-white relative overflow-hidden"
+                            <motion.div
+                                key={activeTab.id}
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -15 }}
+                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                                className="bg-white/90 backdrop-blur-3xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-[#5D1035]/5 border border-white relative overflow-hidden"
+                            >
+                                {/* Decorative Background Mesh */}
+                                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-linear-to-b from-[#7B0046]/5 to-transparent rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none opacity-60"></div>
+                                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-linear-to-t from-[#5D1035]/5 to-transparent rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none opacity-60"></div>
+
+                                {/* Content Header */}
+                                <div className="mb-12 relative z-10 border-b border-zinc-50 pb-8">
+                                    <motion.span
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-[10px] font-bold tracking-widest uppercase mb-4"
                                     >
-                                        {/* Decorative Background Mesh */}
-                                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-linear-to-b from-[#7B0046]/5 to-transparent rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none opacity-60"></div>
-                                        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-linear-to-t from-[#5D1035]/5 to-transparent rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none opacity-60"></div>
+                                        <activeTab.icon className="w-3 h-3" />
+                                        {activeTab.subtitle}
+                                    </motion.span>
+                                    <h2 className="text-3xl md:text-5xl font-bold font-serif text-zinc-900 leading-tight">
+                                        {activeTab.title}
+                                    </h2>
+                                </div>
 
-                                        {/* Content Header */}
-                                        <div className="mb-12 relative z-10 border-b border-zinc-50 pb-8">
-                                            <motion.span
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-[10px] font-bold tracking-widest uppercase mb-4"
-                                            >
-                                                <tab.icon className="w-3 h-3" />
-                                                {tab.subtitle}
-                                            </motion.span>
-                                            <h2 className="text-3xl md:text-5xl font-bold font-serif text-zinc-900 leading-tight">
-                                                {tab.title}
-                                            </h2>
-                                        </div>
-
-                                        {/* Body Content */}
-                                        <div className="relative z-10 text-zinc-700 font-medium">
-                                            {tab.content}
-                                        </div>
-                                    </motion.div>
-                                )
-                            ))}
+                                {/* Body Content */}
+                                <div className="relative z-10 text-zinc-700 font-medium">
+                                    {activeTab.content}
+                                </div>
+                            </motion.div>
                         </AnimatePresence>
                     </div>
                 </div>
