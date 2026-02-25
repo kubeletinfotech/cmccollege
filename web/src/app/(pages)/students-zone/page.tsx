@@ -60,6 +60,14 @@ const studentServices = [
         bg: "bg-indigo-50"
     },
     {
+        title: "Women Cell",
+        desc: "Empowering female students and promoting gender equality.",
+        icon: HeartHandshake,
+        link: "/students-zone/women-cell",
+        color: "text-pink-600",
+        bg: "bg-pink-50"
+    },
+    {
         title: "SC/ST Cell",
         desc: "Equal opportunity cell ensuring inclusive growth and support.",
         icon: ShieldAlert,

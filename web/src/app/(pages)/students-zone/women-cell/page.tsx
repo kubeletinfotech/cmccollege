@@ -2,18 +2,18 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Users, ShieldCheck, Award } from "lucide-react";
+import { ShieldCheck, Users, Star, Heart } from "lucide-react";
 
 const stats = [
-    { id: 1, label: "Total Units", value: "2", icon: ShieldCheck },
-    { id: 2, label: "Program Officers", value: "2", icon: Award },
-    { id: 3, label: "Unit 154 Volunteers", value: "50", icon: Users },
-    { id: 4, label: "Unit 301 Volunteers", value: "50", icon: Users },
+    { id: 1, label: "Active Members", value: "100+", icon: Users },
+    { id: 2, label: "Empowerment Events", value: "20+", icon: Star },
+    { id: 3, label: "Support & Guidance", value: "24/7", icon: Heart },
+    { id: 4, label: "Safety Initiatives", value: "15+", icon: ShieldCheck },
 ];
 
-const PROGRAM_OFFICERS = [
-    { role: "Program Officer - Unit No. 151", name: "Anna Biju", department: "Ecnomics", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Anna.jpeg?updatedAt=1770627783133?" },
-    { role: "Program Officer - Unit No. 304", name: "Deepa NR", department: "Malayalam", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/Deepa?updatedAt=1770627331874" },
+const COMMITTEE_MEMBERS = [
+    { role: "Coordinator", name: "Coordinator Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Joint Coordinator", name: "Joint Coordinator Name", department: "Department", image: "/images/default-user-placeholder.png" },
 ];
 
 const GALLERY_IMAGES = [
@@ -25,9 +25,9 @@ const GALLERY_IMAGES = [
     "/images/default-placeholder-image.jpg",
 ];
 
-export default function NSSPage() {
+export default function WomenCellPage() {
     return (
-        <div className="bg-white min-h-screen pt-50">
+        <div className="bg-white min-h-screen pt-20">
             {/* HERO STORY */}
             <section className="container mx-auto px-4 py-16 md:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
@@ -39,10 +39,10 @@ export default function NSSPage() {
                         className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="https://ik.imagekit.io/1yxtj9qun/Home/images/nss-logo?updatedAt=1771959007929"
-                            alt="NSS Activities"
+                            src="/images/default-placeholder-image.jpg"
+                            alt="Women Cell Activities"
                             fill
-                            className="object-contain hover:scale-105 transition-transform duration-700"
+                            className="object-cover hover:scale-105 transition-transform duration-700"
                             priority
                         />
                     </motion.div>
@@ -54,22 +54,22 @@ export default function NSSPage() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="space-y-6"
                     >
-                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#003366] leading-tight">
-                            National Service Scheme <br />
-                            <span className="text-[#00509E] text-3xl font-medium tracking-wide">Not Me But You</span>
+                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#831843] leading-tight">
+                            Women Cell <br />
+                            <span className="text-[#be185d] text-3xl font-medium tracking-wide">Empower. Educate. Elevate.</span>
                         </h1>
                         <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                            The National Service Scheme (NSS) is an Indian government-sponsored public service program conducted by the Ministry of Youth Affairs and Sports. Popularly known as NSS, the scheme was launched in Gandhiji's Centenary year in 1969.
+                            The Women Cell at CM College is dedicated to empowering female students and staff, promoting gender equality, and ensuring a safe, supportive, and inclusive campus environment for everyone.
                         </p>
                         <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                            Our primary objective is to develop the personality and character of the student youth through voluntary community service. "Education through Service" is the purpose of the NSS.
+                            Our objective is to facilitate women's empowerment through guest lectures, seminars, awareness programs, and welfare activities, fostering self-reliance and confidence among the female community on campus.
                         </p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* PROGRAM OFFICERS */}
-            <section className="bg-zinc-50 py-16 md:py-24">
+            {/* COMMITTEE MEMBERS */}
+            <section className="bg-pink-50/50 py-16 md:py-24">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
                         <motion.div
@@ -79,23 +79,23 @@ export default function NSSPage() {
                             transition={{ duration: 0.8 }}
                             className="order-2 lg:order-1 space-y-6"
                         >
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#003366]">
-                                Our Program Officers
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#831843]">
+                                Our Committee
                             </h2>
                             <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                                Our dedicated Program Officers lead the NSS units, planning and executing various community service activities while mentoring student volunteers.
+                                Our dedicated committee members lead the Women Cell, planning and executing various empowerment activities and functioning as a strong support system for students.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 mb-4">
-                                {PROGRAM_OFFICERS.map((officer, index) => (
-                                    <div key={index} className="bg-white p-4 rounded-2xl shadow-lg border border-zinc-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
-                                        <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-zinc-50 shadow-inner">
-                                            <Image src={officer.image} alt={officer.name} fill className="object-cover" />
+                                {COMMITTEE_MEMBERS.map((member, index) => (
+                                    <div key={index} className="bg-white p-4 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+                                        <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-pink-50 shadow-inner">
+                                            <Image src={member.image} alt={member.name} fill className="object-cover" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-zinc-900 text-[15px] leading-tight mb-1">{officer.name}</h4>
-                                            <p className="text-xs text-zinc-500 mb-2">{officer.department}</p>
-                                            <span className="inline-block text-[9px] uppercase font-bold text-[#00509E] bg-[#00509E]/10 px-2 py-1 rounded-full">{officer.role}</span>
+                                            <h4 className="font-bold text-zinc-900 text-[15px] leading-tight mb-1">{member.name}</h4>
+                                            <p className="text-xs text-zinc-500 mb-2">{member.department}</p>
+                                            <span className="inline-block text-[9px] uppercase font-bold text-[#be185d] bg-[#be185d]/10 px-2 py-1 rounded-full">{member.role}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -111,7 +111,7 @@ export default function NSSPage() {
                         >
                             <Image
                                 src="/images/default-placeholder-image.jpg"
-                                alt="NSS Officers"
+                                alt="Women Cell Committee"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
                             />
@@ -120,11 +120,11 @@ export default function NSSPage() {
                 </div>
             </section>
 
-            {/* UNITS REPLACED BY STATS (JUST COUNTS) */}
-            <section className="py-16 bg-linear-to-r from-[#001a33] to-[#003366] text-white relative overflow-hidden">
+            {/* IMPACT STATS */}
+            <section className="py-16 bg-linear-to-r from-[#4c0519] to-[#831843] text-white relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[120px] -mr-32 -mt-32 mix-blend-overlay" />
-                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-400 rounded-full blur-[100px] -ml-20 -mb-20 opacity-20" />
+                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-pink-400 rounded-full blur-[100px] -ml-20 -mb-20 opacity-20" />
                 </div>
 
                 <div className="container mx-auto px-4 relative z-10">
@@ -136,15 +136,15 @@ export default function NSSPage() {
                         className="text-center max-w-3xl mx-auto mb-12"
                     >
                         <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3 tracking-wide">
-                            Our Volunteer Force
+                            Our Impact & Reach
                         </h2>
-                        <p className="text-blue-100/80 text-sm md:text-base font-light max-w-2xl mx-auto">
-                            The strength of NSS lies in its dedicated student volunteers actively collaborating on projects that benefit the community and campus.
+                        <p className="text-pink-100/80 text-sm md:text-base font-light max-w-2xl mx-auto">
+                            The strength of the Women Cell lies in its widespread support and active collaboration to benefit female students across the campus.
                         </p>
                     </motion.div>
 
                     <div className="max-w-6xl mx-auto">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center border-t border-blue-800/50 pt-10">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center border-t border-pink-800/50 pt-10">
                             {stats.map((stat, index) => (
                                 <motion.div
                                     key={stat.id}
@@ -155,12 +155,12 @@ export default function NSSPage() {
                                     className="flex flex-col items-center justify-center group"
                                 >
                                     <div className="flex items-center gap-3 mb-1.5 transition-transform duration-300 group-hover:-translate-y-1">
-                                        <stat.icon className="w-5 h-5 text-blue-300/90" strokeWidth={1.5} />
+                                        <stat.icon className="w-5 h-5 text-pink-300/90" strokeWidth={1.5} />
                                         <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                                             {stat.value}
                                         </span>
                                     </div>
-                                    <span className="text-xs md:text-sm text-blue-100/70 uppercase tracking-widest font-medium text-center">
+                                    <span className="text-xs md:text-sm text-pink-100/70 uppercase tracking-widest font-medium text-center">
                                         {stat.label}
                                     </span>
                                 </motion.div>
@@ -179,11 +179,11 @@ export default function NSSPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-3xl mx-auto mb-12"
                 >
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#003366] mb-3">
-                        Moments in Action
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#831843] mb-3">
+                        Moments of Empowerment
                     </h2>
                     <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                        A glimpse of our various community service projects, camps, and activities.
+                        A glimpse of our various events, seminars, and activities designed to inspire and uplift.
                     </p>
                 </motion.div>
 
@@ -199,7 +199,7 @@ export default function NSSPage() {
                         >
                             <Image
                                 src={imgSrc}
-                                alt={`NSS Activity ${idx + 1}`}
+                                alt={`Women Cell Activity ${idx + 1}`}
                                 fill
                                 className="object-cover group-hover:scale-110 transition-transform duration-700"
                             />

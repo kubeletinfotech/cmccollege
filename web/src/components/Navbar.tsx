@@ -115,6 +115,7 @@ export default function Navbar() {
                 },
                 { name: "NSS", href: "/students-zone/nss" },
                 { name: "Students Union", href: "/students-zone/union" },
+                { name: "Women Cell", href: "/students-zone/women-cell" },
                 { name: "College Magazine", href: "/students-zone/magazine" },
                 { name: "Alumni", href: "/alumni" },
                 { name: "SC/ST Equal Opportunity Cell", href: "/students-zone/sc-st-cell" },
