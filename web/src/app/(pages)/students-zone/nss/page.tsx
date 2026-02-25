@@ -1,38 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Users, ShieldCheck, Award, Menu, X, HeartHandshake, Image as ImageIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { Users, ShieldCheck, Award } from "lucide-react";
 
-interface NssTab {
-    id: string;
-    label: string;
-    icon: any;
-    title: string;
-    subtitle: string;
-    content: React.ReactNode;
-}
+const stats = [
+    { id: 1, label: "Total Units", value: "2", icon: ShieldCheck },
+    { id: 2, label: "Program Officers", value: "2", icon: Award },
+    { id: 3, label: "Unit 1 Volunteers", value: "50", icon: Users },
+    { id: 4, label: "Unit 2 Volunteers", value: "50", icon: Users },
+];
 
 const PROGRAM_OFFICERS = [
     { role: "Program Officer - Unit 1", name: "Officer Name 1", department: "Department", image: "/images/default-user-placeholder.png" },
     { role: "Program Officer - Unit 2", name: "Officer Name 2", department: "Department", image: "/images/default-user-placeholder.png" },
-];
-
-const NSS_STUDENTS_UNIT_1 = [
-    { name: "Student 1", department: "BBA" },
-    { name: "Student 2", department: "Bcom" },
-    { name: "Student 3", department: "BCA" },
-    { name: "Student 4", department: "Masscom" },
-    { name: "Student 5", department: "BA English" },
-];
-
-const NSS_STUDENTS_UNIT_2 = [
-    { name: "Student A", department: "Bcom" },
-    { name: "Student B", department: "BCA" },
-    { name: "Student C", department: "BBA" },
-    { name: "Student D", department: "Masscom" },
-    { name: "Student E", department: "Economics" },
 ];
 
 const GALLERY_IMAGES = [
@@ -44,147 +25,178 @@ const GALLERY_IMAGES = [
     "/images/default-placeholder-image.jpg",
 ];
 
-const NSS_TABS: NssTab[] = [
-    {
-        id: "about",
-        label: "About NSS",
-        icon: HeartHandshake,
-        title: "National Service Scheme",
-        subtitle: "Not Me But You",
-        content: (
-            <div className="space-y-8 text-zinc-600 leading-relaxed text-lg text-left md:text-justify">
-                <div className="p-8 bg-linear-to-br from-[#003366] to-[#00509E] rounded-[2rem] border border-[#00509E]/30 relative overflow-hidden shadow-2xl shadow-[#003366]/20 group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32 mix-blend-overlay transition-transform duration-700 group-hover:scale-150"></div>
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl -ml-24 -mb-24 mix-blend-overlay"></div>
-                    <p className="relative z-10 text-white/95 font-medium leading-relaxed">
-                        The National Service Scheme (NSS) is an Indian government-sponsored public service program conducted by the Ministry of Youth Affairs and Sports of the Government of India. Popularly known as NSS, the scheme was launched in Gandhiji's Centenary year in 1969.
+export default function NSSPage() {
+    return (
+        <div className="bg-white min-h-screen pt-50">
+            {/* HERO STORY */}
+            <section className="container mx-auto px-4 py-16 md:py-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
+                    >
+                        <Image
+                            src="/images/default-placeholder-image.jpg"
+                            alt="NSS Activities"
+                            fill
+                            className="object-cover hover:scale-105 transition-transform duration-700"
+                            priority
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="space-y-6"
+                    >
+                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#003366] leading-tight">
+                            National Service Scheme <br />
+                            <span className="text-[#00509E] text-3xl font-medium tracking-wide">Not Me But You</span>
+                        </h1>
+                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                            The National Service Scheme (NSS) is an Indian government-sponsored public service program conducted by the Ministry of Youth Affairs and Sports. Popularly known as NSS, the scheme was launched in Gandhiji's Centenary year in 1969.
+                        </p>
+                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                            Our primary objective is to develop the personality and character of the student youth through voluntary community service. "Education through Service" is the purpose of the NSS.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* PROGRAM OFFICERS */}
+            <section className="bg-zinc-50 py-16 md:py-24">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="order-2 lg:order-1 space-y-6"
+                        >
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#003366]">
+                                Our Program Officers
+                            </h2>
+                            <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                                Our dedicated Program Officers lead the NSS units, planning and executing various community service activities while mentoring student volunteers.
+                            </p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 mb-4">
+                                {PROGRAM_OFFICERS.map((officer, index) => (
+                                    <div key={index} className="bg-white p-4 rounded-2xl shadow-lg border border-zinc-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+                                        <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-zinc-50 shadow-inner">
+                                            <Image src={officer.image} alt={officer.name} fill className="object-cover" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-zinc-900 text-[15px] leading-tight mb-1">{officer.name}</h4>
+                                            <p className="text-xs text-zinc-500 mb-2">{officer.department}</p>
+                                            <span className="inline-block text-[9px] uppercase font-bold text-[#00509E] bg-[#00509E]/10 px-2 py-1 rounded-full">{officer.role}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="order-1 lg:order-2 relative h-[250px] md:h-[350px] w-full rounded-2xl overflow-hidden shadow-xl"
+                        >
+                            <Image
+                                src="/images/default-placeholder-image.jpg"
+                                alt="NSS Officers"
+                                fill
+                                className="object-cover hover:scale-105 transition-transform duration-700"
+                            />
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* UNITS REPLACED BY STATS (JUST COUNTS) */}
+            <section className="py-16 bg-gradient-to-r from-[#001a33] to-[#003366] text-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[120px] -mr-32 -mt-32 mix-blend-overlay" />
+                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-400 rounded-full blur-[100px] -ml-20 -mb-20 opacity-20" />
+                </div>
+
+                <div className="container mx-auto px-4 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center max-w-3xl mx-auto mb-12"
+                    >
+                        <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3 tracking-wide">
+                            Our Volunteer Force
+                        </h2>
+                        <p className="text-blue-100/80 text-sm md:text-base font-light max-w-2xl mx-auto">
+                            The strength of NSS lies in its dedicated student volunteers actively collaborating on projects that benefit the community and campus.
+                        </p>
+                    </motion.div>
+
+                    <div className="max-w-6xl mx-auto">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center border-t border-blue-800/50 pt-10">
+                            {stats.map((stat, index) => (
+                                <motion.div
+                                    key={stat.id}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="flex flex-col items-center justify-center group"
+                                >
+                                    <div className="flex items-center gap-3 mb-1.5 transition-transform duration-300 group-hover:-translate-y-1">
+                                        <stat.icon className="w-5 h-5 text-blue-300/90" strokeWidth={1.5} />
+                                        <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                                            {stat.value}
+                                        </span>
+                                    </div>
+                                    <span className="text-xs md:text-sm text-blue-100/70 uppercase tracking-widest font-medium text-center">
+                                        {stat.label}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* GALLERY */}
+            <section className="container mx-auto px-4 py-16 md:py-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center max-w-3xl mx-auto mb-12"
+                >
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#003366] mb-3">
+                        Moments in Action
+                    </h2>
+                    <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                        A glimpse of our various community service projects, camps, and activities.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                    <div className="group p-8 rounded-[2rem] bg-white border border-zinc-100 shadow-xl shadow-zinc-200/20 hover:shadow-2xl hover:shadow-[#003366]/10 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-linear-to-br from-zinc-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="w-14 h-14 rounded-2xl bg-[#003366] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#003366]/30 group-hover:scale-110 transition-transform duration-500 relative z-10">
-                            <ShieldCheck className="w-6 h-6" />
-                        </div>
-                        <h3 className="font-bold text-zinc-900 mb-3 font-serif text-2xl relative z-10">Our Objective</h3>
-                        <p className="text-sm text-zinc-600 leading-relaxed relative z-10">To develop the personality and character of the student youth through voluntary community service. 'Education through Service' is the purpose of the NSS.</p>
-                    </div>
-                </div>
-            </div>
-        )
-    },
-    {
-        id: "officers",
-        label: "Program Officers",
-        icon: Award,
-        title: "NSS Leaders",
-        subtitle: "Guiding the Volunteers",
-        content: (
-            <div className="space-y-8 text-zinc-600 leading-relaxed text-lg">
-                <p>
-                    Our dedicated Program Officers lead the NSS units, planning and executing various community service activities while mentoring student volunteers.
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-6 mt-10">
-                    {PROGRAM_OFFICERS.map((officer, i) => (
-                        <div key={i} className="group relative bg-white rounded-3xl p-5 border border-zinc-100 shadow-xl shadow-zinc-200/30 hover:shadow-2xl hover:shadow-[#003366]/20 transition-all duration-500 overflow-hidden flex items-center gap-5 cursor-default hover:-translate-y-1">
-                            <div className="absolute top-0 left-0 w-1.5 h-full bg-linear-to-b from-[#003366] to-[#00509E] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                            <div className="relative w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-inner border-4 border-zinc-50 group-hover:border-[#00509E]/10 transition-colors duration-500">
-                                <Image
-                                    src={officer.image}
-                                    alt={officer.role}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                            </div>
-                            <div className="flex-1 py-2">
-                                <h4 className="text-xl font-bold text-zinc-900 leading-tight tracking-tight group-hover:text-[#003366] transition-colors">{officer.name}</h4>
-                                <p className="text-sm text-zinc-500 mt-0.5">{officer.department}</p>
-                                <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 group-hover:bg-[#003366] group-hover:border-[#003366] transition-colors duration-500">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-[#003366] group-hover:bg-amber-400 group-hover:animate-pulse transition-colors duration-500" />
-                                    <p className="text-zinc-600 group-hover:text-white font-bold text-[10px] tracking-widest uppercase transition-colors duration-500">{officer.role}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        )
-    },
-    {
-        id: "units",
-        label: "Units & Students",
-        icon: Users,
-        title: "Our Volunteer Force",
-        subtitle: "The Strength of NSS",
-        content: (
-            <div className="space-y-10 text-zinc-600 leading-relaxed text-lg">
-                <p>
-                    The college proudly hosts two active NSS units, comprising dedicated student volunteers who actively collaborate on projects that benefit the community and campus.
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                    {/* Unit 1 */}
-                    <div className="bg-white rounded-[2rem] p-8 border border-zinc-100 shadow-xl shadow-zinc-200/20">
-                        <div className="flex items-center gap-4 mb-6 pb-6 border-b border-zinc-100">
-                            <div className="w-12 h-12 rounded-xl bg-[#003366]/10 flex items-center justify-center text-[#003366]">
-                                <Users size={24} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-zinc-900">Unit 1</h3>
-                                <p className="text-sm text-zinc-500">Student Volunteers</p>
-                            </div>
-                        </div>
-                        <ul className="space-y-3">
-                            {NSS_STUDENTS_UNIT_1.map((student, idx) => (
-                                <li key={idx} className="flex justify-between items-center py-2 bg-zinc-50/50 px-4 rounded-xl">
-                                    <span className="font-medium text-zinc-800">{student.name}</span>
-                                    <span className="text-xs font-bold px-2 py-1 bg-white border border-zinc-200 rounded-md text-zinc-500">{student.department}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Unit 2 */}
-                    <div className="bg-white rounded-[2rem] p-8 border border-zinc-100 shadow-xl shadow-zinc-200/20">
-                        <div className="flex items-center gap-4 mb-6 pb-6 border-b border-zinc-100">
-                            <div className="w-12 h-12 rounded-xl bg-[#00509E]/10 flex items-center justify-center text-[#00509E]">
-                                <Users size={24} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-zinc-900">Unit 2</h3>
-                                <p className="text-sm text-zinc-500">Student Volunteers</p>
-                            </div>
-                        </div>
-                        <ul className="space-y-3">
-                            {NSS_STUDENTS_UNIT_2.map((student, idx) => (
-                                <li key={idx} className="flex justify-between items-center py-2 bg-zinc-50/50 px-4 rounded-xl">
-                                    <span className="font-medium text-zinc-800">{student.name}</span>
-                                    <span className="text-xs font-bold px-2 py-1 bg-white border border-zinc-200 rounded-md text-zinc-500">{student.department}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        )
-    },
-    {
-        id: "gallery",
-        label: "Gallery",
-        icon: ImageIcon,
-        title: "Moments in Action",
-        subtitle: "A Glimpse of Our Work",
-        content: (
-            <div className="space-y-6 text-zinc-600 leading-relaxed text-lg">
-                <p>
-                    Take a look at the various community service projects, camps, and activities conducted by our vibrant NSS volunteers.
-                </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-5xl mx-auto">
                     {GALLERY_IMAGES.map((imgSrc, idx) => (
-                        <div key={idx} className="relative aspect-square rounded-2xl overflow-hidden group shadow-md">
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            className="relative aspect-square rounded-2xl overflow-hidden group shadow-md"
+                        >
                             <Image
                                 src={imgSrc}
                                 alt={`NSS Activity ${idx + 1}`}
@@ -192,146 +204,10 @@ const NSS_TABS: NssTab[] = [
                                 className="object-cover group-hover:scale-110 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-            </div>
-        )
-    }
-];
-
-export default function NSSPage() {
-    const [activeTabId, setActiveTabId] = useState(NSS_TABS[0].id);
-    const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-    const activeTab = NSS_TABS.find(t => t.id === activeTabId) || NSS_TABS[0];
-
-    return (
-        <main className="min-h-screen bg-gray-50 pt-24 md:pt-28 pb-32 md:pb-40">
-            {/* HERO AREA */}
-            <section className="relative py-24 px-6 bg-[#003366] text-white overflow-hidden mb-16 md:mb-20 lg:mb-24">
-                <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="h-full w-full bg-[size:30px_30px] bg-[radial-gradient(#fff_1px,transparent_1px)]" />
-                </div>
-                <div className="relative z-10 max-w-5xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="flex flex-col items-center"
-                    >
-                        <div className="inline-flex items-center justify-center mb-6 lg:pt-15">
-                            <div className="px-6 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                                <span className="text-gray-100 font-extrabold tracking-[0.2em] uppercase text-sm md:text-base">
-                                    NSS
-                                </span>
-                            </div>
-                        </div>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-                            National Service Scheme
-                        </h1>
-                        <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                            Not Me But You. Dedicated to community service and nation building.
-                        </p>
-                    </motion.div>
-                </div>
             </section>
-
-            <div className="w-full px-4 md:px-[30px] max-w-[1600px] mx-auto mt-8 md:mt-12">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                    {/* LEFT SIDEBAR NAVIGATION */}
-                    <div className="lg:col-span-3 sticky top-32 lg:top-40 h-fit z-30 self-start">
-                        {/* Mobile Toggle */}
-                        <div className="lg:hidden mb-6">
-                            <button
-                                onClick={() => setIsMobileOpen(!isMobileOpen)}
-                                aria-label="Toggle NSS Menu"
-                                className="w-full flex items-center justify-between bg-[#003366] text-white p-4 rounded-xl shadow-lg shadow-[#003366]/20 font-bold uppercase tracking-wider transition-all active:scale-[0.98]"
-                            >
-                                <span className="flex items-center gap-2">
-                                    <ShieldCheck size={18} />
-                                    NSS Menu
-                                </span>
-                                {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
-                            </button>
-                        </div>
-
-                        {/* Sidebar Content */}
-                        <div className={`bg-white/80 backdrop-blur-xl rounded-4xl shadow-xl shadow-zinc-200/50 border border-white p-6 overflow-hidden transition-all duration-300 ${isMobileOpen ? "block" : "hidden lg:block"}`}>
-                            <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] px-2 mb-6 block">
-                                Navigation
-                            </span>
-                            <div className="space-y-2">
-                                {NSS_TABS.map((tab) => {
-                                    const isActive = activeTabId === tab.id;
-                                    return (
-                                        <button
-                                            key={tab.id}
-                                            onClick={() => {
-                                                setActiveTabId(tab.id);
-                                                setIsMobileOpen(false);
-                                            }}
-                                            className={`w-full text-left px-5 py-4 rounded-4xl transition-all duration-300 flex items-center gap-3 group relative overflow-hidden ${isActive
-                                                ? "text-white shadow-lg shadow-zinc-900/20 scale-[1.02]"
-                                                : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900 font-medium"
-                                                }`}
-                                        >
-                                            <tab.icon className={`relative z-10 w-4 h-4 transition-colors ${isActive ? "text-white" : "text-zinc-400 group-hover:text-zinc-600"}`} />
-                                            <span className="relative z-10 text-sm">
-                                                {tab.label}
-                                            </span>
-                                            {isActive && (
-                                                <motion.div
-                                                    layoutId="activeNssTabIndicator"
-                                                    className="absolute inset-0 bg-linear-to-r from-[#003366] to-[#00509E] rounded-4xl -z-10"
-                                                />
-                                            )}
-                                        </button>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* RIGHT CONTENT AREA */}
-                    <div className="lg:col-span-9">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab.id}
-                                initial={{ opacity: 0, y: 15 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -15 }}
-                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                className="bg-white/90 backdrop-blur-3xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-[#003366]/5 border border-white relative overflow-hidden"
-                            >
-                                {/* Decorative Background Mesh */}
-                                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-linear-to-b from-[#00509E]/5 to-transparent rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none opacity-60"></div>
-                                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-linear-to-t from-[#003366]/5 to-transparent rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none opacity-60"></div>
-
-                                {/* Content Header */}
-                                <div className="mb-12 relative z-10 border-b border-zinc-50 pb-8">
-                                    <motion.span
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-[10px] font-bold tracking-widest uppercase mb-4"
-                                    >
-                                        <activeTab.icon className="w-3 h-3" />
-                                        {activeTab.subtitle}
-                                    </motion.span>
-                                    <h2 className="text-3xl md:text-5xl font-bold font-serif text-zinc-900 leading-tight">
-                                        {activeTab.title}
-                                    </h2>
-                                </div>
-
-                                {/* Body Content */}
-                                <div className="relative z-10 text-zinc-700 font-medium">
-                                    {activeTab.content}
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
-                </div>
-            </div>
-        </main>
+        </div>
     );
 }
