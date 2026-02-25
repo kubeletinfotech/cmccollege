@@ -7,13 +7,13 @@ import { Users, ShieldCheck, Award } from "lucide-react";
 const stats = [
     { id: 1, label: "Total Units", value: "2", icon: ShieldCheck },
     { id: 2, label: "Program Officers", value: "2", icon: Award },
-    { id: 3, label: "Unit 1 Volunteers", value: "50", icon: Users },
-    { id: 4, label: "Unit 2 Volunteers", value: "50", icon: Users },
+    { id: 3, label: "Unit 154 Volunteers", value: "50", icon: Users },
+    { id: 4, label: "Unit 301 Volunteers", value: "50", icon: Users },
 ];
 
 const PROGRAM_OFFICERS = [
-    { role: "Program Officer - Unit 1", name: "Officer Name 1", department: "Department", image: "/images/default-user-placeholder.png" },
-    { role: "Program Officer - Unit 2", name: "Officer Name 2", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Program Officer - Unit No. 151", name: "Anna Biju", department: "Ecnomics", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Anna.jpeg?updatedAt=1770627783133?" },
+    { role: "Program Officer - Unit No. 304", name: "Deepa NR", department: "Malayalam", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/Deepa?updatedAt=1770627331874" },
 ];
 
 const GALLERY_IMAGES = [
