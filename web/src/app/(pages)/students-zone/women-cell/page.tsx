@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShieldCheck, Users, Star, Heart } from "lucide-react";
+import { ShieldCheck, Users, Star, Heart, ArrowUpRight, Sparkles } from "lucide-react";
 
 const stats = [
     { id: 1, label: "Active Members", value: "100+", icon: Users },
@@ -14,10 +14,11 @@ const stats = [
 const COMMITTEE_MEMBERS = [
     { role: "Coordinator", name: "Coordinator Name", department: "Department", image: "/images/default-user-placeholder.png" },
     { role: "Joint Coordinator", name: "Joint Coordinator Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Member", name: "Member Name 1", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Member", name: "Member Name 2", department: "Department", image: "/images/default-user-placeholder.png" },
 ];
 
 const GALLERY_IMAGES = [
-    "/images/default-placeholder-image.jpg",
     "/images/default-placeholder-image.jpg",
     "/images/default-placeholder-image.jpg",
     "/images/default-placeholder-image.jpg",
@@ -27,185 +28,215 @@ const GALLERY_IMAGES = [
 
 export default function WomenCellPage() {
     return (
-        <div className="bg-white min-h-screen pt-20">
-            {/* HERO STORY */}
-            <section className="container mx-auto px-4 py-16 md:py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        <div className="bg-[#fffafa] min-h-screen pt-[120px] overflow-hidden">
+            {/* DYNAMIC HERO SECTION */}
+            <section className="relative container mx-auto px-4 lg:px-8 mb-24 md:mb-32">
+                {/* Background Blobs */}
+                <div className="absolute top-0 right-10 w-[400px] h-[400px] bg-pink-300/30 rounded-full blur-[100px] -z-10 mix-blend-multiply" />
+                <div className="absolute -bottom-20 left-10 w-[500px] h-[500px] bg-rose-200/40 rounded-full blur-[120px] -z-10 mix-blend-multiply" />
+
+                <div className="grid lg:grid-cols-12 gap-12 items-center">
+                    {/* Left Typography */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="lg:col-span-7 relative z-10"
                     >
-                        <Image
-                            src="/images/default-placeholder-image.jpg"
-                            alt="Women Cell Activities"
-                            fill
-                            className="object-cover hover:scale-105 transition-transform duration-700"
-                            priority
-                        />
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-100 border border-pink-200 text-pink-700 font-bold text-xs uppercase tracking-widest mb-8">
+                            <Sparkles size={14} />
+                            CM College Women Cell
+                        </div>
+                        <h1 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-[1.1] tracking-tight mb-8">
+                            Empowering voices, <br />
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-600 to-rose-400">
+                                uplifting futures.
+                            </span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-zinc-600 font-light leading-relaxed max-w-2xl mb-10">
+                            Dedicated to promoting gender equality, ensuring campus safety, and fostering an environment where every female student can thrive.
+                        </p>
+
+                        <div className="flex flex-wrap gap-4">
+                            <button className="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white rounded-full font-bold transition-all shadow-xl shadow-pink-600/20 hover:scale-105 flex items-center gap-2">
+                                Join the Cell <ArrowUpRight size={18} />
+                            </button>
+                            <button className="px-8 py-4 bg-white text-pink-700 border border-pink-200 hover:border-pink-300 rounded-full font-bold transition-all hover:bg-pink-50">
+                                Report an Issue
+                            </button>
+                        </div>
                     </motion.div>
 
+                    {/* Right Hero Images - Masonry overlap style */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="space-y-6"
+                        className="lg:col-span-5 relative h-[500px] flex justify-center items-center"
                     >
-                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#831843] leading-tight">
-                            Women Cell <br />
-                            <span className="text-[#be185d] text-3xl font-medium tracking-wide">Empower. Educate. Elevate.</span>
-                        </h1>
-                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                            The Women Cell at CM College is dedicated to empowering female students and staff, promoting gender equality, and ensuring a safe, supportive, and inclusive campus environment for everyone.
-                        </p>
-                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                            Our objective is to facilitate women's empowerment through guest lectures, seminars, awareness programs, and welfare activities, fostering self-reliance and confidence among the female community on campus.
-                        </p>
+                        {/* Main Image */}
+                        <div className="relative w-72 h-96 rounded-[3rem] overflow-hidden shadow-2xl z-20 border-[6px] border-white">
+                            <Image
+                                src="/images/default-placeholder-image.jpg"
+                                alt="Women Cell"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        {/* Secondary Image Offset */}
+                        <div className="absolute top-10 right-0 w-48 h-56 rounded-[2rem] overflow-hidden shadow-xl z-10 border-4 border-white opacity-80 hover:opacity-100 transition-opacity">
+                            <Image
+                                src="/images/default-placeholder-image.jpg"
+                                alt="Activity"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        {/* Interactive floating card */}
+                        <div className="absolute bottom-10 left-5 bg-white/80 backdrop-blur-xl p-5 rounded-3xl shadow-2xl z-30 border border-white/50 animate-bounce" style={{ animationDuration: '4s' }}>
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-600">
+                                    <ShieldCheck size={24} />
+                                </div>
+                                <div>
+                                    <p className="text-zinc-500 font-medium text-xs uppercase tracking-wider">Campus</p>
+                                    <p className="text-zinc-900 font-bold text-lg">100% Secure</p>
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </section>
 
-            {/* COMMITTEE MEMBERS */}
-            <section className="bg-pink-50/50 py-16 md:py-24">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="order-2 lg:order-1 space-y-6"
-                        >
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#831843]">
-                                Our Committee
-                            </h2>
-                            <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                                Our dedicated committee members lead the Women Cell, planning and executing various empowerment activities and functioning as a strong support system for students.
-                            </p>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 mb-4">
-                                {COMMITTEE_MEMBERS.map((member, index) => (
-                                    <div key={index} className="bg-white p-4 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
-                                        <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-pink-50 shadow-inner">
-                                            <Image src={member.image} alt={member.name} fill className="object-cover" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-zinc-900 text-[15px] leading-tight mb-1">{member.name}</h4>
-                                            <p className="text-xs text-zinc-500 mb-2">{member.department}</p>
-                                            <span className="inline-block text-[9px] uppercase font-bold text-[#be185d] bg-[#be185d]/10 px-2 py-1 rounded-full">{member.role}</span>
-                                        </div>
-                                    </div>
-                                ))}
+            {/* FLOATING STATS BAR */}
+            <section className="relative z-20 container mx-auto px-4 lg:px-8 mb-32 -mt-10">
+                <div className="bg-white/90 backdrop-blur-2xl rounded-4xl p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(225,29,72,0.15)] border border-pink-50">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 divide-x divide-pink-100/50">
+                        {stats.map((stat) => (
+                            <div key={stat.id} className="flex flex-col items-center text-center px-4 group">
+                                <div className="w-12 h-12 mb-4 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-500 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+                                    <stat.icon size={24} />
+                                </div>
+                                <h3 className="text-3xl md:text-5xl font-black text-zinc-900 mb-2 tracking-tight">
+                                    {stat.value}
+                                </h3>
+                                <p className="text-zinc-500 font-semibold uppercase tracking-widest text-xs">
+                                    {stat.label}
+                                </p>
                             </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="order-1 lg:order-2 relative h-[250px] md:h-[350px] w-full rounded-2xl overflow-hidden shadow-xl"
-                        >
-                            <Image
-                                src="/images/default-placeholder-image.jpg"
-                                alt="Women Cell Committee"
-                                fill
-                                className="object-cover hover:scale-105 transition-transform duration-700"
-                            />
-                        </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* IMPACT STATS */}
-            <section className="py-16 bg-linear-to-r from-[#4c0519] to-[#831843] text-white relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[120px] -mr-32 -mt-32 mix-blend-overlay" />
-                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-pink-400 rounded-full blur-[100px] -ml-20 -mb-20 opacity-20" />
-                </div>
+            {/* COMMITTEE SECTION - HORIZONTAL SCROLL CARDS */}
+            <section className="bg-zinc-900 text-white py-32 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,theme(colors.pink.600)_0%,transparent_100%)] blur-[100px]" />
 
-                <div className="container mx-auto px-4 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center max-w-3xl mx-auto mb-12"
-                    >
-                        <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3 tracking-wide">
-                            Our Impact & Reach
-                        </h2>
-                        <p className="text-pink-100/80 text-sm md:text-base font-light max-w-2xl mx-auto">
-                            The strength of the Women Cell lies in its widespread support and active collaboration to benefit female students across the campus.
-                        </p>
-                    </motion.div>
-
-                    <div className="max-w-6xl mx-auto">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center border-t border-pink-800/50 pt-10">
-                            {stats.map((stat, index) => (
-                                <motion.div
-                                    key={stat.id}
-                                    initial={{ opacity: 0, y: 15 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="flex flex-col items-center justify-center group"
-                                >
-                                    <div className="flex items-center gap-3 mb-1.5 transition-transform duration-300 group-hover:-translate-y-1">
-                                        <stat.icon className="w-5 h-5 text-pink-300/90" strokeWidth={1.5} />
-                                        <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                                            {stat.value}
-                                        </span>
-                                    </div>
-                                    <span className="text-xs md:text-sm text-pink-100/70 uppercase tracking-widest font-medium text-center">
-                                        {stat.label}
-                                    </span>
-                                </motion.div>
-                            ))}
+                <div className="container mx-auto px-4 lg:px-8 relative z-10 mb-16">
+                    <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+                        <div className="max-w-2xl">
+                            <h2 className="text-4xl md:text-6xl font-bold mb-6">Our Leadership</h2>
+                            <p className="text-zinc-400 text-lg md:text-xl font-light">
+                                Meet the dedicated individuals who drive our initiatives, organize events, and provide a strong support system for the student community.
+                            </p>
                         </div>
                     </div>
                 </div>
+
+                {/* Modern Profile Cards Grid */}
+                <div className="container mx-auto px-4 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {COMMITTEE_MEMBERS.map((member, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="group relative bg-zinc-800/50 backdrop-blur-md rounded-3xl p-6 border border-zinc-700/50 hover:bg-zinc-800 transition-colors overflow-hidden"
+                            >
+                                {/* Hover Glow */}
+                                <div className="absolute inset-0 bg-linear-to-b from-pink-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-duration-500 pointer-events-none" />
+
+                                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-6 filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                                    <Image
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div className="relative z-10">
+                                    <span className="inline-block px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold uppercase tracking-widest rounded-full mb-3">
+                                        {member.role}
+                                    </span>
+                                    <h3 className="text-2xl font-bold mb-1 group-hover:text-pink-100 transition-colors">{member.name}</h3>
+                                    <p className="text-zinc-400 font-medium">{member.department}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </section>
 
-            {/* GALLERY */}
-            <section className="container mx-auto px-4 py-16 md:py-24">
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center max-w-3xl mx-auto mb-12"
-                >
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#831843] mb-3">
-                        Moments of Empowerment
-                    </h2>
-                    <p className="text-lg text-zinc-600 leading-relaxed font-light">
-                        A glimpse of our various events, seminars, and activities designed to inspire and uplift.
-                    </p>
-                </motion.div>
+            {/* BENTO BOX GALLERY */}
+            <section className="py-32 container mx-auto px-4 lg:px-8">
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <h2 className="text-4xl md:text-6xl font-bold text-zinc-900 tracking-tight mb-6">Moments in Action</h2>
+                    <p className="text-xl text-zinc-500 font-light">A visual journey through our workshops, events, and initiatives aimed at fostering empowerment.</p>
+                </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-5xl mx-auto">
-                    {GALLERY_IMAGES.map((imgSrc, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="relative aspect-square rounded-2xl overflow-hidden group shadow-md"
-                        >
-                            <Image
-                                src={imgSrc}
-                                alt={`Women Cell Activity ${idx + 1}`}
-                                fill
-                                className="object-cover group-hover:scale-110 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </motion.div>
-                    ))}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+                    {GALLERY_IMAGES.map((imgSrc, idx) => {
+                        // Create a bento box layout: first item spans 2 cols/ 2 rows if desired, or mix and match
+                        const isLarge = idx === 0;
+                        const isWide = idx === 3;
+
+                        return (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                className={`relative rounded-4xl overflow-hidden group shadow-lg
+                                    ${isLarge ? 'md:col-span-2 md:row-span-2' : ''}
+                                    ${isWide && !isLarge ? 'md:col-span-2' : ''}
+                                `}
+                            >
+                                <Image
+                                    src={imgSrc}
+                                    alt={`Women Cell Event ${idx + 1}`}
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out"
+                                />
+                                <div className="absolute inset-0 bg-linear-to-t from-zinc-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                                <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                                    <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
+                                        <ArrowUpRight size={20} />
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+            </section>
+
+            {/* CALL TO ACTION */}
+            <section className="container mx-auto px-4 lg:px-8 mb-32">
+                <div className="bg-pink-600 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-pink-600/20">
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+                    <div className="relative z-10 max-w-3xl mx-auto">
+                        <h2 className="text-4xl md:text-6xl font-black text-white mb-6">Need Someone to Talk To?</h2>
+                        <p className="text-pink-100 text-xl font-light mb-10">
+                            Our doors are always open. We offer strictly confidential counseling and immediate support for any grievances.
+                        </p>
+                        <button className="px-10 py-5 bg-white text-pink-700 font-black text-lg rounded-full uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
+                            Reach Out Now
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>
