@@ -28,7 +28,7 @@ const GALLERY_IMAGES = [
 
 export default function WomenCellPage() {
     return (
-        <div className="bg-[#fffafa] min-h-screen pt-[120px] overflow-hidden">
+        <div className="bg-[#fffafa] min-h-screen pt-32 md:pt-40 lg:pt-48 overflow-hidden">
             {/* DYNAMIC HERO SECTION */}
             <section className="relative container mx-auto px-4 lg:px-8 mb-24 md:mb-32">
                 {/* Background Blobs */}
@@ -47,21 +47,21 @@ export default function WomenCellPage() {
                             <Sparkles size={14} />
                             CM College Women Cell
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-[1.1] tracking-tight mb-8">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-zinc-900 leading-[1.1] tracking-tight mb-6 md:mb-8">
                             Empowering voices, <br />
                             <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-600 to-rose-400">
                                 uplifting futures.
                             </span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-zinc-600 font-light leading-relaxed max-w-2xl mb-10">
+                        <p className="text-lg md:text-xl lg:text-2xl text-zinc-600 font-light leading-relaxed max-w-2xl mb-8 md:mb-10">
                             Dedicated to promoting gender equality, ensuring campus safety, and fostering an environment where every female student can thrive.
                         </p>
 
-                        <div className="flex flex-wrap gap-4">
-                            <button className="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white rounded-full font-bold transition-all shadow-xl shadow-pink-600/20 hover:scale-105 flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <button className="w-full sm:w-auto px-8 py-4 bg-emerald-900 hover:bg-pink-700 text-white rounded-full font-bold transition-all shadow-xl shadow-pink-600/20 hover:scale-105 flex items-center justify-center gap-2">
                                 Join the Cell <ArrowUpRight size={18} />
                             </button>
-                            <button className="px-8 py-4 bg-white text-pink-700 border border-pink-200 hover:border-pink-300 rounded-full font-bold transition-all hover:bg-pink-50">
+                            <button className="w-full sm:w-auto px-8 py-4 bg-white text-pink-700 border border-pink-200 hover:border-pink-300 rounded-full font-bold transition-all hover:bg-pink-50 flex items-center justify-center">
                                 Report an Issue
                             </button>
                         </div>
@@ -72,10 +72,10 @@ export default function WomenCellPage() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="lg:col-span-5 relative h-[500px] flex justify-center items-center"
+                        className="lg:col-span-5 relative h-[400px] md:h-[500px] flex justify-center items-center mt-12 lg:mt-0"
                     >
                         {/* Main Image */}
-                        <div className="relative w-72 h-96 rounded-[3rem] overflow-hidden shadow-2xl z-20 border-[6px] border-white">
+                        <div className="relative w-64 md:w-72 h-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-2xl z-20 border-[6px] border-white">
                             <Image
                                 src="/images/default-placeholder-image.jpg"
                                 alt="Women Cell"
@@ -84,7 +84,7 @@ export default function WomenCellPage() {
                             />
                         </div>
                         {/* Secondary Image Offset */}
-                        <div className="absolute top-10 right-0 w-48 h-56 rounded-[2rem] overflow-hidden shadow-xl z-10 border-4 border-white opacity-80 hover:opacity-100 transition-opacity">
+                        <div className="absolute top-4 md:top-10 right-0 md:-right-8 lg:right-0 w-40 md:w-48 h-48 md:h-56 rounded-4xl overflow-hidden shadow-xl z-10 border-4 border-white opacity-80 hover:opacity-100 transition-opacity">
                             <Image
                                 src="/images/default-placeholder-image.jpg"
                                 alt="Activity"
@@ -93,14 +93,14 @@ export default function WomenCellPage() {
                             />
                         </div>
                         {/* Interactive floating card */}
-                        <div className="absolute bottom-10 left-5 bg-white/80 backdrop-blur-xl p-5 rounded-3xl shadow-2xl z-30 border border-white/50 animate-bounce" style={{ animationDuration: '4s' }}>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-600">
-                                    <ShieldCheck size={24} />
+                        <div className="absolute bottom-4 left-0 md:bottom-10 md:left-5 bg-white/90 backdrop-blur-xl p-4 md:p-5 rounded-3xl shadow-2xl z-30 border border-pink-100 animate-bounce" style={{ animationDuration: '4s' }}>
+                            <div className="flex items-center gap-3 md:gap-4">
+                                <div className="w-10 h-10 md:w-12 md:h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 shrink-0">
+                                    <ShieldCheck size={20} className="md:w-6 md:h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-zinc-500 font-medium text-xs uppercase tracking-wider">Campus</p>
-                                    <p className="text-zinc-900 font-bold text-lg">100% Secure</p>
+                                    <p className="text-zinc-500 font-medium text-[10px] md:text-xs uppercase tracking-wider">Campus</p>
+                                    <p className="text-zinc-900 font-bold text-base md:text-lg leading-tight">100% Secure</p>
                                 </div>
                             </div>
                         </div>
@@ -110,8 +110,8 @@ export default function WomenCellPage() {
 
             {/* FLOATING STATS BAR */}
             <section className="relative z-20 container mx-auto px-4 lg:px-8 mb-32 -mt-10">
-                <div className="bg-white/90 backdrop-blur-2xl rounded-4xl p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(225,29,72,0.15)] border border-pink-50">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 divide-x divide-pink-100/50">
+                <div className="bg-white/90 backdrop-blur-2xl rounded-[2rem] md:rounded-4xl p-6 md:p-12 shadow-[0_20px_60px_-15px_rgba(225,29,72,0.15)] border border-pink-50">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:divide-x divide-pink-100/50">
                         {stats.map((stat) => (
                             <div key={stat.id} className="flex flex-col items-center text-center px-4 group">
                                 <div className="w-12 h-12 mb-4 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-500 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
@@ -136,8 +136,8 @@ export default function WomenCellPage() {
                 <div className="container mx-auto px-4 lg:px-8 relative z-10 mb-16">
                     <div className="flex flex-col md:flex-row justify-between items-end gap-8">
                         <div className="max-w-2xl">
-                            <h2 className="text-4xl md:text-6xl font-bold mb-6">Our Leadership</h2>
-                            <p className="text-zinc-400 text-lg md:text-xl font-light">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">Our Leadership</h2>
+                            <p className="text-zinc-400 text-base md:text-xl font-light leading-relaxed">
                                 Meet the dedicated individuals who drive our initiatives, organize events, and provide a strong support system for the student community.
                             </p>
                         </div>
@@ -225,15 +225,15 @@ export default function WomenCellPage() {
             </section>
 
             {/* CALL TO ACTION */}
-            <section className="container mx-auto px-4 lg:px-8 mb-32">
-                <div className="bg-pink-600 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-pink-600/20">
+            <section className="container mx-auto px-4 lg:px-8 mb-24 md:mb-32">
+                <div className="bg-pink-600 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-pink-600/20">
                     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
                     <div className="relative z-10 max-w-3xl mx-auto">
-                        <h2 className="text-4xl md:text-6xl font-black text-white mb-6">Need Someone to Talk To?</h2>
-                        <p className="text-pink-100 text-xl font-light mb-10">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6">Need Someone to Talk To?</h2>
+                        <p className="text-pink-100 text-lg md:text-xl font-light mb-8 md:mb-10 leading-relaxed">
                             Our doors are always open. We offer strictly confidential counseling and immediate support for any grievances.
                         </p>
-                        <button className="px-10 py-5 bg-white text-pink-700 font-black text-lg rounded-full uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
+                        <button className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-white text-pink-700 font-black text-base md:text-lg rounded-full uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
                             Reach Out Now
                         </button>
                     </div>

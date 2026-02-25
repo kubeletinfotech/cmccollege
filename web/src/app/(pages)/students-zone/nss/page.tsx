@@ -27,7 +27,7 @@ const GALLERY_IMAGES = [
 
 export default function NSSPage() {
     return (
-        <div className="bg-white min-h-screen pt-50">
+        <div className="bg-white min-h-screen pt-32 md:pt-40 lg:pt-48">
             {/* HERO STORY */}
             <section className="container mx-auto px-4 py-16 md:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
@@ -54,9 +54,9 @@ export default function NSSPage() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="space-y-6"
                     >
-                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#003366] leading-tight">
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#003366] leading-tight">
                             National Service Scheme <br />
-                            <span className="text-[#00509E] text-3xl font-medium tracking-wide">Not Me But You</span>
+                            <span className="text-[#00509E] text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mt-2 block">Not Me But You</span>
                         </h1>
                         <p className="text-lg text-zinc-600 leading-relaxed font-light">
                             The National Service Scheme (NSS) is an Indian government-sponsored public service program conducted by the Ministry of Youth Affairs and Sports. Popularly known as NSS, the scheme was launched in Gandhiji's Centenary year in 1969.
@@ -79,7 +79,7 @@ export default function NSSPage() {
                             transition={{ duration: 0.8 }}
                             className="order-2 lg:order-1 space-y-6"
                         >
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#003366]">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#003366]">
                                 Our Program Officers
                             </h2>
                             <p className="text-lg text-zinc-600 leading-relaxed font-light">
