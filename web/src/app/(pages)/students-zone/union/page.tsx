@@ -138,7 +138,7 @@ export default function StudentsUnionPage() {
     const activeTab = UNION_TABS.find(t => t.id === activeTabId) || UNION_TABS[0];
 
     return (
-        <main className="min-h-screen bg-indigo-50/30 pt-24 md:pt-28 pb-12 md:pb-20">
+        <main className="min-h-screen bg-gray-50 pt-24 md:pt-28 pb-32 md:pb-40">
             {/* HERO AREA */}
             <section className="relative py-24 px-6 bg-[#5D1035] text-white overflow-hidden mb-16 md:mb-20 lg:mb-24">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -163,7 +163,7 @@ export default function StudentsUnionPage() {
             <div className="w-full px-4 md:px-[30px] max-w-[1600px] mx-auto mt-8 md:mt-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     {/* LEFT SIDEBAR NAVIGATION */}
-                    <div className="lg:col-span-3 sticky top-28 lg:top-35 h-fit z-30 self-start">
+                    <div className="lg:col-span-3 sticky top-32 lg:top-40 h-fit z-30 self-start">
                         {/* Mobile Toggle */}
                         <div className="lg:hidden mb-6">
                             <button
@@ -206,7 +206,7 @@ export default function StudentsUnionPage() {
                                             {isActive && (
                                                 <motion.div
                                                     layoutId="activeUnionTabIndicator"
-                                                    className="absolute inset-0 bg-zinc-900 rounded-4xl -z-10"
+                                                    className="absolute inset-0 bg-linear-to-r from-[#5D1035] to-[#7B0046] rounded-4xl -z-10"
                                                 />
                                             )}
                                         </button>
@@ -219,38 +219,42 @@ export default function StudentsUnionPage() {
                     {/* RIGHT CONTENT AREA */}
                     <div className="lg:col-span-9">
                         <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab.id}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-zinc-200/40 border border-white relative overflow-hidden"
-                            >
-                                {/* Decorative Background Mesh */}
-                                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-linear-to-b from-indigo-50/50 to-transparent rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none opacity-60"></div>
-                                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-linear-to-t from-[#7B0046]/5 to-transparent rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none opacity-60"></div>
-
-                                {/* Content Header */}
-                                <div className="mb-12 relative z-10 border-b border-zinc-50 pb-8">
-                                    <motion.span
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 text-[10px] font-bold tracking-widest uppercase mb-4"
+                            {UNION_TABS.map((tab) => (
+                                activeTabId === tab.id && (
+                                    <motion.div
+                                        key={tab.id}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                                        className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-zinc-200/40 border border-white relative overflow-hidden"
                                     >
-                                        <activeTab.icon className="w-3 h-3" />
-                                        {activeTab.subtitle}
-                                    </motion.span>
-                                    <h2 className="text-3xl md:text-5xl font-bold font-serif text-zinc-900 leading-tight">
-                                        {activeTab.title}
-                                    </h2>
-                                </div>
+                                        {/* Decorative Background Mesh */}
+                                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-linear-to-b from-indigo-50/50 to-transparent rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none opacity-60"></div>
+                                        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-linear-to-t from-[#7B0046]/5 to-transparent rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none opacity-60"></div>
 
-                                {/* Body Content */}
-                                <div className="relative z-10">
-                                    {activeTab.content}
-                                </div>
-                            </motion.div>
+                                        {/* Content Header */}
+                                        <div className="mb-12 relative z-10 border-b border-zinc-50 pb-8">
+                                            <motion.span
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-[10px] font-bold tracking-widest uppercase mb-4"
+                                            >
+                                                <tab.icon className="w-3 h-3" />
+                                                {tab.subtitle}
+                                            </motion.span>
+                                            <h2 className="text-3xl md:text-5xl font-bold font-serif text-zinc-900 leading-tight">
+                                                {tab.title}
+                                            </h2>
+                                        </div>
+
+                                        {/* Body Content */}
+                                        <div className="relative z-10 text-zinc-700 font-medium">
+                                            {tab.content}
+                                        </div>
+                                    </motion.div>
+                                )
+                            ))}
                         </AnimatePresence>
                     </div>
                 </div>
