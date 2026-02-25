@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShieldCheck, Users, Star, Heart } from "lucide-react";
+import { ShieldCheck, Users, Star, Heart, Sparkles } from "lucide-react";
 
 const stats = [
     { id: 1, label: "Active Members", value: "100+", icon: Users },
@@ -187,7 +187,7 @@ export default function WomenCellPage() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-5xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mt-8 max-w-5xl mx-auto auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[260px]">
                     {GALLERY_IMAGES.map((imgSrc, idx) => (
                         <motion.div
                             key={idx}
@@ -195,7 +195,10 @@ export default function WomenCellPage() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="relative aspect-square rounded-2xl overflow-hidden group shadow-md"
+                            className={`relative rounded-2xl md:rounded-3xl overflow-hidden group shadow-lg border border-pink-50/20 ${idx === 0 ? "col-span-2 row-span-2" :
+                                idx === 5 ? "col-span-2 md:col-span-1 row-span-1" :
+                                    "col-span-1 row-span-1"
+                                }`}
                         >
                             <Image
                                 src={imgSrc}
@@ -203,7 +206,14 @@ export default function WomenCellPage() {
                                 fill
                                 className="object-cover group-hover:scale-110 transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            {idx === 0 && (
+                                <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-medium text-sm border border-white/30 tracking-wide shadow-xl">
+                                        <Sparkles size={16} className="text-pink-300" /> Key Highlight
+                                    </div>
+                                </div>
+                            )}
                         </motion.div>
                     ))}
                 </div>
