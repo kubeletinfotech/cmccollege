@@ -15,14 +15,14 @@ interface UnionTab {
 }
 
 const UNION_COMMITTEE = [
-    { role: "Chairperson", name: "Student Name", department: "Department" },
-    { role: "Vice Chairperson", name: "Student Name", department: "Department" },
-    { role: "General Secretary", name: "Student Name", department: "Department" },
-    { role: "Joint Secretary", name: "Student Name", department: "Department" },
-    { role: "University Union Councilor", name: "Student Name", department: "Department" },
-    { role: "Magazine Editor", name: "Student Name", department: "Department" },
-    { role: "General Captain", name: "Student Name", department: "Department" },
-    { role: "Fine Arts Secretary", name: "Student Name", department: "Department" },
+    { role: "Chairperson", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Vice Chairperson", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "General Secretary", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Joint Secretary", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "University Union Councilor", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Magazine Editor", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "General Captain", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Fine Arts Secretary", name: "Student Name", department: "Department", image: "/images/default-user-placeholder.png" },
 ];
 
 const UNION_TABS: UnionTab[] = [
@@ -79,7 +79,7 @@ const UNION_TABS: UnionTab[] = [
                             <div className="flex items-center gap-6 relative z-10">
                                 <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 shadow-sm border border-zinc-100/50">
                                     <Image
-                                        src="/images/default-user-placeholder.png"
+                                        src={member.image}
                                         alt={member.role}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
