@@ -60,18 +60,18 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-[112px]">
+        <div className="flex min-h-screen flex-col bg-white text-zinc-900 font-sans pt-27.5 lg:pt-46">
             {/* Page Header */}
-            <section className="relative py-24 px-6 bg-[#7B0046] text-white overflow-hidden">
+            <section className="relative py-16 lg:py-20 px-6 bg-[#7B0046] text-white overflow-hidden">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-[30px_30px]" />
                 </div>
                 <div className="relative z-10 max-w-5xl mx-auto text-center">
                     <ScrollReveal>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-6">
                             Contact & Enquiry
                         </h1>
-                        <p className="text-xl md:text-2xl text-emerald-100 max-w-2xl mx-auto">
+                        <p className="text-lg md:text-xl text-emerald-100 max-w-2xl mx-auto">
                             We're here to help you. Reach out for any questions regarding admissions or our integrated programs.
                         </p>
                     </ScrollReveal>
@@ -79,8 +79,8 @@ export default function ContactPage() {
             </section>
 
             {/* Contact Information & Form */}
-            <section className="py-24 px-6 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <section className="py-12 md:py-16 lg:py-20 px-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
                     {/* Left Side: Contact Details */}
                     <div className="lg:col-span-5">
@@ -116,8 +116,8 @@ export default function ContactPage() {
 
                     {/* Right Side: Enquiry Form */}
                     <div className="lg:col-span-7">
-                        <ScrollReveal delay={200} className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-emerald-50">
-                            <h3 className="text-2xl font-bold text-emerald-900 mb-8">Send an Enquiry</h3>
+                        <ScrollReveal delay={200} className="bg-white p-6 md:p-10 rounded-3xl shadow-xl mt-4 md:mt-0 border border-emerald-50">
+                            <h3 className="text-xl md:text-2xl font-bold text-emerald-900 mb-6 md:mb-8">Send an Enquiry</h3>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
@@ -202,14 +202,14 @@ export default function ContactPage() {
             </section>
 
             {/* Map Section */}
-            <section className="py-24 px-6 bg-zinc-50">
+            <section className="py-12 md:py-16 lg:py-20 px-6 bg-zinc-50">
                 <div className="max-w-7xl mx-auto">
                     <ScrollReveal className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-emerald-800 mb-4">Visit Our Campus</h2>
                         <p className="text-zinc-600 text-lg">Use the map below to find the best route to our school.</p>
                     </ScrollReveal>
 
-                    <ScrollReveal delay={200} className="rounded-3xl overflow-hidden shadow-2xl border-8 border-white h-[450px] relative">
+                    <ScrollReveal delay={200} className="rounded-3xl overflow-hidden shadow-2xl border-8 border-white h-[300px] lg:h-[350px] xl:h-[450px] relative">
                         <iframe
                             src="https://maps.google.com/maps?q=CM%20College%20of%20Arts%20and%20Science%2C%20Nadavayal%2C%20Wayanad&t=&z=15&ie=UTF8&iwloc=&output=embed"
                             width="100%"
@@ -225,9 +225,9 @@ export default function ContactPage() {
             </section>
 
             {/* FAQ/CTA Section */}
-            <section className="py-20 px-6 bg-emerald-900 text-white text-center">
+            <section className="py-16 max-w-7xl mx-auto px-6 bg-emerald-900 text-white text-center rounded-3xl mb-12 lg:mb-16">
                 <ScrollReveal className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Still have questions?</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">Still have questions?</h2>
                     <p className="text-emerald-100 text-lg mb-10">Check our FAQ or call us directly for immediate assistance regarding your admission.</p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <button className="px-10 py-5 bg-white text-emerald-900 font-bold rounded-xl shadow-xl hover:scale-105 transition-transform text-lg">
