@@ -39,90 +39,93 @@ export default function ProgramsPage() {
             {/* Programs List */}
             <section className="py-20">
                 <div className="container mx-auto px-4">
-                    <div className="space-y-24">
+                    <div className="space-y-12 lg:space-y-16 max-w-7xl mx-auto">
                         {programs.map((program, index) => (
                             <ScrollReveal key={program.id}>
-                                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                                    {/* Image/Logo Side */}
-                                    <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                                        <div className="relative group">
-                                            {/* Decorative Background */}
-                                            <div className="absolute -inset-4 bg-emerald-50 rounded-4xl -rotate-2 transform transition-transform group-hover:rotate-0 duration-500"></div>
+                                <div className={`p-8 lg:p-12 rounded-[2.5rem] border border-zinc-100 ${index % 2 === 0 ? 'bg-white shadow-xl shadow-zinc-200/40' : 'bg-emerald-50/30'}`}>
+                                    <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center`}>
+                                        {/* Image/Logo Side */}
+                                        <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                                            <div className="relative group max-w-md mx-auto lg:max-w-none">
+                                                {/* Decorative Background */}
+                                                <div className="absolute -inset-4 bg-emerald-50 rounded-4xl -rotate-2 transform transition-transform group-hover:rotate-0 duration-500"></div>
 
-                                            <div className="relative aspect-video rounded-2xl overflow-hidden bg-white shadow-xl border border-zinc-100 flex items-center justify-center p-4 md:p-6 lg:p-8">
-                                                <Image
-                                                    src={program.logo}
-                                                    alt={program.name}
-                                                    width={400}
-                                                    height={240}
-                                                    className="object-contain w-full h-full transform transition-transform duration-700 group-hover:scale-105"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Text Content Side */}
-                                    <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                                        <div className="inline-block p-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider mb-2">
-                                            Established Initiative
-                                        </div>
-                                        <h2 className="text-3xl md:text-4xl font-agency font-bold text-zinc-900 uppercase">
-                                            {program.name}
-                                        </h2>
-                                        {program.tagline && (
-                                            <p className="text-lg font-medium text-emerald-700 italic">
-                                                "{program.tagline}"
-                                            </p>
-                                        )}
-                                        <p className="text-zinc-600 text-lg leading-relaxed">
-                                            {program.description}
-                                        </p>
-
-                                        <div className="pt-4 flex flex-wrap gap-4">
-                                            <div className="flex items-center gap-2 px-4 py-2 bg-zinc-50 rounded-full border border-zinc-100 text-sm font-medium text-zinc-700">
-                                                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                                                Active Program
-                                            </div>
-                                        </div>
-
-                                        {/* Gallery Section */}
-                                        {program.gallery && program.gallery.length > 0 && (
-                                            <div className="pt-6 mt-6 border-t border-zinc-100">
-                                                <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4">Program Memories</h3>
-                                                <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-2">
-                                                    {program.gallery.map((img, i) => {
-                                                        const isPlaceholder = !img || img === "" || img === "/placeholder.jpg";
-                                                        return (
-                                                            <div
-                                                                key={i}
-                                                                className={`relative aspect-video rounded-xl overflow-hidden bg-zinc-100 border border-zinc-200 shadow-sm group/gallery ${!isPlaceholder ? 'cursor-pointer' : ''}`}
-                                                                onClick={() => !isPlaceholder && setSelectedImage(img)}
-                                                            >
-                                                                {!isPlaceholder ? (
-                                                                    <>
-                                                                        <Image
-                                                                            src={img}
-                                                                            alt={`${program.name} gallery image ${i + 1}`}
-                                                                            fill
-                                                                            className="object-cover transform transition-transform duration-700 group-hover/gallery:scale-110"
-                                                                        />
-                                                                        <div className="absolute inset-0 bg-black/0 group-hover/gallery:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                                                                            <ZoomIn className="text-white opacity-0 group-hover/gallery:opacity-100 transition-all duration-300 transform scale-75 group-hover/gallery:scale-100 drop-shadow-lg" size={32} />
-                                                                        </div>
-                                                                    </>
-                                                                ) : (
-                                                                    <div className="w-full h-full flex flex-col items-center justify-center text-zinc-400 bg-zinc-50 pointer-events-none">
-                                                                        <svg className="w-5 h-5 mb-1 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                                                                        <span className="text-[9px] font-bold tracking-widest uppercase">Coming Soon</span>
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        );
-                                                    })}
+                                                <div className="relative aspect-video rounded-2xl overflow-hidden bg-white shadow-xl border border-zinc-100 flex items-center justify-center p-4 md:p-6 lg:p-8">
+                                                    <Image
+                                                        src={program.logo}
+                                                        alt={program.name}
+                                                        width={400}
+                                                        height={240}
+                                                        className="object-contain w-full h-full transform transition-transform duration-700 group-hover:scale-105"
+                                                    />
                                                 </div>
                                             </div>
-                                        )}
+                                        </div>
+
+                                        {/* Text Content Side */}
+                                        <div className={`space-y-5 lg:col-span-7 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                                            <div className="inline-block p-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider mb-1">
+                                                Established Initiative
+                                            </div>
+                                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-agency font-bold text-zinc-900 uppercase">
+                                                {program.name}
+                                            </h2>
+                                            {program.tagline && (
+                                                <p className="text-base md:text-lg font-medium text-emerald-700 italic">
+                                                    "{program.tagline}"
+                                                </p>
+                                            )}
+                                            <p className="text-zinc-600 text-base md:text-lg leading-relaxed text-left lg:text-justify hyphens-auto">
+                                                {program.description}
+                                            </p>
+
+                                            <div className="pt-4 flex flex-wrap gap-4">
+                                                <div className="flex items-center gap-2 px-4 py-2 bg-zinc-50 rounded-full border border-zinc-100 text-sm font-medium text-zinc-700">
+                                                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                                    Active Program
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
+
+                                    {/* Gallery Section - Moved below in a single row */}
+                                    {program.gallery && program.gallery.length > 0 && (
+                                        <div className="pt-8 mt-10 border-t border-zinc-100">
+                                            <h3 className="text-sm font-bold text-emerald-800/60 uppercase tracking-[0.2em] mb-6 text-center">Program Memories</h3>
+                                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+                                                {program.gallery.map((img, i) => {
+                                                    const isPlaceholder = !img || img === "" || img === "/placeholder.jpg";
+                                                    return (
+                                                        <div
+                                                            key={i}
+                                                            className={`relative aspect-video rounded-xl overflow-hidden bg-zinc-100 border border-zinc-200 shadow-sm group/gallery ${!isPlaceholder ? 'cursor-pointer' : ''}`}
+                                                            onClick={() => !isPlaceholder && setSelectedImage(img)}
+                                                        >
+                                                            {!isPlaceholder ? (
+                                                                <>
+                                                                    <Image
+                                                                        src={img}
+                                                                        alt={`${program.name} gallery image ${i + 1}`}
+                                                                        fill
+                                                                        className="object-cover transform transition-transform duration-700 group-hover/gallery:scale-110"
+                                                                    />
+                                                                    <div className="absolute inset-0 bg-black/0 group-hover/gallery:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                                                                        <ZoomIn className="text-white opacity-0 group-hover/gallery:opacity-100 transition-all duration-300 transform scale-75 group-hover/gallery:scale-100 drop-shadow-lg" size={32} />
+                                                                    </div>
+                                                                </>
+                                                            ) : (
+                                                                <div className="w-full h-full flex flex-col items-center justify-center text-zinc-400 bg-zinc-50 pointer-events-none">
+                                                                    <svg className="w-5 h-5 mb-1 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                                                    <span className="text-[9px] font-bold tracking-widest uppercase">Coming Soon</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </ScrollReveal>
                         ))}
