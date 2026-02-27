@@ -36,7 +36,7 @@ export default function WomenCellPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative h-[250px] md:h-[320px] lg:h-[350px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
                             src="/images/default-placeholder-image.jpg"
@@ -54,14 +54,14 @@ export default function WomenCellPage() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="space-y-6"
                     >
-                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#831843] leading-tight">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#831843] leading-tight">
                             Women Cell <br />
-                            <span className="text-[#be185d] text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mt-2 block">Empower. Educate. Elevate.</span>
+                            <span className="text-[#be185d] text-xl md:text-2xl lg:text-3xl font-medium tracking-wide mt-2 block">Empower. Educate. Elevate.</span>
                         </h1>
-                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                        <p className="text-base md:text-lg text-zinc-600 leading-relaxed font-light">
                             The Women Cell at CM College is dedicated to empowering female students and staff, promoting gender equality, and ensuring a safe, supportive, and inclusive campus environment for everyone.
                         </p>
-                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                        <p className="text-base md:text-lg text-zinc-600 leading-relaxed font-light">
                             Our primary objective is to facilitate women's empowerment through guest lectures, seminars, awareness programs, and welfare activities, fostering self-reliance and confidence among the female community on campus.
                         </p>
                     </motion.div>
@@ -79,23 +79,23 @@ export default function WomenCellPage() {
                             transition={{ duration: 0.8 }}
                             className="order-2 lg:order-1 space-y-6"
                         >
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#831843]">
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-[#831843]">
                                 Our Committee
                             </h2>
-                            <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                            <p className="text-base md:text-lg text-zinc-600 leading-relaxed font-light">
                                 Our dedicated committee members lead the Women Cell, planning and executing various empowerment activities and functioning as a strong support system for students.
                             </p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 mb-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 mb-2">
                                 {COMMITTEE_MEMBERS.map((member, index) => (
-                                    <div key={index} className="bg-white p-4 rounded-2xl shadow-lg border border-zinc-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
-                                        <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-zinc-50 shadow-inner">
+                                    <div key={index} className="bg-white p-3 rounded-xl shadow-md border border-zinc-100 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
+                                        <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-zinc-50 shadow-inner">
                                             <Image src={member.image} alt={member.name} fill className="object-cover" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-zinc-900 text-[15px] leading-tight mb-1">{member.name}</h4>
-                                            <p className="text-xs text-zinc-500 mb-2">{member.department}</p>
-                                            <span className="inline-block text-[9px] uppercase font-bold text-[#be185d] bg-[#be185d]/10 px-2 py-1 rounded-full">{member.role}</span>
+                                            <h4 className="font-semibold text-zinc-900 text-sm leading-tight mb-0.5">{member.name}</h4>
+                                            <p className="text-[11px] text-zinc-500 mb-1.5">{member.department}</p>
+                                            <span className="inline-block text-[8px] uppercase font-bold text-[#be185d] bg-[#be185d]/10 px-1.5 py-0.5 rounded-full">{member.role}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -107,7 +107,7 @@ export default function WomenCellPage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="order-1 lg:order-2 relative h-[250px] md:h-[350px] w-full rounded-2xl overflow-hidden shadow-xl"
+                            className="order-1 lg:order-2 relative h-[220px] md:h-[280px] lg:h-[320px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
                                 src="/images/default-placeholder-image.jpg"
@@ -154,13 +154,13 @@ export default function WomenCellPage() {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     className="flex flex-col items-center justify-center group"
                                 >
-                                    <div className="flex items-center gap-3 mb-1.5 transition-transform duration-300 group-hover:-translate-y-1">
-                                        <stat.icon className="w-5 h-5 text-pink-300/90" strokeWidth={1.5} />
-                                        <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                                    <div className="flex items-center gap-2 mb-1 transition-transform duration-300 group-hover:-translate-y-1">
+                                        <stat.icon className="w-4 h-4 md:w-5 md:h-5 text-pink-300/90" strokeWidth={1.5} />
+                                        <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">
                                             {stat.value}
                                         </span>
                                     </div>
-                                    <span className="text-xs md:text-sm text-pink-100/70 uppercase tracking-widest font-medium text-center">
+                                    <span className="text-[10px] md:text-xs text-pink-100/70 uppercase tracking-widest font-medium text-center">
                                         {stat.label}
                                     </span>
                                 </motion.div>
@@ -187,7 +187,7 @@ export default function WomenCellPage() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mt-8 max-w-5xl mx-auto auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[260px]">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-8 max-w-5xl mx-auto auto-rows-[140px] sm:auto-rows-[160px] md:auto-rows-[200px] xl:auto-rows-[220px]">
                     {GALLERY_IMAGES.map((imgSrc, idx) => (
                         <motion.div
                             key={idx}
