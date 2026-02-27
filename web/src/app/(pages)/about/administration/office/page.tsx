@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
     Users,
@@ -77,6 +78,8 @@ const officeServices = [
 ];
 
 export default function OfficeAdministrationPage() {
+    const [isExpanded, setIsExpanded] = useState(false);
+
     return (
         <div className="space-y-16 animate-fade-in-up">
             {/* Header Section */}
@@ -122,9 +125,17 @@ export default function OfficeAdministrationPage() {
                         <p>
                             Welcome to CM College of Arts and Science, Wayanad — a centre of quality higher education committed to academic excellence, discipline, and value-based learning. Our institution provides a supportive and eco-friendly campus environment that promotes knowledge, skill development, and holistic student growth.
                         </p>
-                        <p>
-                            The Management strives to ensure modern facilities, innovative learning opportunities, and strong career guidance to prepare students for academic success and professional excellence. We warmly invite students and parents to join our academic community and be part of a future built on knowledge, integrity, and achievement.
-                        </p>
+                        {isExpanded && (
+                            <p>
+                                The Management strives to ensure modern facilities, innovative learning opportunities, and strong career guidance to prepare students for academic success and professional excellence. We warmly invite students and parents to join our academic community and be part of a future built on knowledge, integrity, and achievement.
+                            </p>
+                        )}
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="text-[#7a0b3a] font-bold text-sm hover:underline flex items-center gap-1 transition-all uppercase tracking-wider mt-2"
+                        >
+                            {isExpanded ? "Read Less" : "Read More..."}
+                        </button>
                     </div>
                 </div>
             </header>
