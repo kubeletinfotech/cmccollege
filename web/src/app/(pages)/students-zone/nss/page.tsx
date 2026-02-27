@@ -12,8 +12,8 @@ const stats = [
 ];
 
 const PROGRAM_OFFICERS = [
-    { role: "Program Officer - Unit No. 151", name: "Anna Biju", department: "Ecnomics", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Anna.jpeg?updatedAt=1770627783133?" },
-    { role: "Program Officer - Unit No. 304", name: "Deepa NR", department: "Malayalam", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/Deepa?updatedAt=1770627331874" },
+    { role: "Program Officer - Unit No. 151", name: "Anna Biju", department: "Ecnomics", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Anna.jpeg?updatedAt=1770627783133&tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Program Officer - Unit No. 304", name: "Deepa NR", department: "Malayalam", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/Deepa?updatedAt=1770627331874&tr=w-150,h-150,fo-auto,q-100" },
 ];
 
 const GALLERY_IMAGES = [
@@ -90,7 +90,7 @@ export default function NSSPage() {
                                 {PROGRAM_OFFICERS.map((officer, index) => (
                                     <div key={index} className="bg-white p-3 rounded-xl shadow-md border border-zinc-100 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
                                         <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-zinc-50 shadow-inner">
-                                            <Image src={officer.image} alt={officer.name} fill className="object-cover" />
+                                            <Image src={officer.image} alt={officer.name} fill quality={100} className="object-cover" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold text-zinc-900 text-sm leading-tight mb-0.5">{officer.name}</h4>

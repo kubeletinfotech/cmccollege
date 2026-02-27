@@ -11,7 +11,7 @@ export default function HomeMap() {
 
     return (
         <section className="bg-white border-b border-gray-100">
-            <div className="flex flex-col lg:flex-row h-[500px] lg:h-[450px]">
+            <div className="flex flex-col lg:flex-row h-[400px] lg:h-[350px]">
                 {/* Left: Map (Takes full width on mobile, flexible on desktop) */}
                 <div className="relative w-full lg:grow h-full">
                     <iframe
