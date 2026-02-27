@@ -15,17 +15,17 @@ interface UnionTab {
 }
 
 const UNION_COMMITTEE = [
-    { role: "Chairman", name: "Anshif M", department: "3rd year BBA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Anshif.jpeg" },
-    { role: "Vice Chairperson", name: "Fathimath Rafidha", department: "2nd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/rafidha.jpeg?updatedAt=1771997082283" },
-    { role: "UUC", name: "Muhammed Ganiyy", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/ganiyy.jpeg" },
-    { role: "General Secretary", name: "Muhammed Irfan", department: "3rd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Muhammed-Irfan.jpeg?updatedAt=1771997082283" },
-    { role: "Joint Secretary", name: "Ardra AS", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Ardra" },
-    { role: "Magazine Editor", name: "Athira VM", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/athira.jpeg" },
-    { role: "General Captain", name: "Suhail", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/suhail.jpeg" },
-    { role: "Fine Arts Secretary", name: "Fathima Rasbana", department: "3rd year Economics", image: "https://ik.imagekit.io/1yxtj9qun/Union/Rabsana.jpeg?updatedAt=1771997081935" },
-    { role: "First Year Representative", name: "Shanif", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/shanif.jpeg?updatedAt=1771997079211" },
-    { role: "Second Year Representative", name: "Shaheedha Hannath", department: "2nd year Masscom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Shaheedha.jpeg" },
-    { role: "Third Year Representative", name: "Nithya Sivan", department: "3rd year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Nithya.jpeg" },
+    { role: "Chairman", name: "Anshif M", department: "3rd year BBA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Anshif.jpeg?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Vice Chairperson", name: "Fathimath Rafidha", department: "2nd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/rafidha.jpeg?updatedAt=1771997082283&tr=w-150,h-150,fo-auto,q-100" },
+    { role: "UUC", name: "Muhammed Ganiyy", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/ganiyy.jpeg?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "General Secretary", name: "Muhammed Irfan", department: "3rd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Muhammed-Irfan.jpeg?updatedAt=1771997082283&tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Joint Secretary", name: "Ardra AS", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Ardra?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Magazine Editor", name: "Athira VM", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/athira.jpeg?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "General Captain", name: "Suhail", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/suhail.jpeg?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Fine Arts Secretary", name: "Fathima Rasbana", department: "3rd year Economics", image: "https://ik.imagekit.io/1yxtj9qun/Union/Rabsana.jpeg?updatedAt=1771997081935&tr=w-150,h-150,fo-auto,q-100" },
+    { role: "First Year Representative", name: "Shanif", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/shanif.jpeg?updatedAt=1771997079211&tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Second Year Representative", name: "Shaheedha Hannath", department: "2nd year Masscom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Shaheedha.jpeg?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Third Year Representative", name: "Nithya Sivan", department: "3rd year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Nithya.jpeg?tr=w-150,h-150,fo-auto,q-100" },
 ];
 
 const UNION_NAME = "Inthifada";
@@ -38,7 +38,7 @@ const UNION_TABS: UnionTab[] = [
         title: "College Students Union",
         subtitle: "Voice of the Students",
         content: (
-            <div className="space-y-8 text-zinc-600 leading-relaxed text-lg text-left md:text-justify">
+            <div className="space-y-8 text-zinc-600 leading-relaxed text-lg text-left">
                 <div className="p-8 bg-linear-to-br from-[#5D1035] to-[#7B0046] rounded-[2rem] border border-[#7B0046]/30 relative overflow-hidden shadow-2xl shadow-[#5D1035]/20 group">
                     {/* Glowing Orbs */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32 mix-blend-overlay transition-transform duration-700 group-hover:scale-150"></div>
@@ -48,22 +48,26 @@ const UNION_TABS: UnionTab[] = [
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                    <div className="group p-8 rounded-[2rem] bg-white border border-zinc-100 shadow-xl shadow-zinc-200/20 hover:shadow-2xl hover:shadow-[#5D1035]/10 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-linear-to-br from-zinc-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="w-14 h-14 rounded-2xl bg-[#5D1035] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#5D1035]/30 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                <div className="grid md:grid-cols-2 gap-6 mt-8 items-stretch">
+                    <div className="group h-full flex flex-col p-8 rounded-[2rem] bg-white border border-zinc-100 shadow-xl shadow-zinc-200/20 hover:shadow-2xl hover:shadow-[#5D1035]/10 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-linear-to-br from-zinc-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#5D1035] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#5D1035]/30 group-hover:scale-110 transition-transform duration-500 relative z-10">
                             <Target className="w-6 h-6" />
                         </div>
-                        <h3 className="font-bold text-zinc-900 mb-3 font-serif text-2xl relative z-10">Our Mission</h3>
-                        <p className="text-sm text-zinc-600 leading-relaxed relative z-10">To foster a vibrant campus life, champion student rights, and build a collaborative environment for academic and extracurricular excellence.</p>
+                        <div className="flex flex-col flex-1 relative z-10">
+                            <h3 className="font-bold text-zinc-900 mb-3 font-serif text-2xl">Our Mission</h3>
+                            <p className="text-sm text-zinc-600 leading-relaxed">To foster a vibrant campus life, champion student rights, and build a collaborative environment for academic and extracurricular excellence.</p>
+                        </div>
                     </div>
-                    <div className="group p-8 rounded-[2rem] bg-white border border-zinc-100 shadow-xl shadow-zinc-200/20 hover:shadow-2xl hover:shadow-[#5D1035]/10 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-linear-to-bl from-zinc-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="w-14 h-14 rounded-2xl bg-[#7B0046] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#7B0046]/30 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                    <div className="group h-full flex flex-col p-8 rounded-[2rem] bg-white border border-zinc-100 shadow-xl shadow-zinc-200/20 hover:shadow-2xl hover:shadow-[#5D1035]/10 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-linear-to-bl from-zinc-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#7B0046] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#7B0046]/30 group-hover:scale-110 transition-transform duration-500 relative z-10">
                             <Rocket className="w-6 h-6" />
                         </div>
-                        <h3 className="font-bold text-zinc-900 mb-3 font-serif text-2xl relative z-10">Our Vision</h3>
-                        <p className="text-sm text-zinc-600 leading-relaxed relative z-10">Empowering students to become responsible leaders, critical thinkers, and active contributors to society.</p>
+                        <div className="flex flex-col flex-1 relative z-10">
+                            <h3 className="font-bold text-zinc-900 mb-3 font-serif text-2xl">Our Vision</h3>
+                            <p className="text-sm text-zinc-600 leading-relaxed">Empowering students to become responsible leaders, critical thinkers, and active contributors to society.</p>
+                        </div>
                     </div>
                 </div>
             </div>
