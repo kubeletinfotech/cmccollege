@@ -91,7 +91,7 @@ export default function SignInPage() {
     };
 
     return (
-        <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden bg-[#0A0A0A] selection:bg-emerald-500/30 selection:text-emerald-400">
+        <div className="min-h-screen w-full flex items-center pt-50 justify-center relative overflow-hidden bg-[#0A0A0A] selection:bg-emerald-500/30 selection:text-emerald-400">
             {/* Background Effects */}
             <div className="absolute inset-0 w-full h-full">
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-linear-to-tr from-[#5D1035]/30 to-purple-500/30 rounded-full blur-3xl animate-pulse"></div>

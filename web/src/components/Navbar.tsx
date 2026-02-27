@@ -85,8 +85,7 @@ export default function Navbar() {
                 { name: "Syllabus", href: "http://docs.uoc.ac.in/website/Syll/" },
                 { name: "Time Table", href: "https://pareekshabhavan.uoc.ac.in/index.php/examination/timetable" },
                 { name: "Academic Calendar", href: "/academic-calender" },
-                { name: "Question Bank", href: "/question-bank" },
-                { name: "College Programs", href: "/programs" },
+                { name: "Question Bank", href: "/question-bank" }
             ]
         },
         {
@@ -115,6 +114,7 @@ export default function Navbar() {
                 },
                 { name: "NSS", href: "/students-zone/nss" },
                 { name: "Students Union", href: "/students-zone/union" },
+                { name: "College Programs", href: "/programs" },
                 { name: "Women Cell", href: "/students-zone/women-cell" },
                 { name: "College Magazine", href: "/students-zone/magazine" },
                 { name: "Alumni", href: "/alumni" },
