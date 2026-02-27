@@ -18,6 +18,7 @@ const sidebarItems = [
         href: "#",
         subItems: [
             { name: "Principal", href: "/about/principal" },
+            { name: "Vice Principal", href: "/about/vice-principal" },
             { name: "Administrative Council", href: "/about/administration" },
             { name: "Office Administration", href: "/about/administration/office" },
         ]
