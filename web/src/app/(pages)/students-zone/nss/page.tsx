@@ -36,7 +36,7 @@ export default function NSSPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative h-[250px] md:h-[320px] lg:h-[350px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
                             src="https://ik.imagekit.io/1yxtj9qun/Home/images/nss-logo?updatedAt=1771959007929"
@@ -54,14 +54,14 @@ export default function NSSPage() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="space-y-6"
                     >
-                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#003366] leading-tight">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#003366] leading-tight">
                             National Service Scheme <br />
-                            <span className="text-[#00509E] text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mt-2 block">Not Me But You</span>
+                            <span className="text-[#00509E] text-xl md:text-2xl lg:text-3xl font-medium tracking-wide mt-2 block">Not Me But You</span>
                         </h1>
-                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                        <p className="text-base md:text-lg text-zinc-600 leading-relaxed font-light">
                             The National Service Scheme (NSS) is an Indian government-sponsored public service program conducted by the Ministry of Youth Affairs and Sports. Popularly known as NSS, the scheme was launched in Gandhiji's Centenary year in 1969.
                         </p>
-                        <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                        <p className="text-base md:text-lg text-zinc-600 leading-relaxed font-light">
                             Our primary objective is to develop the personality and character of the student youth through voluntary community service. "Education through Service" is the purpose of the NSS.
                         </p>
                     </motion.div>
@@ -79,23 +79,23 @@ export default function NSSPage() {
                             transition={{ duration: 0.8 }}
                             className="order-2 lg:order-1 space-y-6"
                         >
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#003366]">
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-[#003366]">
                                 Our Program Officers
                             </h2>
-                            <p className="text-lg text-zinc-600 leading-relaxed font-light">
+                            <p className="text-base md:text-lg text-zinc-600 leading-relaxed font-light">
                                 Our dedicated Program Officers lead the NSS units, planning and executing various community service activities while mentoring student volunteers.
                             </p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 mb-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 mb-2">
                                 {PROGRAM_OFFICERS.map((officer, index) => (
-                                    <div key={index} className="bg-white p-4 rounded-2xl shadow-lg border border-zinc-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
-                                        <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-zinc-50 shadow-inner">
+                                    <div key={index} className="bg-white p-3 rounded-xl shadow-md border border-zinc-100 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
+                                        <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-zinc-50 shadow-inner">
                                             <Image src={officer.image} alt={officer.name} fill className="object-cover" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-zinc-900 text-[15px] leading-tight mb-1">{officer.name}</h4>
-                                            <p className="text-xs text-zinc-500 mb-2">{officer.department}</p>
-                                            <span className="inline-block text-[9px] uppercase font-bold text-[#00509E] bg-[#00509E]/10 px-2 py-1 rounded-full">{officer.role}</span>
+                                            <h4 className="font-semibold text-zinc-900 text-sm leading-tight mb-0.5">{officer.name}</h4>
+                                            <p className="text-[11px] text-zinc-500 mb-1.5">{officer.department}</p>
+                                            <span className="inline-block text-[8px] uppercase font-bold text-[#00509E] bg-[#00509E]/10 px-1.5 py-0.5 rounded-full">{officer.role}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -107,7 +107,7 @@ export default function NSSPage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="order-1 lg:order-2 relative h-[250px] md:h-[350px] w-full rounded-2xl overflow-hidden shadow-xl"
+                            className="order-1 lg:order-2 relative h-[220px] md:h-[280px] lg:h-[320px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
                                 src="https://ik.imagekit.io/1yxtj9qun/NSS/WhatsApp%20Image%202026-02-25%20at%2012.16.56%20PM.jpeg"
@@ -154,13 +154,13 @@ export default function NSSPage() {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     className="flex flex-col items-center justify-center group"
                                 >
-                                    <div className="flex items-center gap-3 mb-1.5 transition-transform duration-300 group-hover:-translate-y-1">
-                                        <stat.icon className="w-5 h-5 text-blue-300/90" strokeWidth={1.5} />
-                                        <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                                    <div className="flex items-center gap-2 mb-1 transition-transform duration-300 group-hover:-translate-y-1">
+                                        <stat.icon className="w-4 h-4 md:w-5 md:h-5 text-blue-300/90" strokeWidth={1.5} />
+                                        <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">
                                             {stat.value}
                                         </span>
                                     </div>
-                                    <span className="text-xs md:text-sm text-blue-100/70 uppercase tracking-widest font-medium text-center">
+                                    <span className="text-[10px] md:text-xs text-blue-100/70 uppercase tracking-widest font-medium text-center">
                                         {stat.label}
                                     </span>
                                 </motion.div>
@@ -187,7 +187,7 @@ export default function NSSPage() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mt-8 max-w-5xl mx-auto auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[260px]">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-8 max-w-5xl mx-auto auto-rows-[140px] sm:auto-rows-[160px] md:auto-rows-[200px] xl:auto-rows-[220px]">
                     {GALLERY_IMAGES.map((imgSrc, idx) => (
                         <motion.div
                             key={idx}
@@ -196,8 +196,8 @@ export default function NSSPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             className={`relative rounded-2xl md:rounded-3xl overflow-hidden group shadow-lg border border-[#003366]/10 ${idx === 0 ? "col-span-2 row-span-2" :
-                                    idx === 5 ? "col-span-2 md:col-span-1 row-span-1" :
-                                        "col-span-1 row-span-1"
+                                idx === 5 ? "col-span-2 md:col-span-1 row-span-1" :
+                                    "col-span-1 row-span-1"
                                 }`}
                         >
                             <Image
