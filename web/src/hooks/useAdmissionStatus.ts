@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export function useAdmissionStatus() {
     const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
+    const [academicYear, setAcademicYear] = useState("");
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -16,6 +17,7 @@ export function useAdmissionStatus() {
 
                     if (data.isActive && now >= startDate && now <= endDate) {
                         setIsAdmissionOpen(true);
+                        setAcademicYear(data.academicYear || "2024-25");
                     }
                 }
             } catch (error) {
@@ -27,5 +29,5 @@ export function useAdmissionStatus() {
         checkAdmissionStatus();
     }, []);
 
-    return { isAdmissionOpen, loading };
+    return { isAdmissionOpen, academicYear, loading };
 }
