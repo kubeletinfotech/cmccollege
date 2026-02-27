@@ -84,6 +84,15 @@ export default function ProgramsPage() {
                                                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                                                     Active Program
                                                 </div>
+                                                {program.id === 'nss' && (
+                                                    <a
+                                                        href="/students-zone/nss"
+                                                        className="flex items-center gap-2 px-6 py-2 bg-[#7a0b3a] text-white rounded-full text-sm font-bold shadow-md hover:bg-[#600036] transition-colors"
+                                                    >
+                                                        Visit NSS Page
+                                                        <ArrowRight size={16} />
+                                                    </a>
+                                                )}
                                             </div>
 
                                         </div>
