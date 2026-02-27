@@ -77,14 +77,12 @@ export default function SignInPage() {
         setIsLoading(true);
         setError("");
         try {
-            console.log(">>> [SignIn] Initializing Google Redirect...");
             await signIn?.authenticateWithRedirect({
                 strategy: "oauth_google",
                 redirectUrl: "/sign-in/sso-callback",
                 redirectUrlComplete: "/admin",
             });
         } catch (err: any) {
-            console.error(">>> [SignIn] Google Error:", err);
             setError("Google sign-in initialization failed. Please wait a moment and try again.");
             setIsLoading(false);
         }

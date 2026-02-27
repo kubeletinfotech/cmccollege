@@ -228,7 +228,7 @@ export default function Navbar() {
                     {/* Main Row: Logo + Actions */}
                     {/* Middle Identity Row (Hidden on mobile) */}
                     <div className="hidden lg:flex w-full bg-white border-b border-zinc-100">
-                        <div className="max-w-[1440px] mx-auto w-full flex justify-between items-center h-28 lg:h-32 px-4 lg:px-8">
+                        <div className="max-w-[1440px] mx-auto w-full flex justify-between items-center h-20 lg:h-24 px-4 lg:px-8">
                             {/* Logo (Left) */}
                             <Link
                                 href="/"
