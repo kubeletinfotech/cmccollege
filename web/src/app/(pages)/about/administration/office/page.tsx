@@ -118,10 +118,14 @@ export default function OfficeAdministrationPage() {
                             Office Administration
                         </h2>
                     </div>
-                    <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-light">
-                        The Administrative Office at CM College serves as the backbone of our institutional operations,
-                        ensuring smooth day-to-day functioning and providing essential services to our students and faculty.
-                    </p>
+                    <div className="space-y-6 text-lg text-zinc-600 leading-relaxed font-light text-left lg:text-justify hyphens-auto">
+                        <p>
+                            Welcome to CM College of Arts and Science, Wayanad — a centre of quality higher education committed to academic excellence, discipline, and value-based learning. Our institution provides a supportive and eco-friendly campus environment that promotes knowledge, skill development, and holistic student growth.
+                        </p>
+                        <p>
+                            The Management strives to ensure modern facilities, innovative learning opportunities, and strong career guidance to prepare students for academic success and professional excellence. We warmly invite students and parents to join our academic community and be part of a future built on knowledge, integrity, and achievement.
+                        </p>
+                    </div>
                 </div>
             </header>
 
