@@ -131,16 +131,19 @@ export default function Footer() {
                                 <Smartphone size={18} className="text-emerald-400 font-bold" />
                             </div>
                             <div className="flex flex-col normal-case">
-                                <span className="text-sm font-bold text-white tracking-widest">+91 7594 888 203</span>
+                                <span className="text-sm font-bold text-white tracking-widest">+91 7594 888 201</span>
                                 <span className="text-sm font-bold text-white tracking-widest">+91 7594 888 202</span>
                                 <span className="text-[11px] text-white/60 uppercase tracking-wider font-bold">Mobile Support</span>
                             </div>
                         </li>
-                        <li className="flex gap-4 items-center">
+                        <li className="flex gap-4 items-start">
                             <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
                                 <Mail size={18} className="text-emerald-400 font-bold" />
                             </div>
-                            <a href="mailto:info@cmcollege.edu.in" className="text-sm hover:text-emerald-300 transition-colors font-bold lowercase tracking-wide">info@cmcollege.edu.in</a>
+                            <div className="flex flex-col normal-case gap-1">
+                                <a href="mailto:info@cmcollege.edu.in" className="text-sm hover:text-emerald-300 transition-colors font-bold lowercase tracking-wide">info@cmcollege.edu.in</a>
+                                <a href="mailto:cmcollegeofartsandscience@gmail.com" className="text-sm hover:text-emerald-300 transition-colors font-bold lowercase tracking-wide">cmcollegeofartsandscience@gmail.com</a>
+                            </div>
                         </li>
                     </ul>
                 </div>

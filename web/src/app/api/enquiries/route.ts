@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Enquiry from '@/models/Enquiry';
 import { ensureAdmin } from '@/lib/ensureAdmin';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY || 're_123456789');
 
 export async function GET() {
     try {
@@ -46,6 +49,28 @@ export async function POST(req: NextRequest) {
             message,
             status: 'Pending' // Explicitly set status to default
         });
+
+        // Send email via Resend
+        if (process.env.RESEND_API_KEY) {
+            try {
+                await resend.emails.send({
+                    from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+                    to: process.env.RESEND_TO_EMAIL || 'delivery@resend.dev', // Fallback, normally you provide this in .env
+                    subject: `New Enquiry from ${name}`,
+                    html: `
+                        <h2>New Enquiry Received</h2>
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Phone:</strong> ${phone}</p>
+                        <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+                        <p><strong>Message:</strong></p>
+                        <p>${message}</p>
+                    `,
+                });
+            } catch (emailError) {
+                console.error('Error sending email with Resend:', emailError);
+                // We shouldn't fail the whole request if email fails, just log it.
+            }
+        }
 
         return NextResponse.json({
             success: true,
