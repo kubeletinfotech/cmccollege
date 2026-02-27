@@ -169,7 +169,7 @@ export default function OfficeAdministrationPage() {
                     <h3 className="text-2xl font-bold text-zinc-800">Administrative Services</h3>
                     <p className="text-zinc-500 font-light">Comprehensive support for all institutional requirements.</p>
                 </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {officeServices.map((service, idx) => (
                         <ScrollReveal key={idx} delay={idx * 100}>
                             <div className="p-8 bg-white rounded-2xl border border-zinc-100 shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col items-center text-center">
@@ -187,17 +187,17 @@ export default function OfficeAdministrationPage() {
             {/* Key Personnel */}
             <section className="bg-zinc-50 rounded-[32px] p-4 md:p-12 space-y-10 border border-zinc-100">
                 <h3 className="text-xl md:text-2xl font-bold text-zinc-800 text-center">Administrative Personnel</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
                     {officeStaff.map((staff, idx) => (
                         <motion.div
                             key={idx}
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="bg-white p-3 md:p-0 rounded-2xl md:rounded-[32px] flex items-center md:flex-col gap-4 border border-zinc-100 shadow-sm hover:shadow-2xl transition-all duration-300 group overflow-hidden"
+                            className="bg-white p-5 md:p-6 rounded-2xl flex items-center gap-5 md:gap-6 border border-zinc-100 shadow-sm hover:shadow-lg transition-all duration-300 group"
                         >
-                            {/* Mobile: Circle | Desktop: Premium Tall Card Image */}
-                            <div className="relative w-14 h-14 md:w-full md:h-[160px] shrink-0 rounded-full md:rounded-none overflow-hidden bg-zinc-100">
+                            {/* Circle Avatar */}
+                            <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-full overflow-hidden bg-zinc-100 ring-4 ring-zinc-50 shadow-inner">
                                 <Image
                                     src={staff.image === "/images/staff/ao.jpg" ? "https://ik.imagekit.io/1yxtj9qun/About/director.jpg" : staff.image}
                                     alt={staff.name}
@@ -207,13 +207,16 @@ export default function OfficeAdministrationPage() {
                             </div>
 
                             {/* Info Wrapper */}
-                            <div className="min-w-0 md:p-5 md:pb-10 md:text-center flex-1">
-                                <h4 className="text-base md:text-lg font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors truncate md:whitespace-normal">
+                            <div className="min-w-0 flex-1">
+                                <h4 className="text-lg md:text-xl font-bold text-zinc-900 group-hover:text-[#7a0b3a] transition-colors truncate">
                                     {staff.name}
                                 </h4>
-                                <p className="text-[#7a0b3a] text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 md:mt-3 opacity-90">
-                                    {staff.role}
+                                <p className="text-zinc-500 text-sm md:text-base font-medium mb-3 truncate">
+                                    {staff.specialization}
                                 </p>
+                                <span className="inline-block px-3 py-1.5 bg-[#f0f4f8] text-[#1a4b9a] text-[10px] font-bold uppercase tracking-widest rounded-full">
+                                    {staff.role}
+                                </span>
                             </div>
                         </motion.div>
                     ))}
@@ -221,37 +224,37 @@ export default function OfficeAdministrationPage() {
             </section>
 
             {/* Office Info & Timings */}
-            <section className="grid md:grid-cols-3 gap-8">
-                <div className="md:col-span-2 bg-[#7a0b3a] rounded-3xl p-10 text-white relative overflow-hidden shadow-2xl">
+            <section className="flex flex-col gap-6">
+                <div className="bg-[#7a0b3a] rounded-3xl p-8 md:p-10 text-white relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-white/10 rounded-full blur-3xl opacity-50" />
                     <div className="relative z-10 space-y-8">
                         <div className="flex items-center gap-4">
                             <CalendarCheck2 className="text-emerald-400" size={32} />
                             <h3 className="text-2xl font-bold">Office Timings</h3>
                         </div>
-                        <div className="grid sm:grid-cols-2 gap-8 pt-4">
+                        <div className="flex flex-col sm:flex-row flex-wrap gap-8 pt-4">
                             <div className="space-y-1">
                                 <p className="text-white/60 text-xs uppercase tracking-widest font-bold">Monday - Friday</p>
-                                <p className="text-xl font-medium">9:00 AM - 4:30 PM</p>
+                                <p className="text-lg md:text-xl font-medium whitespace-nowrap">9:00 AM - 4:30 PM</p>
                             </div>
                             <div className="space-y-1">
                                 <p className="text-white/60 text-xs uppercase tracking-widest font-bold">Saturday</p>
-                                <p className="text-xl font-medium">9:30 AM - 1:00 PM</p>
+                                <p className="text-lg md:text-xl font-medium whitespace-nowrap">9:30 AM - 1:00 PM</p>
                             </div>
-                            <div className="sm:col-span-2 space-y-1">
+                            <div className="space-y-1">
                                 <p className="text-white/60 text-xs uppercase tracking-widest font-bold">Sunday & Public Holidays</p>
-                                <p className="text-xl font-medium text-emerald-400">Closed</p>
+                                <p className="text-lg md:text-xl font-medium text-emerald-400 whitespace-nowrap">Closed</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-emerald-800 rounded-3xl p-10 text-white flex flex-col justify-center gap-6 shadow-xl">
+                <div className="bg-emerald-800 rounded-3xl p-8 md:p-10 text-white flex flex-col justify-center gap-6 shadow-xl">
                     <div className="flex items-center gap-4">
-                        <Phone size={24} className="text-emerald-300" />
+                        <Phone size={24} className="text-emerald-300 shrink-0" />
                         <div>
                             <p className="text-xs uppercase tracking-widest opacity-60">Office Helpline</p>
-                            <p className="text-lg font-bold">04936 210 178</p>
+                            <p className="text-xl md:text-2xl font-bold whitespace-nowrap">04936 210 178</p>
                         </div>
                     </div>
                 </div>
