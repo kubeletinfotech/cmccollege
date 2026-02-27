@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import toast from "react-hot-toast";
 import Skeleton from "@/components/Skeleton";
+import BottomTicker from "@/components/BottomTicker";
 
 // Lazy load non-critical sections to improve initial TBT
 const Gallery = dynamic(() => import("@/components/Gallery"), {
@@ -309,6 +310,9 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                     />
                 </div>
             </section>
+
+            {/* Scrolling Announcements */}
+            <BottomTicker />
 
             {/* About Section - Premium Bordered Card */}
             <section className="pt-8 pb-8 px-4 md:pt-14 md:pb-10 md:px-6 bg-emerald-50">

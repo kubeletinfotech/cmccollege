@@ -24,7 +24,6 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 </PageTransition>
             </main>
             <Footer />
-            <BottomTicker />
             <AdmissionPopup />
             <WhatsAppWidget />
             <UserSync />
