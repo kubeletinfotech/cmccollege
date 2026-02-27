@@ -70,7 +70,7 @@ export default function Testimonials() {
 
     return (
         <section
-            className="relative w-full py-24 md:py-32 overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing"
+            className="relative w-full py-16 lg:py-20 overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -95,7 +95,7 @@ export default function Testimonials() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="mb-12 md:mb-16"
+                    className="mb-8 md:mb-10 lg:mb-12"
                 >
                     <span className="block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase opacity-80 mb-3">
                         What Our Alumni Say
@@ -107,7 +107,7 @@ export default function Testimonials() {
                 </motion.div>
 
                 {/* Testimonial Carousel */}
-                <div className="relative min-h-[450px] md:min-h-[350px] flex items-center justify-center">
+                <div className="relative min-h-[350px] md:min-h-[250px] lg:min-h-[220px] flex items-center justify-center">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={testimonials[currentIndex].id}
