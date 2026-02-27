@@ -75,7 +75,7 @@ export default function ManagementPage() {
                     ))}
                 </div>
 
-                <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col gap-12 items-center">
+                <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col gap-2 items-center">
                     <div className="text-center">
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
@@ -93,7 +93,7 @@ export default function ManagementPage() {
                             transition={{ duration: 0.8, delay: 0.1 }}
                             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4"
                         >
-                            CM <span className="text-white/40 font-light">Centre</span> <br />
+                            CM <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-pink-200/50">Centre</span>{" "}
                             <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-pink-200/50">Madavoor</span>
                         </motion.h1>
 
@@ -116,18 +116,15 @@ export default function ManagementPage() {
                         }}
                         className="flex justify-center"
                     >
-                        <div className="relative group">
-                            {/* Minimalism - Tighter Sleek Container */}
-                            <div className="relative w-40 h-16 md:w-60 md:h-24 bg-white rounded-xl md:rounded-2xl shadow-xl shadow-black/10 flex items-center justify-center p-3 md:p-5 transition-all duration-500 group-hover:scale-[1.02]">
-                                <Image
-                                    src="https://ik.imagekit.io/1yxtj9qun/Home/images/cm-center-logo.png?updatedAt=1770370304268"
-                                    alt="CM Center Logo"
-                                    width={300}
-                                    height={150}
-                                    priority
-                                    className="object-contain w-full h-full transform-gpu scale-110 md:scale-125"
-                                />
-                            </div>
+                        <div className="relative group transition-all duration-500 hover:scale-105">
+                            <Image
+                                src="https://ik.imagekit.io/1yxtj9qun/Home/images/cm-center-logo.png?updatedAt=1770370304268"
+                                alt="CM Center Logo"
+                                width={300}
+                                height={150}
+                                priority
+                                className="object-contain w-40 md:w-60 h-auto drop-shadow-lg"
+                            />
                         </div>
                     </motion.div>
                 </div>
