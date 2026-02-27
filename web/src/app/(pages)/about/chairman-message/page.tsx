@@ -50,7 +50,7 @@ export default function ChairmanMessagePage() {
                         <h4 className="text-[#7a0b3a] font-extrabold tracking-[0.15em] uppercase text-xl mb-6">Chairman Message</h4>
 
                         <div className="text-zinc-600 leading-[1.8] text-base lg:text-lg text-justify font-light mb-6">
-                            <p>
+                            <p className="text-justify">
                                 {isExpanded ? fullText : truncatedText}
                             </p>
                             <button
@@ -69,21 +69,6 @@ export default function ChairmanMessagePage() {
                             <h3 className="text-2xl md:text-3xl font-bold text-[#7a0b3a] tracking-tight">TK ABDURAHIMAN BAQUAVI</h3>
                             <p className="text-[#7a0b3a]/80 font-medium text-sm mb-8">(General Secretary, CM Centre)</p>
                         </div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                            <a
-                                href="/assets/sample-paper.txt"
-                                download="Chairman-Message.pdf"
-                                className="inline-flex items-center gap-3 px-8 py-4 bg-[#7a0b3a] text-white rounded-2xl font-bold hover:bg-[#60082d] transition-all hover:scale-105 shadow-xl shadow-maroon-900/10 cursor-pointer"
-                            >
-                                <Download size={20} />
-                                Download Message PDF
-                            </a>
-                        </motion.div>
                     </motion.div>
 
                 </div>

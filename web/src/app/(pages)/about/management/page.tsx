@@ -158,7 +158,7 @@ export default function ManagementPage() {
 
                         <div className="relative">
                             <span className="absolute -top-4 -left-6 text-6xl text-[#7a0b3a]/5 font-serif select-none pointer-events-none">&ldquo;</span>
-                            <div className="space-y-6 text-zinc-600 leading-relaxed text-lg relative z-10">
+                            <div className="space-y-6 text-zinc-600 leading-relaxed text-lg relative z-10 text-left lg:text-justify hyphens-auto">
                                 <p>
                                     Quthub al Alam CM valiyullahi, who rose to prominence through a prosperous life, was the pillar of support and shade of strength for thousands and that shadow continues even after his death. The CM Memorial Centre was established in his hometown of Madavoor during his lifetime at the behest of greats.
                                 </p>
