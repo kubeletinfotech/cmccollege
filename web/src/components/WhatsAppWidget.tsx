@@ -21,20 +21,21 @@ export default function WhatsAppWidget() {
     // Scroll handling to show/hide the widget
     useEffect(() => {
         const handleScroll = () => {
-            // Show widget after scrolling 300px
-            if (window.scrollY > 300) {
-                setIsVisible(true);
+            if (pathname === "/") {
+                // On home page, show widget after scrolling down (past hero section)
+                setIsVisible(window.scrollY > 300);
             } else {
-                setIsVisible(false);
+                // On all other pages, show immediately from top
+                setIsVisible(true);
             }
         };
 
         window.addEventListener("scroll", handleScroll);
-        // Initial check in case they reload further down
+        // Initial check in case they reload
         handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [pathname]);
 
     // Auto-focus input when opened
     useEffect(() => {
@@ -43,7 +44,8 @@ export default function WhatsAppWidget() {
         }
     }, [isOpen]);
 
-    if (pathname?.startsWith("/admin")) return null;
+    // Hide entirely on admin and contact pages
+    if (pathname?.startsWith("/admin") || pathname === "/contact") return null;
 
     const handleSend = () => {
         const text = message.trim() || DEFAULT_MESSAGE;
