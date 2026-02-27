@@ -189,7 +189,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     };
 
     return (
-        <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[110px] lg:pt-[216px] bg-white">
+        <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[6.875rem] lg:pt-[13.5rem] bg-white">
             {/* Hero Section - Professional Academic Banner */}
             <section className="relative h-[468px] md:h-[650px] lg:h-[700px] w-full overflow-hidden bg-zinc-900">
                 {/* Hero Background Slider */}
