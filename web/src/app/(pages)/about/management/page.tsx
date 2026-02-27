@@ -38,7 +38,7 @@ export default function ManagementPage() {
     return (
         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Header Section */}
-            <div className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-[#7a0b3a] text-white py-12 px-6 md:p-20 shadow-2xl shadow-maroon-900/40 min-h-[400px] flex items-center">
+            <div className="relative rounded-[32px] md:rounded-[48px] overflow-hidden bg-[#7a0b3a] text-white py-8 px-6 md:py-16 md:px-12 shadow-2xl shadow-maroon-900/40 min-h-[300px] flex items-center">
 
                 {/* Dynamic Background Elements */}
                 <div className="absolute inset-0 bg-linear-to-br from-[#7a0b3a] via-[#910d44] to-[#60082d]"></div>
@@ -75,8 +75,8 @@ export default function ManagementPage() {
                     ))}
                 </div>
 
-                <div className="relative z-10 w-full max-w-7xl mx-auto grid md:grid-cols-[1fr_auto] gap-12 items-center">
-                    <div className="text-center md:text-left">
+                <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col gap-12 items-center">
+                    <div className="text-center">
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -91,9 +91,9 @@ export default function ManagementPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tight mb-4"
+                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4"
                         >
-                            CM <span className="text-white/40 font-light">Centre</span> <br className="hidden lg:block" />
+                            CM <span className="text-white/40 font-light">Centre</span> <br />
                             <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-pink-200/50">Madavoor</span>
                         </motion.h1>
 
@@ -101,7 +101,7 @@ export default function ManagementPage() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, delay: 0.4 }}
-                            className="text-pink-100/60 font-medium text-sm md:text-lg tracking-wide uppercase max-w-xl mx-auto md:mx-0"
+                            className="text-pink-100/60 font-medium text-sm md:text-lg tracking-wide uppercase max-w-xl mx-auto"
                         >
                             Upholding values through educational excellence
                         </motion.p>
@@ -118,12 +118,12 @@ export default function ManagementPage() {
                     >
                         <div className="relative group">
                             {/* Minimalism - Tighter Sleek Container */}
-                            <div className="relative w-48 h-20 md:w-80 md:h-36 bg-white rounded-xl md:rounded-2xl shadow-xl shadow-black/10 flex items-center justify-center p-4 md:p-8 transition-all duration-500 group-hover:scale-[1.02]">
+                            <div className="relative w-40 h-16 md:w-60 md:h-24 bg-white rounded-xl md:rounded-2xl shadow-xl shadow-black/10 flex items-center justify-center p-3 md:p-5 transition-all duration-500 group-hover:scale-[1.02]">
                                 <Image
                                     src="https://ik.imagekit.io/1yxtj9qun/Home/images/cm-center-logo.png?updatedAt=1770370304268"
                                     alt="CM Center Logo"
-                                    width={400}
-                                    height={200}
+                                    width={300}
+                                    height={150}
                                     priority
                                     className="object-contain w-full h-full transform-gpu scale-110 md:scale-125"
                                 />
