@@ -99,6 +99,8 @@ jobs:
             printf 'NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY=%s\n' "${{ secrets.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY }}"
             printf 'NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=%s\n' "${{ secrets.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT }}"
             printf 'RESEND_FROM_EMAIL=%s\n' "${{ secrets.RESEND_FROM_EMAIL }}"
+            printf 'RESEND_API_KEY=%s\n' "${{ secrets.RESEND_API_KEY }}"
+            printf 'RESEND_TO_EMAIL=%s\n' "${{ secrets.RESEND_TO_EMAIL }}"
           } > .deploy.env
 
           echo "env_b64=$(base64 -w 0 .deploy.env)" >> "$GITHUB_OUTPUT"
