@@ -50,8 +50,9 @@ export default function CareerApplication() {
     const handleCvChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
+            const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
             const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/webp'];
-            if (!allowedTypes.includes(file.type)) {
+            if (!allowedTypes.includes(file.type) && !isPdf) {
                 toast.error("Please upload a PDF or JPG/PNG/WEBP image for your CV.");
                 return;
             }
@@ -61,7 +62,7 @@ export default function CareerApplication() {
             }
             setFormData((prev) => ({ ...prev, cv: file }));
 
-            if (file.type === 'application/pdf') {
+            if (isPdf) {
                 setCvPreview("pdf"); // Special flag for PDF preview
             } else {
                 setCvPreview(URL.createObjectURL(file));
@@ -334,10 +335,22 @@ export default function CareerApplication() {
                                                             <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
                                                                 <Image src={uploadPreview} alt="Preview" fill className="object-cover" />
                                                             </div>
-                                                            <div className="flex items-center gap-2 text-emerald-700 font-medium">
-                                                                <CheckCircle className="w-4 h-4" /> Photo Selected
+                                                            <div className="flex flex-col items-center gap-2 text-emerald-700 font-medium">
+                                                                <div className="flex items-center gap-2">
+                                                                    <CheckCircle className="w-4 h-4" /> Photo Selected
+                                                                </div>
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={(e) => {
+                                                                        e.stopPropagation();
+                                                                        window.open(uploadPreview, '_blank');
+                                                                    }}
+                                                                    className="text-xs font-semibold bg-white border border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-3 py-1.5 rounded-lg shadow-xs transition-colors"
+                                                                >
+                                                                    Preview Photo
+                                                                </button>
                                                             </div>
-                                                            <p className="text-xs text-zinc-500">Click to change</p>
+                                                            <p className="text-xs text-zinc-500">Click container to change</p>
                                                         </div>
                                                     ) : (
                                                         <div className="text-center space-y-2">
@@ -364,7 +377,7 @@ export default function CareerApplication() {
                                                     <input
                                                         ref={cvInputRef}
                                                         type="file"
-                                                        accept="application/pdf,image/jpeg,image/png,image/webp"
+                                                        accept=".pdf,application/pdf,image/jpeg,image/png,image/webp"
                                                         className="hidden"
                                                         onChange={handleCvChange}
                                                     />
@@ -381,10 +394,22 @@ export default function CareerApplication() {
                                                                     <Image src={cvPreview} alt="CV Preview" fill className="object-cover" />
                                                                 </div>
                                                             )}
-                                                            <div className="flex items-center gap-2 text-emerald-700 font-medium">
-                                                                <CheckCircle className="w-4 h-4" /> CV Selected
+                                                            <div className="flex flex-col items-center gap-2 text-emerald-700 font-medium">
+                                                                <div className="flex items-center gap-2">
+                                                                    <CheckCircle className="w-4 h-4" /> CV Selected
+                                                                </div>
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={(e) => {
+                                                                        e.stopPropagation();
+                                                                        if (formData.cv) window.open(URL.createObjectURL(formData.cv), '_blank');
+                                                                    }}
+                                                                    className="text-xs font-semibold bg-white border border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-3 py-1.5 rounded-lg shadow-xs transition-colors"
+                                                                >
+                                                                    Preview CV
+                                                                </button>
                                                             </div>
-                                                            <p className="text-xs text-zinc-500">Click to change</p>
+                                                            <p className="text-xs text-zinc-500">Click container to change</p>
                                                         </div>
                                                     ) : (
                                                         <div className="text-center space-y-2">

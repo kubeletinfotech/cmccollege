@@ -32,7 +32,8 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        if (!allowedCvTypes.includes(cvFile.type)) {
+        const isPdf = cvFile.type === 'application/pdf' || cvFile.name.toLowerCase().endsWith('.pdf');
+        if (!allowedCvTypes.includes(cvFile.type) && !isPdf) {
             return NextResponse.json(
                 { success: false, message: "Invalid CV type. Please upload a PDF, JPG, PNG, or WEBP." },
                 { status: 400 }
