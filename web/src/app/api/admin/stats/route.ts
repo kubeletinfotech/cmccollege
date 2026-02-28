@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { ensureAdmin } from '@/lib/ensureAdmin';
-import Enquiry from '@/models/Enquiry';
+
 import Announcements from '@/models/Announcements';
 import Gallery from '@/models/Gallery';
 import News from '@/models/News';
@@ -16,8 +16,7 @@ export async function GET() {
 
 
         // Fetch counts in parallel
-        const [enquiryCount, announcementCount, galleryCount, newsCount, userCount, careerCount, questionCount] = await Promise.all([
-            Enquiry.countDocuments(),
+        const [announcementCount, galleryCount, newsCount, userCount, careerCount, questionCount] = await Promise.all([
             Announcements.countDocuments(),
             Gallery.countDocuments(),
             News.countDocuments(),
@@ -26,28 +25,16 @@ export async function GET() {
             QuestionPaper.countDocuments()
         ]);
 
-        // Get latest items for activity
-        const pendingEnquiries = await Enquiry.find({ status: 'Pending' })
-            .sort({ createdAt: -1 })
-            .limit(4);
-
         const recentAnnouncements = await Announcements.find()
             .sort({ createdAt: -1 })
             .limit(3);
 
-        // Calculate this month's enquiries
-        const startOfMonth = new Date();
-        startOfMonth.setDate(1);
-        startOfMonth.setHours(0, 0, 0, 0);
-        const enquiriesThisMonth = await Enquiry.countDocuments({
-            createdAt: { $gte: startOfMonth }
-        });
+
 
         return NextResponse.json({
             success: true,
             data: {
                 counts: {
-                    enquiries: enquiryCount,
                     announcements: announcementCount,
                     gallery: galleryCount,
                     news: newsCount,
@@ -55,8 +42,6 @@ export async function GET() {
                     careers: careerCount,
                     questions: questionCount,
                 },
-                enquiriesThisMonth,
-                pendingEnquiries,
                 recentAnnouncements
             }
         });

@@ -1,29 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
-import Enquiry from '@/models/Enquiry';
-import { ensureAdmin } from '@/lib/ensureAdmin';
 import { Resend } from 'resend';
-
 export async function GET() {
-    try {
-        await ensureAdmin();
-
-        await connectDB();
-        const enquiries = await Enquiry.find({}).sort({ createdAt: -1 });
-        return NextResponse.json({
-            success: true,
-            data: enquiries,
-        });
-    } catch (error: any) {
-        if (error.message === "Unauthorized" || error.message === "Forbidden") {
-            return NextResponse.json({ message: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
-        }
-        console.error('Error fetching enquiries:', error);
-        return NextResponse.json(
-            { success: false, error: 'Failed to fetch enquiries' },
-            { status: 500 }
-        );
-    }
+    return NextResponse.json(
+        { success: false, error: 'Enquiries endpoint disabled' },
+        { status: 404 }
+    );
 }
 
 export async function POST(req: NextRequest) {
@@ -39,15 +21,7 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        await connectDB();
-        const enquiry = await Enquiry.create({
-            name,
-            phone,
-            email,
-            message,
-            status: 'Pending' // Explicitly set status to default
-        });
-
+        // Removed DB saving as per user request (emails only now)
         // Send email via Resend
         if (process.env.RESEND_API_KEY) {
             const resend = new Resend(process.env.RESEND_API_KEY);
@@ -136,7 +110,7 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({
             success: true,
-            data: enquiry,
+            data: { name, phone, email, message },
         });
     } catch (error: any) {
 
