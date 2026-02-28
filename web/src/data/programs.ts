@@ -63,14 +63,10 @@ export const programs: Program[] = [
     {
         id: "nss",
         name: "NSS",
-        logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/nss-logo",
+        logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/nss?updatedAt=1772262388668?",
         description: "National Service Scheme (NSS) is a student welfare organization that works to improve the quality of life of students and the community.",
         tagline: "National Service Scheme",
         gallery: [
-            "/placeholder.jpg",
-            "/placeholder.jpg",
-            "/placeholder.jpg",
-            "/placeholder.jpg"
         ]
     },
 ];

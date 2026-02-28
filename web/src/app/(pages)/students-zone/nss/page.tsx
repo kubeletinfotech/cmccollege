@@ -39,8 +39,8 @@ export default function NSSPage() {
                         className="relative h-[250px] md:h-[320px] lg:h-[350px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="https://ik.imagekit.io/1yxtj9qun/Home/images/nss-logo?updatedAt=1771959007929"
-                            alt="NSS Activities"
+                            src="https://ik.imagekit.io/1yxtj9qun/NSS/nss-logo.png"
+                            alt="NSS Logo"
                             fill
                             className="object-contain hover:scale-105 transition-transform duration-700"
                             priority
