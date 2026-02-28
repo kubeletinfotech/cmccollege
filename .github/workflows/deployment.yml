@@ -62,6 +62,7 @@ jobs:
             NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
             NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY }}
             NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=${{ secrets.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT }}
+            RESEND_FROM_EMAIL=${{ secrets.RESEND_FROM_EMAIL }}
 
       - name: Export deployed image tag
         id: meta
@@ -95,6 +96,7 @@ jobs:
             printf 'NEXT_PUBLIC_API_URL=%s\n' "${{ secrets.NEXT_PUBLIC_API_URL }}"
             printf 'NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY=%s\n' "${{ secrets.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY }}"
             printf 'NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=%s\n' "${{ secrets.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT }}"
+            printf 'RESEND_FROM_EMAIL=%s\n' "${{ secrets.RESEND_FROM_EMAIL }}"
           } > .deploy.env
 
           echo "env_b64=$(base64 -w 0 .deploy.env)" >> "$GITHUB_OUTPUT"
