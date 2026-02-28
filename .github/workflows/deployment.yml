@@ -63,6 +63,8 @@ jobs:
             NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY }}
             NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=${{ secrets.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT }}
             RESEND_FROM_EMAIL=${{ secrets.RESEND_FROM_EMAIL }}
+            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+            RESEND_TO_EMAIL=${{ secrets.RESEND_TO_EMAIL }}
 
       - name: Export deployed image tag
         id: meta
