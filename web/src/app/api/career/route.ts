@@ -105,6 +105,11 @@ export async function POST(req: NextRequest) {
                                                     <div class="label" style="font-size: 13px; text-transform: uppercase; color: #71717a; font-weight: 700; margin-bottom: 6px;">Full Name</div>
                                                     <div class="value" style="font-size: 16px; color: #18181b; background-color: #f9fafb; padding: 12px 16px; border-radius: 8px; border-left: 4px solid #10b981;">${fullName}</div>
                                                 </div>
+
+                                                <div class="field" style="margin-bottom: 25px;">
+                                                    <div class="label" style="font-size: 13px; text-transform: uppercase; color: #71717a; font-weight: 700; margin-bottom: 6px;">Applying Position</div>
+                                                    <div class="value" style="font-size: 16px; color: #18181b; background-color: #f9fafb; padding: 12px 16px; border-radius: 8px; border-left: 4px solid #10b981; font-weight: 600;">${applyingPosition}</div>
+                                                </div>
                                                 
                                                 <div class="field" style="margin-bottom: 25px;">
                                                     <div class="label" style="font-size: 13px; text-transform: uppercase; color: #71717a; font-weight: 700; margin-bottom: 6px;">Contact Details</div>
@@ -140,7 +145,64 @@ export async function POST(req: NextRequest) {
             if (error) {
                 console.error('Error sending email with Resend:', error);
             } else {
-                console.log('Successfully sent email with Resend:', data);
+                console.log('Successfully sent email to Admin with Resend:', data);
+
+                // Send an Auto-Reply confirmation to the User
+                const { error: userError } = await resend.emails.send({
+                    from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+                    to: email, // Send to the applicant's email
+                    subject: `Application Received: ${applyingPosition} at CM College`,
+                    html: `
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <style>
+                                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f5; margin: 0; padding: 0; }
+                                .container { max-w: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+                                .header { background-color: #047857; color: #ffffff; padding: 30px; text-align: center; }
+                                .header h1 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: 0.5px; }
+                                .content { padding: 40px 30px; color: #3f3f46; line-height: 1.6; }
+                                .footer { background-color: #f4f4f5; padding: 20px; text-align: center; font-size: 13px; color: #a1a1aa; border-top: 1px solid #e4e4e7; }
+                            </style>
+                        </head>
+                        <body>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f4f4f5; font-family: sans-serif;">
+                                <tr>
+                                    <td align="center" style="padding: 40px 10px;">
+                                        <table class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; max-width: 600px; margin: 0 auto;">
+                                            <tr>
+                                                <td class="header" style="background-color: #047857; color: #ffffff; padding: 30px; text-align: center;">
+                                                    <h1 style="margin: 0; font-size: 24px; font-weight: 600;">Application Received!</h1>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="content" style="padding: 40px 30px; color: #3f3f46; font-size: 16px;">
+                                                    <p>Dear <strong>${fullName}</strong>,</p>
+                                                    <p>Thank you for your interest in joining CM College. We are writing to confirm that we have successfully received your application for the <strong>${applyingPosition}</strong> position.</p>
+                                                    <p>Our recruitment team will review your application and attached documents. If your qualifications match our current needs, we will be in touch with you shortly to discuss the next steps.</p>
+                                                    <p>Thank you once again for your application and for your interest in CM College.</p>
+                                                    <br>
+                                                    <p>Best regards,</p>
+                                                    <p><strong>The Recruitment Team<br>CM College</strong></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="footer" style="padding: 20px; text-align: center; font-size: 13px; color: #a1a1aa; border-top: 1px solid #e4e4e7;">
+                                                    <p style="margin: 0;">This is an automated confirmation message. Please do not reply directly to this email.</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </body>
+                        </html>
+                    `
+                });
+
+                if (userError) {
+                    console.error("Error sending confirmation to User:", userError);
+                }
             }
         } else {
             console.log("No RESEND_API_KEY found, not sending email");

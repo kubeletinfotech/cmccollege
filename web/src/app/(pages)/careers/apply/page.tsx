@@ -125,24 +125,9 @@ export default function CareerApplication() {
             const data = await response.json();
 
             if (response.ok && data.success) {
-                toast.success("Application Submitted Successfully!");
-
-
-
-                // Reset form
-                setFormData({
-                    fullName: "",
-                    email: "",
-                    phone: "",
-                    applyingPosition: "",
-                    qualification: "",
-                    experience: "",
-                    resume: null,
-                    cv: null,
-                });
-                setUploadPreview(null);
-                setCvPreview(null);
-                setStep(1);
+                toast.success("Application for " + formData.applyingPosition + " Submitted!");
+                setStep(3);
+                // Do not reset form data yet so we can display it on the success screen.
             } else {
                 toast.error(data.message || "Something went wrong.");
             }
@@ -268,7 +253,7 @@ export default function CareerApplication() {
                                             </button>
                                         </div>
                                     </motion.div>
-                                ) : (
+                                ) : step === 2 ? (
                                     <motion.div
                                         key="step2"
                                         initial={{ opacity: 0, x: 20 }}
@@ -319,8 +304,7 @@ export default function CareerApplication() {
 
                                                 <div
                                                     onClick={() => fileInputRef.current?.click()}
-                                                    className={`border-2 border-dashed rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer transition-colors ${uploadPreview ? 'border-emerald-500 bg-emerald-50' : 'border-zinc-300 hover:border-emerald-500 hover:bg-zinc-50'
-                                                        }`}
+                                                    className={`border-2 border-dashed rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer transition-colors ${uploadPreview ? 'border-emerald-500 bg-emerald-50' : 'border-zinc-300 hover:border-emerald-500 hover:bg-zinc-50'}`}
                                                 >
                                                     <input
                                                         ref={fileInputRef}
@@ -333,7 +317,7 @@ export default function CareerApplication() {
                                                     {uploadPreview ? (
                                                         <div className="space-y-3 flex flex-col items-center">
                                                             <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
-                                                                <Image src={uploadPreview} alt="Preview" fill className="object-cover" />
+                                                                <img src={uploadPreview} alt="Preview" className="w-full h-full object-cover" />
                                                             </div>
                                                             <div className="flex flex-col items-center gap-2 text-emerald-700 font-medium">
                                                                 <div className="flex items-center gap-2">
@@ -371,8 +355,7 @@ export default function CareerApplication() {
 
                                                 <div
                                                     onClick={() => cvInputRef.current?.click()}
-                                                    className={`border-2 border-dashed rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer transition-colors ${cvPreview ? 'border-emerald-500 bg-emerald-50' : 'border-zinc-300 hover:border-emerald-500 hover:bg-zinc-50'
-                                                        }`}
+                                                    className={`border-2 border-dashed rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer transition-colors ${cvPreview ? 'border-emerald-500 bg-emerald-50' : 'border-zinc-300 hover:border-emerald-500 hover:bg-zinc-50'}`}
                                                 >
                                                     <input
                                                         ref={cvInputRef}
@@ -391,7 +374,7 @@ export default function CareerApplication() {
                                                                 </div>
                                                             ) : (
                                                                 <div className="relative w-full max-w-[200px] h-32 rounded-lg overflow-hidden border-4 border-white shadow-md">
-                                                                    <Image src={cvPreview} alt="CV Preview" fill className="object-cover" />
+                                                                    <img src={cvPreview} alt="CV Preview" className="w-full h-full object-cover" />
                                                                 </div>
                                                             )}
                                                             <div className="flex flex-col items-center gap-2 text-emerald-700 font-medium">
@@ -448,7 +431,39 @@ export default function CareerApplication() {
                                             </button>
                                         </div>
                                     </motion.div>
-                                )}
+                                ) : step === 3 ? (
+                                    <motion.div
+                                        key="step3"
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        className="py-12 flex flex-col items-center text-center space-y-6"
+                                    >
+                                        <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+                                            <CheckCircle className="w-10 h-10" />
+                                        </div>
+                                        <h2 className="text-3xl font-bold text-zinc-900">Application Submitted!</h2>
+                                        <p className="text-zinc-600 max-w-md mx-auto text-lg">
+                                            Thank you, <strong>{formData.fullName}</strong>. You have successfully applied for the <span className="font-semibold text-emerald-700">{formData.applyingPosition}</span> position.
+                                        </p>
+                                        <div className="bg-emerald-50 text-emerald-800 px-6 py-4 rounded-xl text-sm max-w-sm mx-auto border border-emerald-100">
+                                            <p>A confirmation receipt has been sent to your email at <strong>{formData.email}</strong>.</p>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setFormData({
+                                                    fullName: "", email: "", phone: "", applyingPosition: "", qualification: "", experience: "", resume: null, cv: null
+                                                });
+                                                setUploadPreview(null);
+                                                setCvPreview(null);
+                                                setStep(1);
+                                            }}
+                                            className="mt-8 text-emerald-700 border border-emerald-200 hover:bg-emerald-50 px-6 py-2.5 rounded-lg font-medium transition-colors"
+                                        >
+                                            Submit Another Application
+                                        </button>
+                                    </motion.div>
+                                ) : null}
                             </AnimatePresence>
                         </form>
                     </div>
