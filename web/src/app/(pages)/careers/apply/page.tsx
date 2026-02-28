@@ -50,16 +50,22 @@ export default function CareerApplication() {
     const handleCvChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
-            if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
-                toast.error("Please upload only JPG, PNG, or WEBP images for CV.");
+            const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/webp'];
+            if (!allowedTypes.includes(file.type)) {
+                toast.error("Please upload a PDF or JPG/PNG/WEBP image for your CV.");
                 return;
             }
-            if (file.size > 2 * 1024 * 1024) {
-                toast.error("CV File size must be less than 2MB.");
+            if (file.size > 5 * 1024 * 1024) {
+                toast.error("CV File size must be less than 5MB.");
                 return;
             }
             setFormData((prev) => ({ ...prev, cv: file }));
-            setCvPreview(URL.createObjectURL(file));
+
+            if (file.type === 'application/pdf') {
+                setCvPreview("pdf"); // Special flag for PDF preview
+            } else {
+                setCvPreview(URL.createObjectURL(file));
+            }
         }
     };
 
@@ -82,7 +88,7 @@ export default function CareerApplication() {
             return false;
         }
         if (!formData.cv) {
-            toast.error("Please upload your CV (Image format).");
+            toast.error("Please upload your CV (PDF or Image).");
             return false;
         }
         return true;
@@ -120,13 +126,7 @@ export default function CareerApplication() {
             if (response.ok && data.success) {
                 toast.success("Application Submitted Successfully!");
 
-                // Construct WhatsApp message
-                const whatsappMessage = `*New Career ApplicationNotification*\n\n*Name:* ${formData.fullName}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email}\n*Position:* ${formData.applyingPosition}\n*Qualification:* ${formData.qualification || 'N/A'}\n*Experience:* ${formData.experience || 'N/A'} years`;
-                const encodedMessage = encodeURIComponent(whatsappMessage);
-                const whatsappUrl = `https://wa.me/7594888203?text=${encodedMessage}`;
 
-                // Open WhatsApp in a new tab
-                window.open(whatsappUrl, '_blank');
 
                 // Reset form
                 setFormData({
@@ -353,7 +353,7 @@ export default function CareerApplication() {
 
                                             <div>
                                                 <label className="block text-sm font-medium text-zinc-700 mb-2">
-                                                    Upload CV * <span className="text-zinc-400 font-normal">(Image only, max 2MB)</span>
+                                                    Upload CV * <span className="text-zinc-400 font-normal">(PDF or Image, max 5MB)</span>
                                                 </label>
 
                                                 <div
@@ -364,16 +364,23 @@ export default function CareerApplication() {
                                                     <input
                                                         ref={cvInputRef}
                                                         type="file"
-                                                        accept="image/jpeg,image/png,image/webp"
+                                                        accept="application/pdf,image/jpeg,image/png,image/webp"
                                                         className="hidden"
                                                         onChange={handleCvChange}
                                                     />
 
                                                     {cvPreview ? (
                                                         <div className="space-y-3 flex flex-col items-center">
-                                                            <div className="relative w-full max-w-[200px] h-32 rounded-lg overflow-hidden border-4 border-white shadow-md">
-                                                                <Image src={cvPreview} alt="CV Preview" fill className="object-cover" />
-                                                            </div>
+                                                            {cvPreview === "pdf" ? (
+                                                                <div className="flex flex-col items-center justify-center w-24 h-24 rounded-lg bg-red-100 text-red-600 border border-red-200">
+                                                                    <FileText className="w-10 h-10 mb-1" />
+                                                                    <span className="text-xs font-bold uppercase">PDF</span>
+                                                                </div>
+                                                            ) : (
+                                                                <div className="relative w-full max-w-[200px] h-32 rounded-lg overflow-hidden border-4 border-white shadow-md">
+                                                                    <Image src={cvPreview} alt="CV Preview" fill className="object-cover" />
+                                                                </div>
+                                                            )}
                                                             <div className="flex items-center gap-2 text-emerald-700 font-medium">
                                                                 <CheckCircle className="w-4 h-4" /> CV Selected
                                                             </div>
@@ -385,7 +392,7 @@ export default function CareerApplication() {
                                                                 <FileText className="w-6 h-6" />
                                                             </div>
                                                             <p className="text-emerald-900 font-medium">Click to upload CV</p>
-                                                            <p className="text-xs text-zinc-500">JPG, PNG, WEBP (Max 2MB)</p>
+                                                            <p className="text-xs text-zinc-500">PDF, JPG, PNG (Max 5MB)</p>
                                                         </div>
                                                     )}
                                                 </div>

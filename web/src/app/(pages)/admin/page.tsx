@@ -103,16 +103,7 @@ export default function AdminDashboardPage() {
             text: 'text-pink-600',
             href: '/admin/questions'
         },
-        {
-            label: 'Career Details',
-            val: statsData?.counts.careers || 0,
-            trend: 'Active Postings',
-            icon: Briefcase,
-            color: 'from-orange-600 to-orange-400',
-            bg: 'bg-orange-50',
-            text: 'text-orange-600',
-            href: '/admin/careers'
-        }
+
     ];
 
     const pendingAnnouncements = statsData?.recentAnnouncements || [];

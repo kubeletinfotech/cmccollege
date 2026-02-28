@@ -6,7 +6,7 @@ import Announcements from '@/models/Announcements';
 import Gallery from '@/models/Gallery';
 import News from '@/models/News';
 import User from '@/models/User';
-import CareerApplication from '@/models/CareerApplication';
+
 import QuestionPaper from '@/models/QuestionPaper';
 
 export async function GET() {
@@ -16,12 +16,11 @@ export async function GET() {
 
 
         // Fetch counts in parallel
-        const [announcementCount, galleryCount, newsCount, userCount, careerCount, questionCount] = await Promise.all([
+        const [announcementCount, galleryCount, newsCount, userCount, questionCount] = await Promise.all([
             Announcements.countDocuments(),
             Gallery.countDocuments(),
             News.countDocuments(),
             User.countDocuments(),
-            CareerApplication.countDocuments(),
             QuestionPaper.countDocuments()
         ]);
 
@@ -39,7 +38,6 @@ export async function GET() {
                     gallery: galleryCount,
                     news: newsCount,
                     users: userCount,
-                    careers: careerCount,
                     questions: questionCount,
                 },
                 recentAnnouncements
