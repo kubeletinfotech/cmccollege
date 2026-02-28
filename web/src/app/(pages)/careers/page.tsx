@@ -51,9 +51,9 @@ export default function CareersPage() {
     };
 
     return (
-        <div className="min-h-screen bg-stone-50 font-sans pt-[120px] pb-24 text-zinc-800">
+        <div className="min-h-screen bg-stone-50 font-sans pt-24 lg:pt-[120px] pb-16 lg:pb-24 text-zinc-800">
             {/* Hero Section */}
-            <div className="relative bg-zinc-900 text-white overflow-hidden py-24 mb-16">
+            <div className="relative bg-zinc-900 text-white overflow-hidden py-16 lg:py-24 mb-12 lg:mb-16">
                 <div className="absolute inset-0 opacity-20 MixBlendMode-overlay">
                     <Image
                         src="https://ik.imagekit.io/1yxtj9qun/Home/images/computer-lab.jpeg"
@@ -93,8 +93,8 @@ export default function CareersPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <Link href="#openings">
-                            <button className="px-8 py-4 bg-emerald-500 text-white font-bold rounded-xl shadow-xl hover:bg-emerald-400 hover:scale-105 active:scale-95 transition-all uppercase tracking-widest text-sm inline-flex items-center gap-2">
+                        <Link href="#openings" className="block sm:inline-block">
+                            <button className="w-full sm:w-auto px-8 py-4 bg-emerald-500 text-white font-bold rounded-xl shadow-xl hover:bg-emerald-400 hover:scale-105 active:scale-95 transition-all uppercase tracking-widest text-sm inline-flex items-center justify-center gap-2">
                                 View Openings <ArrowRight size={18} />
                             </button>
                         </Link>
@@ -104,32 +104,32 @@ export default function CareersPage() {
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 {/* Benefits Section */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 text-center md:text-left">
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-[24px] shadow-sm border border-zinc-100">
-                        <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16 lg:mb-20 text-center lg:text-left">
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white p-6 lg:p-8 rounded-[24px] shadow-sm border border-zinc-100">
+                        <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto lg:mx-0">
                             <Building size={28} />
                         </div>
                         <h3 className="text-xl font-bold text-zinc-900 mb-3">Modern Infrastructure</h3>
-                        <p className="text-zinc-500 font-medium">Work in a serene, eco-friendly campus with state-of-the-art facilities and labs.</p>
+                        <p className="text-zinc-500 font-medium text-sm lg:text-base">Work in a serene, eco-friendly campus with state-of-the-art facilities and labs.</p>
                     </motion.div>
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="bg-white p-8 rounded-[24px] shadow-sm border border-zinc-100">
-                        <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="bg-white p-6 lg:p-8 rounded-[24px] shadow-sm border border-zinc-100">
+                        <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 mx-auto lg:mx-0">
                             <Award size={28} />
                         </div>
                         <h3 className="text-xl font-bold text-zinc-900 mb-3">Academic Excellence</h3>
-                        <p className="text-zinc-500 font-medium">Join a faculty dedicated to upholding rigorous standards and holistic development.</p>
+                        <p className="text-zinc-500 font-medium text-sm lg:text-base">Join a faculty dedicated to upholding rigorous standards and holistic development.</p>
                     </motion.div>
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="bg-white p-8 rounded-[24px] shadow-sm border border-zinc-100">
-                        <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="bg-white p-6 lg:p-8 rounded-[24px] shadow-sm border border-zinc-100 sm:col-span-2 lg:col-span-1">
+                        <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto lg:mx-0">
                             <MapPin size={28} />
                         </div>
                         <h3 className="text-xl font-bold text-zinc-900 mb-3">Prime Location</h3>
-                        <p className="text-zinc-500 font-medium">Located in beautiful Wayanad, offering a perfect blend of nature and accessibility.</p>
+                        <p className="text-zinc-500 font-medium text-sm lg:text-base">Located in beautiful Wayanad, offering a perfect blend of nature and accessibility.</p>
                     </motion.div>
                 </div>
 
                 {/* Vacancies Section */}
-                <div id="openings" className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div id="openings" className="flex flex-col md:flex-row md:items-end justify-between mb-8 lg:mb-10 gap-4">
                     <div>
                         <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-900 uppercase tracking-tight mb-2">Current Openings</h2>
                         <div className="w-16 h-1 bg-emerald-500 rounded-full mb-4"></div>
@@ -164,7 +164,7 @@ export default function CareersPage() {
                             <motion.div
                                 key={vacancy._id}
                                 variants={itemVariants}
-                                className="bg-white border hover:border-emerald-300 border-zinc-200 p-8 rounded-[24px] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group relative overflow-hidden"
+                                className="bg-white border hover:border-emerald-300 border-zinc-200 p-6 lg:p-8 rounded-[24px] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group relative overflow-hidden"
                             >
                                 {/* Decorative blob */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-emerald-100 transition-colors pointer-events-none"></div>
@@ -208,7 +208,7 @@ export default function CareersPage() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="bg-white border-2 border-dashed border-zinc-200 rounded-[32px] p-16 text-center shadow-sm"
+                        className="bg-white border-2 border-dashed border-zinc-200 rounded-[32px] p-8 lg:p-16 text-center shadow-sm"
                     >
                         <div className="w-20 h-20 bg-zinc-50 rounded-full flex items-center justify-center mx-auto mb-6">
                             <Briefcase className="w-10 h-10 text-zinc-400" />
@@ -217,8 +217,8 @@ export default function CareersPage() {
                         <p className="text-zinc-500 max-w-md mx-auto mb-8 font-medium">
                             We don't have any specific active vacancies at the moment. If you have any questions, please feel free to send us an enquiry message.
                         </p>
-                        <Link href="/contact">
-                            <button className="px-8 py-3.5 bg-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:scale-105 active:scale-95 transition-all text-sm uppercase tracking-widest inline-flex items-center gap-2">
+                        <Link href="/contact" className="block sm:inline-block">
+                            <button className="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:scale-105 active:scale-95 transition-all text-sm uppercase tracking-widest inline-flex items-center justify-center gap-2">
                                 Send Enquiry <ArrowRight size={18} />
                             </button>
                         </Link>
