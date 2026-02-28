@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, UploadCloud, CheckCircle, ChevronRight, ChevronLeft, Briefcase, User, Phone, Mail, FileText, Camera } from "lucide-react";
 import toast from "react-hot-toast";
@@ -11,6 +11,22 @@ export default function CareerApplication() {
     const [loading, setLoading] = useState(false);
     const [uploadPreview, setUploadPreview] = useState<string | null>(null);
     const [cvPreview, setCvPreview] = useState<string | null>(null);
+    const [vacancies, setVacancies] = useState<{ title: string; department: string }[]>([]);
+
+    useEffect(() => {
+        const fetchVacancies = async () => {
+            try {
+                const response = await fetch("/api/vacancies");
+                const data = await response.json();
+                if (data.success && data.data) {
+                    setVacancies(data.data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch vacancies:", error);
+            }
+        };
+        fetchVacancies();
+    }, []);
 
     const [formData, setFormData] = useState({
         fullName: "",
@@ -233,11 +249,16 @@ export default function CareerApplication() {
                                                         className="w-full pl-10 pr-4 py-3 rounded-lg border border-zinc-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-hidden transition-all bg-white text-zinc-800"
                                                     >
                                                         <option value="">Select a Position</option>
-                                                        <option value="Assistant Professor">Assistant Professor</option>
-                                                        <option value="Lab Assistant">Lab Assistant</option>
-                                                        <option value="Administrative Staff">Administrative Staff</option>
-                                                        <option value="Guest Lecturer">Guest Lecturer</option>
-                                                        <option value="Other">Other</option>
+                                                        {vacancies.length > 0 ? (
+                                                            vacancies.map((vacancy, idx) => (
+                                                                <option key={idx} value={vacancy.title}>
+                                                                    {vacancy.title} ({vacancy.department})
+                                                                </option>
+                                                            ))
+                                                        ) : (
+                                                            <option disabled>No current vacancies</option>
+                                                        )}
+                                                        <option value="Other / General Application">Other / General Application</option>
                                                     </select>
                                                 </div>
                                             </div>
