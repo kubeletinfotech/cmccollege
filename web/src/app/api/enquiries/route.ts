@@ -4,8 +4,6 @@ import Enquiry from '@/models/Enquiry';
 import { ensureAdmin } from '@/lib/ensureAdmin';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY || 're_123456789');
-
 export async function GET() {
     try {
         await ensureAdmin();
@@ -52,24 +50,28 @@ export async function POST(req: NextRequest) {
 
         // Send email via Resend
         if (process.env.RESEND_API_KEY) {
-            try {
-                await resend.emails.send({
-                    from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-                    to: process.env.RESEND_TO_EMAIL || 'delivery@resend.dev', // Fallback, normally you provide this in .env
-                    subject: `New Enquiry from ${name}`,
-                    html: `
-                        <h2>New Enquiry Received</h2>
-                        <p><strong>Name:</strong> ${name}</p>
-                        <p><strong>Phone:</strong> ${phone}</p>
-                        <p><strong>Email:</strong> ${email || 'Not provided'}</p>
-                        <p><strong>Message:</strong></p>
-                        <p>${message}</p>
-                    `,
-                });
-            } catch (emailError) {
-                console.error('Error sending email with Resend:', emailError);
-                // We shouldn't fail the whole request if email fails, just log it.
+            const resend = new Resend(process.env.RESEND_API_KEY);
+            const { data, error } = await resend.emails.send({
+                from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+                to: process.env.RESEND_TO_EMAIL || 'delivery@resend.dev', // Fallback, normally you provide this in .env
+                subject: `New Enquiry from ${name}`,
+                html: `
+                    <h2>New Enquiry Received</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+                    <p><strong>Message:</strong></p>
+                    <p>${message}</p>
+                `,
+            });
+
+            if (error) {
+                console.error('Error sending email with Resend:', error);
+            } else {
+                console.log('Successfully sent email with Resend:', data);
             }
+        } else {
+            console.log("No RESEND_API_KEY found, not sending email");
         }
 
         return NextResponse.json({
