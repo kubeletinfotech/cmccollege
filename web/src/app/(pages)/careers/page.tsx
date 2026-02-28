@@ -93,9 +93,9 @@ export default function CareersPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <Link href="/careers/apply">
+                        <Link href="#openings">
                             <button className="px-8 py-4 bg-emerald-500 text-white font-bold rounded-xl shadow-xl hover:bg-emerald-400 hover:scale-105 active:scale-95 transition-all uppercase tracking-widest text-sm inline-flex items-center gap-2">
-                                Submit General Application <ArrowRight size={18} />
+                                View Openings <ArrowRight size={18} />
                             </button>
                         </Link>
                     </motion.div>
@@ -129,7 +129,7 @@ export default function CareersPage() {
                 </div>
 
                 {/* Vacancies Section */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div id="openings" className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                     <div>
                         <h2 className="text-3xl md:text-4xl font-agency font-bold text-emerald-900 uppercase tracking-tight mb-2">Current Openings</h2>
                         <div className="w-16 h-1 bg-emerald-500 rounded-full mb-4"></div>
@@ -215,11 +215,11 @@ export default function CareersPage() {
                         </div>
                         <h3 className="text-2xl font-bold text-zinc-900 mb-3">No Current Openings</h3>
                         <p className="text-zinc-500 max-w-md mx-auto mb-8 font-medium">
-                            We don't have any specific active vacancies at the moment, but we are always looking for great talent.
+                            We don't have any specific active vacancies at the moment. If you have any questions, please feel free to send us an enquiry message.
                         </p>
-                        <Link href="/careers/apply">
+                        <Link href="/contact">
                             <button className="px-8 py-3.5 bg-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:scale-105 active:scale-95 transition-all text-sm uppercase tracking-widest inline-flex items-center gap-2">
-                                Send Speculative CV <ArrowRight size={18} />
+                                Send Enquiry <ArrowRight size={18} />
                             </button>
                         </Link>
                     </motion.div>
