@@ -72,16 +72,7 @@ export default function AdminDashboardPage() {
     };
 
     const stats = [
-        {
-            label: 'Total Enquiries',
-            val: statsData?.counts.enquiries || 0,
-            trend: `+${statsData?.enquiriesThisMonth || 0} this month`,
-            icon: Users,
-            color: 'from-blue-600 to-blue-400',
-            bg: 'bg-blue-50',
-            text: 'text-blue-600',
-            href: '/admin/enquiries'
-        },
+
         {
             label: 'Announcements',
             val: statsData?.counts.announcements || 0,
@@ -124,7 +115,7 @@ export default function AdminDashboardPage() {
         }
     ];
 
-    const pendingEnquiries = statsData?.pendingEnquiries || [];
+    const pendingAnnouncements = statsData?.recentAnnouncements || [];
 
     if (loading) return (
         <div className="flex h-96 items-center justify-center">
@@ -180,41 +171,35 @@ export default function AdminDashboardPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Main Content: Pending Action Items */}
+                {/* Main Content: Recent Announcements */}
                 <div className="lg:col-span-2 space-y-6">
                     <div className="bg-white rounded-2xl border border-zinc-100 shadow-sm overflow-hidden flex flex-col h-full">
                         <div className="p-6 border-b border-zinc-50 flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                                <h3 className="font-bold text-zinc-900">Pending Enquiries</h3>
+                                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                <h3 className="font-bold text-zinc-900">Recent Announcements</h3>
                             </div>
-                            <Link href="/admin/enquiries" className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1 group">
+                            <Link href="/admin/announcements" className="text-sm font-medium text-emerald-600 hover:text-emerald-700 flex items-center gap-1 group">
                                 View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
 
                         <div className="p-2 flex-1">
-                            {pendingEnquiries.length > 0 ? (
+                            {pendingAnnouncements.length > 0 ? (
                                 <div className="space-y-2">
-                                    {pendingEnquiries.map((enq) => (
-                                        <div key={enq._id} className="flex items-center justify-between p-4 hover:bg-zinc-50 rounded-xl transition-colors group cursor-pointer">
+                                    {pendingAnnouncements.map((ann) => (
+                                        <div key={ann._id} className="flex items-center justify-between p-4 hover:bg-zinc-50 rounded-xl transition-colors group cursor-pointer">
                                             <div className="flex items-center gap-4">
-                                                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm">
-                                                    {enq.name.charAt(0)}
+                                                <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
+                                                    {ann.title.charAt(0)}
                                                 </div>
                                                 <div>
-                                                    <div className="font-semibold text-zinc-900">{enq.name}</div>
-                                                    <div className="text-xs text-zinc-500">{enq.email}</div>
+                                                    <div className="font-semibold text-zinc-900">{ann.title}</div>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-6">
                                                 <div className="text-xs text-zinc-400 font-medium flex items-center gap-1">
-                                                    <Clock size={12} /> {getTimeAgo(enq.createdAt)}
-                                                </div>
-                                                <div className="hidden sm:block">
-                                                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-600 border border-red-100">
-                                                        Action Reqd
-                                                    </span>
+                                                    <Clock size={12} /> {getTimeAgo(ann.createdAt)}
                                                 </div>
                                             </div>
                                         </div>
@@ -222,8 +207,8 @@ export default function AdminDashboardPage() {
                                 </div>
                             ) : (
                                 <div className="h-full flex flex-col items-center justify-center py-12 text-zinc-400">
-                                    <Briefcase size={32} className="mb-2 opacity-20" />
-                                    <p>No pending enquiries!</p>
+                                    <Megaphone size={32} className="mb-2 opacity-20" />
+                                    <p>No recent announcements!</p>
                                 </div>
                             )}
                         </div>
@@ -240,8 +225,7 @@ export default function AdminDashboardPage() {
                         </h3>
                         <div className="space-y-6 relative before:absolute before:left-2 before:top-0 before:bottom-0 before:w-0.5 before:bg-zinc-100">
                             {[
-                                ...(statsData?.pendingEnquiries || []).slice(0, 2).map(e => ({ type: 'Enquiry', msg: `New enquiry from ${e.name}`, time: getTimeAgo(e.createdAt) })),
-                                ...(statsData?.recentAnnouncements || []).slice(0, 1).map(a => ({ type: 'Notice', msg: `Posted "${a.title}"`, time: getTimeAgo(a.createdAt) })),
+                                ...(statsData?.recentAnnouncements || []).slice(0, 3).map(a => ({ type: 'Notice', msg: `Posted "${a.title}"`, time: getTimeAgo(a.createdAt) })),
                             ].map((item, i) => (
                                 <div key={i} className="relative pl-8 cursor-pointer hover:bg-zinc-50/50 p-2 rounded-lg transition-colors">
                                     <div className="absolute left-0 top-3 w-4 h-4 rounded-full border-2 border-white bg-blue-500 shadow-sm z-10" />
