@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { UserButton, useClerk } from '@clerk/nextjs';
-import { FileText, LogOut, Loader2, Newspaper, Megaphone } from 'lucide-react';
+import { FileText, LogOut, Loader2, Newspaper, Megaphone, Briefcase } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AdminNotificationBell from '@/components/AdminNotificationBell';
 import { Toaster } from 'react-hot-toast';
@@ -70,6 +70,11 @@ export default function AdminLayoutClient({
         {
             name: 'News', href: '/admin/news', icon: (
                 <Newspaper className="w-5 h-5" />
+            )
+        },
+        {
+            name: 'Careers', href: '/admin/vacancies', icon: (
+                <Briefcase className="w-5 h-5" />
             )
         },
         {

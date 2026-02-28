@@ -14,6 +14,15 @@ export default function CareerApplication() {
     const [vacancies, setVacancies] = useState<{ title: string; department: string }[]>([]);
 
     useEffect(() => {
+        // Pre-select position from URL if present
+        if (typeof window !== 'undefined') {
+            const params = new URLSearchParams(window.location.search);
+            const pos = params.get('position');
+            if (pos) {
+                setFormData(prev => ({ ...prev, applyingPosition: pos }));
+            }
+        }
+
         const fetchVacancies = async () => {
             try {
                 const response = await fetch("/api/vacancies");
