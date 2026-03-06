@@ -280,6 +280,7 @@ export default function Navbar() {
                                     src="https://ik.imagekit.io/1yxtj9qun/Home/images/logo"
                                     alt="CM College Logo"
                                     fill
+                                    priority
                                     sizes="160px"
                                     className="object-contain scale-[1]"
                                 />

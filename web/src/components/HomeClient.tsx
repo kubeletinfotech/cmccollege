@@ -236,7 +236,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     fill
                                     className="object-cover object-top"
                                     sizes="100vw"
-                                    priority={currentSlide === 0}
+                                    priority
                                 />
                             </div>
                         </motion.div>
@@ -275,7 +275,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                             <ChevronRight size={18} />
                                         </Link>
                                         <Link
-                                            href="/about"
+                                            href="/departments"
                                             className="px-8 py-4 bg-[#7B0046] text-white font-bold rounded-lg shadow-xl hover:bg-[#600036] transition-all text-sm uppercase tracking-widest hover:scale-105 active:scale-95 border-b-2 border-white/20"
                                         >
                                             Explore Programs
