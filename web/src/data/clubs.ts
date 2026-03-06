@@ -69,26 +69,4 @@ export const clubs: Club[] = [
             designation: "Assistant Professor, Dept. of Multimedia"
         }
     },
-    {
-        id: 6,
-        name: "Sports Club",
-        image: "https://i.pinimg.com/736x/83/c2/64/83c2648170276c460351205df7c36e34.jpg",
-        description: "Promoting physical fitness and sportsmanship, the Sports Club manages all athletic activities on campus, from intra-college tournaments to university-level meets.",
-        activities: ["Annual Sports Day", "Football League", "Cricket Tournaments", "Indoor Games"],
-        coordinator: {
-            name: "Mr. Shibin K.",
-            designation: "Physical Education Director"
-        }
-    },
-    {
-        id: 7,
-        name: "Entrepreneurship Cell",
-        image: "https://i.pinimg.com/736x/34/7e/b8/347eb87ff820c17dcca0039e282e2059.jpg",
-        description: "The E-Cell inspires and supports budding entrepreneurs. We provide mentorship, conduct business plan competitions, and organize 'Meet the CEO' sessions.",
-        activities: ["Startup Pitch Meets", "Business Planning Workshops", "Entrepreneurial Talks", "Market Fairs"],
-        coordinator: {
-            name: "Mr. Faisal T.K.",
-            designation: "Assistant Professor, Dept. of Management"
-        }
-    }
 ];

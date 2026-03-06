@@ -3,44 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
-const clubs = [
-    {
-        id: 1,
-        name: "Nature Club",
-        image: "https://i.pinimg.com/1200x/9e/db/d8/9edbd8e1200b24f0e5bb560733a087e8.jpg"
-    },
-    {
-        id: 2,
-        name: "TechSias",
-        image: "https://i.pinimg.com/736x/d9/90/a9/d990a970d73df3c569b2e9a467d59922.jpg"
-    },
-    {
-        id: 3,
-        name: "Women Development Cell",
-        image: "https://i.pinimg.com/1200x/1e/1b/80/1e1b80ce59caa3bcf552518baadf513d.jpg"
-    },
-    {
-        id: 4,
-        name: "National Service Scheme",
-        image: "https://i.pinimg.com/1200x/1e/1b/80/1e1b80ce59caa3bcf552518baadf513d.jpg"
-    },
-    {
-        id: 5,
-        name: "Arts & Cultural Club",
-        image: "https://i.pinimg.com/736x/7d/73/da/7d73da2678a646971f19004eeaec8eab.jpg"
-    },
-    {
-        id: 6,
-        name: "Sports Club",
-        image: "https://i.pinimg.com/736x/83/c2/64/83c2648170276c460351205df7c36e34.jpg"
-    },
-    {
-        id: 7,
-        name: "Entrepreneurship Cell",
-        image: "https://i.pinimg.com/736x/34/7e/b8/347eb87ff820c17dcca0039e282e2059.jpg"
-    }
-];
+import { clubs } from '@/data/clubs';
 
 export default function ClubsCarousel() {
     // Triplicate for seamless loop
@@ -99,7 +62,7 @@ export default function ClubsCarousel() {
                                     src={club.image}
                                     alt={club.name}
                                     fill
-                                    className="object-contain"
+                                    className="object-contain scale-[3] md:scale-[2.5]"
                                     sizes="(max-width: 768px) 100px, 160px"
                                 />
                             </div>
