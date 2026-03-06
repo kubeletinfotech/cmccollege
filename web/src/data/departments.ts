@@ -98,11 +98,6 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg" },
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image1.jpeg?updatedAt=1770370362463", category: "" },
-            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image3.jpeg?updatedAt=1770370362463", category: "" },
-            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image2.jpeg?updatedAt=1770370362463", category: "" },
-            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image5.jpeg?updatedAt=1770370362463", category: "" },
-            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Gallery/image4.jpeg?updatedAt=1770370362463", category: "" },
 
         ]
     },

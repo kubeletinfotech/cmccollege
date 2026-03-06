@@ -12,17 +12,17 @@ const stats = [
 ];
 
 const COMMITTEE_MEMBERS = [
-    { role: "Coordinator", name: "Coordinator Name", department: "Department", image: "/images/default-user-placeholder.png" },
+    { role: "Coordinator", name: "RijilaNadh", department: "Computer Science", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rijila-nath.jpg" },
     { role: "Joint Coordinator", name: "Joint Coordinator Name", department: "Department", image: "/images/default-user-placeholder.png" },
 ];
 
 const GALLERY_IMAGES = [
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
-    "/images/default-placeholder-image.jpg",
+    "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/queens.jpeg",
+    "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.34.21%20PM.jpeg?updatedAt=1772804519094",
+    "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.14.25%20PM.jpeg",
+    "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.14.24%20PM.jpeg?updatedAt=1772804519938",
+    "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.15.16%20PM.jpeg?updatedAt=1772804520067",
+    "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/img2.jpeg",
 ];
 
 export default function WomenCellPage() {
@@ -204,7 +204,7 @@ export default function WomenCellPage() {
                                 src={imgSrc}
                                 alt={`Women Cell Activity ${idx + 1}`}
                                 fill
-                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                className="object-contain group-hover:scale-110 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             {idx === 0 && (
