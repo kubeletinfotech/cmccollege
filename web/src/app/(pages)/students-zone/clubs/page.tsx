@@ -45,7 +45,7 @@ export default function ClubsPage() {
                                             src={club.image}
                                             alt={club.name}
                                             fill
-                                            className="object-contain p-8 transform transition-transform duration-700 group-hover:scale-110"
+                                            className="object-contain p-8 transform scale-[2] transition-transform duration-700"
                                         />
                                         <div className="absolute inset-0 bg-linear-to-t from-zinc-900/10 to-transparent"></div>
                                     </div>
