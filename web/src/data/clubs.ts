@@ -16,10 +16,10 @@ export interface Club {
 export const clubs: Club[] = [
     {
         id: 1,
-        name: "Nature Club",
-        image: "https://i.pinimg.com/1200x/9e/db/d8/9edbd8e1200b24f0e5bb560733a087e8.jpg",
-        description: "The Nature Club dedicated to fostering environmental awareness and conservation among students. We organize nature walks, tree plantation drives, and workshops on sustainable living.",
-        activities: ["Tree Plantation", "Environmental Workshops", "Nature Trails", "Recycling Campaigns"],
+        name: "Color Club",
+        image: "https://ik.imagekit.io/1yxtj9qun/Clubs/color-club",
+        description: "The Color Club dedicated to fostering creativity and artistic expression among students. We organize art exhibitions, painting competitions, and workshops on various art forms.",
+        activities: ["Art Exhibitions", "Painting Competitions", "Art Workshops", "Creative Activities"],
         coordinator: {
             name: "Dr. Sumesh K.P.",
             designation: "Assistant Professor, Dept. of Botany"
@@ -27,19 +27,19 @@ export const clubs: Club[] = [
     },
     {
         id: 2,
-        name: "TechSias",
-        image: "https://i.pinimg.com/736x/d9/90/a9/d990a970d73df3c569b2e9a467d59922.jpg",
-        description: "The technical club of CM College, TechSias is a hub for tech enthusiasts. We focus on coding, robotics, and the latest trends in technology, providing a platform for innovation and software development.",
-        activities: ["Coding Competitions", "Tech Seminars", "Robotics Workshops", "Project Showcases"],
+        name: "Literary Club",
+        image: "https://ik.imagekit.io/1yxtj9qun/Clubs/literary-club",
+        description: "The Literary Club is a hub for literature enthusiasts. We focus on reading, writing, and the latest trends in literature.",
+        activities: ["Reading Sessions", "Writing Workshops", "Debates", "Poetry Slam"],
         coordinator: {
             name: "Mr. Jithu P.M.",
-            designation: "Head of Dept, Computer Science"
+            designation: "Assistant Professor, Dept. of English"
         }
     },
     {
         id: 3,
-        name: "Women Development Cell",
-        image: "https://i.pinimg.com/1200x/1e/1b/80/1e1b80ce59caa3bcf552518baadf513d.jpg",
+        name: "Women's Club",
+        image: "https://ik.imagekit.io/1yxtj9qun/Clubs/womens-club",
         description: "The Women Development Cell works towards gender sensitization and empowerment on campus. We organize sessions on self-defense, health awareness, and workshops on professional skills for women.",
         activities: ["Self-Defense Training", "Gender Awareness Workshops", "Counseling Sessions", "Skill Development"],
         coordinator: {
@@ -49,21 +49,21 @@ export const clubs: Club[] = [
     },
     {
         id: 4,
-        name: "National Service Scheme",
-        image: "https://i.pinimg.com/1200x/1e/1b/80/1e1b80ce59caa3bcf552518baadf513d.jpg",
-        description: "NSS encourages students to engage in community service. Through various projects, students contribute to social welfare while developing their own leadership and organizational skills.",
-        activities: ["Blood Donation Camps", "Village Adoption", "Disaster Management Training", "Social Surveys"],
+        name: "Tourism Club",
+        image: "https://ik.imagekit.io/1yxtj9qun/Clubs/tourism-club",
+        description: "The Tourism Club is a hub for travel enthusiasts. We organize trips to various tourist destinations, promoting cultural awareness and exploration.",
+        activities: ["Travel Expeditions", "Cultural Tours", "Trekking", "Tourism Awareness Programs"],
         coordinator: {
             name: "Mr. Abdul Razak",
-            designation: "NSS Programme Officer"
+            designation: "Assistant Professor, Dept. of Management"
         }
     },
     {
         id: 5,
-        name: "Arts & Cultural Club",
-        image: "https://i.pinimg.com/736x/7d/73/da/7d73da2678a646971f19004eeaec8eab.jpg",
-        description: "A vibrant club that celebrates creativity and cultural diversity. We organize festivals, art exhibitions, and competitions in music, dance, and theater.",
-        activities: ["Annual Arts Fest", "Cultural Nights", "Painting Competitions", "Theater Workshops"],
+        name: "IT Club",
+        image: "https://ik.imagekit.io/1yxtj9qun/Clubs/it-club",
+        description: "The IT Club is a hub for technology enthusiasts. We focus on programming, networking, and the latest trends in tech, providing a platform for innovation and software development.",
+        activities: ["Coding Competitions", "Hackathons", "Tech Workshops", "Seminars"],
         coordinator: {
             name: "Mr. Praveen Kumar",
             designation: "Assistant Professor, Dept. of Multimedia"
