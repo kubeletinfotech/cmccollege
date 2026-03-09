@@ -39,7 +39,7 @@ export default function WomenCellPage() {
                         className="relative h-[250px] md:h-[320px] lg:h-[350px] w-full rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="/images/default-placeholder-image.jpg"
+                            src="https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.17.07%20PM.jpeg?updatedAt=1772804519152"
                             alt="Women Cell Activities"
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-700"
@@ -110,7 +110,7 @@ export default function WomenCellPage() {
                             className="order-1 lg:order-2 relative h-[220px] md:h-[280px] lg:h-[320px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
-                                src="/images/default-placeholder-image.jpg"
+                                src="https://ik.imagekit.io/1yxtj9qun/Womens%20Club/img1.jpeg?updatedAt=1772804520000"
                                 alt="Women Cell Committee"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"

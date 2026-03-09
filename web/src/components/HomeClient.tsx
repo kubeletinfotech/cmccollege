@@ -192,7 +192,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     return (
         <div className="flex min-h-screen flex-col text-zinc-900 font-sans pt-[6.875rem] lg:pt-46 bg-white">
             {/* Hero Section - Professional Academic Banner */}
-            <section className="relative h-[468px] md:h-[500px] lg:h-[480px] xl:h-[600px] 2xl:h-[700px] w-full overflow-hidden bg-zinc-900">
+            <section className="relative h-[468px] md:h-[500px] lg:h-[480px] xl:h-[600px] 2xl:h-[700px] [@media(width:1024px)_and_(height:600px)]:h-[400px] w-full overflow-hidden bg-zinc-900">
                 {/* Hero Background Slider */}
                 <div className="absolute inset-0 z-0">
                     <AnimatePresence mode="wait" initial={false}>
@@ -241,10 +241,6 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                             </div>
                         </motion.div>
                     </AnimatePresence>
-
-                    {/* Professional Overlay - Side Gradient for text legibility */}
-                    <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent z-10" />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
                 </div>
 
                 {/* Content Container Removed */}
