@@ -247,45 +247,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
                 </div>
 
-                {/* Content Container */}
-                <div className="relative z-20 h-full max-w-[1440px] mx-auto px-6 lg:px-12 flex flex-col justify-center">
-                    {isAdmissionOpen && (
-                        <div className="max-w-3xl">
-                            <ScrollReveal>
-                                <motion.div
-                                    initial={{ opacity: 0, x: -30 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.8 }}
-                                >
-                                    <span className="inline-block px-4 py-1.5 bg-[#7B0046] text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-4 rounded-sm shadow-lg">
-                                        Admission {academicYear || "2024-25"}
-                                    </span>
-                                    <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-prestigious font-bold text-white mb-4 leading-[1.2] md:leading-[1.1] uppercase drop-shadow-md">
-                                        Empowering Generations Through <span className="text-white/80 not-italic font-normal">Knowledge & Ethics</span>
-                                    </h1>
-                                    <p className="text-sm sm:text-base md:text-xl text-zinc-100/90 mb-8 max-w-xl font-normal leading-relaxed drop-shadow-sm">
-                                        Join CM College of Arts and Science - A legacy of excellence in higher education in the heart of Wayanad.
-                                    </p>
-                                    <div className="flex flex-wrap items-center gap-4">
-                                        <Link
-                                            href="/admissions"
-                                            className="px-8 py-4 bg-white text-[#7B0046] font-bold rounded-lg shadow-xl hover:bg-zinc-100 transition-all text-sm uppercase tracking-widest hover:scale-105 active:scale-95 inline-flex items-center gap-2"
-                                        >
-                                            Apply Online
-                                            <ChevronRight size={18} />
-                                        </Link>
-                                        <Link
-                                            href="/departments"
-                                            className="px-8 py-4 bg-[#7B0046] text-white font-bold rounded-lg shadow-xl hover:bg-[#600036] transition-all text-sm uppercase tracking-widest hover:scale-105 active:scale-95 border-b-2 border-white/20"
-                                        >
-                                            Explore Programs
-                                        </Link>
-                                    </div>
-                                </motion.div>
-                            </ScrollReveal>
-                        </div>
-                    )}
-                </div>
+                {/* Content Container Removed */}
 
                 {/* Navigation Controls - Minimalist Professional Style */}
                 <div className="absolute bottom-10 right-6 lg:right-12 z-30 flex items-center gap-4">
@@ -326,7 +288,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 CM College
                             </h2>
 
-                            <div className="text-base text-zinc-600 leading-relaxed font-normal space-y-4 lg:columns-2 lg:gap-12 text-left md:text-justify">
+                            <div className="text-base text-zinc-600font leading-relaxed font-medium space-y-4 lg:columns-2 lg:gap-12 text-left md:text-justify">
                                 <p className="block md:hidden">
                                     CM College of Arts and Science, Nadavayal, Wayanad, is a self-financing institution affiliated with the University of Calicut. Established in 2010 under the guidance of CM Center Madavoor, the college is set across 15 acres of serene campus, committed to providing quality higher education and empowering students.
                                 </p>

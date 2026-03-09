@@ -65,9 +65,9 @@ export default function VicePrincipalProfile() {
 
                                 {/* Contact Info */}
                                 <div className="flex flex-col gap-2">
-                                    <a href="mailto:vp@cmcollege.edu.in" className="flex items-center gap-2 text-sm text-zinc-500 hover:text-[#7a0b3a] transition-colors bg-zinc-50 px-4 py-2 rounded-full border border-zinc-100">
+                                    <a href="mailto:cmciqac@gmail.com" className="flex items-center gap-2 text-sm text-zinc-500 hover:text-[#7a0b3a] transition-colors bg-zinc-50 px-4 py-2 rounded-full border border-zinc-100">
                                         <Mail size={16} className="text-[#0CA789]" />
-                                        <span className="font-medium">vp@cmcollege.edu.in</span>
+                                        <span className="font-medium">cmciqac@gmail.com</span>
                                     </a>
                                 </div>
                             </div>
