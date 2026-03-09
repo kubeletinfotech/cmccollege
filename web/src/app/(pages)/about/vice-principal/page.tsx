@@ -56,7 +56,7 @@ export default function VicePrincipalProfile() {
                             <div className="mt-12 flex flex-col sm:flex-row items-center sm:justify-between text-center sm:text-left gap-4 border-t border-zinc-100 pt-8">
                                 <div>
                                     <h3 className="text-xl font-bold text-zinc-900 uppercase tracking-tight">
-                                        Vice Principal Name
+                                        Jabir Ali PP
                                     </h3>
                                     <p className="text-[#0CA789] font-medium text-sm mt-1">
                                         Vice Principal & IQAC Director, CM College
