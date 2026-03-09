@@ -257,7 +257,7 @@ export default function Navbar() {
                                     Recognized by Government of Kerala and UGC under Section 2(f) of the Act 1957
                                 </p>
                                 <p className="text-[#a11c5a] text-[11px] lg:text-[12px] font-black leading-tight uppercase tracking-widest">
-                                    Unit of CM Centre Madavoor
+                                    A Unit of CM Centre Madavoor
                                 </p>
                             </div>
 
