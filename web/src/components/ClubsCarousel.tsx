@@ -62,7 +62,7 @@ export default function ClubsCarousel() {
                                     src={club.image}
                                     alt={club.name}
                                     fill
-                                    className="object-contain scale-[3] md:scale-[2.5]"
+                                    className={`object-contain ${club.name === 'Color Club' ? 'scale-[3] md:scale-[2.5]' : 'scale-[4] md:scale-[3.5]'}`}
                                     sizes="(max-width: 768px) 100px, 160px"
                                 />
                             </div>

@@ -45,7 +45,7 @@ export default function ClubsPage() {
                                             src={club.image}
                                             alt={club.name}
                                             fill
-                                            className="object-contain p-8 transform scale-[2] transition-transform duration-700"
+                                            className={`object-contain p-8 transform transition-transform duration-700 ${club.name === 'Color Club' ? 'scale-[2]' : 'scale-[3]'}`}
                                         />
                                         <div className="absolute inset-0 bg-linear-to-t from-zinc-900/10 to-transparent"></div>
                                     </div>

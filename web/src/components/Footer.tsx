@@ -13,7 +13,7 @@ export default function Footer() {
     }
 
     return (
-        <footer className="bg-[#7B0046] text-white py-12 px-6 md:px-12">
+        <footer className="w-full overflow-hidden bg-[#7B0046] text-white py-12 px-6 md:px-12">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
                 {/* College Info */}
                 <div className="flex flex-col items-center text-center md:col-span-2 lg:col-span-1">
