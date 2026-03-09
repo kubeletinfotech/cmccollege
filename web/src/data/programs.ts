@@ -54,10 +54,10 @@ export const programs: Program[] = [
         description: "A unique social outreach and community support program. Chirakukal (Wings) focuses on providing educational support and specialized skills to underprivileged children in the local community.",
         tagline: "Giving Wings to Dreams",
         gallery: [
-            "/placeholder.jpg",
-            "/placeholder.jpg",
-            "/placeholder.jpg",
-            "/placeholder.jpg"
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.03%20PM.jpeg",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.02%20PM%20(1).jpeg",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.01%20PM.jpeg",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.02%20PM.jpeg"
         ]
     },
     {

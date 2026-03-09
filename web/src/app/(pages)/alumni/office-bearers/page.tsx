@@ -24,30 +24,15 @@ export default function OfficeBearersPage() {
                         Office Bearers
                     </h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {officeBearers.map((person, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="bg-zinc-50 border border-zinc-100 p-6 rounded-3xl flex items-center gap-4 hover:border-emerald-200 hover:bg-emerald-50/50 transition-all group"
-                            >
-                                <div className="w-16 h-16 rounded-full bg-zinc-200 flex items-center justify-center text-zinc-400 shrink-0 overflow-hidden">
-                                    <Users className="w-8 h-8" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-zinc-900 group-hover:text-emerald-900 transition-colors">{person.name}</h4>
-                                    <p className="text-emerald-600 font-medium text-sm">{person.role}</p>
-                                    {person.email && (
-                                        <div className="flex items-center gap-2 text-zinc-500 text-xs mt-1">
-                                            <Mail size={12} />
-                                            <span>{person.email}</span>
-                                        </div>
-                                    )}
-                                </div>
-                            </motion.div>
-                        ))}
+                    {/* Currently hidden while details are updated */}
+                    <div className="flex flex-col items-center justify-center py-16 text-center bg-zinc-50/50 rounded-3xl border border-dashed border-zinc-200">
+                        <div className="w-16 h-16 bg-white shadow-sm rounded-full flex items-center justify-center text-zinc-400 mb-4">
+                            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4 className="text-xl font-bold text-zinc-900 mb-2">Updating Soon</h4>
+                        <p className="text-zinc-500 max-w-md mx-auto text-sm">The details of the current Alumni Office Bearers will be published here shortly.</p>
                     </div>
                 </div>
             </div>
