@@ -20,7 +20,7 @@ const academicFeatures = [
         title: "Time Table",
         description: "Stay organized with up-to-date weekly schedules for all classes and batches.",
         icon: Clock,
-        link: "/academics/",
+        link: "https://pareekshabhavan.uoc.ac.in/index.php/examination/timetable",
         color: "bg-emerald-500",
         bgLight: "bg-emerald-50"
     },

@@ -104,12 +104,12 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                             </div>
 
                             {data.gallery && data.gallery.length > 0 && (
-                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
                                     {data.gallery.map((img, i) => (
                                         <div
                                             key={i}
                                             onClick={() => setSelectedImage(img)}
-                                            className="group relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all"
+                                            className="group relative h-48 md:h-64 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-zinc-100"
                                         >
                                             <Image
                                                 src={img}
@@ -117,8 +117,10 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                 fill
                                                 className="object-cover group-hover:scale-110 transition-transform duration-700"
                                             />
-                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                                                <Maximize2 className="text-white opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300" />
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-linear-to-t group-hover:from-black/40 group-hover:to-transparent transition-all duration-500 flex items-center justify-center">
+                                                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300">
+                                                    <Maximize2 className="w-6 h-6 shadow-xl" />
+                                                </div>
                                             </div>
                                         </div>
                                     ))}

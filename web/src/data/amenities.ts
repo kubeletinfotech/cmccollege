@@ -61,7 +61,7 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Air-Conditioned Environment",
             "Acoustically Treated Walls"
         ],
-        image: "https://i.pinimg.com/736x/2a/fc/e5/2afce510dee43dad6085a5052be4fbbc.jpg", // Placeholder
+        image: "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.17.07%20PM.jpeg?updatedAt=1772804519152", // Placeholder
         icon: Mic2,
         gallery: []
     },
@@ -318,6 +318,10 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
         ],
         image: "https://ik.imagekit.io/1yxtj9qun/Sports/sports-1.jpeg",
         icon: Dumbbell,
+        gallery: [
+            "https://ik.imagekit.io/1yxtj9qun/Sports/sports-1.jpeg",
+            "https://ik.imagekit.io/1yxtj9qun/Sports/WhatsApp%20Image%202026-03-12%20at%2012.33.33%20PM.jpeg"
+        ],
         achievements: [
             {
                 title: "Power Lifting Championship",
