@@ -89,13 +89,13 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Rajitha P R",
             qualification: "Master of Computer Applications",
             quote: "Our goal is to transcend traditional learning and build a bridge between academia and the ever-evolving tech industry.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rajitha.jpeg?updatedAt=1770370362231"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rajitha.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/sumayya-u.jpg" },
-            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rijila-nath.jpg" },
-            { name: "Asliya A", role: "Assistant Professor", spec: "Software Architecture", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Asliya" },
-            { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg" },
+            { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/sumayya-u.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rijila-nath.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Asliya A", role: "Assistant Professor", spec: "Software Architecture", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Asliya?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],
         gallery: [
 
@@ -130,12 +130,12 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Athira P",
             qualification: "MBA, Ph.D in Strategic Management",
             quote: "Management is about more than just business; it is about leading with integrity and vision in a complex world.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Athira"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Athira?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Jaseela C M", role: "Assistant Professor", spec: "Finance", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Jaseela" },
-            { name: "Aysha K P", role: "Assistant Professor", spec: "HR Management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Ayisha?updatedAt=1770620889342" },
-            { name: "Sini John", role: "Assistant Professor", spec: "Operations", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Sini-Jhon" },
+            { name: "Jaseela C M", role: "Assistant Professor", spec: "Finance", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Jaseela?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Aysha K P", role: "Assistant Professor", spec: "HR Management", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Ayisha?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Sini John", role: "Assistant Professor", spec: "Operations", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Management/Sini-Jhon?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],
         gallery: [
         ]
@@ -187,11 +187,11 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Vidhya Viswanath",
             qualification: "M.A. Journalism",
             quote: "Truth is the only currency in journalism. We prepare our students to find it and tell it effectively.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/hod-masscom.jpg"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/hod-masscom.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
             { name: "Athira P R", role: "Assistant Professor", spec: "Broadcast Journalism", img: "/images/default-user-placeholder.png" },
-            { name: "Shafvana Sherin M", role: "Assistant Professor", spec: "Mass Communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/Safwana?updatedAt=1770627938287&tr=w-600,ar-4-5,fo-top" },
+            { name: "Shafvana Sherin M", role: "Assistant Professor", spec: "Mass Communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/Safwana?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],
         gallery: [
         ]
@@ -224,10 +224,10 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Safiya E C",
             qualification: "Ph.D in Applied Economics",
             quote: "Understanding scarcity and choice is fundamental to building a more equitable and efficient world.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Safiya.jpeg"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Safiya.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Anna Biju", role: "Assistant Professor", spec: "Development Economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Anna.jpeg" }
+            { name: "Anna Biju", role: "Assistant Professor", spec: "Development Economics", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/Anna.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" }
         ],
         gallery: [
             { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Ecnomics/image1.jpg", category: "" },
@@ -270,13 +270,13 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Ameera M",
             qualification: "Ph.D in English Literature",
             quote: "Language is the portal to human experience. We aim to make our students masters of this portal.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ameera"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ameera?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Unais T A", role: "Assistant Professor", spec: "British Literature", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Unais" },
-            { name: "Sara Subula", role: "Assistant Professor", spec: "Poetry & Arts", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Sara" },
-            { name: "Ajmal Musharaf", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ajmal" },
-            { name: "Aiswarya Manoj", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Aiswarya?tr=w-600,ar-4-5,fo-top" },
+            { name: "Unais T A", role: "Assistant Professor", spec: "British Literature", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Unais?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Sara Subula", role: "Assistant Professor", spec: "Poetry & Arts", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Sara?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Ajmal Musharaf", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ajmal?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Aiswarya Manoj", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Aiswarya?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],
         gallery: [
 
@@ -319,11 +319,11 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Shibu Krishnan",
             qualification: "M.Com, M.Phil",
             quote: "In commerce, ethics is the foundation of trust, and skill is the engine of growth.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Shibu"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Shibu?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Bindu S.G", role: "Assistant Professor", spec: "Commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Bindhu" },
-            { name: "Shefeena K.T", role: "Assistant Professor", spec: "Commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/shefeena?updatedAt=1770620563560" },
+            { name: "Bindu S.G", role: "Assistant Professor", spec: "Commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/Bindhu?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Shefeena K.T", role: "Assistant Professor", spec: "Commerce", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Commerce/shefeena?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Jamsheena", role: "Assistant Professor", spec: "Commerce", img: "/images/default-user-placeholder.png" },
         ],
         gallery: [
@@ -437,7 +437,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Deepa NR",
             qualification: "Ph.D in Malayalam",
             quote: "Literature is the reflection of life.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/Deepa?updatedAt=1770627331874"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Malayalam/Deepa?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
             // { name: "Faculty 1", role: "Assistant Professor", spec: "Malayalam Literature", img: "/images/default-user-placeholder.png" }
@@ -466,7 +466,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Shiyas KT",
             qualification: "Ph.D in Arabic",
             quote: "Language bridges cultures.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/shiyas"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/shiyas?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
 

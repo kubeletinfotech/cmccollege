@@ -15,10 +15,10 @@ export const programs: Program[] = [
         description: "An exclusive initiative empowering women students through leadership training, skill development, and professional networking. Queen's Drive aims to nurture the next generation of female leaders in various industries.",
         tagline: "Empowering Future Female Leaders",
         gallery: [
-            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.17.07%20PM.jpeg?updatedAt=1772804519152",
-            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.34.22%20PM.jpeg?updatedAt=1772804519250",
-            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/img.jpeg?updatedAt=1772804519009",
-            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.16.08%20PM.jpeg?updatedAt=1772804518779"
+            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.17.07%20PM.jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.34.22%20PM.jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/img.jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Womens%20Club/WhatsApp%20Image%202026-03-05%20at%208.16.08%20PM.jpeg?tr=q-100,f-auto,w-1200"
         ]
     },
     {
@@ -42,10 +42,9 @@ export const programs: Program[] = [
         tagline: "Bridging Academia and Industry",
         gallery: [
             "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.46.50%20PM.jpeg?tr=q-100,f-auto,w-1200",
-            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.42.56%20PM.jpeg",
-            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.42.56%20PM%20(1).jpeg",
-            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.43.28%20PM.jpeg",
-
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.42.56%20PM.jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.42.56%20PM%20(1).jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.43.28%20PM.jpeg?tr=q-100,f-auto,w-1200",
         ]
     },
     {
@@ -55,16 +54,16 @@ export const programs: Program[] = [
         description: "A unique social outreach and community support program. Chirakukal (Wings) focuses on providing educational support and specialized skills to underprivileged children in the local community.",
         tagline: "Giving Wings to Dreams",
         gallery: [
-            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.03%20PM.jpeg",
-            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.02%20PM%20(1).jpeg",
-            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.01%20PM.jpeg",
-            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.02%20PM.jpeg"
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.03%20PM.jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.02%20PM%20(1).jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.01%20PM.jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Chirakukal/WhatsApp%20Image%202026-03-09%20at%2012.27.02%20PM.jpeg?tr=q-100,f-auto,w-1200"
         ]
     },
     {
         id: "nss",
         name: "NSS",
-        logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/nss?updatedAt=1772262388668?",
+        logo: "https://ik.imagekit.io/1yxtj9qun/Home/images/nss?tr=f-auto,w-400",
         description: "National Service Scheme (NSS) is a student welfare organization that works to improve the quality of life of students and the community.",
         tagline: "National Service Scheme",
         gallery: [

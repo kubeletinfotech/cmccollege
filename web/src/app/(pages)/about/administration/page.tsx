@@ -10,27 +10,27 @@ const councilMembers = [
     {
         name: "T K Abdu Rahman Baqavi",
         role: "Chairman - CM College",
-        image: "https://ik.imagekit.io/1yxtj9qun/About/chairman.png?updatedAt=1770370502173"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/chairman.png?tr=w-600,h-800,q-100,f-auto,fo-auto"
     },
     {
         name: "Zainudheen T K",
         role: "Director - CM College",
-        image: "https://ik.imagekit.io/1yxtj9qun/About/director.jpg"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/director.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto"
     },
     {
         name: "Shafi Pulpara",
         role: "Principal - CM College",
-        image: "https://ik.imagekit.io/1yxtj9qun/About/principal.jpeg"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/principal.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto"
     },
     {
         name: "Jabir Ali P P",
         role: "Vice Principal - CM College",
-        image: "https://ik.imagekit.io/1yxtj9qun/About/vice-principal?updatedAt=1772212669631"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/vice-principal?tr=w-600,h-800,q-100,f-auto,fo-auto"
     },
     {
         name: "Uvais T K",
         role: "AO- CM College",
-        image: "https://ik.imagekit.io/1yxtj9qun/About/uvais-tk"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/uvais-tk?tr=w-600,h-800,q-100,f-auto,fo-auto"
     }
 ];
 

@@ -13,7 +13,6 @@ const stats = [
 
 const COMMITTEE_MEMBERS = [
     { role: "Coordinator", name: "RijilaNadh", department: "Computer Science", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rijila-nath.jpg" },
-    { role: "Joint Coordinator", name: "Joint Coordinator Name", department: "Department", image: "/images/default-user-placeholder.png" },
 ];
 
 const GALLERY_IMAGES = [
@@ -110,7 +109,7 @@ export default function WomenCellPage() {
                             className="order-1 lg:order-2 relative h-[220px] md:h-[280px] lg:h-[320px] w-full rounded-2xl overflow-hidden shadow-xl"
                         >
                             <Image
-                                src="https://ik.imagekit.io/1yxtj9qun/Womens%20Club/img1.jpeg?updatedAt=1772804520000"
+                                src="https://ik.imagekit.io/1yxtj9qun/Womens%20Club/img1.jpeg?tr=q-100,f-auto,w-1200"
                                 alt="Women Cell Committee"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
