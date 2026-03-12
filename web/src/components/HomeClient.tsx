@@ -214,6 +214,42 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     sizes="100vw"
                                     priority={currentSlide === 0}
                                 />
+                                {/* Premium Overlay for Desktop */}
+                                <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/20 to-transparent z-10 flex items-center px-12 xl:px-24">
+                                    <div className="max-w-3xl">
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -30 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.8, delay: 0.2 }}
+                                        >
+                                            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-white text-xs font-bold uppercase tracking-[0.3em] mb-6 backdrop-blur-md">
+                                                Welcome to CM College
+                                            </span>
+                                            <h1 className="text-5xl xl:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+                                                Empowering <br />
+                                                <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-emerald-200">Excellence</span> <br />
+                                                in Education
+                                            </h1>
+                                            <p className="text-white/80 text-lg xl:text-xl font-medium mb-10 max-w-xl leading-relaxed">
+                                                Join a vibrant academic community dedicated to nurturing talent, fostering innovation, and building future leaders in Wayanad.
+                                            </p>
+                                            <div className="flex gap-4">
+                                                <Link href="/admissions">
+                                                    <button className="px-8 py-4 bg-[#7B0046] text-white font-bold rounded-xl hover:bg-[#600036] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-[#7B0046]/20 uppercase tracking-widest text-xs">
+                                                        Start Journey
+                                                    </button>
+                                                </Link>
+                                                <Link href="/about">
+                                                    <button className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all active:scale-95 uppercase tracking-widest text-xs">
+                                                        Discover More
+                                                    </button>
+                                                </Link>
+                                            </div>
+                                        </motion.div>
+                                    </div>
+                                </div>
+                                {/* Bottom vignette for visual depth */}
+                                <div className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-black/50 to-transparent pointer-events-none z-10"></div>
                             </div>
 
                             {/* Tablet Image */}
@@ -226,18 +262,54 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     sizes="100vw"
                                     priority={currentSlide === 0}
                                 />
-                            </div>
+                            </div>                            {/* Mobile Image - Premium Landscape Layout */}
+                            <div className="block md:hidden w-full h-full relative bg-linear-to-br from-[#7B0046] via-[#5D1035] to-zinc-900 overflow-hidden">
+                                {/* Decorative Mesh for Mobile Background */}
+                                <div className="absolute inset-0 opacity-20 pointer-events-none">
+                                    <div className="h-full w-full bg-size-[20px_20px] bg-[radial-gradient(#fff_1px,transparent_1px)]" />
+                                </div>
 
-                            {/* Mobile Image */}
-                            <div className="block md:hidden w-full h-full relative">
-                                <Image
-                                    src={mobileImages[currentSlide % mobileImages.length]}
-                                    alt={`Hero Slide ${currentSlide + 1}`}
-                                    fill
-                                    className="object-cover object-top"
-                                    sizes="100vw"
-                                    priority
-                                />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+                                    {/* Text Content for Mobile */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.2 }}
+                                        className="text-center mb-8 relative z-10"
+                                    >
+                                        <h2 className="text-3xl font-bold text-white mb-2 leading-tight tracking-tight">
+                                            Creating <span className="text-emerald-400 font-extrabold italic">Excellence</span> <br /> in Education
+                                        </h2>
+                                        <p className="text-white/70 text-sm font-semibold tracking-widest uppercase">CM COLLEGE</p>
+                                    </motion.div>
+
+                                    {/* Premium Landscape Frame */}
+                                    <div className="relative w-full aspect-video z-10">
+                                        {/* Outer Glow */}
+                                        <div className="absolute inset-0 bg-[#7B0046]/40 blur-[40px] rounded-full scale-110"></div>
+
+                                        {/* Image Frame */}
+                                        <div className="relative w-full h-full rounded-2xl border-2 border-white/20 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                                            <Image
+                                                src={desktopImages[currentSlide % desktopImages.length]}
+                                                alt={`Hero Slide ${currentSlide + 1}`}
+                                                fill
+                                                className="object-cover"
+                                                priority
+                                            />
+                                            {/* Subtle vignette for depth */}
+                                            <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
+                                        </div>
+
+                                        {/* Modern Overlay Tag */}
+                                        <div className="absolute -bottom-4 right-4 bg-[#7B0046] px-4 py-2 rounded-lg shadow-xl border border-white/10">
+                                            <span className="text-white text-[10px] font-black uppercase tracking-widest leading-none">Wayanad&apos;s Oasis of Learning</span>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Bottom Subtitle */}
+                                    <p className="mt-12 text-white/50 text-[10px] font-bold uppercase tracking-[0.4em]">Affiliated to University of Calicut</p>
+                                </div>
                             </div>
                         </motion.div>
                     </AnimatePresence>
