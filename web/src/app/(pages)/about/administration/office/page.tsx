@@ -18,21 +18,14 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const officeStaff = [
     {
-        name: "Place Holder Staff 1",
-        role: "Administrative Officer (AO)",
-        email: "ao@cmcollege.edu.in",
-        image: "/images/default-user-placeholder.png", // Placeholder or from public
-        specialization: "General Administration & Finance"
-    },
-    {
-        name: "Place Holder Staff 2",
+        name: "Preetha",
         role: "Head Clerk",
         email: "office@cmcollege.edu.in",
         image: "/images/default-user-placeholder.png",
         specialization: "Documentation & University Affairs"
     },
     {
-        name: "Place Holder Staff 3",
+        name: "Danish K",
         role: "Accountant",
         email: "accounts@cmcollege.edu.in",
         image: "/images/default-user-placeholder.png",
