@@ -110,12 +110,6 @@ export default function AnnouncementsPage() {
                                     <p className="text-zinc-600 text-lg leading-relaxed">
                                         {notice.description}
                                     </p>
-
-                                    <div className="mt-8 pt-6 border-t border-emerald-50 flex justify-end">
-                                        <button className="text-emerald-800 font-bold hover:text-emerald-600 transition-colors flex items-center gap-2">
-                                            Read More <span className="text-xl">→</span>
-                                        </button>
-                                    </div>
                                 </div>
                             </ScrollReveal>
                         ))}
