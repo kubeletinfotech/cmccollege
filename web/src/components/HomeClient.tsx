@@ -272,6 +272,34 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
             {/* Scrolling Announcements */}
             <BottomTicker />
 
+            {/* Admission Alert */}
+            {isAdmissionOpen && (
+                <div className="bg-[#7B0046] px-4 py-3 sm:py-4 flex items-center justify-center relative z-20 border-y border-[#600036]">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6 relative z-10 w-full max-w-7xl mx-auto">
+                        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                            <span className="relative flex h-3 w-3 sm:h-4 sm:w-4 shrink-0">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-full w-full bg-emerald-500"></span>
+                            </span>
+                            <span className="text-white text-base sm:text-lg font-bold uppercase tracking-widest">
+                                Admissions Open {academicYear}
+                            </span>
+                        </div>
+                        <p className="text-emerald-50/90 hidden md:block max-w-2xl text-center sm:text-left text-sm font-medium leading-relaxed">
+                            Applications are now invited for various Undergraduate and Postgraduate programs. Secure your future with our career-oriented courses.
+                        </p>
+                        <p className="text-emerald-50/90 md:hidden text-center text-xs font-medium">
+                            Admissions are open for UG & PG programs.
+                        </p>
+                        <Link href="/admissions" className="shrink-0 w-full sm:w-auto">
+                            <button className="w-full sm:w-auto whitespace-nowrap px-8 py-2.5 bg-white text-[#7B0046] text-xs sm:text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-emerald-50 transition-colors shadow-sm active:scale-95">
+                                Apply Now
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+            )}
+
             {/* About Section - Premium Bordered Card */}
             <section className="pt-8 pb-8 px-4 md:pt-14 md:pb-10 md:px-6 bg-emerald-50">
                 <ScrollReveal>
