@@ -81,7 +81,7 @@ export default function NewsPage() {
             </section>
 
             {/* Filters */}
-            <section className="sticky top-[112px] z-30 bg-white border-b border-zinc-200 shadow-sm">
+            <section className="sticky top-[0] z-30 bg-white border-b border-zinc-200 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
                     <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
                         {/* Tags */}
@@ -102,13 +102,13 @@ export default function NewsPage() {
 
                         {/* Search */}
                         <div className="relative w-full md:w-72">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 w-4 h-4" />
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-900 w-4 h-4" />
                             <input
                                 type="text"
                                 placeholder="Search news..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-10 pr-4 py-2 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-800/20 focus:border-emerald-800 transition-all text-sm"
+                                className="w-full pl-10 pr-4 py-2 rounded-xl border text-black border-zinc-700 focus:outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-emerald-800/20 focus:border-emerald-800 transition-all text-sm"
                             />
                         </div>
                     </div>
