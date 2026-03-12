@@ -316,29 +316,15 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
             "Well-equipped Gymnasium",
             "Annual Sports Meet"
         ],
-        image: "https://i.pinimg.com/736x/eb/d9/86/ebd986bdea50b13bb15f3b8c5bf4fc57.jpg",
+        image: "https://ik.imagekit.io/1yxtj9qun/Sports/sports-1.jpeg",
         icon: Dumbbell,
         achievements: [
             {
-                title: "University Champions",
-                event: "Inter-Zone Football 2024",
-                rank: "Winner",
-                image: "https://ik.imagekit.io/1yxtj9qun/Home/images/football-team.jpeg", // Placeholder
-                date: "March 2024"
-            },
-            {
-                title: "Best Athlete Award",
-                event: "State Athletics Meet",
-                rank: "Gold",
-                image: "https://ik.imagekit.io/1yxtj9qun/Home/images/athlete.jpeg", // Placeholder
-                date: "Jan 2024"
-            },
-            {
-                title: "Cricket Runners Up",
-                event: "District Cricket League",
-                rank: "Runner Up",
-                image: "https://ik.imagekit.io/1yxtj9qun/Home/images/cricket.jpeg", // Placeholder
-                date: "Dec 2023"
+                title: "Power Lifting Championship",
+                event: "Uiversity of Calicut Power Lifting Championship",
+                rank: "Bronze Medal",
+                image: "https://ik.imagekit.io/1yxtj9qun/Sports/WhatsApp%20Image%202026-03-12%20at%2012.33.33%20PM.jpeg",
+                date: "3rd March 2026"
             }
         ]
     }

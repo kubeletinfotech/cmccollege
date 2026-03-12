@@ -4,7 +4,8 @@ import { use, useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle2, ArrowLeft, ArrowRight, Bus, MapPin, Play, Flag, Timer, Users, Bed, Cpu, Layers, AlertCircle, ChevronDown, ChevronUp, Clock } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ArrowRight, Bus, MapPin, Play, Flag, Timer, Users, Bed, Cpu, Layers, AlertCircle, ChevronDown, ChevronUp, Clock, X, Maximize2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { AMENITIES_DATA } from "@/data/amenities";
 import AmenitiesSidebar from "@/components/AmenitiesSidebar";
@@ -15,6 +16,7 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
     const [activeHostelTab, setActiveHostelTab] = useState<'boys' | 'girls'>('boys');
     const [activeBusTab, setActiveBusTab] = useState<'morning' | 'evening'>('morning');
     const [expandedRoutes, setExpandedRoutes] = useState<number[]>([]);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const toggleRoute = (index: number) => {
         setExpandedRoutes(prev =>
@@ -104,14 +106,20 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                             {data.gallery && data.gallery.length > 0 && (
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                     {data.gallery.map((img, i) => (
-                                        <div key={i} className="group relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all">
+                                        <div
+                                            key={i}
+                                            onClick={() => setSelectedImage(img)}
+                                            className="group relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all"
+                                        >
                                             <Image
                                                 src={img}
                                                 alt={`${data.title} gallery ${i}`}
                                                 fill
                                                 className="object-cover group-hover:scale-110 transition-transform duration-700"
                                             />
-                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                                                <Maximize2 className="text-white opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300" />
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
@@ -542,7 +550,11 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                 </h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {data.achievements.map((item, idx) => (
-                                        <div key={idx} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-zinc-100">
+                                        <div
+                                            key={idx}
+                                            onClick={() => setSelectedImage(item.image)}
+                                            className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-zinc-100 cursor-pointer"
+                                        >
                                             {/* Image */}
                                             <div className="relative h-48 w-full overflow-hidden">
                                                 <Image
@@ -551,7 +563,15 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                                                     fill
                                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                                 />
-                                                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
+                                                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"></div>
+
+                                                {/* Expand Hint Overlay */}
+                                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                                                    <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300">
+                                                        <Maximize2 className="w-5 h-5" />
+                                                    </div>
+                                                </div>
+
                                                 <div className="absolute bottom-3 left-3 text-white">
                                                     <span className="bg-[#5D1035] text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider mb-1 inline-block">
                                                         {item.date}
@@ -620,6 +640,53 @@ export default function AmenityDetailsPage({ params }: { params: Promise<{ slug:
                     </div>
                 </div>
             </section>
+            {/* Lightbox / Image Expander */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+                    >
+                        <motion.button
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border border-white/20"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <X className="w-6 h-6" />
+                        </motion.button>
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            className="relative w-full max-w-5xl h-full flex flex-col justify-center gap-4"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="relative w-full flex-1 max-h-[80vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                                <Image
+                                    src={selectedImage}
+                                    alt="Expanded view"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <button
+                                    onClick={() => setSelectedImage(null)}
+                                    className="px-8 py-3 rounded-full bg-white text-[#5D1035] font-bold text-sm shadow-xl hover:bg-zinc-100 transition-colors"
+                                >
+                                    Close Preview
+                                </button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
