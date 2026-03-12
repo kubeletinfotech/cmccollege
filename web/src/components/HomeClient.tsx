@@ -92,8 +92,12 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
     ];
 
     const mobileImages = [
-        "https://ik.imagekit.io/1yxtj9qun/Banner/mobile_banner_college1.jpeg?updatedAt=1770370477197&tr=w-750,h-936,fo-auto",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/bannerMobile.png?updatedAt=1770370477316&tr=w-750,h-936,fo-auto",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner4?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=w-1897,h-713,fo-center"
     ];
 
     // Track visible slide count based on viewport
@@ -262,7 +266,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                     sizes="100vw"
                                     priority={currentSlide === 0}
                                 />
-                            </div>                            {/* Mobile Image - Premium Landscape Layout */}
+                            </div>
+                            {/* Mobile Image - Premium Landscape Layout */}
                             <div className="block md:hidden w-full h-full relative bg-linear-to-br from-[#7B0046] via-[#5D1035] to-zinc-900 overflow-hidden">
                                 {/* Decorative Mesh for Mobile Background */}
                                 <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -306,7 +311,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                             <span className="text-white text-[10px] font-black uppercase tracking-widest leading-none">Wayanad&apos;s Oasis of Learning</span>
                                         </div>
                                     </div>
-                                    
+
                                     {/* Bottom Subtitle */}
                                     <p className="mt-12 text-white/50 text-[10px] font-bold uppercase tracking-[0.4em]">Affiliated to University of Calicut</p>
                                 </div>
