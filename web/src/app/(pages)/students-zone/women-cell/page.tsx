@@ -12,7 +12,7 @@ const stats = [
 ];
 
 const COMMITTEE_MEMBERS = [
-    { role: "Coordinator", name: "RijilaNadh", department: "Computer Science", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rijila-nath.jpg" },
+    { role: "Coordinator", name: "RijilaNadh", department: "Computer Science", image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/WhatsApp%20Image%202026-03-12%20at%2012.03.53%20PM.jpeg" },
 ];
 
 const GALLERY_IMAGES = [

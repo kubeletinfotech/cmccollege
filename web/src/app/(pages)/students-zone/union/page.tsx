@@ -19,7 +19,7 @@ const UNION_COMMITTEE = [
     { role: "Vice Chairperson", name: "Fathimath Rafidha", department: "2nd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/rafidha.jpeg?updatedAt=1771997082283&tr=w-150,h-150,fo-auto,q-100" },
     { role: "UUC", name: "Muhammed Ganiyy", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/ganiyy.jpeg?tr=w-150,h-150,fo-auto,q-100" },
     { role: "General Secretary", name: "Muhammed Irfan", department: "3rd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Muhammed-Irfan.jpeg?updatedAt=1771997082283&tr=w-150,h-150,fo-auto,q-100" },
-    { role: "Joint Secretary", name: "Ardra AS", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Ardra?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "Joint Secretary", name: "Ardra AS", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/ardra.jpeg?tr=w-150,h-150,fo-auto,q-100" },
     { role: "Magazine Editor", name: "Athira VM", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/athira.jpeg?tr=w-150,h-150,fo-auto,q-100" },
     { role: "General Captain", name: "Suhail", department: "1st year BBA", image: "https://ik.imagekit.io/1yxtj9qun/Union/suhail.jpeg?tr=w-150,h-150,fo-auto,q-100" },
     { role: "Fine Arts Secretary", name: "Fathima Rasbana", department: "3rd year Economics", image: "https://ik.imagekit.io/1yxtj9qun/Union/Rabsana.jpeg?updatedAt=1771997081935&tr=w-150,h-150,fo-auto,q-100" },
@@ -75,7 +75,7 @@ const UNION_TABS: UnionTab[] = [
     },
     {
         id: "committee",
-        label: "Union Committee",
+        label: "Union Members",
         icon: Award,
         title: "The Executive Committee",
         subtitle: "Elected Representatives",
