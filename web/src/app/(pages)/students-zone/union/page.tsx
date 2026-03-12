@@ -21,7 +21,7 @@ const UNION_COMMITTEE = [
     { role: "General Secretary", name: "Muhammed Irfan", department: "3rd year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Muhammed-Irfan.jpeg?updatedAt=1771997082283&tr=w-150,h-150,fo-auto,q-100" },
     { role: "Joint Secretary", name: "Ardra AS", department: "1st year BCA", image: "https://ik.imagekit.io/1yxtj9qun/Union/Ardra?tr=w-150,h-150,fo-auto,q-100" },
     { role: "Magazine Editor", name: "Athira VM", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/athira.jpeg?tr=w-150,h-150,fo-auto,q-100" },
-    { role: "General Captain", name: "Suhail", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/suhail.jpeg?tr=w-150,h-150,fo-auto,q-100" },
+    { role: "General Captain", name: "Suhail", department: "1st year BBA", image: "https://ik.imagekit.io/1yxtj9qun/Union/suhail.jpeg?tr=w-150,h-150,fo-auto,q-100" },
     { role: "Fine Arts Secretary", name: "Fathima Rasbana", department: "3rd year Economics", image: "https://ik.imagekit.io/1yxtj9qun/Union/Rabsana.jpeg?updatedAt=1771997081935&tr=w-150,h-150,fo-auto,q-100" },
     { role: "First Year Representative", name: "Shanif", department: "1st year Bcom", image: "https://ik.imagekit.io/1yxtj9qun/Union/shanif.jpeg?updatedAt=1771997079211&tr=w-150,h-150,fo-auto,q-100" },
     { role: "Second Year Representative", name: "Shaheedha Hannath", department: "2nd year Masscom", image: "https://ik.imagekit.io/1yxtj9qun/Union/Shaheedha.jpeg?tr=w-150,h-150,fo-auto,q-100" },

@@ -20,7 +20,7 @@ const academicFeatures = [
         title: "Time Table",
         description: "Stay organized with up-to-date weekly schedules for all classes and batches.",
         icon: Clock,
-        link: "/academics/time-table",
+        link: "/academics/",
         color: "bg-emerald-500",
         bgLight: "bg-emerald-50"
     },

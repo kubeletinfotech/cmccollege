@@ -92,8 +92,8 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rajitha.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/sumayya-u.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
-            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/rijila-nath.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/sumayya-u.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Rijilanadh.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Asliya A", role: "Assistant Professor", spec: "Software Architecture", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Asliya?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],
@@ -190,7 +190,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/hod-masscom.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Athira P R", role: "Assistant Professor", spec: "Broadcast Journalism", img: "/images/default-user-placeholder.png" },
+            { name: "Athira P R", role: "Assistant Professor", spec: "Broadcast Journalism", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/Athira?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Shafvana Sherin M", role: "Assistant Professor", spec: "Mass Communication", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/Safwana?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],
         gallery: [
@@ -273,8 +273,8 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ameera?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
-            { name: "Unais T A", role: "Assistant Professor", spec: "British Literature", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Unais?tr=w-600,h-800,q-100,f-auto,fo-auto" },
-            { name: "Sara Subula", role: "Assistant Professor", spec: "Poetry & Arts", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Sara?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Unais T A", role: "Assistant Professor", spec: "British Literature", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Unais.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Sara Subula", role: "Assistant Professor", spec: "Poetry & Arts", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/sara.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Ajmal Musharaf", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ajmal?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Aiswarya Manoj", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Aiswarya?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],

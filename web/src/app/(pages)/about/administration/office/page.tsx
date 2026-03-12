@@ -32,10 +32,10 @@ const officeStaff = [
         specialization: "Financial Management"
     },
     {
-        name: "Vivek",
+        name: "Vivek MV",
         role: "Lab Assistant",
         email: "accounts@cmcollege.edu.in",
-        image: "/images/default-user-placeholder.png",
+        image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg?updatedAt=1773286001563?tr=w-600,h-800,q-100,f-auto,fo-auto",
         specialization: "Lab Management"
     },
     {

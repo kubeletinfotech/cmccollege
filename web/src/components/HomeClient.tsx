@@ -383,7 +383,7 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 {/* Text Content */}
                                 <div className="relative mb-8">
                                     <span className="absolute -top-6 -left-1 text-5xl text-emerald-100/40 font-serif leading-none select-none">&quot;</span>
-                                    <div className="relative z-10 space-y-3 text-zinc-600 leading-relaxed text-sm md:text-base text-left">
+                                    <div className="relative z-10 space-y-3 text-zinc-600 leading-relaxed text-sm md:text-base text-justify">
                                         <div className="block md:hidden">
                                             <p className="font-medium">
                                                 {isMsgExpanded
