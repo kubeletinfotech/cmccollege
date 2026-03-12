@@ -79,7 +79,7 @@ export default function OfficeAdministrationPage() {
             <header className="border-b border-zinc-100 pb-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
                 {/* Person Profile (Left Side) */}
                 <div className="flex flex-col items-center md:items-start gap-5 shrink-0">
-                    <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-4xl overflow-hidden shadow-xl border border-zinc-100">
+                    <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-4xl overflow-hidden shadow-xl border border-zinc-100">
                         <Image
                             src="https://ik.imagekit.io/1yxtj9qun/About/uvais-tk?tr=w-600,h-800,q-100,f-auto,fo-auto"
                             alt="Office Administrator"
