@@ -126,12 +126,8 @@ const UNION_TABS: UnionTab[] = [
                 </p>
                 <div className="grid md:grid-cols-2 gap-5">
                     {[
-                        "Arts Fest: Annual cultural extravaganza showcasing student talents.",
-                        "Sports Meet: Inter-departmental athletic and sports competitions.",
-                        "College Magazine: Publishing the annual college magazine featuring student literature.",
-                        "Fresher's Day & Farewell: Welcoming new students and bidding adieu to graduates.",
-                        "Social Initiatives: Blood donation camps, clean-up drives, and awareness campaigns.",
-                        "Leadership Workshops: Skill development and leadership training for students."
+                        "Union Inauguration: The official swearing-in ceremony and commencement of the students union activities.",
+                        "Christmas Celebration: Commemorating the festive season with cultural programs and sharing joy.",
                     ].map((activity, i) => (
                         <div key={i} className="flex gap-4 p-6 rounded-3xl bg-white border border-zinc-100 shadow-lg shadow-zinc-200/40 hover:shadow-2xl hover:shadow-[#5D1035]/15 hover:-translate-y-1 transition-all duration-500 group relative overflow-hidden">
                             {/* Hover Gradient Overlay */}
