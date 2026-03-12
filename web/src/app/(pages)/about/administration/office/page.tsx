@@ -88,7 +88,7 @@ export default function OfficeAdministrationPage() {
                 <div className="flex flex-col items-center md:items-start gap-5 shrink-0">
                     <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-4xl overflow-hidden shadow-xl border border-zinc-100">
                         <Image
-                            src="https://ik.imagekit.io/1yxtj9qun/About/director.jpg"
+                            src="https://ik.imagekit.io/1yxtj9qun/About/uvais-tk"
                             alt="Office Administrator"
                             fill
                             className="object-cover"

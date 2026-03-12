@@ -64,7 +64,7 @@ const IQAC_TABS: IacTab[] = [
                             <div className="flex items-center gap-6 relative z-10">
                                 <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 shadow-sm border border-zinc-100/50">
                                     <Image
-                                        src="/images/default-user-placeholder.png"
+                                        src="https://ik.imagekit.io/1yxtj9qun/About/vice-principal?updatedAt=1772212669631"
                                         alt="Jabir Ali"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -86,7 +86,7 @@ const IQAC_TABS: IacTab[] = [
                             <div className="flex items-center gap-6 relative z-10">
                                 <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 shadow-sm border border-zinc-100/50">
                                     <Image
-                                        src="/images/default-user-placeholder.png"
+                                        src="https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Unais"
                                         alt="Unais T A"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"

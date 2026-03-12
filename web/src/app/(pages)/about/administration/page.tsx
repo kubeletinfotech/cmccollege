@@ -25,12 +25,12 @@ const councilMembers = [
     {
         name: "Jabir Ali P P",
         role: "Vice Principal - CM College",
-        image: "/images/default-user-placeholder.png"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/vice-principal?updatedAt=1772212669631"
     },
     {
         name: "Uvais T K",
         role: "AO- CM College",
-        image: "/images/default-user-placeholder.png"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/uvais-tk"
     }
 ];
 

@@ -273,8 +273,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ameera"
         },
         faculty: [
-            { name: "Unais T A", role: "Assistant Professor", spec: "British Literature", img: "/images/default-user-placeholder.png" },
-            { name: "Ameera M", role: "Assistant Professor", spec: "American Lit", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ameera" },
+            { name: "Unais T A", role: "Assistant Professor", spec: "British Literature", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Unais" },
             { name: "Sara Subula", role: "Assistant Professor", spec: "Poetry & Arts", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Sara" },
             { name: "Ajmal Musharaf", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Ajmal" },
             { name: "Aiswarya Manoj", role: "Assistant Professor", spec: "Victorian Studies", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/English/Aiswarya?tr=w-600,ar-4-5,fo-top" },
@@ -464,16 +463,16 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             { icon: Mic2, text: "Spoken Arabic", sub: "Communication skills" }
         ],
         hod: {
-            name: "HOD Name",
+            name: "Shiyas KT",
             qualification: "Ph.D in Arabic",
             quote: "Language bridges cultures.",
-            img: "/images/default-user-placeholder.png"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/shiyas"
         },
         faculty: [
-            { name: "Faculty 1", role: "Assistant Professor", spec: "Arabic Language", img: "/images/default-user-placeholder.png" }
+
         ],
         gallery: [
-            { img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Arabic/Arabic-Language.jpg", category: "DEPARTMENT" }
+
         ]
     }
 };
