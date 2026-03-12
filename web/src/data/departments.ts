@@ -93,7 +93,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
         },
         faculty: [
             { name: "Sumayya U", role: "Academic Coordinator", spec: "Artificial Intelligence", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/sumayya-u.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
-            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Rijilanadh.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
+            { name: "Rijilanadh", role: "Assistant Professor", spec: "Cyber Security", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/WhatsApp%20Image%202026-03-12%20at%2012.03.53%20PM.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Asliya A", role: "Assistant Professor", spec: "Software Architecture", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/Asliya?tr=w-600,h-800,q-100,f-auto,fo-auto" },
             { name: "Vivek M V", role: "Lab Assistant", spec: "Data Science", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" },
         ],
@@ -187,7 +187,7 @@ export const DEPARTMENT_DATA: Record<string, DepartmentData> = {
             name: "Vidhya Viswanath",
             qualification: "M.A. Journalism",
             quote: "Truth is the only currency in journalism. We prepare our students to find it and tell it effectively.",
-            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/hod-masscom.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto"
+            img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/vidhya.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto"
         },
         faculty: [
             { name: "Athira P R", role: "Assistant Professor", spec: "Broadcast Journalism", img: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Masscom/Athira?tr=w-600,h-800,q-100,f-auto,fo-auto" },
