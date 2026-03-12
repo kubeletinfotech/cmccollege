@@ -41,10 +41,11 @@ export const programs: Program[] = [
         description: "A bridge between academia and industry. This program brings top-tier professionals from diverse fields to campus for interactive sessions, giving students real-world insights into their future careers.",
         tagline: "Bridging Academia and Industry",
         gallery: [
-            "/placeholder.jpg",
-            "/placeholder.jpg",
-            "/placeholder.jpg",
-            "/placeholder.jpg"
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.46.50%20PM.jpeg?tr=q-100,f-auto,w-1200",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.42.56%20PM.jpeg",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.42.56%20PM%20(1).jpeg",
+            "https://ik.imagekit.io/1yxtj9qun/Clubs/Meet%20the%20professionals/WhatsApp%20Image%202026-03-10%20at%201.43.28%20PM.jpeg",
+
         ]
     },
     {
