@@ -18,31 +18,31 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const officeStaff = [
     {
-        name: "Preetha",
+        name: "Preetha P",
         role: "Head Clerk",
         email: "office@cmcollege.edu.in",
         image: "/images/default-user-placeholder.png",
-        specialization: "Documentation & University Affairs"
+        specialization: "Superintendent of Office"
     },
     {
         name: "Danish K",
         role: "Accountant",
         email: "accounts@cmcollege.edu.in",
-        image: "/images/default-user-placeholder.png",
-        specialization: "Financial Management"
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/danish.HEIC",
+        specialization: "Accountant"
     },
     {
         name: "Vivek MV",
         role: "Lab Assistant",
         email: "accounts@cmcollege.edu.in",
         image: "https://ik.imagekit.io/1yxtj9qun/Departments%20/Computer%20Science/vivek-mv-200x250.jpg?updatedAt=1773286001563?tr=w-600,h-800,q-100,f-auto,fo-auto",
-        specialization: "Lab Management"
+        specialization: "Lab Assistant"
     },
     {
         name: "Anjana B",
         role: "Librarian",
         email: "accounts@cmcollege.edu.in",
-        image: "/images/default-user-placeholder.png",
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/librarian.jpeg",
         specialization: "Library Management"
     }
 ];
