@@ -13,8 +13,8 @@ const DEPARTMENTS = [
     { name: "Dpt. of Economics", href: "/departments/economics" },
     { name: "Dpt. of English", href: "/departments/english" },
     { name: "Dpt. of Commerce", href: "/departments/commerce" },
-    { name: "Dpt. of Statistics", href: "/departments/statistics" },
-    { name: "Dpt. of Psychology", href: "/departments/psychology" },
+    { name: "Dpt. of Sociology", href: "/departments/sociology" },
+    { name: "Dpt. of Human Resource Management", href: "/departments/human-resource-management" },
     { name: "Dpt. of Multimedia", href: "/departments/multimedia" },
 ];
 

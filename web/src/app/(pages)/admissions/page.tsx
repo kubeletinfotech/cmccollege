@@ -11,8 +11,8 @@ const DEPARTMENTS = [
     { name: "Department of Economics", href: "/departments/economics", description: "BA Economics and related fields." },
     { name: "Department of English", href: "/departments/english", description: "BA English Language and Literature." },
     { name: "Department of Commerce", href: "/departments/commerce", description: "B.Com Finance, Co-operation, and more." },
-    { name: "Department of Statistics", href: "/departments/statistics", description: "B.Sc Statistics and Data Analysis." },
-    { name: "Department of Psychology", href: "/departments/psychology", description: "B.Sc Psychology and behavioral sciences." },
+    { name: "Department of Sociology", href: "/departments/sociology", description: "B.Sc Sociology and behavioral sciences." },
+    { name: "Department of Human Resource Management", href: "/departments/human-resource-management", description: "B.Sc Human Resource Management and behavioral sciences." },
     { name: "Department of Multimedia", href: "/departments/multimedia", description: "Multimedia communication and design." },
 ];
 
