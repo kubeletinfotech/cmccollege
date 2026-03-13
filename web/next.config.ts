@@ -27,7 +27,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.clerk.accounts.dev clerk.com clerk.cmcollege.edu.in blob:; worker-src 'self' blob:; connect-src 'self' *.clerk.accounts.dev clerk.com clerk.cmcollege.edu.in *; img-src 'self' data: blob: ik.imagekit.io img.clerk.com api.qrserver.com i.pinimg.com upload.wikimedia.org user-images.githubusercontent.com www.transparenttextures.com grainy-gradients.vercel.app; style-src 'self' 'unsafe-inline'; font-src 'self' data:; frame-src 'self' www.google.com maps.google.com drive.google.com docs.google.com dropbox.com onedrive.live.com; frame-ancestors 'none';"
+    value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.clerk.accounts.dev clerk.com clerk.cmcollege.edu.in static.cloudflareinsights.com blob:; worker-src 'self' blob:; connect-src 'self' *.clerk.accounts.dev clerk.com clerk.cmcollege.edu.in static.cloudflareinsights.com *; img-src 'self' data: blob: ik.imagekit.io img.clerk.com api.qrserver.com i.pinimg.com upload.wikimedia.org user-images.githubusercontent.com www.transparenttextures.com grainy-gradients.vercel.app; style-src 'self' 'unsafe-inline'; font-src 'self' data:; frame-src 'self' www.google.com maps.google.com drive.google.com docs.google.com dropbox.com onedrive.live.com; frame-ancestors 'none';"
   }
 ];
 
