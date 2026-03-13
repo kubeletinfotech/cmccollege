@@ -80,7 +80,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=w-1897,h-713,fo-center",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=w-1897,h-713,fo-center",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=w-1897,h-713,fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=w-1897,h-713,fo-center"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/WhatsApp%20Image%202026-03-12%20at%202.06.25%20PM.jpeg?tr=w-1897,h-713,fo-center"
     ];
 
     const tabletImages = [
@@ -88,7 +89,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner1.png?tr=w-1536,h-1300,fo-center",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=w-1536,h-1300,fo-center",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=w-1536,h-1300,fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=w-1536,h-1300,fo-center"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5?tr=w-1536,h-1300,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/WhatsApp%20Image%202026-03-12%20at%202.06.25%20PM.jpeg?tr=w-1536,h-1300,fo-center"
     ];
 
     const mobileImages = [
@@ -97,7 +99,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner2.png?tr=w-1897,h-713,fo-center",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner.png?tr=w-1897,h-713,fo-center",
         "https://ik.imagekit.io/1yxtj9qun/Banner/Banner3?updatedAt=1770883358267&tr=w-1897,h-713,fo-center",
-        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=w-1897,h-713,fo-center"
+        "https://ik.imagekit.io/1yxtj9qun/Banner/Banner5.png?tr=w-1897,h-713,fo-center",
+        "https://ik.imagekit.io/1yxtj9qun/Banner/WhatsApp%20Image%202026-03-12%20at%202.06.25%20PM.jpeg?tr=w-1897,h-713,fo-center"
     ];
 
     // Track visible slide count based on viewport
