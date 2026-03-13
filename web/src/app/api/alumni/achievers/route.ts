@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import AlumniAchiever from '@/models/AlumniAchiever';
 import ImageKit from 'imagekit';
+import { ensureAdmin } from '@/lib/ensureAdmin';
 
 async function dbConnect() {
     const mongodbUri = process.env.MONGODB_URI;
@@ -32,11 +33,15 @@ export async function GET() {
 
 export async function POST(request: Request) {
     try {
+        await ensureAdmin();
         await dbConnect();
         const body = await request.json();
         const achiever = await AlumniAchiever.create(body);
         return NextResponse.json({ success: true, data: achiever }, { status: 201 });
-    } catch (error) {
+    } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ success: false, error: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         return NextResponse.json({ success: false, message: 'Failed to create achiever' }, { status: 500 });
     }
 }

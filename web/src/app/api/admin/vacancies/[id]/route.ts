@@ -1,15 +1,12 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import JobVacancy from "@/models/JobVacancy";
-import { getAuth } from "@clerk/nextjs/server";
+import { ensureAdmin } from "@/lib/ensureAdmin";
 import { NextRequest } from "next/server";
 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const { userId } = getAuth(req);
-        if (!userId) {
-            return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
-        }
+        await ensureAdmin();
 
         const { id } = await params;
         const body = await req.json();
@@ -23,6 +20,9 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
         return NextResponse.json({ success: true, data: vacancy }, { status: 200 });
     } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ success: false, error: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         console.error("Error updating vacancy:", error);
         return NextResponse.json({ success: false, error: error.message }, { status: 400 });
     }
@@ -30,10 +30,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const { userId } = getAuth(req);
-        if (!userId) {
-            return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
-        }
+        await ensureAdmin();
 
         const { id } = await params;
         await connectToDatabase();
@@ -46,6 +43,9 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
 
         return NextResponse.json({ success: true, data: {} }, { status: 200 });
     } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ success: false, error: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         console.error("Error deleting vacancy:", error);
         return NextResponse.json({ success: false, error: error.message }, { status: 400 });
     }

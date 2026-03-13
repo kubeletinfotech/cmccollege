@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import AlumniAchiever from '@/models/AlumniAchiever';
 import ImageKit from 'imagekit';
+import { ensureAdmin } from '@/lib/ensureAdmin';
 
 async function dbConnect() {
     const mongodbUri = process.env.MONGODB_URI;
@@ -25,6 +26,7 @@ export async function DELETE(
     { params }: { params: Promise<{ id: string }> }
 ) {
     try {
+        await ensureAdmin();
         await dbConnect();
         const { id } = await params;
         const achiever = await AlumniAchiever.findById(id);
@@ -45,7 +47,10 @@ export async function DELETE(
 
         await AlumniAchiever.findByIdAndDelete(id);
         return NextResponse.json({ success: true, message: 'Achiever deleted successfully' });
-    } catch (error) {
+    } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ success: false, error: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         return NextResponse.json({ success: false, message: 'Failed to delete achiever' }, { status: 500 });
     }
 }

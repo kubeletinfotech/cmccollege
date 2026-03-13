@@ -1,21 +1,20 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import JobVacancy from "@/models/JobVacancy";
-import { getAuth } from "@clerk/nextjs/server";
+import { ensureAdmin } from "@/lib/ensureAdmin";
 import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
     try {
-        const { userId } = getAuth(req);
-        if (!userId) {
-            return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
-        }
-
+        await ensureAdmin();
         await connectToDatabase();
         const vacancies = await JobVacancy.find().sort({ createdAt: -1 });
 
         return NextResponse.json({ success: true, data: vacancies });
-    } catch (error) {
+    } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ success: false, error: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         console.error("Error fetching vacancies:", error);
         return NextResponse.json(
             { success: false, message: "Failed to fetch job vacancies" },
@@ -26,10 +25,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
     try {
-        const { userId } = getAuth(req);
-        if (!userId) {
-            return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
-        }
+        await ensureAdmin();
 
         const body = await req.json();
         await connectToDatabase();
@@ -37,6 +33,9 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ success: true, data: vacancy }, { status: 201 });
     } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ success: false, error: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         console.error("Error creating vacancy:", error);
         return NextResponse.json({ success: false, error: error.message }, { status: 500 });
     }

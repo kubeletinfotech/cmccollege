@@ -21,11 +21,11 @@ const officeStaff = [
         name: "Preetha P",
         role: "Head Clerk",
         email: "office@cmcollege.edu.in",
-        image: "/images/default-user-placeholder.png",
+        image: "https://ik.imagekit.io/1yxtj9qun/Home/images/Preetha.jpeg",
         specialization: "Superintendent of Office"
     },
     {
-        name: "Danish K",
+        name: "Muhammed Danish KM",
         role: "Accountant",
         email: "accounts@cmcollege.edu.in",
         image: "https://ik.imagekit.io/1yxtj9qun/Home/images/danish.HEIC",

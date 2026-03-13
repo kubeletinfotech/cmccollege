@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Enquiry from "@/models/Enquiry";
-import { currentUser } from "@clerk/nextjs/server";
+import { ensureAdmin } from "@/lib/ensureAdmin";
 
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const user = await currentUser();
-        if (!user) {
-            return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
-        }
+        await ensureAdmin();
 
         const { id } = await params;
 
@@ -21,7 +18,10 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
         }
 
         return NextResponse.json({ success: true, message: "Enquiry deleted successfully" });
-    } catch (error) {
+    } catch (error: any) {
+        if (error.message === "Unauthorized" || error.message === "Forbidden") {
+            return NextResponse.json({ message: error.message }, { status: error.message === "Unauthorized" ? 401 : 403 });
+        }
         console.error("Error deleting enquiry:", error);
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
     }
