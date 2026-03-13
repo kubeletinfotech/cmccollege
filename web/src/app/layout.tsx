@@ -147,7 +147,7 @@ export default function RootLayout({
           />
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
           />
           {/* Performance: Preconnect to Image CDN */}
           <link rel="preconnect" href="https://ik.imagekit.io" />
