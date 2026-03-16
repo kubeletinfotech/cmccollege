@@ -12,6 +12,7 @@ const BottomTicker = dynamic(() => import("./BottomTicker"), { ssr: false });
 const AdmissionPopup = dynamic(() => import("./AdmissionPopup"), { ssr: false });
 const WhatsAppWidget = dynamic(() => import("./WhatsAppWidget"), { ssr: false });
 const SmoothScroll = dynamic(() => import("./SmoothScroll"), { ssr: false });
+const GoToTop = dynamic(() => import("./GoToTop"), { ssr: false });
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -26,6 +27,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <AdmissionPopup />
             <WhatsAppWidget />
+            <GoToTop />
             <UserSync />
             <Toaster position="top-right" />
         </SmoothScroll>
