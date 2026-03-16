@@ -392,11 +392,8 @@ export default function HomeClient({ initialNews, initialGallery }: HomeClientPr
                                 CM College
                             </h2>
 
-                            <div className="text-base text-zinc-600font leading-relaxed font-medium space-y-4 lg:columns-2 lg:gap-12 text-left md:text-justify">
-                                <p className="block md:hidden">
-                                    CM College of Arts and Science, Nadavayal, Wayanad, is a self-financing institution affiliated with the University of Calicut. Established in 2010 under the guidance of CM Center Madavoor, the college is set across 15 acres of serene campus, committed to providing quality higher education and empowering students.
-                                </p>
-                                <div className="hidden md:block space-y-4">
+                            <div className="text-base text-zinc-600 leading-relaxed font-medium space-y-4 lg:columns-2 lg:gap-12 text-justify">
+                                <div className="space-y-4">
                                     <p className="break-inside-avoid">
                                         CM college of Arts and Science Nadavayal, Wayanad, Kerala is a self-financing college affiliated to the University of Calicut, run by CM center Madavoor, Calicut, Kerala. Established in the year April 2010, the college is situated in Panamaram, shares its 15 acres of beautiful land. Recognized by Government of kerala, the college is affiliated to the University of Calicut.
                                     </p>

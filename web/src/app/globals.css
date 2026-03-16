@@ -6,6 +6,13 @@ html {
   height: auto;
 }
 
+/* Dynamically scale down all Tailwind rem units (cards, fonts, padding) on mobile to make everything fit better */
+@media (max-width: 767px) {
+  html {
+    font-size: 80%;
+  }
+}
+
 /* Dynamically scale down all Tailwind rem units (cards, fonts, padding) on standard laptop screens like 1280x800 */
 /* Because Tailwind sizes (w-64, p-4, h-48) use REM, this shrinks *everything* (not just fonts). */
 @media (min-width: 1024px) and (max-width: 1439px) {
