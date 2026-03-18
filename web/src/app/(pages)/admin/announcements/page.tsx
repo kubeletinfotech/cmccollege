@@ -23,6 +23,7 @@ export default function AnnouncementsAdminPage() {
         isImportant: false
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [editingId, setEditingId] = useState<string | null>(null);
 
     const fetchAnnouncements = async () => {
         try {
@@ -54,24 +55,43 @@ export default function AnnouncementsAdminPage() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await fetch("/api/announcements", {
-                method: 'POST',
+            const url = editingId ? `/api/announcements/${editingId}` : "/api/announcements";
+            const method = editingId ? 'PUT' : 'POST';
+
+            const response = await fetch(url, {
+                method,
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
             const data = await response.json();
             if (response.ok) {
-                setAnnouncements(prev => [data.data, ...prev]);
+                if (editingId) {
+                    setAnnouncements(prev => prev.map(a => a._id === editingId ? data.data : a));
+                } else {
+                    setAnnouncements(prev => [data.data, ...prev]);
+                }
                 setFormData({ title: "", description: "", isImportant: false });
                 setShowForm(false);
+                setEditingId(null);
             } else {
-                alert(data.message || "Error creating announcement");
+                alert(data.message || `Error ${editingId ? 'updating' : 'creating'} announcement`);
             }
         } catch (err) {
             alert("Network error. Is the backend running?");
         } finally {
             setIsSubmitting(false);
         }
+    };
+
+    const handleEdit = (announcement: Announcement) => {
+        setFormData({
+            title: announcement.title,
+            description: announcement.description,
+            isImportant: announcement.isImportant
+        });
+        setEditingId(announcement._id);
+        setShowForm(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const handleDelete = async (id: string) => {
@@ -124,8 +144,14 @@ export default function AnnouncementsAdminPage() {
             {showForm && (
                 <div className="bg-white p-8 rounded-[32px] shadow-2xl border border-emerald-100 animate-in fade-in slide-in-from-top-4 duration-500">
                     <div className="flex justify-between items-center mb-6">
-                        <h3 className="text-xl font-bold text-emerald-950 uppercase tracking-tight">Create New Announcement</h3>
-                        <button onClick={() => setShowForm(false)} className="text-zinc-400 hover:text-zinc-600">
+                        <h3 className="text-xl font-bold text-emerald-950 uppercase tracking-tight">
+                            {editingId ? "Edit Announcement" : "Create New Announcement"}
+                        </h3>
+                        <button onClick={() => {
+                            setShowForm(false);
+                            setEditingId(null);
+                            setFormData({ title: "", description: "", isImportant: false });
+                        }} className="text-zinc-400 hover:text-zinc-600">
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -142,7 +168,7 @@ export default function AnnouncementsAdminPage() {
                                     value={formData.title}
                                     onChange={handleInputChange}
                                     placeholder="e.g. Annual Sports Day 2024"
-                                    className="w-full px-5 py-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 focus:border-emerald-500 outline-none transition-all"
+                                    className="w-full px-5 py-3.5 rounded-2xl text-gray-500 bg-zinc-50 border border-zinc-200 focus:border-emerald-500 outline-none transition-all"
                                 />
                             </div>
                             <div className="flex items-end pb-4 px-2">
@@ -152,7 +178,7 @@ export default function AnnouncementsAdminPage() {
                                         name="isImportant"
                                         checked={formData.isImportant}
                                         onChange={handleInputChange}
-                                        className="w-5 h-5 accent-emerald-600 rounded"
+                                        className="w-5 h-5 accent-emerald-600 rounded text-black"
                                     />
                                     <span className="text-sm font-bold text-zinc-600">Mark as Important</span>
                                 </label>
@@ -167,7 +193,7 @@ export default function AnnouncementsAdminPage() {
                                 value={formData.description}
                                 onChange={handleInputChange}
                                 placeholder="Enter the announcement details here..."
-                                className="w-full px-5 py-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 focus:border-emerald-500 outline-none transition-all resize-none"
+                                className="w-full px-5 py-3.5 rounded-2xl text-gray-500 bg-zinc-50 border border-zinc-200 focus:border-emerald-500 outline-none transition-all resize-none"
                             ></textarea>
                         </div>
                         <div className="flex gap-4">
@@ -176,11 +202,15 @@ export default function AnnouncementsAdminPage() {
                                 disabled={isSubmitting}
                                 className="px-8 py-3.5 bg-emerald-800 text-white font-bold rounded-2xl hover:bg-emerald-900 transition-all flex items-center justify-center gap-2 min-w-[160px]"
                             >
-                                {isSubmitting ? "Saving..." : "Publish Notice"}
+                                {isSubmitting ? "Saving..." : editingId ? "Save Changes" : "Publish Notice"}
                             </button>
                             <button
                                 type="button"
-                                onClick={() => setShowForm(false)}
+                                onClick={() => {
+                                    setShowForm(false);
+                                    setEditingId(null);
+                                    setFormData({ title: "", description: "", isImportant: false });
+                                }}
                                 className="px-8 py-3.5 bg-zinc-100 text-zinc-600 font-bold rounded-2xl hover:bg-zinc-200 transition-all"
                             >
                                 Cancel
@@ -225,6 +255,15 @@ export default function AnnouncementsAdminPage() {
 
                             <div className="flex items-center gap-4 md:border-l border-zinc-50 md:pl-8">
                                 <button
+                                    onClick={() => handleEdit(announcement)}
+                                    className="p-3 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 rounded-2xl transition-all block group/edit"
+                                    title="Edit"
+                                >
+                                    <svg className="w-6 h-6 transform group-hover/edit:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </button>
+                                <button
                                     onClick={() => handleDelete(announcement._id)}
                                     className="p-3 text-red-400 hover:bg-red-50 hover:text-red-500 rounded-2xl transition-all block group/del"
                                     title="Delete"
@@ -239,12 +278,6 @@ export default function AnnouncementsAdminPage() {
                 )}
             </div>
 
-            {/* Info Footer */}
-            {!loading && announcements.length > 0 && (
-                <div className="mt-8 px-8 py-5 bg-zinc-50/50 rounded-2xl border border-zinc-100 flex items-center justify-between">
-                    <p className="text-sm text-zinc-400 font-medium italic">Showing {announcements.length} live records from MongoDB</p>
-                </div>
-            )}
         </div>
     );
 }
