@@ -21,7 +21,7 @@ export default function VicePrincipalProfile() {
                             <div className="absolute top-4 -right-4 w-full h-full border-2 border-[#7a0b3a]/10 rounded-2xl md:rounded-[32px] -z-10 group-hover:top-2 group-hover:-right-2 transition-all duration-500"></div>
                             <div className="relative aspect-3/4 w-full items-center rounded-2xl md:rounded-[32px] overflow-hidden bg-zinc-100 shadow-xl">
                                 <Image
-                                    src="https://ik.imagekit.io/1yxtj9qun/About/vice-principal"
+                                    src="https://ik.imagekit.io/1yxtj9qun/About/jabir-ali?tr=w-600,h-800,q-100,f-auto,fo-auto"
                                     alt="Vice Principal"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"

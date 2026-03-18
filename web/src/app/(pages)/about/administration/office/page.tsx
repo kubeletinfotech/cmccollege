@@ -192,7 +192,7 @@ export default function OfficeAdministrationPage() {
                             {/* Circle Avatar */}
                             <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-full overflow-hidden bg-zinc-100 ring-4 ring-zinc-50 shadow-inner">
                                 <Image
-                                    src={staff.image === "/images/staff/ao.jpg" ? "https://ik.imagekit.io/1yxtj9qun/About/director.jpg?tr=w-600,h-800,q-100,f-auto,fo-auto" : staff.image}
+                                    src={staff.image === "/images/staff/ao.jpg" ? "https://ik.imagekit.io/1yxtj9qun/About/uvais-tk?tr=w-600,h-800,q-100,f-auto,fo-auto" : staff.image}
                                     alt={staff.name}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"

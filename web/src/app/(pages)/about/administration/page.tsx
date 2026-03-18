@@ -15,7 +15,7 @@ const councilMembers = [
     {
         name: "Zainudheen T K",
         role: "Director - CM College",
-        image: "https://ik.imagekit.io/1yxtj9qun/About/Zainudheen?updatedAt=1773285928782?tr=w-600,h-800,q-100,f-auto,fo-auto"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/director-cmc.jpeg?tr=w-600,h-800,q-100,f-auto,fo-auto"
     },
     {
         name: "Shafi Pulpara",
@@ -25,7 +25,7 @@ const councilMembers = [
     {
         name: "Jabir Ali P P",
         role: "Vice Principal - CM College",
-        image: "https://ik.imagekit.io/1yxtj9qun/About/vice-principal?tr=w-600,h-800,q-100,f-auto,fo-auto"
+        image: "https://ik.imagekit.io/1yxtj9qun/About/jabir-ali?tr=w-600,h-800,q-100,f-auto,fo-auto"
     },
     {
         name: "Uvais T K",

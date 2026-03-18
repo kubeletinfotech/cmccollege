@@ -64,7 +64,7 @@ const IQAC_TABS: IacTab[] = [
                             <div className="flex items-center gap-6 relative z-10">
                                 <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 shadow-sm border border-zinc-100/50">
                                     <Image
-                                        src="https://ik.imagekit.io/1yxtj9qun/About/vice-principal?tr=w-600,h-800,q-100,f-auto,fo-auto"
+                                        src="https://ik.imagekit.io/1yxtj9qun/About/jabir-ali?tr=w-600,h-800,q-100,f-auto,fo-auto"
                                         alt="Jabir Ali"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
