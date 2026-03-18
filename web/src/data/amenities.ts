@@ -319,8 +319,6 @@ export const AMENITIES_DATA: Record<string, AmenityData> = {
         image: "https://ik.imagekit.io/1yxtj9qun/Sports/sports-1.jpeg",
         icon: Dumbbell,
         gallery: [
-            "https://ik.imagekit.io/1yxtj9qun/Sports/sports-1.jpeg",
-            "https://ik.imagekit.io/1yxtj9qun/Sports/WhatsApp%20Image%202026-03-12%20at%2012.33.33%20PM.jpeg"
         ],
         achievements: [
             {

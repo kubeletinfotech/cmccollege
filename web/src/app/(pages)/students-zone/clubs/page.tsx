@@ -10,7 +10,11 @@ export default function ClubsPage() {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="relative pt-40 pb-20 lg:pt-60 lg:pb-32 overflow-hidden bg-zinc-900 border-b border-white/10">
+            <section className="relative pt-40 pb-20 lg:pt-60 lg:pb-32 overflow-hidden bg-linear-to-br from-[#7B0046] via-[#5D1035] to-zinc-900 border-b border-white/10">
+                {/* Decorative Mesh */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none">
+                    <div className="h-full w-full bg-size-[20px_20px] bg-[radial-gradient(#fff_1px,transparent_1px)]" />
+                </div>
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
