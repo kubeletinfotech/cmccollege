@@ -11,6 +11,7 @@ const sidebarItems = [
     { name: "About College", href: "/about", exact: true },
     { name: "Vision and Mission", href: "/about/vision" },
     { name: "Chairman Message", href: "/about/chairman-message" },
+    { name: "Director Message", href: "/about/director-message" },
     { name: "Institutional Distinctiveness", href: "/about/institutional-distinctiveness" },
     { name: "Growth and Expansion", href: "/about/growth-expansion" },
     {
