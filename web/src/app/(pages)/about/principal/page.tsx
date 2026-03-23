@@ -94,9 +94,9 @@ const PUBLICATIONS = [
 
 export default function PrincipalProfile() {
     return (
-        <div className="min-h-screen bg-white font-sans text-stone-800 selection:bg-emerald-100 selection:text-emerald-900">
+        <div className="bg-white font-sans text-stone-800 selection:bg-emerald-100 selection:text-emerald-900">
             {/* 2. Hero Section */}
-            <section className="pt-32 pb-20 px-6">
+            <section className="pt-1 pb-20 px-6">
                 <div className="container mx-auto max-w-6xl">
                     <div className="grid lg:grid-cols-12 gap-12 items-start">
 

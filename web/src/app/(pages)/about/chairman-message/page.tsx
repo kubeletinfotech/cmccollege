@@ -14,7 +14,7 @@ export default function ChairmanMessagePage() {
     const truncatedText = fullText.slice(0, 350) + "...";
 
     return (
-        <div className="min-h-screen bg-white pt-[140px] pb-20 relative overflow-x-hidden flex items-center">
+        <div className="bg-white pt-4 pb-20 relative overflow-x-hidden">
             {/* Subtle Pattern Background */}
             <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/arabesque.png")' }}></div>
 
@@ -29,7 +29,7 @@ export default function ChairmanMessagePage() {
                         transition={{ duration: 0.8 }}
                         className="w-full lg:w-5/12 shrink-0"
                     >
-                        <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-[40px] overflow-hidden shadow-2xl">
+                        <div className="relative w-full aspect-4/5 lg:aspect-3/4 rounded-[40px] overflow-hidden shadow-2xl">
                             <Image
                                 src="https://ik.imagekit.io/1yxtj9qun/About/chairman.png?updatedAt=1770370502173"
                                 alt="T K Abdu Rahman Baqavi"

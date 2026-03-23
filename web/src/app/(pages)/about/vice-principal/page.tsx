@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function VicePrincipalProfile() {
     return (
-        <div className="min-h-screen bg-white font-sans text-stone-800 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div className="bg-white font-sans text-stone-800 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <section className="pt-4 pb-20 px-6">
                 <div className="container mx-auto max-w-3xl">
                     <div className="flex flex-col items-center gap-10">

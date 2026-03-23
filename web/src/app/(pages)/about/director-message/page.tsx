@@ -14,7 +14,7 @@ export default function DirectorMessagePage() {
     const truncatedText = fullText.slice(0, 350) + "...";
 
     return (
-        <div className="min-h-screen bg-white pt-[140px] pb-20 relative overflow-x-hidden flex items-center">
+        <div className="bg-white pt-4 pb-20 relative overflow-x-hidden">
             {/* Subtle Pattern Background */}
             <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/arabesque.png")' }}></div>
 
